@@ -1,6 +1,6 @@
 # Mux: the Voxgig SDK and the Stainless SDK compared
 
-Vergleich: Stainless. Compared with muxinc/mux-node-sdk (@mux/ts 15.3.0 and @mux/mcp, generated with Stainless's stlc). Spec: www.mux.com/api-spec.json, OAS 3.1.0, 121 paths / 153 ops, no licence stated. Added 2026-09-28.
+Vergleich: Stainless. Compared with muxinc/mux-node-sdk (@mux/ts 15.3.0 and @mux/mcp, generated with Stainless's stlc). Spec: www.mux.com/api-spec.json, OAS 3.1.0, 121 paths / 153 ops, Apache-2.0, inherited from muxinc/mux-node-sdk (the definition states none). Added 2026-09-28.
 
 This repository is on the admin **vergleich** list. It is built only to be compared, and it is not published.
 
@@ -8,7 +8,7 @@ This repository is on the admin **vergleich** list. It is built only to be compa
 
 | | Voxgig | Stainless |
 |---|---|---|
-| SDK | this repository, commit `c0bb8db`: eight targets (go, go-cli, go-mcp, ts, py, rb, lua, php) | `@mux/mux-node@15.3.0` (TypeScript) |
+| SDK | this repository, commit `5479b4c`: eight targets (go, go-cli, go-mcp, ts, py, rb, lua, php) | `@mux/mux-node@15.3.0` (TypeScript) |
 | Input | `mux-openapi.json`: OAS 3.1.0, `info.version` v1, 121 paths, 153 operations | the vendor's own generation; the note above names the definition version it came from |
 | Operations callable | 153 of 153 | 154 operation methods |
 | Entities | 88 | not applicable |
@@ -92,8 +92,9 @@ Each SDK lists one resource, loads and removes the first item it listed, and cre
 
 ## Voxgig toolchain findings
 
-- **QUERY-ECHO** (@voxgig/sdkgen 4.30.2 (PrepareQuery: ts, js and rb read the field; other targets not checked)). Every match field, path parameters included, is also sent as a query parameter: GET /video/v1/assets/a1?id=a1 (Mux), GET /assistant/asst_1?id=asst_1 (Vapi), DELETE .../containers/web?id=web&organization_name=acme&project_id=demo (SaladCloud). prepareQuery excludes names in point.params, but the generated config carries path parameters in point.args.params (which prepareParams reads), so nothing is excluded. Harmless to a lenient server, rejected by a strict one. Prism logs paths without query strings, so its runs did not show it. Reported, not changed: the same exclusion exists per target.
+- **QUERY-ECHO** (@voxgig/sdkgen 4.30.3 (PrepareQuery: ts, js and rb read the field; other targets not checked)). Every match field, path parameters included, is also sent as a query parameter: GET /video/v1/assets/a1?id=a1 (Mux), GET /assistant/asst_1?id=asst_1 (Vapi), DELETE .../containers/web?id=web&organization_name=acme&project_id=demo (SaladCloud). prepareQuery excludes names in point.params, but the generated config carries path parameters in point.args.params (which prepareParams reads), so nothing is excluded. Harmless to a lenient server, rejected by a strict one. Prism logs paths without query strings, so its runs did not show it. Reported, not changed: the same exclusion exists per target.
 - **ERGONOMICS** (@voxgig/apidef 8.17.2). Mux's assets are listed through a separate ListAsset entity (named after the list response) but loaded, created and removed through Asset. SaladCloud's container operations call the same path parameter project_name in list and create but project_id in load, update and remove. Reported.
+- **DOCS-QA** (@voxgig/docgen 0.29.2 (the generated Documentation workflow)). The generated API pages quote each vendor's own descriptions, and the Documentation workflow runs its prose checks over them. Vale reads identifiers such as `asset_id` as misspellings (272 errors on Mux, 44 on Neon), and docgen's own rules reject the vendor's repeated words and first-person prose (Apicurio). Vapi and Maxio fail the same step. Every SDK's tests pass on every target; only the documentation check fails. Reported, not changed: whether a vendor's text is prose-checked is docgen's design. Lob and Novu fail earlier, at generation, on the unpatched YAML parser (Y1-Y3). SaladCloud's pages pass the check; only the deploy fails, because GitHub Pages is not enabled for the repository.
 
 ## How this was measured
 
