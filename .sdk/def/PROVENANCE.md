@@ -6,7 +6,7 @@
 - **Retrieved:** 2026-09-28T20:35:54Z
 - **SHA-256:** `d225c55f0e0ebdbaef7df16f85feb591d637c84042848ab40aecffc810a11046`
 - **Definition:** OpenAPI 3.1.0, `info.version` v1, 121 paths, 153 operations, 866 KB.
-- **Licence:** none stated.
+- **Licence:** Apache-2.0, inherited from the SDK Mux generates from this definition: muxinc/mux-node-sdk is Apache-2.0 (checked at 59af362). The definition itself has no `info.license`, and Mux publishes it only at the URL above.
 - **Changes:** none. This is the vendor's definition, byte for byte.
 
 ## Why this SDK exists
