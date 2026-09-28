@@ -1,6 +1,6 @@
 # Mux: the Voxgig SDK and the Stainless SDK compared
 
-Vergleich: Stainless. Compared with muxinc/mux-node-sdk (@mux/ts 15.3.0 and @mux/mcp, generated with Stainless's stlc). Spec: www.mux.com/api-spec.json, OAS 3.1.0, 121 paths / 153 ops, Apache-2.0, inherited from muxinc/mux-node-sdk (the definition states none). Added 2026-09-28.
+Vergleich: Stainless. Compared with muxinc/mux-node-sdk (@mux/ts 15.3.0 and @mux/mcp, generated with Stainless's stlc). Spec: www.mux.com/api-spec.json, OAS 3.1.0, 121 paths / 153 ops, Apache-2.0 (inherited from muxinc/mux-node-sdk). Added 2026-09-28.
 
 This repository is on the admin **vergleich** list. It is built only to be compared, and it is not published.
 
