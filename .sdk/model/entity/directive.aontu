@@ -1,0 +1,317 @@
+# Entity: directive
+
+main: kit: entity: directive: {
+
+  alias: field: {}
+
+  fields: {
+    created_at: {
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "Unix timestamp (seconds) when the directive was created."
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Stable directive identifier (drv_...)."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Human-readable directive name."
+      t: "`$STRING`"
+    }
+    resources: {
+      h: "Resources"
+      n: "resources"
+      op: {
+        create: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Resource declarations."
+      t: "`$ARRAY`"
+    }
+    subject: {
+      h: "Subject"
+      n: "subject"
+      r: true
+      t: "`$OBJECT`"
+    }
+    updated_at: {
+      h: "Updated At"
+      n: "updated_at"
+      r: true
+      sh: "Unix timestamp (seconds) when the directive was last updated."
+      t: "`$INTEGER`"
+    }
+    workflows: {
+      h: "Workflows"
+      n: "workflows"
+      r: true
+      sh: "Workflow bindings."
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "directive"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /robots/v0/directives/{DIRECTIVE_ID}/runs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "directive_id"
+                or: "directive_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/robots/v0/directives/{DIRECTIVE_ID}/runs"
+          q: {
+            "$action": "run"
+            exist: [
+              "directive_id"
+            ]
+          }
+          r: {
+            param: {
+              DIRECTIVE_ID: "directive_id"
+            }
+          }
+          s: [
+            {
+              lit: "robots"
+            }
+            {
+              lit: "v0"
+            }
+            {
+              lit: "directives"
+            }
+            {
+              var: "directive_id"
+            }
+            {
+              lit: "runs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /robots/v0/directives"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/robots/v0/directives"
+          s: [
+            {
+              lit: "robots"
+            }
+            {
+              lit: "v0"
+            }
+            {
+              lit: "directives"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /robots/v0/directives"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/robots/v0/directives"
+          q: {
+            exist: [
+              "limit"
+              "page"
+            ]
+          }
+          s: [
+            {
+              lit: "robots"
+            }
+            {
+              lit: "v0"
+            }
+            {
+              lit: "directives"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /robots/v0/directives/{DIRECTIVE_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "directive_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/robots/v0/directives/{DIRECTIVE_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              DIRECTIVE_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "robots"
+            }
+            {
+              lit: "v0"
+            }
+            {
+              lit: "directives"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /robots/v0/directives/{DIRECTIVE_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "directive_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/robots/v0/directives/{DIRECTIVE_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              DIRECTIVE_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "robots"
+            }
+            {
+              lit: "v0"
+            }
+            {
+              lit: "directives"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

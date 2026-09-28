@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "list_upload": {
+      "LIST_UPLOAD00": {
+        "asset_id": "ASSET01",
+        "cors_origin": "s5b",
+        "error": {},
+        "id": "LIST_UPLOAD00",
+        "new_asset_settings": {},
+        "status": "s5f",
+        "test": true,
+        "timeout": 97,
+        "url": "s62"
+      },
+      "LIST_UPLOAD01": {
+        "asset_id": "ASSET01",
+        "cors_origin": "sb5",
+        "error": {},
+        "id": "LIST_UPLOAD01",
+        "new_asset_settings": {},
+        "status": "sb9",
+        "test": true,
+        "timeout": 187,
+        "url": "sbc"
+      },
+      "LIST_UPLOAD02": {
+        "asset_id": "ASSET01",
+        "cors_origin": "s10f",
+        "error": {},
+        "id": "LIST_UPLOAD02",
+        "new_asset_settings": {},
+        "status": "s113",
+        "test": true,
+        "timeout": 277,
+        "url": "s116"
+      }
+    }
+  },
+  "new": {
+    "list_upload": {
+      "list_upload_ref01": {
+        "asset_id": "ASSET01",
+        "cors_origin": "s169",
+        "error": {},
+        "new_asset_settings": {},
+        "status": "s16d",
+        "test": true,
+        "timeout": 367,
+        "url": "s170"
+      }
+    }
+  },
+  "requests": {
+    "GET /video/v1/uploads": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

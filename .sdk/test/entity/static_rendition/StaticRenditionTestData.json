@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "static_rendition": {
+      "STATIC_RENDITION00": {
+        "passthrough": "s14",
+        "resolution": "s15",
+        "asset_id": "ASSET01",
+        "id": "STATIC_RENDITION00"
+      },
+      "STATIC_RENDITION01": {
+        "passthrough": "s28",
+        "resolution": "s29",
+        "asset_id": "ASSET01",
+        "id": "STATIC_RENDITION01"
+      },
+      "STATIC_RENDITION02": {
+        "passthrough": "s3c",
+        "resolution": "s3d",
+        "asset_id": "ASSET01",
+        "id": "STATIC_RENDITION02"
+      }
+    }
+  },
+  "new": {
+    "static_rendition": {
+      "static_rendition_ref01": {
+        "passthrough": "s50",
+        "resolution": "s51"
+      }
+    }
+  },
+  "requests": {
+    "POST /video/v1/assets/{ASSET_ID}/static-renditions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

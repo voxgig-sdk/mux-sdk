@@ -1,0 +1,45 @@
+# BasicSimulcastTargetFlow
+
+main: kit: flow: BasicSimulcastTargetFlow:
+{
+  entity: "simulcast_target",
+  kind: "basic",
+  name: "BasicSimulcastTargetFlow",
+  step: [
+    {
+      i: {
+        ref: "simulcast_target_ref01"
+      }
+
+      m: {
+        live_stream_id: "live_stream01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "simulcast_target_ref01",
+        srcdatavar: "simulcast_target_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "simulcast_target01",
+        live_stream_id: "live_stream01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-simulcast_target_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSimulcastTargetFlow"
+}

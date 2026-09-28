@@ -1,0 +1,69 @@
+{
+  "existing": {
+    "list_all_metric_value": {
+      "LIST_ALL_METRIC_VALUE00": {
+        "ended_views": 110,
+        "items": [],
+        "metric": "s70",
+        "name": "s71",
+        "started_views": 114,
+        "total_playing_time": 115,
+        "type": "s74",
+        "unique_viewers": 117,
+        "value": 118,
+        "view_count": 119,
+        "watch_time": 120
+      },
+      "LIST_ALL_METRIC_VALUE01": {
+        "ended_views": 220,
+        "items": [],
+        "metric": "sde",
+        "name": "sdf",
+        "started_views": 224,
+        "total_playing_time": 225,
+        "type": "se2",
+        "unique_viewers": 227,
+        "value": 228,
+        "view_count": 229,
+        "watch_time": 230
+      },
+      "LIST_ALL_METRIC_VALUE02": {
+        "ended_views": 330,
+        "items": [],
+        "metric": "s14c",
+        "name": "s14d",
+        "started_views": 334,
+        "total_playing_time": 335,
+        "type": "s150",
+        "unique_viewers": 337,
+        "value": 338,
+        "view_count": 339,
+        "watch_time": 340
+      }
+    }
+  },
+  "new": {
+    "list_all_metric_value": {
+      "list_all_metric_value_ref01": {
+        "ended_views": 440,
+        "items": [],
+        "metric": "s1ba",
+        "name": "s1bb",
+        "started_views": 444,
+        "total_playing_time": 445,
+        "type": "s1be",
+        "unique_viewers": 447,
+        "value": 448,
+        "view_count": 449,
+        "watch_time": 450
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/metrics/comparison": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

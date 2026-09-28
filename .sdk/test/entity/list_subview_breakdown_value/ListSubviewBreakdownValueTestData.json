@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "list_subview_breakdown_value": {
+      "LIST_SUBVIEW_BREAKDOWN_VALUE00": {
+        "breakdown_value": "s14",
+        "metric_value": 21,
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      },
+      "LIST_SUBVIEW_BREAKDOWN_VALUE01": {
+        "breakdown_value": "s28",
+        "metric_value": 41,
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      },
+      "LIST_SUBVIEW_BREAKDOWN_VALUE02": {
+        "breakdown_value": "s3c",
+        "metric_value": 61,
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      }
+    }
+  },
+  "new": {
+    "list_subview_breakdown_value": {
+      "list_subview_breakdown_value_ref01": {
+        "breakdown_value": "s50",
+        "metric_value": 81
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

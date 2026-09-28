@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "list_subview_dimension": {
+      "LIST_SUBVIEW_DIMENSION00": {
+        "subview": [],
+        "view": [],
+        "subview_type": "SUBVIEW_TYPE01",
+        "id": "LIST_SUBVIEW_DIMENSION00"
+      },
+      "LIST_SUBVIEW_DIMENSION01": {
+        "subview": [],
+        "view": [],
+        "subview_type": "SUBVIEW_TYPE01",
+        "id": "LIST_SUBVIEW_DIMENSION01"
+      },
+      "LIST_SUBVIEW_DIMENSION02": {
+        "subview": [],
+        "view": [],
+        "subview_type": "SUBVIEW_TYPE01",
+        "id": "LIST_SUBVIEW_DIMENSION02"
+      }
+    }
+  },
+  "new": {
+    "list_subview_dimension": {
+      "list_subview_dimension_ref01": {
+        "subview": [],
+        "view": []
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

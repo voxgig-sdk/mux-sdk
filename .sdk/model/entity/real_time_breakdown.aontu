@@ -1,0 +1,158 @@
+# Entity: real_time_breakdown
+
+main: kit: entity: real_time_breakdown: {
+
+  alias: field: {}
+
+  fields: {
+    concurrent_viewers: {
+      fo: "int64"
+      h: "Concurrent Viewers"
+      n: "concurrent_viewers"
+      r: true
+      t: "`$INTEGER`"
+    }
+    display_value: {
+      h: "Display Value"
+      n: "display_value"
+      r: false
+      t: "`$STRING`"
+    }
+    metric_value: {
+      fo: "double"
+      h: "Metric Value"
+      n: "metric_value"
+      r: true
+      t: "`$NUMBER`"
+    }
+    negative_impact: {
+      fo: "int64"
+      h: "Negative Impact"
+      n: "negative_impact"
+      r: true
+      t: "`$INTEGER`"
+    }
+    starting_up_viewers: {
+      fo: "int64"
+      h: "Starting Up Viewers"
+      n: "starting_up_viewers"
+      r: true
+      t: "`$INTEGER`"
+    }
+    value: {
+      h: "Value"
+      n: "value"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "real_time_breakdown"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/realtime/metrics/{REALTIME_METRIC_ID}/breakdown"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "current-concurrent-viewers"
+                k: "param"
+                n: "realtime_metric_id"
+                or: "realtime_metric_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "dimension"
+                or: "dimension"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order_direction"
+                or: "order_direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "timestamp"
+                or: "timestamp"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/breakdown"
+          q: {
+            exist: [
+              "dimension"
+              "filter"
+              "order_by"
+              "order_direction"
+              "realtime_metric_id"
+              "timestamp"
+            ]
+          }
+          r: {
+            param: {
+              REALTIME_METRIC_ID: "realtime_metric_id"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "realtime"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              var: "realtime_metric_id"
+            }
+            {
+              lit: "breakdown"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

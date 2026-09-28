@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "list_subview_comparison_value": {
+      "LIST_SUBVIEW_COMPARISON_VALUE00": {
+        "dimension_value": "s14",
+        "values": [],
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      },
+      "LIST_SUBVIEW_COMPARISON_VALUE01": {
+        "dimension_value": "s28",
+        "values": [],
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      },
+      "LIST_SUBVIEW_COMPARISON_VALUE02": {
+        "dimension_value": "s3c",
+        "values": [],
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      }
+    }
+  },
+  "new": {
+    "list_subview_comparison_value": {
+      "list_subview_comparison_value_ref01": {
+        "dimension_value": "s50",
+        "values": []
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/comparison": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

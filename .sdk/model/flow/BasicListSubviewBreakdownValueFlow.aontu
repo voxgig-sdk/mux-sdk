@@ -1,0 +1,27 @@
+# BasicListSubviewBreakdownValueFlow
+
+main: kit: flow: BasicListSubviewBreakdownValueFlow:
+{
+  entity: "list_subview_breakdown_value",
+  kind: "basic",
+  name: "BasicListSubviewBreakdownValueFlow",
+  step: [
+    {
+      m: {
+        subview_metric_id: "subview_metric01",
+        subview_type: "subview_type01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_subview_breakdown_value_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListSubviewBreakdownValueFlow"
+}

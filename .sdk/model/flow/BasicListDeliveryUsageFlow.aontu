@@ -1,0 +1,22 @@
+# BasicListDeliveryUsageFlow
+
+main: kit: flow: BasicListDeliveryUsageFlow:
+{
+  entity: "list_delivery_usage",
+  kind: "basic",
+  name: "BasicListDeliveryUsageFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_delivery_usage_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListDeliveryUsageFlow"
+}

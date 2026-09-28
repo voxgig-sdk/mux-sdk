@@ -1,0 +1,77 @@
+{
+  "existing": {
+    "summarize": {
+      "SUMMARIZE00": {
+        "created_at": 120,
+        "directive": {},
+        "errors": [],
+        "id": "SUMMARIZE00",
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "s7e",
+        "resources": {},
+        "status": "s80",
+        "units_consumed": 129,
+        "updated_at": 130,
+        "workflow": "s83"
+      },
+      "SUMMARIZE01": {
+        "created_at": 240,
+        "directive": {},
+        "errors": [],
+        "id": "SUMMARIZE01",
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "sf6",
+        "resources": {},
+        "status": "sf8",
+        "units_consumed": 249,
+        "updated_at": 250,
+        "workflow": "sfb"
+      },
+      "SUMMARIZE02": {
+        "created_at": 360,
+        "directive": {},
+        "errors": [],
+        "id": "SUMMARIZE02",
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "s16e",
+        "resources": {},
+        "status": "s170",
+        "units_consumed": 369,
+        "updated_at": 370,
+        "workflow": "s173"
+      }
+    }
+  },
+  "new": {
+    "summarize": {
+      "summarize_ref01": {
+        "created_at": 480,
+        "directive": {},
+        "errors": [],
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "s1e6",
+        "resources": {},
+        "status": "s1e8",
+        "units_consumed": 489,
+        "updated_at": 490,
+        "workflow": "s1eb"
+      }
+    }
+  },
+  "requests": {
+    "POST /robots/v0/jobs/summarize": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /robots/v0/jobs/summarize/{JOB_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

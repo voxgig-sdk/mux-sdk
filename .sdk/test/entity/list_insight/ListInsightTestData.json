@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "list_insight": {
+      "LIST_INSIGHT00": {
+        "filter_column": "s46",
+        "filter_value": "s47",
+        "metric": 72,
+        "negative_impact_score": 73,
+        "total_playing_time": 74,
+        "total_views": 75,
+        "total_watch_time": 76,
+        "metric_id": "METRIC01"
+      },
+      "LIST_INSIGHT01": {
+        "filter_column": "s8c",
+        "filter_value": "s8d",
+        "metric": 142,
+        "negative_impact_score": 143,
+        "total_playing_time": 144,
+        "total_views": 145,
+        "total_watch_time": 146,
+        "metric_id": "METRIC01"
+      },
+      "LIST_INSIGHT02": {
+        "filter_column": "sd2",
+        "filter_value": "sd3",
+        "metric": 212,
+        "negative_impact_score": 213,
+        "total_playing_time": 214,
+        "total_views": 215,
+        "total_watch_time": 216,
+        "metric_id": "METRIC01"
+      }
+    }
+  },
+  "new": {
+    "list_insight": {
+      "list_insight_ref01": {
+        "filter_column": "s118",
+        "filter_value": "s119",
+        "metric": 282,
+        "negative_impact_score": 283,
+        "total_playing_time": 284,
+        "total_views": 285,
+        "total_watch_time": 286
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/metrics/{METRIC_ID}/insights": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

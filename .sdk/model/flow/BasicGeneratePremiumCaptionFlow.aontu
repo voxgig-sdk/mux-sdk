@@ -1,0 +1,40 @@
+# BasicGeneratePremiumCaptionFlow
+
+main: kit: flow: BasicGeneratePremiumCaptionFlow:
+{
+  entity: "generate_premium_caption",
+  kind: "basic",
+  name: "BasicGeneratePremiumCaptionFlow",
+  step: [
+    {
+      i: {
+        ref: "generate_premium_caption_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "generate_premium_caption_ref01",
+        srcdatavar: "generate_premium_caption_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "generate_premium_caption01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-generate_premium_caption_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGeneratePremiumCaptionFlow"
+}

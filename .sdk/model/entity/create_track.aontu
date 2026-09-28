@@ -1,0 +1,122 @@
+# Entity: create_track
+
+main: kit: entity: create_track: {
+
+  alias: field: {}
+
+  fields: {
+    closed_captions: {
+      h: "Closed Captions"
+      n: "closed_captions"
+      r: false
+      sh: "Indicates the track provides Subtitles for the Deaf or Hard-of-hearing (SDH)."
+      t: "`$BOOLEAN`"
+    }
+    language_code: {
+      h: "Language Code"
+      n: "language_code"
+      r: true
+      sh: "The language code of this track."
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The name of the track containing a human-readable description."
+      t: "`$STRING`"
+    }
+    passthrough: {
+      h: "Passthrough"
+      n: "passthrough"
+      r: false
+      sh: "Arbitrary user-supplied metadata set for the track either when creating the asset or track."
+      t: "`$STRING`"
+    }
+    text_type: {
+      h: "Text Type"
+      n: "text_type"
+      r: false
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      t: "`$STRING`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      r: true
+      sh: "The URL of the file that Mux should download and use."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "create_track"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /video/v1/assets/{ASSET_ID}/tracks"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/video/v1/assets/{ASSET_ID}/tracks"
+          q: {
+            exist: [
+              "asset_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "tracks"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.asset")]
+  ]
+
+}

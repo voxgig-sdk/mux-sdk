@@ -1,0 +1,81 @@
+# Entity: generate_asset_shot
+
+main: kit: entity: generate_asset_shot: {
+
+  alias: field: {}
+
+  fields: {
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "generate_asset_shot"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /video/v1/assets/{ASSET_ID}/shots"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/video/v1/assets/{ASSET_ID}/shots"
+          q: {
+            exist: [
+              "asset_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "shots"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.asset")]
+  ]
+
+}

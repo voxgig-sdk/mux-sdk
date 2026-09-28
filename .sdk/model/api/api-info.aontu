@@ -1,0 +1,33 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "devex@mux.com"
+        name: "Mux DevEx"
+        url: "https://docs.mux.com"
+      }
+      description: "Mux is how developers build online video. This API encompasses both Mux Video and Mux Data functionality to help you build your video-related projects better and faster than ever before."
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Basic"
+        scheme: "accessToken"
+        type: "http"
+      }
+      servers: [
+        {
+          description: "Mux Production API"
+          url: "https://api.mux.com"
+        }
+      ]
+      summary: "Mux is how developers build online video."
+      title: "Mux API"
+      version: "v1"
+      website: "https://mux.com"
+    }
+  }
+}
+

@@ -1,0 +1,22 @@
+# BasicCreatePlaybackIdFlow
+
+main: kit: flow: BasicCreatePlaybackIdFlow:
+{
+  entity: "create_playback_id",
+  kind: "basic",
+  name: "BasicCreatePlaybackIdFlow",
+  step: [
+    {
+      i: {
+        ref: "create_playback_id_ref01"
+      }
+
+      m: {
+        live_stream_id: "live_stream01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicCreatePlaybackIdFlow"
+}

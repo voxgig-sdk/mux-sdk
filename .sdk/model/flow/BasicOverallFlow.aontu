@@ -1,0 +1,26 @@
+# BasicOverallFlow
+
+main: kit: flow: BasicOverallFlow:
+{
+  entity: "overall",
+  kind: "basic",
+  name: "BasicOverallFlow",
+  step: [
+    {
+      m: {
+        metric_id: "metric01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "overall_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOverallFlow"
+}

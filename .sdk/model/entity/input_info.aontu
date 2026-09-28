@@ -1,0 +1,88 @@
+# Entity: input_info
+
+main: kit: entity: input_info: {
+
+  alias: field: {}
+
+  fields: {
+    file: {
+      h: "File"
+      n: "file"
+      r: false
+      t: "`$OBJECT`"
+    }
+    settings: {
+      h: "Settings"
+      n: "settings"
+      r: false
+      sh: "An array of objects that each describe an input file to be used to create the asset."
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "input_info"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/assets/{ASSET_ID}/input-info"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/assets/{ASSET_ID}/input-info"
+          q: {
+            exist: [
+              "asset_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "input-info"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.asset")]
+  ]
+
+}

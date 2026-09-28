@@ -1,0 +1,27 @@
+# BasicListSubviewComparisonValueFlow
+
+main: kit: flow: BasicListSubviewComparisonValueFlow:
+{
+  entity: "list_subview_comparison_value",
+  kind: "basic",
+  name: "BasicListSubviewComparisonValueFlow",
+  step: [
+    {
+      m: {
+        subview_metric_id: "subview_metric01",
+        subview_type: "subview_type01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_subview_comparison_value_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListSubviewComparisonValueFlow"
+}

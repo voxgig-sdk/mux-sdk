@@ -1,0 +1,172 @@
+# Entity: list_subview_dimension_value
+
+main: kit: entity: list_subview_dimension_value: {
+
+  alias: field: {}
+
+  fields: {
+    data: {
+      h: "Data"
+      n: "data"
+      r: true
+      t: "`$ARRAY`"
+    }
+    meta: {
+      h: "Meta"
+      n: "meta"
+      r: true
+      t: "`$ANY`"
+    }
+    timeframe: {
+      h: "Timeframe"
+      n: "timeframe"
+      r: true
+      t: "`$ARRAY`"
+    }
+    total_row_count: {
+      fo: "int64"
+      h: "Total Row Count"
+      n: "total_row_count"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "list_subview_dimension_value"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions/{DIMENSION_NAME}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "country"
+                k: "param"
+                n: "dimension_name"
+                or: "dimension_name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "rendition"
+                k: "param"
+                n: "subview_metric_id"
+                or: "subview_type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "playing_time"
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order_direction"
+                or: "order_direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "query"
+                or: "query"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions/{DIMENSION_NAME}"
+          q: {
+            exist: [
+              "dimension_name"
+              "filter"
+              "limit"
+              "order_by"
+              "order_direction"
+              "page"
+              "query"
+              "subview_metric_id"
+              "timeframe"
+            ]
+          }
+          r: {
+            param: {
+              DIMENSION_NAME: "dimension_name"
+              SUBVIEW_TYPE: "subview_metric_id"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "subview-metrics"
+            }
+            {
+              var: "subview_metric_id"
+            }
+            {
+              lit: "dimensions"
+            }
+            {
+              var: "dimension_name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

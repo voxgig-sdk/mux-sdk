@@ -1,0 +1,927 @@
+# Entity: live_stream
+
+main: kit: entity: live_stream: {
+
+  alias: field: {}
+
+  fields: {
+    active_asset_id: {
+      h: "Active Asset Id"
+      n: "active_asset_id"
+      r: false
+      sh: "The Asset that is currently being created if there is an active broadcast."
+      t: "`$STRING`"
+    }
+    active_ingest_protocol: {
+      h: "Active Ingest Protocol"
+      n: "active_ingest_protocol"
+      r: false
+      sh: "The protocol used for the active ingest stream."
+      t: "`$STRING`"
+    }
+    advanced_playback_policies: {
+      h: "Advanced Playback Policies"
+      n: "advanced_playback_policies"
+      r: false
+      sh: "An array of playback policy objects that you want applied on this live stream and available through `playback_ids`."
+      t: "`$ARRAY`"
+    }
+    audio_only: {
+      h: "Audio Only"
+      n: "audio_only"
+      r: false
+      sh: "The live stream only processes the audio track if the value is set to true."
+      t: "`$BOOLEAN`"
+    }
+    created_at: {
+      fo: "int64"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch)."
+      t: "`$STRING`"
+    }
+    embedded_subtitles: {
+      h: "Embedded Subtitles"
+      n: "embedded_subtitles"
+      r: false
+      sh: "Describes the embedded closed caption configuration of the incoming live stream."
+      t: "`$ARRAY`"
+    }
+    generated_subtitles: {
+      h: "Generated Subtitles"
+      n: "generated_subtitles"
+      r: false
+      sh: "Configure the incoming live stream to include subtitles created with automatic speech recognition."
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for the Live Stream."
+      t: "`$STRING`"
+    }
+    latency_mode: {
+      h: "Latency Mode"
+      n: "latency_mode"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Latency is the time from when the streamer transmits a frame of video to when you see it in the player."
+      t: "`$STRING`"
+    }
+    low_latency: {
+      de: true
+      fo: "boolean"
+      h: "Low Latency"
+      n: "low_latency"
+      r: false
+      sh: "This field is deprecated."
+      t: "`$BOOLEAN`"
+    }
+    max_continuous_duration: {
+      fo: "int32"
+      h: "Max Continuous Duration"
+      n: "max_continuous_duration"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+        update: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      sh: "The time in seconds a live stream may be continuously active before being disconnected."
+      t: "`$INTEGER`"
+    }
+    meta: {
+      h: "Meta"
+      n: "meta"
+      r: false
+      sh: "Customer provided metadata about this live stream."
+      t: "`$OBJECT`"
+    }
+    new_asset_settings: {
+      h: "New Asset Settings"
+      n: "new_asset_settings"
+      r: false
+      sh: "Updates the new asset settings to use to generate a new asset for this live stream."
+      t: "`$OBJECT`"
+    }
+    passthrough: {
+      h: "Passthrough"
+      n: "passthrough"
+      r: false
+      sh: "Arbitrary user-supplied metadata set for the asset."
+      t: "`$STRING`"
+    }
+    playback_ids: {
+      h: "Playback Ids"
+      n: "playback_ids"
+      r: false
+      sh: "An array of Playback ID objects."
+      t: "`$ARRAY`"
+    }
+    playback_policies: {
+      h: "Playback Policies"
+      n: "playback_policies"
+      r: false
+      sh: "An array of playback policy names that you want applied to this live stream and available through `playback_ids`."
+      t: "`$ARRAY`"
+    }
+    playback_policy: {
+      de: true
+      h: "Playback Policy"
+      n: "playback_policy"
+      r: false
+      sh: "Deprecated."
+      t: "`$ARRAY`"
+    }
+    recent_asset_ids: {
+      h: "Recent Asset Ids"
+      n: "recent_asset_ids"
+      r: false
+      sh: "An array of strings with the most recent Asset IDs that were created from this Live Stream."
+      t: "`$ARRAY`"
+    }
+    reconnect_slate_url: {
+      h: "Reconnect Slate Url"
+      n: "reconnect_slate_url"
+      r: false
+      sh: "The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media."
+      t: "`$STRING`"
+    }
+    reconnect_window: {
+      fo: "float"
+      h: "Reconnect Window"
+      n: "reconnect_window"
+      r: false
+      sh: "When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live s…"
+      t: "`$NUMBER`"
+    }
+    reduced_latency: {
+      de: true
+      fo: "boolean"
+      h: "Reduced Latency"
+      n: "reduced_latency"
+      r: false
+      sh: "This field is deprecated."
+      t: "`$BOOLEAN`"
+    }
+    simulcast_targets: {
+      h: "Simulcast Targets"
+      n: "simulcast_targets"
+      r: false
+      sh: "Each Simulcast Target contains configuration details to broadcast (or \"restream\") a live stream to a third-party streaming service."
+      t: "`$ARRAY`"
+    }
+    srt_passphrase: {
+      h: "Srt Passphrase"
+      n: "srt_passphrase"
+      r: false
+      sh: "Unique key used for encrypting a stream to a Mux SRT endpoint."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "`idle` indicates that there is no active broadcast."
+      t: "`$STRING`"
+    }
+    stream_key: {
+      h: "Stream Key"
+      n: "stream_key"
+      r: true
+      sh: "Unique key used for streaming to a Mux RTMP endpoint."
+      t: "`$STRING`"
+    }
+    test: {
+      fo: "boolean"
+      h: "Test"
+      n: "test"
+      r: false
+      sh: "True means this live stream is a test live stream."
+      t: "`$BOOLEAN`"
+    }
+    use_slate_for_standard_latency: {
+      fo: "boolean"
+      h: "Use Slate For Standard Latency"
+      n: "use_slate_for_standard_latency"
+      r: false
+      sh: "By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "live_stream"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /video/v1/live-streams/{LIVE_STREAM_ID}/reset-stream-key"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}/reset-stream-key"
+          q: {
+            "$action": "reset_stream_key"
+            exist: [
+              "live_stream_id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "live_stream_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "live_stream_id"
+            }
+            {
+              lit: "reset-stream-key"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /video/v1/live-streams"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/video/v1/live-streams"
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/live-streams/{LIVE_STREAM_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "playback_id"
+                or: "playback_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}"
+          q: {
+            exist: [
+              "live_stream_id"
+              "playback_id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "live_stream_id"
+              PLAYBACK_ID: "playback_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "live_stream_id"
+            }
+            {
+              lit: "playback-ids"
+            }
+            {
+              var: "playback_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "simulcast_target_id"
+                or: "simulcast_target_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}"
+          q: {
+            exist: [
+              "live_stream_id"
+              "simulcast_target_id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "live_stream_id"
+              SIMULCAST_TARGET_ID: "simulcast_target_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "live_stream_id"
+            }
+            {
+              lit: "simulcast-targets"
+            }
+            {
+              var: "simulcast_target_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /video/v1/live-streams/{LIVE_STREAM_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions"
+          q: {
+            "$action": "new_asset_setting_static_rendition"
+            exist: [
+              "live_stream_id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "live_stream_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "live_stream_id"
+            }
+            {
+              lit: "new-asset-settings"
+            }
+            {
+              lit: "static-renditions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /video/v1/live-streams/{LIVE_STREAM_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /video/v1/live-streams/{LIVE_STREAM_ID}/disable"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}/disable"
+          q: {
+            "$action": "disable"
+            exist: [
+              "live_stream_id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "live_stream_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "live_stream_id"
+            }
+            {
+              lit: "disable"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /video/v1/live-streams/{LIVE_STREAM_ID}/embedded-subtitles"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}/embedded-subtitles"
+          q: {
+            "$action": "embedded_subtitle"
+            exist: [
+              "live_stream_id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "live_stream_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "live_stream_id"
+            }
+            {
+              lit: "embedded-subtitles"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /video/v1/live-streams/{LIVE_STREAM_ID}/enable"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}/enable"
+          q: {
+            "$action": "enable"
+            exist: [
+              "live_stream_id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "live_stream_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "live_stream_id"
+            }
+            {
+              lit: "enable"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /video/v1/live-streams/{LIVE_STREAM_ID}/generated-subtitles"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}/generated-subtitles"
+          q: {
+            "$action": "generated_subtitle"
+            exist: [
+              "live_stream_id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "live_stream_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "live_stream_id"
+            }
+            {
+              lit: "generated-subtitles"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions"
+          q: {
+            "$action": "new_asset_setting_static_rendition"
+            exist: [
+              "live_stream_id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "live_stream_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "live_stream_id"
+            }
+            {
+              lit: "new-asset-settings"
+            }
+            {
+              lit: "static-renditions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.simulcast_target")]
+  ]
+
+}

@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "list_dimension_value": {
+      "LIST_DIMENSION_VALUE00": {
+        "data": [],
+        "timeframe": [],
+        "total_count": 52,
+        "total_row_count": 53,
+        "value": "s36",
+        "dimension_id": "DIMENSION01",
+        "id": "LIST_DIMENSION_VALUE00"
+      },
+      "LIST_DIMENSION_VALUE01": {
+        "data": [],
+        "timeframe": [],
+        "total_count": 102,
+        "total_row_count": 103,
+        "value": "s68",
+        "dimension_id": "DIMENSION01",
+        "id": "LIST_DIMENSION_VALUE01"
+      },
+      "LIST_DIMENSION_VALUE02": {
+        "data": [],
+        "timeframe": [],
+        "total_count": 152,
+        "total_row_count": 153,
+        "value": "s9a",
+        "dimension_id": "DIMENSION01",
+        "id": "LIST_DIMENSION_VALUE02"
+      }
+    }
+  },
+  "new": {
+    "list_dimension_value": {
+      "list_dimension_value_ref01": {
+        "data": [],
+        "timeframe": [],
+        "total_count": 202,
+        "total_row_count": 203,
+        "value": "scc"
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/dimensions/{DIMENSION_ID}/elements": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /data/v1/dimensions/{DIMENSION_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

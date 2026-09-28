@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "url_signing_key": {
+      "URL_SIGNING_KEY00": {
+        "id": "URL_SIGNING_KEY00"
+      },
+      "URL_SIGNING_KEY01": {
+        "id": "URL_SIGNING_KEY01"
+      },
+      "URL_SIGNING_KEY02": {
+        "id": "URL_SIGNING_KEY02"
+      }
+    }
+  },
+  "new": {
+    "url_signing_key": {
+      "url_signing_key_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /video/v1/signing-keys/{SIGNING_KEY_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

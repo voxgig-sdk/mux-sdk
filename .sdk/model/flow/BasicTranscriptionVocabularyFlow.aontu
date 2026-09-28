@@ -1,0 +1,72 @@
+# BasicTranscriptionVocabularyFlow
+
+main: kit: flow: BasicTranscriptionVocabularyFlow:
+{
+  entity: "transcription_vocabulary",
+  kind: "basic",
+  name: "BasicTranscriptionVocabularyFlow",
+  step: [
+    {
+      i: {
+        ref: "transcription_vocabulary_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "transcription_vocabulary_ref01",
+        srcdatavar: "transcription_vocabulary_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-transcription_vocabulary_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "transcription_vocabulary_ref01",
+        srcdatavar: "transcription_vocabulary_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "transcription_vocabulary01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-transcription_vocabulary_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "transcription_vocabulary_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "transcription_vocabulary01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicTranscriptionVocabularyFlow"
+}

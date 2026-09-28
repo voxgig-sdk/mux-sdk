@@ -1,0 +1,75 @@
+{
+  "existing": {
+    "directive": {
+      "DIRECTIVE00": {
+        "created_at": 70,
+        "id": "DIRECTIVE00",
+        "name": "s48",
+        "resources": [],
+        "subject": {},
+        "updated_at": 75,
+        "workflows": [],
+        "directive_id": "DIRECTIVE01"
+      },
+      "DIRECTIVE01": {
+        "created_at": 140,
+        "id": "DIRECTIVE01",
+        "name": "s8e",
+        "resources": [],
+        "subject": {},
+        "updated_at": 145,
+        "workflows": [],
+        "directive_id": "DIRECTIVE01"
+      },
+      "DIRECTIVE02": {
+        "created_at": 210,
+        "id": "DIRECTIVE02",
+        "name": "sd4",
+        "resources": [],
+        "subject": {},
+        "updated_at": 215,
+        "workflows": [],
+        "directive_id": "DIRECTIVE01"
+      }
+    }
+  },
+  "new": {
+    "directive": {
+      "directive_ref01": {
+        "created_at": 280,
+        "name": "s11a",
+        "resources": [],
+        "subject": {},
+        "updated_at": 285,
+        "workflows": []
+      }
+    }
+  },
+  "requests": {
+    "POST /robots/v0/directives/{DIRECTIVE_ID}/runs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /robots/v0/directives": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /robots/v0/directives": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /robots/v0/directives/{DIRECTIVE_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /robots/v0/directives/{DIRECTIVE_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

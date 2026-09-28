@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "generate_asset_shot": {
+      "GENERATE_ASSET_SHOT00": {
+        "data": {},
+        "asset_id": "ASSET01",
+        "id": "GENERATE_ASSET_SHOT00"
+      },
+      "GENERATE_ASSET_SHOT01": {
+        "data": {},
+        "asset_id": "ASSET01",
+        "id": "GENERATE_ASSET_SHOT01"
+      },
+      "GENERATE_ASSET_SHOT02": {
+        "data": {},
+        "asset_id": "ASSET01",
+        "id": "GENERATE_ASSET_SHOT02"
+      }
+    }
+  },
+  "new": {
+    "generate_asset_shot": {
+      "generate_asset_shot_ref01": {
+        "data": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /video/v1/assets/{ASSET_ID}/shots": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,114 @@
+# Entity: monitoring_timeseries
+
+main: kit: entity: monitoring_timeseries: {
+
+  alias: field: {}
+
+  fields: {
+    concurrent_viewers: {
+      fo: "int64"
+      h: "Concurrent Viewers"
+      n: "concurrent_viewers"
+      r: true
+      t: "`$INTEGER`"
+    }
+    date: {
+      h: "Date"
+      n: "date"
+      r: true
+      t: "`$STRING`"
+    }
+    value: {
+      fo: "double"
+      h: "Value"
+      n: "value"
+      r: true
+      t: "`$NUMBER`"
+    }
+  }
+
+  name: "monitoring_timeseries"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "current-concurrent-viewers"
+                k: "param"
+                n: "monitoring_metric_id"
+                or: "monitoring_metric_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "timestamp"
+                or: "timestamp"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries"
+          q: {
+            exist: [
+              "filter"
+              "monitoring_metric_id"
+              "timestamp"
+            ]
+          }
+          r: {
+            param: {
+              MONITORING_METRIC_ID: "monitoring_metric_id"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "monitoring"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              var: "monitoring_metric_id"
+            }
+            {
+              lit: "timeseries"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

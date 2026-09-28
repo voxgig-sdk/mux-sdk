@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "list_monitoring_metric": {
+      "LIST_MONITORING_METRIC00": {
+        "display_name": "s14",
+        "name": "s15"
+      },
+      "LIST_MONITORING_METRIC01": {
+        "display_name": "s28",
+        "name": "s29"
+      },
+      "LIST_MONITORING_METRIC02": {
+        "display_name": "s3c",
+        "name": "s3d"
+      }
+    }
+  },
+  "new": {
+    "list_monitoring_metric": {
+      "list_monitoring_metric_ref01": {
+        "display_name": "s50",
+        "name": "s51"
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/monitoring/metrics": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

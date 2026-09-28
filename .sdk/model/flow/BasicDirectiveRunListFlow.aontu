@@ -1,0 +1,26 @@
+# BasicDirectiveRunListFlow
+
+main: kit: flow: BasicDirectiveRunListFlow:
+{
+  entity: "directive_run_list",
+  kind: "basic",
+  name: "BasicDirectiveRunListFlow",
+  step: [
+    {
+      m: {
+        directive_id: "directive01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "directive_run_list_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDirectiveRunListFlow"
+}

@@ -1,0 +1,32 @@
+# BasicIncidentFlow
+
+main: kit: flow: BasicIncidentFlow:
+{
+  entity: "incident",
+  kind: "basic",
+  name: "BasicIncidentFlow",
+  step: [
+    {
+      i: {
+        ref: "incident_ref01",
+        srcdatavar: "incident_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "incident01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-incident_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicIncidentFlow"
+}

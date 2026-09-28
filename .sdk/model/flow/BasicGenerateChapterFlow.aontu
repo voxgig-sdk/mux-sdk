@@ -1,0 +1,40 @@
+# BasicGenerateChapterFlow
+
+main: kit: flow: BasicGenerateChapterFlow:
+{
+  entity: "generate_chapter",
+  kind: "basic",
+  name: "BasicGenerateChapterFlow",
+  step: [
+    {
+      i: {
+        ref: "generate_chapter_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "generate_chapter_ref01",
+        srcdatavar: "generate_chapter_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "generate_chapter01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-generate_chapter_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGenerateChapterFlow"
+}

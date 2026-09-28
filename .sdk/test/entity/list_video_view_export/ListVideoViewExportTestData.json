@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "list_video_view_export": {
+      "LIST_VIDEO_VIEW_EXPORT00": {
+        "export_date": "s14",
+        "files": []
+      },
+      "LIST_VIDEO_VIEW_EXPORT01": {
+        "export_date": "s28",
+        "files": []
+      },
+      "LIST_VIDEO_VIEW_EXPORT02": {
+        "export_date": "s3c",
+        "files": []
+      }
+    }
+  },
+  "new": {
+    "list_video_view_export": {
+      "list_video_view_export_ref01": {
+        "export_date": "s50",
+        "files": []
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/exports/views": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# BasicStaticRenditionFlow
+
+main: kit: flow: BasicStaticRenditionFlow:
+{
+  entity: "static_rendition",
+  kind: "basic",
+  name: "BasicStaticRenditionFlow",
+  step: [
+    {
+      i: {
+        ref: "static_rendition_ref01"
+      }
+
+      m: {
+        asset_id: "asset01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicStaticRenditionFlow"
+}

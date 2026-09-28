@@ -1,0 +1,1660 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>VideoView | Mux API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Mux API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/mux-sdk">voxgig-sdk/mux-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Mux API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/annotation.html">Annotation</a>
+<a href="../api/ask_question.html">AskQuestion</a>
+<a href="../api/asset.html">Asset</a>
+<a href="../api/asset_or_live_stream_id.html">AssetOrLiveStreamId</a>
+<a href="../api/asset_playback_id.html">AssetPlaybackId</a>
+<a href="../api/asset_shot.html">AssetShot</a>
+<a href="../api/create_playback_id.html">CreatePlaybackId</a>
+<a href="../api/create_track.html">CreateTrack</a>
+<a href="../api/directive.html">Directive</a>
+<a href="../api/directive_run_detail.html">DirectiveRunDetail</a>
+<a href="../api/directive_run_list.html">DirectiveRunList</a>
+<a href="../api/drm_configuration.html">DrmConfiguration</a>
+<a href="../api/edit_caption.html">EditCaption</a>
+<a href="../api/engagement_heatmap.html">EngagementHeatmap</a>
+<a href="../api/engagement_hotspot.html">EngagementHotspot</a>
+<a href="../api/find_best_thumbnail.html">FindBestThumbnail</a>
+<a href="../api/find_key_moment.html">FindKeyMoment</a>
+<a href="../api/find_scene.html">FindScene</a>
+<a href="../api/generate_asset_shot.html">GenerateAssetShot</a>
+<a href="../api/generate_chapter.html">GenerateChapter</a>
+<a href="../api/generate_engagement_insight.html">GenerateEngagementInsight</a>
+<a href="../api/generate_premium_caption.html">GeneratePremiumCaption</a>
+<a href="../api/generate_track_subtitle.html">GenerateTrackSubtitle</a>
+<a href="../api/incident.html">Incident</a>
+<a href="../api/input_info.html">InputInfo</a>
+<a href="../api/job_summary.html">JobSummary</a>
+<a href="../api/list_all_metric_value.html">ListAllMetricValue</a>
+<a href="../api/list_annotation.html">ListAnnotation</a>
+<a href="../api/list_asset.html">ListAsset</a>
+<a href="../api/list_breakdown_value.html">ListBreakdownValue</a>
+<a href="../api/list_delivery_usage.html">ListDeliveryUsage</a>
+<a href="../api/list_dimension.html">ListDimension</a>
+<a href="../api/list_dimension_value.html">ListDimensionValue</a>
+<a href="../api/list_drm_configuration.html">ListDrmConfiguration</a>
+<a href="../api/list_error.html">ListError</a>
+<a href="../api/list_export.html">ListExport</a>
+<a href="../api/list_filter.html">ListFilter</a>
+<a href="../api/list_filter_value.html">ListFilterValue</a>
+<a href="../api/list_incident.html">ListIncident</a>
+<a href="../api/list_insight.html">ListInsight</a>
+<a href="../api/list_job.html">ListJob</a>
+<a href="../api/list_live_stream.html">ListLiveStream</a>
+<a href="../api/list_monitoring_dimension.html">ListMonitoringDimension</a>
+<a href="../api/list_monitoring_metric.html">ListMonitoringMetric</a>
+<a href="../api/list_playback_restriction.html">ListPlaybackRestriction</a>
+<a href="../api/list_real_time_dimension.html">ListRealTimeDimension</a>
+<a href="../api/list_real_time_metric.html">ListRealTimeMetric</a>
+<a href="../api/list_related_incident.html">ListRelatedIncident</a>
+<a href="../api/list_signing_key.html">ListSigningKey</a>
+<a href="../api/list_subview_breakdown_value.html">ListSubviewBreakdownValue</a>
+<a href="../api/list_subview_comparison_value.html">ListSubviewComparisonValue</a>
+<a href="../api/list_subview_dimension.html">ListSubviewDimension</a>
+<a href="../api/list_subview_dimension_value.html">ListSubviewDimensionValue</a>
+<a href="../api/list_transcription_vocabulary.html">ListTranscriptionVocabulary</a>
+<a href="../api/list_upload.html">ListUpload</a>
+<a href="../api/list_usage_export.html">ListUsageExport</a>
+<a href="../api/list_video_view.html">ListVideoView</a>
+<a href="../api/list_video_view_export.html">ListVideoViewExport</a>
+<a href="../api/list_webhook.html">ListWebhook</a>
+<a href="../api/live_stream.html">LiveStream</a>
+<a href="../api/live_stream_playback_id.html">LiveStreamPlaybackId</a>
+<a href="../api/metric_timeseries_data.html">MetricTimeseriesData</a>
+<a href="../api/moderate.html">Moderate</a>
+<a href="../api/monitoring_breakdown.html">MonitoringBreakdown</a>
+<a href="../api/monitoring_breakdown_timeseries.html">MonitoringBreakdownTimeseries</a>
+<a href="../api/monitoring_histogram_timeseries.html">MonitoringHistogramTimeseries</a>
+<a href="../api/monitoring_timeseries.html">MonitoringTimeseries</a>
+<a href="../api/overall.html">Overall</a>
+<a href="../api/playback_restriction.html">PlaybackRestriction</a>
+<a href="../api/real_time_breakdown.html">RealTimeBreakdown</a>
+<a href="../api/real_time_histogram_timeseries.html">RealTimeHistogramTimeseries</a>
+<a href="../api/real_time_timeseries.html">RealTimeTimeseries</a>
+<a href="../api/signal_live_stream_complete.html">SignalLiveStreamComplete</a>
+<a href="../api/signing_key.html">SigningKey</a>
+<a href="../api/simulcast_target.html">SimulcastTarget</a>
+<a href="../api/static_rendition.html">StaticRendition</a>
+<a href="../api/subview_breakdown_timeseries.html">SubviewBreakdownTimeseries</a>
+<a href="../api/subview_overall_value.html">SubviewOverallValue</a>
+<a href="../api/summarize.html">Summarize</a>
+<a href="../api/transcription_vocabulary.html">TranscriptionVocabulary</a>
+<a href="../api/translate_audio.html">TranslateAudio</a>
+<a href="../api/translate_caption.html">TranslateCaption</a>
+<a href="../api/update_asset_track.html">UpdateAssetTrack</a>
+<a href="../api/upload.html">Upload</a>
+<a href="../api/url_signing_key.html">UrlSigningKey</a>
+<a aria-current="page" href="../api/video_view.html">VideoView</a><div class="nav-sections"><a class="nav-section" href="#get-datav1video-viewsvideo_view_id">GET /data/v1/video-views/{VIDEO_VIEW_ID}</a></div>
+<a href="../api/webhook.html">Webhook</a>
+<a href="../api/who_am_i.html">WhoAmI</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="videoview">VideoView</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-datav1video-viewsvideo_view_id"><code>/data/v1/video-views/{VIDEO_VIEW_ID}</code></a></td>
+<td><code>load</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">video_view, err := client.VideoView(nil).Load(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(video_view)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local video_view, err = client:VideoView():load({ id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$video_view = $client-&gt;VideoView()-&gt;load([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">video_view = client.VideoView().load({&quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">video_view = client.VideoView.load({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const video_view = await client.VideoView().load({ id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Data</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>timeframe</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Timeframe</td>
+</tr>
+<tr>
+<td><code>total_row_count</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Total Row Count</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-datav1video-viewsvideo_view_id" class="operation" data-method="get"><code>GET</code> /data/v1/video-views/{VIDEO_VIEW_ID}</h3>
+<p>Operation ID: <code>get-video-view</code>.</p>
+<p>Authentication: basic token (<code>accessToken</code>) or bearer token (<code>authorizationToken</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>VIDEO_VIEW_ID</code> | <code>path</code> | <code>string</code> | Yes | ID of the Video View |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_attempt_count</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_break_count</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_break_error_count</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_break_error_percentage</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_error_count</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_error_percentage</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_exit_before_start_count</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_exit_before_start_percentage</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_impression_count</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_playback_failure_error_type_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_preroll_startup_time</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_startup_error_count</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.ad_startup_error_percentage</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.asn</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.asn_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.asset_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.audio_codec</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.audio_codec_initial</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.buffering_count</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.buffering_duration</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.buffering_rate</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.cdn</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.city</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.client_application_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.client_application_version</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.continent_code</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.country_code</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.country_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.custom_1</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.custom_10</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.custom_2</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.custom_3</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.custom_4</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.custom_5</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.custom_6</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.custom_7</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.custom_8</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.custom_9</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.environment_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.error_type_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.events</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.events[].details</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.events[].event_time</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.events[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.events[].playback_time</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.events[].viewer_time</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.exit_before_video_start</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.experiment_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.inserted_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.isp</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.latitude</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.live_stream_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.live_stream_latency</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.long_rebuffering</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.long_resume</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.longitude</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.metro</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.mux_api_version</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.mux_embed</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.mux_embed_version</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.mux_viewer_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.page_load_time</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.page_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.page_url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.platform_description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.platform_summary</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.playback_business_exception_error_type_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.playback_failure</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.playback_failure_error_type_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.playback_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.playback_score</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_autoplay</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_error_code</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_error_context</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_error_message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_height</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_instance_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_language</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_load_time</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_mux_plugin_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_mux_plugin_version</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_poster</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_preload</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_remote_played</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_software</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_software_version</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_source_domain</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_source_duration</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_source_height</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_source_host_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_source_stream_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_source_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_source_url</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_source_width</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_startup_time</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_version</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_view_count</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.player_width</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.preroll_ad_asset_hostname</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.preroll_ad_tag_hostname</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.preroll_played</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.preroll_requested</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.property_id</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.quality_score</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.rebuffer_percentage</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.rebuffering_score</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.region</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.rendition_change_count</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.rendition_downshift_count</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.rendition_upshift_count</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.requests_for_first_preroll</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.session_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.short_time</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.startup_score</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.sub_property_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.time_shift_enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.time_to_first_frame</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.updated_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.used_captions</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.used_fullscreen</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.used_pip</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_affiliate</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_brand</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_cdn_trace</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_codec</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_codec_initial</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_content_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_creator_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_duration</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_dynamic_range_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_dynamic_range_type_initial</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_encoding_variant</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_language</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_producer</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_series</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_source_bitrate</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_source_bitrate_initial</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_source_fps</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_source_fps_initial</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_source_height</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_source_height_initial</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_source_width</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_source_width_initial</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_startup_business_exception_error_type_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_startup_failure</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_startup_preroll_load_time</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_startup_preroll_request_time</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_stream_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_title</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_variant_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.video_variant_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_average_request_latency</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_average_request_throughput</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_cdn_edge_pop</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_cdn_origin</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_content_startup_time</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_drm_level</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_drm_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_dropped</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_dropped_frame_count</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_end</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_error_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_has_ad</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_max_downscale_percentage</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_max_playhead_position</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_max_request_latency</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_max_upscale_percentage</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_playing_time</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_seek_count</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_seek_duration</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_session_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_start</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_total_content_playback_time</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_total_downscaling</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.view_total_upscaling</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_application_engine</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_application_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_application_version</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_connection_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_device_category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_device_manufacturer</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_device_model</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_device_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_experience_score</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_os_architecture</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_os_family</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_os_version</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_plan</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_plan_category</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_plan_status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_user_agent</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.viewer_user_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.watch_time</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.watched</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.weighted_average_bitrate</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>timeframe</code></td>
+<td><code>array of integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>total_row_count</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;ad_attempt_count&quot;: null,
+    &quot;ad_break_count&quot;: null,
+    &quot;ad_break_error_count&quot;: null,
+    &quot;ad_break_error_percentage&quot;: null,
+    &quot;ad_error_count&quot;: null,
+    &quot;ad_error_percentage&quot;: null,
+    &quot;ad_exit_before_start_count&quot;: null,
+    &quot;ad_exit_before_start_percentage&quot;: null,
+    &quot;ad_impression_count&quot;: null,
+    &quot;ad_playback_failure_error_type_id&quot;: null,
+    &quot;ad_preroll_startup_time&quot;: null,
+    &quot;ad_startup_error_count&quot;: null,
+    &quot;ad_startup_error_percentage&quot;: null,
+    &quot;asn&quot;: 11427,
+    &quot;asn_name&quot;: null,
+    &quot;asset_id&quot;: &quot;rmp7fvw5lPD01l8PZ2aN74js84XrTWxHy&quot;,
+    &quot;audio_codec&quot;: null,
+    &quot;audio_codec_initial&quot;: null,
+    &quot;buffering_count&quot;: null,
+    &quot;buffering_duration&quot;: null,
+    &quot;buffering_rate&quot;: null,
+    &quot;cdn&quot;: null,
+    &quot;city&quot;: &quot;Austin&quot;,
+    &quot;client_application_name&quot;: null,
+    &quot;client_application_version&quot;: null,
+    &quot;continent_code&quot;: null,
+    &quot;country_code&quot;: &quot;US&quot;,
+    &quot;country_name&quot;: &quot;United States&quot;,
+    &quot;custom_1&quot;: null,
+    &quot;custom_10&quot;: null,
+    &quot;custom_2&quot;: null,
+    &quot;custom_3&quot;: null,
+    &quot;custom_4&quot;: null,
+    &quot;custom_5&quot;: null,
+    &quot;custom_6&quot;: null,
+    &quot;custom_7&quot;: null,
+    &quot;custom_8&quot;: null,
+    &quot;custom_9&quot;: null,
+    &quot;environment_id&quot;: &quot;envid123&quot;,
+    &quot;error_type_id&quot;: null,
+    &quot;events&quot;: [
+      {
+        &quot;details&quot;: {},
+        &quot;event_time&quot;: 1643216898061,
+        &quot;name&quot;: &quot;playerready&quot;,
+        &quot;playback_time&quot;: 0,
+        &quot;viewer_time&quot;: 1643216891851
+      },
+      {
+        &quot;details&quot;: {},
+        &quot;event_time&quot;: 1643216898101,
+        &quot;name&quot;: &quot;viewstart&quot;,
+        &quot;playback_time&quot;: 0,
+        &quot;viewer_time&quot;: 1643216891853
+      }
+    ],
+    &quot;exit_before_video_start&quot;: false,
+    &quot;experiment_name&quot;: null,
+    &quot;id&quot;: &quot;LOpk9M00bMWgOJ3hcTcCHmz1JjxMFRRI&quot;,
+    &quot;inserted_at&quot;: &quot;2022-01-26T17:08:18Z&quot;,
+    &quot;isp&quot;: null,
+    &quot;latitude&quot;: null,
+    &quot;live_stream_id&quot;: null,
+    &quot;live_stream_latency&quot;: null,
+    &quot;long_rebuffering&quot;: false,
+    &quot;long_resume&quot;: false,
+    &quot;longitude&quot;: null,
+    &quot;metro&quot;: null,
+    &quot;mux_api_version&quot;: &quot;v1&quot;,
+    &quot;mux_embed&quot;: null,
+    &quot;mux_embed_version&quot;: null,
+    &quot;mux_viewer_id&quot;: &quot;abc123viewerid&quot;,
+    &quot;page_load_time&quot;: null,
+    &quot;page_type&quot;: null,
+    &quot;page_url&quot;: null,
+    &quot;platform_description&quot;: null,
+    &quot;platform_summary&quot;: null,
+    &quot;playback_business_exception_error_type_id&quot;: null,
+    &quot;playback_failure&quot;: false,
+    &quot;playback_failure_error_type_id&quot;: null,
+    &quot;playback_id&quot;: null,
+    &quot;playback_score&quot;: null,
+    &quot;player_autoplay&quot;: false,
+    &quot;player_error_code&quot;: &quot;1001&quot;,
+    &quot;player_error_context&quot;: &quot;error context&quot;,
+    &quot;player_error_message&quot;: &quot;error from player&quot;,
+    &quot;player_height&quot;: null,
+    &quot;player_instance_id&quot;: null,
+    &quot;player_language&quot;: null,
+    &quot;player_load_time&quot;: null,
+    &quot;player_mux_plugin_name&quot;: &quot;apple-mux&quot;,
+    &quot;player_mux_plugin_version&quot;: null,
+    &quot;player_name&quot;: null,
+    &quot;player_poster&quot;: null,
+    &quot;player_preload&quot;: false,
+    &quot;player_remote_played&quot;: null,
+    &quot;player_software&quot;: null,
+    &quot;player_software_version&quot;: null,
+    &quot;player_source_domain&quot;: null,
+    &quot;player_source_duration&quot;: null,
+    &quot;player_source_height&quot;: null,
+    &quot;player_source_host_name&quot;: &quot;stream.mux.com&quot;,
+    &quot;player_source_stream_type&quot;: null,
+    &quot;player_source_type&quot;: null,
+    &quot;player_source_url&quot;: &quot;https://stream.mux.com/ax9qwyTIaUDLdmhesYDKir5kfE4Ve215.m3u8&quot;,
+    &quot;player_source_width&quot;: null,
+    &quot;player_startup_time&quot;: null,
+    &quot;player_version&quot;: null,
+    &quot;player_view_count&quot;: null,
+    &quot;player_width&quot;: null,
+    &quot;preroll_ad_asset_hostname&quot;: null,
+    &quot;preroll_ad_tag_hostname&quot;: null,
+    &quot;preroll_played&quot;: null,
+    &quot;preroll_requested&quot;: null,
+    &quot;property_id&quot;: 1234,
+    &quot;quality_score&quot;: null,
+    &quot;rebuffer_percentage&quot;: null,
+    &quot;rebuffering_score&quot;: null,
+    &quot;region&quot;: null,
+    &quot;rendition_change_count&quot;: null,
+    &quot;rendition_downshift_count&quot;: null,
+    &quot;rendition_upshift_count&quot;: null,
+    &quot;requests_for_first_preroll&quot;: null,
+    &quot;session_id&quot;: &quot;b97d7b4a-8de7-4b18-8984-1f9ec3d3b5bc&quot;,
+    &quot;short_time&quot;: &quot;2022-01-26T17:08:18Z&quot;,
+    &quot;startup_score&quot;: null,
+    &quot;sub_property_id&quot;: null,
+    &quot;time_shift_enabled&quot;: false,
+    &quot;time_to_first_frame&quot;: null,
+    &quot;updated_at&quot;: &quot;2022-01-26T17:56:12Z&quot;,
+    &quot;used_captions&quot;: false,
+    &quot;used_fullscreen&quot;: false,
+    &quot;used_pip&quot;: false,
+    &quot;video_affiliate&quot;: null,
+    &quot;video_brand&quot;: null,
+    &quot;video_cdn_trace&quot;: [],
+    &quot;video_codec&quot;: null,
+    &quot;video_codec_initial&quot;: null,
+    &quot;video_content_type&quot;: null,
+    &quot;video_creator_id&quot;: null,
+    &quot;video_duration&quot;: null,
+    &quot;video_dynamic_range_type&quot;: null,
+    &quot;video_dynamic_range_type_initial&quot;: null,
+    &quot;video_encoding_variant&quot;: null,
+    &quot;video_id&quot;: &quot;rmp7fvw5lPD01l8PZ2aN74js84XrTWxHy&quot;,
+    &quot;video_language&quot;: null,
+    &quot;video_producer&quot;: null,
+    &quot;video_series&quot;: null,
+    &quot;video_source_bitrate&quot;: null,
+    &quot;video_source_bitrate_initial&quot;: null,
+    &quot;video_source_fps&quot;: null,
+    &quot;video_source_fps_initial&quot;: null,
+    &quot;video_source_height&quot;: null,
+    &quot;video_source_height_initial&quot;: null,
+    &quot;video_source_width&quot;: null,
+    &quot;video_source_width_initial&quot;: null,
+    &quot;video_startup_business_exception_error_type_id&quot;: null,
+    &quot;video_startup_failure&quot;: false,
+    &quot;video_startup_preroll_load_time&quot;: null,
+    &quot;video_startup_preroll_request_time&quot;: null,
+    &quot;video_stream_type&quot;: null,
+    &quot;video_title&quot;: null,
+    &quot;video_variant_id&quot;: null,
+    &quot;video_variant_name&quot;: null,
+    &quot;view_average_request_latency&quot;: null,
+    &quot;view_average_request_throughput&quot;: null,
+    &quot;view_cdn_edge_pop&quot;: null,
+    &quot;view_cdn_origin&quot;: null,
+    &quot;view_content_startup_time&quot;: null,
+    &quot;view_drm_level&quot;: null,
+    &quot;view_drm_type&quot;: null,
+    &quot;view_dropped&quot;: false,
+    &quot;view_dropped_frame_count&quot;: null,
+    &quot;view_end&quot;: &quot;2022-01-26T17:56:12Z&quot;,
+    &quot;view_error_id&quot;: null,
+    &quot;view_has_ad&quot;: false,
+    &quot;view_id&quot;: &quot;8d00a0ca-8456-4e55-9ff8-dc501814a6b1&quot;,
+    &quot;view_max_downscale_percentage&quot;: &quot;0.32222223&quot;,
+    &quot;view_max_playhead_position&quot;: &quot;41126&quot;,
+    &quot;view_max_request_latency&quot;: null,
+    &quot;view_max_upscale_percentage&quot;: &quot;0&quot;,
+    &quot;view_playing_time&quot;: &quot;58134&quot;,
+    &quot;view_seek_count&quot;: null,
+    &quot;view_seek_duration&quot;: null,
+    &quot;view_session_id&quot;: null,
+    &quot;view_start&quot;: &quot;2022-01-26T17:08:18Z&quot;,
+    &quot;view_total_content_playback_time&quot;: 37521,
+    &quot;view_total_downscaling&quot;: null,
+    &quot;view_total_upscaling&quot;: null,
+    &quot;viewer_application_engine&quot;: null,
+    &quot;viewer_application_name&quot;: null,
+    &quot;viewer_application_version&quot;: null,
+    &quot;viewer_connection_type&quot;: null,
+    &quot;viewer_device_category&quot;: null,
+    &quot;viewer_device_manufacturer&quot;: null,
+    &quot;viewer_device_model&quot;: &quot;iPhone10,4&quot;,
+    &quot;viewer_device_name&quot;: null,
+    &quot;viewer_experience_score&quot;: null,
+    &quot;viewer_os_architecture&quot;: null,
+    &quot;viewer_os_family&quot;: null,
+    &quot;viewer_os_version&quot;: &quot;15.1&quot;,
+    &quot;viewer_plan&quot;: null,
+    &quot;viewer_plan_category&quot;: null,
+    &quot;viewer_plan_status&quot;: null,
+    &quot;viewer_user_agent&quot;: null,
+    &quot;viewer_user_id&quot;: null,
+    &quot;watch_time&quot;: null,
+    &quot;watched&quot;: true,
+    &quot;weighted_average_bitrate&quot;: 697078
+  },
+  &quot;timeframe&quot;: [
+    1643133378,
+    1643219778
+  ],
+  &quot;total_row_count&quot;: null
+}
+</code></pre>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

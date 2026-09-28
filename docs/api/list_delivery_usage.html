@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ListDeliveryUsage | Mux API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Mux API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/mux-sdk">voxgig-sdk/mux-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Mux API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/annotation.html">Annotation</a>
+<a href="../api/ask_question.html">AskQuestion</a>
+<a href="../api/asset.html">Asset</a>
+<a href="../api/asset_or_live_stream_id.html">AssetOrLiveStreamId</a>
+<a href="../api/asset_playback_id.html">AssetPlaybackId</a>
+<a href="../api/asset_shot.html">AssetShot</a>
+<a href="../api/create_playback_id.html">CreatePlaybackId</a>
+<a href="../api/create_track.html">CreateTrack</a>
+<a href="../api/directive.html">Directive</a>
+<a href="../api/directive_run_detail.html">DirectiveRunDetail</a>
+<a href="../api/directive_run_list.html">DirectiveRunList</a>
+<a href="../api/drm_configuration.html">DrmConfiguration</a>
+<a href="../api/edit_caption.html">EditCaption</a>
+<a href="../api/engagement_heatmap.html">EngagementHeatmap</a>
+<a href="../api/engagement_hotspot.html">EngagementHotspot</a>
+<a href="../api/find_best_thumbnail.html">FindBestThumbnail</a>
+<a href="../api/find_key_moment.html">FindKeyMoment</a>
+<a href="../api/find_scene.html">FindScene</a>
+<a href="../api/generate_asset_shot.html">GenerateAssetShot</a>
+<a href="../api/generate_chapter.html">GenerateChapter</a>
+<a href="../api/generate_engagement_insight.html">GenerateEngagementInsight</a>
+<a href="../api/generate_premium_caption.html">GeneratePremiumCaption</a>
+<a href="../api/generate_track_subtitle.html">GenerateTrackSubtitle</a>
+<a href="../api/incident.html">Incident</a>
+<a href="../api/input_info.html">InputInfo</a>
+<a href="../api/job_summary.html">JobSummary</a>
+<a href="../api/list_all_metric_value.html">ListAllMetricValue</a>
+<a href="../api/list_annotation.html">ListAnnotation</a>
+<a href="../api/list_asset.html">ListAsset</a>
+<a href="../api/list_breakdown_value.html">ListBreakdownValue</a>
+<a aria-current="page" href="../api/list_delivery_usage.html">ListDeliveryUsage</a><div class="nav-sections"><a class="nav-section" href="#get-videov1delivery-usage">GET /video/v1/delivery-usage</a></div>
+<a href="../api/list_dimension.html">ListDimension</a>
+<a href="../api/list_dimension_value.html">ListDimensionValue</a>
+<a href="../api/list_drm_configuration.html">ListDrmConfiguration</a>
+<a href="../api/list_error.html">ListError</a>
+<a href="../api/list_export.html">ListExport</a>
+<a href="../api/list_filter.html">ListFilter</a>
+<a href="../api/list_filter_value.html">ListFilterValue</a>
+<a href="../api/list_incident.html">ListIncident</a>
+<a href="../api/list_insight.html">ListInsight</a>
+<a href="../api/list_job.html">ListJob</a>
+<a href="../api/list_live_stream.html">ListLiveStream</a>
+<a href="../api/list_monitoring_dimension.html">ListMonitoringDimension</a>
+<a href="../api/list_monitoring_metric.html">ListMonitoringMetric</a>
+<a href="../api/list_playback_restriction.html">ListPlaybackRestriction</a>
+<a href="../api/list_real_time_dimension.html">ListRealTimeDimension</a>
+<a href="../api/list_real_time_metric.html">ListRealTimeMetric</a>
+<a href="../api/list_related_incident.html">ListRelatedIncident</a>
+<a href="../api/list_signing_key.html">ListSigningKey</a>
+<a href="../api/list_subview_breakdown_value.html">ListSubviewBreakdownValue</a>
+<a href="../api/list_subview_comparison_value.html">ListSubviewComparisonValue</a>
+<a href="../api/list_subview_dimension.html">ListSubviewDimension</a>
+<a href="../api/list_subview_dimension_value.html">ListSubviewDimensionValue</a>
+<a href="../api/list_transcription_vocabulary.html">ListTranscriptionVocabulary</a>
+<a href="../api/list_upload.html">ListUpload</a>
+<a href="../api/list_usage_export.html">ListUsageExport</a>
+<a href="../api/list_video_view.html">ListVideoView</a>
+<a href="../api/list_video_view_export.html">ListVideoViewExport</a>
+<a href="../api/list_webhook.html">ListWebhook</a>
+<a href="../api/live_stream.html">LiveStream</a>
+<a href="../api/live_stream_playback_id.html">LiveStreamPlaybackId</a>
+<a href="../api/metric_timeseries_data.html">MetricTimeseriesData</a>
+<a href="../api/moderate.html">Moderate</a>
+<a href="../api/monitoring_breakdown.html">MonitoringBreakdown</a>
+<a href="../api/monitoring_breakdown_timeseries.html">MonitoringBreakdownTimeseries</a>
+<a href="../api/monitoring_histogram_timeseries.html">MonitoringHistogramTimeseries</a>
+<a href="../api/monitoring_timeseries.html">MonitoringTimeseries</a>
+<a href="../api/overall.html">Overall</a>
+<a href="../api/playback_restriction.html">PlaybackRestriction</a>
+<a href="../api/real_time_breakdown.html">RealTimeBreakdown</a>
+<a href="../api/real_time_histogram_timeseries.html">RealTimeHistogramTimeseries</a>
+<a href="../api/real_time_timeseries.html">RealTimeTimeseries</a>
+<a href="../api/signal_live_stream_complete.html">SignalLiveStreamComplete</a>
+<a href="../api/signing_key.html">SigningKey</a>
+<a href="../api/simulcast_target.html">SimulcastTarget</a>
+<a href="../api/static_rendition.html">StaticRendition</a>
+<a href="../api/subview_breakdown_timeseries.html">SubviewBreakdownTimeseries</a>
+<a href="../api/subview_overall_value.html">SubviewOverallValue</a>
+<a href="../api/summarize.html">Summarize</a>
+<a href="../api/transcription_vocabulary.html">TranscriptionVocabulary</a>
+<a href="../api/translate_audio.html">TranslateAudio</a>
+<a href="../api/translate_caption.html">TranslateCaption</a>
+<a href="../api/update_asset_track.html">UpdateAssetTrack</a>
+<a href="../api/upload.html">Upload</a>
+<a href="../api/url_signing_key.html">UrlSigningKey</a>
+<a href="../api/video_view.html">VideoView</a>
+<a href="../api/webhook.html">Webhook</a>
+<a href="../api/who_am_i.html">WhoAmI</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="listdeliveryusage">ListDeliveryUsage</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-videov1delivery-usage"><code>/video/v1/delivery-usage</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">list_delivery_usages, err := client.ListDeliveryUsage(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(list_delivery_usages)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local list_delivery_usages, err = client:ListDeliveryUsage():list()
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$list_delivery_usages = $client-&gt;ListDeliveryUsage()-&gt;list();
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">list_delivery_usages = client.ListDeliveryUsage().list()
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">list_delivery_usages = client.ListDeliveryUsage.list()
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const list_delivery_usages = await client.ListDeliveryUsage().list()
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>asset_duration</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>The duration of the asset in seconds.</td>
+</tr>
+<tr>
+<td><code>asset_encoding_tier</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>This field is deprecated.</td>
+</tr>
+<tr>
+<td><code>asset_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier for the asset.</td>
+</tr>
+<tr>
+<td><code>asset_resolution_tier</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage</td>
+</tr>
+<tr>
+<td><code>asset_state</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The state of the asset.</td>
+</tr>
+<tr>
+<td><code>asset_video_quality</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The video quality that the asset was ingested at.</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Time at which the asset was created.</td>
+</tr>
+<tr>
+<td><code>deleted_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>If exists, time at which the asset was deleted.</td>
+</tr>
+<tr>
+<td><code>delivered_seconds</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Total number of delivered seconds during this time window.</td>
+</tr>
+<tr>
+<td><code>delivered_seconds_by_resolution</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Seconds delivered broken into resolution tiers.</td>
+</tr>
+<tr>
+<td><code>live_stream_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier for the live stream that created the asset.</td>
+</tr>
+<tr>
+<td><code>passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The <code>passthrough</code> value for the asset.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-videov1delivery-usage" class="operation" data-method="get"><code>GET</code> /video/v1/delivery-usage</h3>
+<p>Operation ID: <code>list-delivery-usage</code>.</p>
+<p>Authentication: basic token (<code>accessToken</code>) or bearer token (<code>authorizationToken</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>page</code> | <code>query</code> | <code>integer (int32)</code> | No | Offset by this many pages, of the size of <code>limit</code> |
+| <code>limit</code> | <code>query</code> | <code>integer (int32)</code> | No | Number of items to include in the response |
+| <code>asset_id</code> | <code>query</code> | <code>string</code> | No | Filter response to return delivery usage for this asset only. You cannot specify both the <code>asset_id</code> and <code>live_stream_id</code> parameters together. |
+| <code>live_stream_id</code> | <code>query</code> | <code>string</code> | No | Filter response to return delivery usage for assets for this live stream. You cannot specify both the <code>asset_id</code> and <code>live_stream_id</code> parameters together. |
+| <code>timeframe[]</code> | <code>query</code> | <code>array of string</code> | No | Time window to get delivery usage information. timeframe[0] indicates the start time, timeframe[1] indicates the end time in seconds since the Unix epoch. Default time window is 1 hour representing usage from 13th to 12th hour from when the request is made. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].asset_duration</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td>The duration of the asset in seconds.</td>
+</tr>
+<tr>
+<td><code>data[].asset_encoding_tier</code></td>
+<td><code>enum: smart, baseline, premium</code></td>
+<td>Yes</td>
+<td>This field is deprecated. Please use <code>asset_video_quality</code> instead. The encoding tier that the asset was ingested at. <a href="https://docs.mux.com/guides/use-video-quality-levels">See the video quality guide for more details.</a></td>
+</tr>
+<tr>
+<td><code>data[].asset_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier for the asset.</td>
+</tr>
+<tr>
+<td><code>data[].asset_resolution_tier</code></td>
+<td><code>enum: audio-only, 720p, 1080p, 1440p, 2160p</code></td>
+<td>Yes</td>
+<td>The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage</td>
+</tr>
+<tr>
+<td><code>data[].asset_state</code></td>
+<td><code>enum: ready, errored, deleted</code></td>
+<td>Yes</td>
+<td>The state of the asset.</td>
+</tr>
+<tr>
+<td><code>data[].asset_video_quality</code></td>
+<td><code>enum: basic, plus, premium</code></td>
+<td>No</td>
+<td>The video quality that the asset was ingested at. This field replaces <code>asset_encoding_tier</code>. <a href="https://docs.mux.com/guides/use-video-quality-levels">See the video quality guide for more details.</a></td>
+</tr>
+<tr>
+<td><code>data[].created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Time at which the asset was created. Measured in seconds since the Unix epoch.</td>
+</tr>
+<tr>
+<td><code>data[].deleted_at</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>If exists, time at which the asset was deleted. Measured in seconds since the Unix epoch.</td>
+</tr>
+<tr>
+<td><code>data[].delivered_seconds</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td>Total number of delivered seconds during this time window.</td>
+</tr>
+<tr>
+<td><code>data[].delivered_seconds_by_resolution</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Seconds delivered broken into resolution tiers. Each tier will only be displayed if there was content delivered in the tier.</td>
+</tr>
+<tr>
+<td><code>data[].delivered_seconds_by_resolution.tier_1080p</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total number of delivered seconds during this time window that had a resolution larger than the 720p tier but less than or equal to the 1440p tier (over 921,600 and &lt;= 2,073,600 pixels total).</td>
+</tr>
+<tr>
+<td><code>data[].delivered_seconds_by_resolution.tier_1440p</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total number of delivered seconds during this time window that had a resolution larger than the 1080p tier but less than or equal to the 2160p tier (over 2,073,600 and &lt;= 4,194,304 pixels total).</td>
+</tr>
+<tr>
+<td><code>data[].delivered_seconds_by_resolution.tier_2160p</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total number of delivered seconds during this time window that had a resolution larger than the 1440p tier (over 4,194,304 pixels total).</td>
+</tr>
+<tr>
+<td><code>data[].delivered_seconds_by_resolution.tier_720p</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total number of delivered seconds during this time window that had a resolution within the 720p tier (up to 921,600 pixels total, based on typical 1280x720).</td>
+</tr>
+<tr>
+<td><code>data[].delivered_seconds_by_resolution.tier_audio_only</code></td>
+<td><code>number (double)</code></td>
+<td>No</td>
+<td>Total number of delivered seconds during this time window that had a resolution of audio only.</td>
+</tr>
+<tr>
+<td><code>data[].live_stream_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Unique identifier for the live stream that created the asset.</td>
+</tr>
+<tr>
+<td><code>data[].passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The <code>passthrough</code> value for the asset.</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td>Number of assets returned in this response. Default value is 100.</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td>Offset by this many pages, of the size of <code>limit</code>.</td>
+</tr>
+<tr>
+<td><code>timeframe</code></td>
+<td><code>array of integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;asset_duration&quot;: 154.366667,
+      &quot;asset_encoding_tier&quot;: &quot;baseline&quot;,
+      &quot;asset_id&quot;: &quot;Ww4v2q2H4MNbHIAM2wApKb3cmrh7eHjGLUjdKohR5wM&quot;,
+      &quot;asset_resolution_tier&quot;: &quot;1080p&quot;,
+      &quot;asset_state&quot;: &quot;deleted&quot;,
+      &quot;asset_video_quality&quot;: &quot;basic&quot;,
+      &quot;created_at&quot;: &quot;1607939184&quot;,
+      &quot;deleted_at&quot;: &quot;1607945257&quot;,
+      &quot;delivered_seconds&quot;: 206.366667,
+      &quot;delivered_seconds_by_resolution&quot;: {
+        &quot;tier_1080p&quot;: 100,
+        &quot;tier_720p&quot;: 100,
+        &quot;tier_audio_only&quot;: 6.366667
+      },
+      &quot;live_stream_id&quot;: &quot;B65hEUWW01ErVKDDGImKcBquYhwEAkjW6Ic3lPY0299Cc&quot;
+    },
+    {
+      &quot;asset_duration&quot;: 98.773667,
+      &quot;asset_encoding_tier&quot;: &quot;smart&quot;,
+      &quot;asset_id&quot;: &quot;Qlb007on1TwN43XLIG027QJlUxm3jd01v5PRi1aXhnyFZY&quot;,
+      &quot;asset_resolution_tier&quot;: &quot;1080p&quot;,
+      &quot;asset_state&quot;: &quot;deleted&quot;,
+      &quot;asset_video_quality&quot;: &quot;plus&quot;,
+      &quot;created_at&quot;: &quot;1607617107&quot;,
+      &quot;deleted_at&quot;: &quot;1607935288&quot;,
+      &quot;delivered_seconds&quot;: 30,
+      &quot;delivered_seconds_by_resolution&quot;: {
+        &quot;tier_1080p&quot;: 10,
+        &quot;tier_720p&quot;: 10,
+        &quot;tier_audio_only&quot;: 10
+      }
+    }
+  ],
+  &quot;limit&quot;: 100,
+  &quot;page&quot;: 1,
+  &quot;timeframe&quot;: [
+    1607817600,
+    1607990400
+  ],
+  &quot;total_row_count&quot;: 2
+}
+</code></pre>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

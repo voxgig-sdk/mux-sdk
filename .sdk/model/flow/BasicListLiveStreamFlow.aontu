@@ -1,0 +1,22 @@
+# BasicListLiveStreamFlow
+
+main: kit: flow: BasicListLiveStreamFlow:
+{
+  entity: "list_live_stream",
+  kind: "basic",
+  name: "BasicListLiveStreamFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_live_stream_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListLiveStreamFlow"
+}

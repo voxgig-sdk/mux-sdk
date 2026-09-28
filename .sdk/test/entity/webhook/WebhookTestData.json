@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "webhook": {
+      "WEBHOOK00": {
+        "address": "s32",
+        "created_at": "s33",
+        "enabled": true,
+        "id": "WEBHOOK00",
+        "signing_secret": "s36"
+      },
+      "WEBHOOK01": {
+        "address": "s64",
+        "created_at": "s65",
+        "enabled": true,
+        "id": "WEBHOOK01",
+        "signing_secret": "s68"
+      },
+      "WEBHOOK02": {
+        "address": "s96",
+        "created_at": "s97",
+        "enabled": true,
+        "id": "WEBHOOK02",
+        "signing_secret": "s9a"
+      }
+    }
+  },
+  "new": {
+    "webhook": {
+      "webhook_ref01": {
+        "address": "sc8",
+        "created_at": "sc9",
+        "enabled": true,
+        "signing_secret": "scc"
+      }
+    }
+  },
+  "requests": {
+    "POST /system/v1/webhooks": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /system/v1/webhooks/{WEBHOOK_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /system/v1/webhooks/{WEBHOOK_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /system/v1/webhooks/{WEBHOOK_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

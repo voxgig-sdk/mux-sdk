@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "list_playback_restriction": {
+      "LIST_PLAYBACK_RESTRICTION00": {
+        "created_at": "s32",
+        "id": "LIST_PLAYBACK_RESTRICTION00",
+        "referrer": {},
+        "updated_at": "s35",
+        "user_agent": {}
+      },
+      "LIST_PLAYBACK_RESTRICTION01": {
+        "created_at": "s64",
+        "id": "LIST_PLAYBACK_RESTRICTION01",
+        "referrer": {},
+        "updated_at": "s67",
+        "user_agent": {}
+      },
+      "LIST_PLAYBACK_RESTRICTION02": {
+        "created_at": "s96",
+        "id": "LIST_PLAYBACK_RESTRICTION02",
+        "referrer": {},
+        "updated_at": "s99",
+        "user_agent": {}
+      }
+    }
+  },
+  "new": {
+    "list_playback_restriction": {
+      "list_playback_restriction_ref01": {
+        "created_at": "sc8",
+        "referrer": {},
+        "updated_at": "scb",
+        "user_agent": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /video/v1/playback-restrictions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

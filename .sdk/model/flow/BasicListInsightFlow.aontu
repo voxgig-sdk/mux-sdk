@@ -1,0 +1,26 @@
+# BasicListInsightFlow
+
+main: kit: flow: BasicListInsightFlow:
+{
+  entity: "list_insight",
+  kind: "basic",
+  name: "BasicListInsightFlow",
+  step: [
+    {
+      m: {
+        metric_id: "metric01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_insight_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListInsightFlow"
+}

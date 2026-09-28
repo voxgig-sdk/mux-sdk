@@ -1,0 +1,50 @@
+{
+  "existing": {
+    "list_subview_dimension_value": {
+      "LIST_SUBVIEW_DIMENSION_VALUE00": {
+        "data": [],
+        "meta": "s29",
+        "timeframe": [],
+        "total_row_count": 43,
+        "dimension_name": "DIMENSION_NAME01",
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "id": "LIST_SUBVIEW_DIMENSION_VALUE00"
+      },
+      "LIST_SUBVIEW_DIMENSION_VALUE01": {
+        "data": [],
+        "meta": "s51",
+        "timeframe": [],
+        "total_row_count": 83,
+        "dimension_name": "DIMENSION_NAME01",
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "id": "LIST_SUBVIEW_DIMENSION_VALUE01"
+      },
+      "LIST_SUBVIEW_DIMENSION_VALUE02": {
+        "data": [],
+        "meta": "s79",
+        "timeframe": [],
+        "total_row_count": 123,
+        "dimension_name": "DIMENSION_NAME01",
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "id": "LIST_SUBVIEW_DIMENSION_VALUE02"
+      }
+    }
+  },
+  "new": {
+    "list_subview_dimension_value": {
+      "list_subview_dimension_value_ref01": {
+        "data": [],
+        "meta": "sa1",
+        "timeframe": [],
+        "total_row_count": 163
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions/{DIMENSION_NAME}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

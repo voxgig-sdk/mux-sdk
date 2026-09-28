@@ -1,0 +1,154 @@
+# Entity: list_subview_comparison_value
+
+main: kit: entity: list_subview_comparison_value: {
+
+  alias: field: {}
+
+  fields: {
+    dimension_value: {
+      h: "Dimension Value"
+      n: "dimension_value"
+      r: true
+      t: "`$STRING`"
+    }
+    values: {
+      h: "Values"
+      n: "values"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "list_subview_comparison_value"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/comparison"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "playing_time"
+                k: "param"
+                n: "subview_metric_id"
+                or: "metric_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "rendition"
+                k: "param"
+                n: "subview_type"
+                or: "subview_type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 10
+                k: "query"
+                n: "breakdown_value_limit"
+                or: "breakdown_value_limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "country"
+                k: "query"
+                n: "dimension"
+                or: "dimension"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "group_by"
+                or: "group_by"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: [
+                  "US"
+                  "FR"
+                ]
+                k: "query"
+                n: "value"
+                or: "value"
+                r: true
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/comparison"
+          q: {
+            exist: [
+              "breakdown_value_limit"
+              "dimension"
+              "filter"
+              "group_by"
+              "subview_metric_id"
+              "subview_type"
+              "timeframe"
+              "value"
+            ]
+          }
+          r: {
+            param: {
+              METRIC_ID: "subview_metric_id"
+              SUBVIEW_TYPE: "subview_type"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "subview-metrics"
+            }
+            {
+              var: "subview_metric_id"
+            }
+            {
+              var: "subview_type"
+            }
+            {
+              lit: "comparison"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

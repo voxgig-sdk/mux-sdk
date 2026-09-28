@@ -1,0 +1,76 @@
+# BasicAssetFlow
+
+main: kit: flow: BasicAssetFlow:
+{
+  entity: "asset",
+  kind: "basic",
+  name: "BasicAssetFlow",
+  step: [
+    {
+      i: {
+        ref: "asset_ref01"
+      }
+
+      m: {
+        asset_id: "asset01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "asset_ref01",
+        srcdatavar: "asset_ref01_data",
+        suffix: "_up0",
+        textfield: "aspect_ratio"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-asset_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "asset_ref01",
+        srcdatavar: "asset_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "asset01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-asset_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "asset_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "asset01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicAssetFlow"
+}

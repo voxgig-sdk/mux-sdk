@@ -1,0 +1,33 @@
+# BasicAssetPlaybackIdFlow
+
+main: kit: flow: BasicAssetPlaybackIdFlow:
+{
+  entity: "asset_playback_id",
+  kind: "basic",
+  name: "BasicAssetPlaybackIdFlow",
+  step: [
+    {
+      i: {
+        ref: "asset_playback_id_ref01",
+        srcdatavar: "asset_playback_id_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        asset_id: "asset01",
+        id: "asset_playback_id01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-asset_playback_id_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAssetPlaybackIdFlow"
+}

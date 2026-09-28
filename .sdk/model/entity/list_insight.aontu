@@ -1,0 +1,162 @@
+# Entity: list_insight
+
+main: kit: entity: list_insight: {
+
+  alias: field: {}
+
+  fields: {
+    filter_column: {
+      h: "Filter Column"
+      n: "filter_column"
+      r: true
+      t: "`$STRING`"
+    }
+    filter_value: {
+      h: "Filter Value"
+      n: "filter_value"
+      r: true
+      t: "`$STRING`"
+    }
+    metric: {
+      fo: "double"
+      h: "Metric"
+      n: "metric"
+      r: true
+      t: "`$NUMBER`"
+    }
+    negative_impact_score: {
+      fo: "float"
+      h: "Negative Impact Score"
+      n: "negative_impact_score"
+      r: true
+      t: "`$NUMBER`"
+    }
+    total_playing_time: {
+      fo: "int64"
+      h: "Total Playing Time"
+      n: "total_playing_time"
+      r: true
+      t: "`$INTEGER`"
+    }
+    total_views: {
+      fo: "int64"
+      h: "Total Views"
+      n: "total_views"
+      r: true
+      t: "`$INTEGER`"
+    }
+    total_watch_time: {
+      fo: "int64"
+      h: "Total Watch Time"
+      n: "total_watch_time"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "list_insight"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/metrics/{METRIC_ID}/insights"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "video_startup_time"
+                k: "param"
+                n: "metric_id"
+                or: "metric_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "measurement"
+                or: "measurement"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "metric_filter"
+                or: "metric_filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "order_direction"
+                or: "order_direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/metrics/{METRIC_ID}/insights"
+          q: {
+            exist: [
+              "filter"
+              "measurement"
+              "metric_filter"
+              "metric_id"
+              "order_direction"
+              "timeframe"
+            ]
+          }
+          r: {
+            param: {
+              METRIC_ID: "metric_id"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              var: "metric_id"
+            }
+            {
+              lit: "insights"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

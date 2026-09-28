@@ -1,0 +1,182 @@
+# Entity: list_delivery_usage
+
+main: kit: entity: list_delivery_usage: {
+
+  alias: field: {}
+
+  fields: {
+    asset_duration: {
+      fo: "double"
+      h: "Asset Duration"
+      n: "asset_duration"
+      r: true
+      sh: "The duration of the asset in seconds."
+      t: "`$NUMBER`"
+    }
+    asset_encoding_tier: {
+      de: true
+      h: "Asset Encoding Tier"
+      n: "asset_encoding_tier"
+      r: true
+      sh: "This field is deprecated."
+      t: "`$STRING`"
+    }
+    asset_id: {
+      h: "Asset Id"
+      n: "asset_id"
+      r: true
+      sh: "Unique identifier for the asset."
+      t: "`$STRING`"
+    }
+    asset_resolution_tier: {
+      h: "Asset Resolution Tier"
+      n: "asset_resolution_tier"
+      r: true
+      sh: "The resolution tier that the asset was ingested at, affecting billing for ingest & storage"
+      t: "`$STRING`"
+    }
+    asset_state: {
+      h: "Asset State"
+      n: "asset_state"
+      r: true
+      sh: "The state of the asset."
+      t: "`$STRING`"
+    }
+    asset_video_quality: {
+      h: "Asset Video Quality"
+      n: "asset_video_quality"
+      r: false
+      sh: "The video quality that the asset was ingested at."
+      t: "`$STRING`"
+    }
+    created_at: {
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "Time at which the asset was created."
+      t: "`$STRING`"
+    }
+    deleted_at: {
+      h: "Deleted At"
+      n: "deleted_at"
+      r: false
+      sh: "If exists, time at which the asset was deleted."
+      t: "`$STRING`"
+    }
+    delivered_seconds: {
+      fo: "double"
+      h: "Delivered Seconds"
+      n: "delivered_seconds"
+      r: true
+      sh: "Total number of delivered seconds during this time window."
+      t: "`$NUMBER`"
+    }
+    delivered_seconds_by_resolution: {
+      h: "Delivered Seconds By Resolution"
+      n: "delivered_seconds_by_resolution"
+      r: true
+      sh: "Seconds delivered broken into resolution tiers."
+      t: "`$OBJECT`"
+    }
+    live_stream_id: {
+      h: "Live Stream Id"
+      n: "live_stream_id"
+      r: false
+      sh: "Unique identifier for the live stream that created the asset."
+      t: "`$STRING`"
+    }
+    passthrough: {
+      h: "Passthrough"
+      n: "passthrough"
+      r: false
+      sh: "The `passthrough` value for the asset."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "list_delivery_usage"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/delivery-usage"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "asset_id"
+                or: "asset_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 100
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/delivery-usage"
+          q: {
+            exist: [
+              "asset_id"
+              "limit"
+              "live_stream_id"
+              "page"
+              "timeframe"
+            ]
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "delivery-usage"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

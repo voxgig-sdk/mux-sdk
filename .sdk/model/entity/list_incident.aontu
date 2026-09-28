@@ -1,0 +1,241 @@
+# Entity: list_incident
+
+main: kit: entity: list_incident: {
+
+  alias: field: {}
+
+  fields: {
+    affected_views: {
+      fo: "int64"
+      h: "Affected Views"
+      n: "affected_views"
+      r: true
+      t: "`$INTEGER`"
+    }
+    affected_views_per_hour: {
+      fo: "int64"
+      h: "Affected Views Per Hour"
+      n: "affected_views_per_hour"
+      r: true
+      t: "`$INTEGER`"
+    }
+    affected_views_per_hour_on_open: {
+      fo: "int64"
+      h: "Affected Views Per Hour On Open"
+      n: "affected_views_per_hour_on_open"
+      r: true
+      t: "`$INTEGER`"
+    }
+    breakdowns: {
+      h: "Breakdowns"
+      n: "breakdowns"
+      r: true
+      t: "`$ARRAY`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: true
+      t: "`$STRING`"
+    }
+    error_description: {
+      h: "Error Description"
+      n: "error_description"
+      r: true
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    impact: {
+      h: "Impact"
+      n: "impact"
+      r: true
+      t: "`$STRING`"
+    }
+    incident_key: {
+      h: "Incident Key"
+      n: "incident_key"
+      r: true
+      t: "`$STRING`"
+    }
+    measured_value: {
+      fo: "double"
+      h: "Measured Value"
+      n: "measured_value"
+      r: true
+      t: "`$NUMBER`"
+    }
+    measured_value_on_close: {
+      fo: "double"
+      h: "Measured Value On Close"
+      n: "measured_value_on_close"
+      r: true
+      t: "`$NUMBER`"
+    }
+    measurement: {
+      h: "Measurement"
+      n: "measurement"
+      r: true
+      t: "`$STRING`"
+    }
+    notification_rules: {
+      h: "Notification Rules"
+      n: "notification_rules"
+      r: true
+      t: "`$ARRAY`"
+    }
+    notifications: {
+      h: "Notifications"
+      n: "notifications"
+      r: true
+      t: "`$ARRAY`"
+    }
+    resolved_at: {
+      h: "Resolved At"
+      n: "resolved_at"
+      r: true
+      t: "`$STRING`"
+    }
+    sample_size: {
+      fo: "int64"
+      h: "Sample Size"
+      n: "sample_size"
+      r: true
+      t: "`$INTEGER`"
+    }
+    sample_size_unit: {
+      h: "Sample Size Unit"
+      n: "sample_size_unit"
+      r: true
+      t: "`$STRING`"
+    }
+    severity: {
+      h: "Severity"
+      n: "severity"
+      r: true
+      t: "`$STRING`"
+    }
+    started_at: {
+      h: "Started At"
+      n: "started_at"
+      r: true
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      t: "`$STRING`"
+    }
+    threshold: {
+      fo: "double"
+      h: "Threshold"
+      n: "threshold"
+      r: true
+      t: "`$NUMBER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "list_incident"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/incidents"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order_direction"
+                or: "order_direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "severity"
+                or: "severity"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/incidents"
+          q: {
+            exist: [
+              "limit"
+              "order_by"
+              "order_direction"
+              "page"
+              "severity"
+              "status"
+            ]
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "incidents"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

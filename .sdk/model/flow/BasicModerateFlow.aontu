@@ -1,0 +1,40 @@
+# BasicModerateFlow
+
+main: kit: flow: BasicModerateFlow:
+{
+  entity: "moderate",
+  kind: "basic",
+  name: "BasicModerateFlow",
+  step: [
+    {
+      i: {
+        ref: "moderate_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "moderate_ref01",
+        srcdatavar: "moderate_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "moderate01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-moderate_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicModerateFlow"
+}

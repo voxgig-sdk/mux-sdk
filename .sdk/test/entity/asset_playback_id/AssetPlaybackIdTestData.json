@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "asset_playback_id": {
+      "ASSET_PLAYBACK_ID00": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "id": "ASSET_PLAYBACK_ID00",
+        "policy": "s20",
+        "asset_id": "ASSET01"
+      },
+      "ASSET_PLAYBACK_ID01": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "id": "ASSET_PLAYBACK_ID01",
+        "policy": "s3e",
+        "asset_id": "ASSET01"
+      },
+      "ASSET_PLAYBACK_ID02": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "id": "ASSET_PLAYBACK_ID02",
+        "policy": "s5c",
+        "asset_id": "ASSET01"
+      }
+    }
+  },
+  "new": {
+    "asset_playback_id": {
+      "asset_playback_id_ref01": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "policy": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "GET /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

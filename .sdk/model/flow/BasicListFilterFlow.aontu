@@ -1,0 +1,22 @@
+# BasicListFilterFlow
+
+main: kit: flow: BasicListFilterFlow:
+{
+  entity: "list_filter",
+  kind: "basic",
+  name: "BasicListFilterFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_filter_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListFilterFlow"
+}

@@ -1,0 +1,60 @@
+# Entity: list_real_time_metric
+
+main: kit: entity: list_real_time_metric: {
+
+  alias: field: {}
+
+  fields: {
+    display_name: {
+      h: "Display Name"
+      n: "display_name"
+      r: true
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "list_real_time_metric"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/realtime/metrics"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/data/v1/realtime/metrics"
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "realtime"
+            }
+            {
+              lit: "metrics"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

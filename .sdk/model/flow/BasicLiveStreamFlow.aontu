@@ -1,0 +1,76 @@
+# BasicLiveStreamFlow
+
+main: kit: flow: BasicLiveStreamFlow:
+{
+  entity: "live_stream",
+  kind: "basic",
+  name: "BasicLiveStreamFlow",
+  step: [
+    {
+      i: {
+        ref: "live_stream_ref01"
+      }
+
+      m: {
+        live_stream_id: "live_stream01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "live_stream_ref01",
+        srcdatavar: "live_stream_ref01_data",
+        suffix: "_up0",
+        textfield: "active_asset_id"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-live_stream_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "live_stream_ref01",
+        srcdatavar: "live_stream_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "live_stream01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-live_stream_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "live_stream_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "live_stream01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicLiveStreamFlow"
+}

@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "simulcast_target": {
+      "SIMULCAST_TARGET00": {
+        "error_severity": "s3c",
+        "id": "SIMULCAST_TARGET00",
+        "passthrough": "s3e",
+        "status": "s3f",
+        "stream_key": "s40",
+        "url": "s41",
+        "live_stream_id": "LIVE_STREAM01"
+      },
+      "SIMULCAST_TARGET01": {
+        "error_severity": "s78",
+        "id": "SIMULCAST_TARGET01",
+        "passthrough": "s7a",
+        "status": "s7b",
+        "stream_key": "s7c",
+        "url": "s7d",
+        "live_stream_id": "LIVE_STREAM01"
+      },
+      "SIMULCAST_TARGET02": {
+        "error_severity": "sb4",
+        "id": "SIMULCAST_TARGET02",
+        "passthrough": "sb6",
+        "status": "sb7",
+        "stream_key": "sb8",
+        "url": "sb9",
+        "live_stream_id": "LIVE_STREAM01"
+      }
+    }
+  },
+  "new": {
+    "simulcast_target": {
+      "simulcast_target_ref01": {
+        "error_severity": "sf0",
+        "passthrough": "sf2",
+        "status": "sf3",
+        "stream_key": "sf4",
+        "url": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "POST /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

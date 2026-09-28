@@ -1,0 +1,1310 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>FindBestThumbnail | Mux API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Mux API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/mux-sdk">voxgig-sdk/mux-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Mux API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/annotation.html">Annotation</a>
+<a href="../api/ask_question.html">AskQuestion</a>
+<a href="../api/asset.html">Asset</a>
+<a href="../api/asset_or_live_stream_id.html">AssetOrLiveStreamId</a>
+<a href="../api/asset_playback_id.html">AssetPlaybackId</a>
+<a href="../api/asset_shot.html">AssetShot</a>
+<a href="../api/create_playback_id.html">CreatePlaybackId</a>
+<a href="../api/create_track.html">CreateTrack</a>
+<a href="../api/directive.html">Directive</a>
+<a href="../api/directive_run_detail.html">DirectiveRunDetail</a>
+<a href="../api/directive_run_list.html">DirectiveRunList</a>
+<a href="../api/drm_configuration.html">DrmConfiguration</a>
+<a href="../api/edit_caption.html">EditCaption</a>
+<a href="../api/engagement_heatmap.html">EngagementHeatmap</a>
+<a href="../api/engagement_hotspot.html">EngagementHotspot</a>
+<a aria-current="page" href="../api/find_best_thumbnail.html">FindBestThumbnail</a><div class="nav-sections"><a class="nav-section" href="#post-robotsv0jobsfind-best-thumbnails">POST /robots/v0/jobs/find-best-thumbnails</a>
+<a class="nav-section" href="#get-robotsv0jobsfind-best-thumbnailsjob_id">GET /robots/v0/jobs/find-best-thumbnails/{JOB_ID}</a></div>
+<a href="../api/find_key_moment.html">FindKeyMoment</a>
+<a href="../api/find_scene.html">FindScene</a>
+<a href="../api/generate_asset_shot.html">GenerateAssetShot</a>
+<a href="../api/generate_chapter.html">GenerateChapter</a>
+<a href="../api/generate_engagement_insight.html">GenerateEngagementInsight</a>
+<a href="../api/generate_premium_caption.html">GeneratePremiumCaption</a>
+<a href="../api/generate_track_subtitle.html">GenerateTrackSubtitle</a>
+<a href="../api/incident.html">Incident</a>
+<a href="../api/input_info.html">InputInfo</a>
+<a href="../api/job_summary.html">JobSummary</a>
+<a href="../api/list_all_metric_value.html">ListAllMetricValue</a>
+<a href="../api/list_annotation.html">ListAnnotation</a>
+<a href="../api/list_asset.html">ListAsset</a>
+<a href="../api/list_breakdown_value.html">ListBreakdownValue</a>
+<a href="../api/list_delivery_usage.html">ListDeliveryUsage</a>
+<a href="../api/list_dimension.html">ListDimension</a>
+<a href="../api/list_dimension_value.html">ListDimensionValue</a>
+<a href="../api/list_drm_configuration.html">ListDrmConfiguration</a>
+<a href="../api/list_error.html">ListError</a>
+<a href="../api/list_export.html">ListExport</a>
+<a href="../api/list_filter.html">ListFilter</a>
+<a href="../api/list_filter_value.html">ListFilterValue</a>
+<a href="../api/list_incident.html">ListIncident</a>
+<a href="../api/list_insight.html">ListInsight</a>
+<a href="../api/list_job.html">ListJob</a>
+<a href="../api/list_live_stream.html">ListLiveStream</a>
+<a href="../api/list_monitoring_dimension.html">ListMonitoringDimension</a>
+<a href="../api/list_monitoring_metric.html">ListMonitoringMetric</a>
+<a href="../api/list_playback_restriction.html">ListPlaybackRestriction</a>
+<a href="../api/list_real_time_dimension.html">ListRealTimeDimension</a>
+<a href="../api/list_real_time_metric.html">ListRealTimeMetric</a>
+<a href="../api/list_related_incident.html">ListRelatedIncident</a>
+<a href="../api/list_signing_key.html">ListSigningKey</a>
+<a href="../api/list_subview_breakdown_value.html">ListSubviewBreakdownValue</a>
+<a href="../api/list_subview_comparison_value.html">ListSubviewComparisonValue</a>
+<a href="../api/list_subview_dimension.html">ListSubviewDimension</a>
+<a href="../api/list_subview_dimension_value.html">ListSubviewDimensionValue</a>
+<a href="../api/list_transcription_vocabulary.html">ListTranscriptionVocabulary</a>
+<a href="../api/list_upload.html">ListUpload</a>
+<a href="../api/list_usage_export.html">ListUsageExport</a>
+<a href="../api/list_video_view.html">ListVideoView</a>
+<a href="../api/list_video_view_export.html">ListVideoViewExport</a>
+<a href="../api/list_webhook.html">ListWebhook</a>
+<a href="../api/live_stream.html">LiveStream</a>
+<a href="../api/live_stream_playback_id.html">LiveStreamPlaybackId</a>
+<a href="../api/metric_timeseries_data.html">MetricTimeseriesData</a>
+<a href="../api/moderate.html">Moderate</a>
+<a href="../api/monitoring_breakdown.html">MonitoringBreakdown</a>
+<a href="../api/monitoring_breakdown_timeseries.html">MonitoringBreakdownTimeseries</a>
+<a href="../api/monitoring_histogram_timeseries.html">MonitoringHistogramTimeseries</a>
+<a href="../api/monitoring_timeseries.html">MonitoringTimeseries</a>
+<a href="../api/overall.html">Overall</a>
+<a href="../api/playback_restriction.html">PlaybackRestriction</a>
+<a href="../api/real_time_breakdown.html">RealTimeBreakdown</a>
+<a href="../api/real_time_histogram_timeseries.html">RealTimeHistogramTimeseries</a>
+<a href="../api/real_time_timeseries.html">RealTimeTimeseries</a>
+<a href="../api/signal_live_stream_complete.html">SignalLiveStreamComplete</a>
+<a href="../api/signing_key.html">SigningKey</a>
+<a href="../api/simulcast_target.html">SimulcastTarget</a>
+<a href="../api/static_rendition.html">StaticRendition</a>
+<a href="../api/subview_breakdown_timeseries.html">SubviewBreakdownTimeseries</a>
+<a href="../api/subview_overall_value.html">SubviewOverallValue</a>
+<a href="../api/summarize.html">Summarize</a>
+<a href="../api/transcription_vocabulary.html">TranscriptionVocabulary</a>
+<a href="../api/translate_audio.html">TranslateAudio</a>
+<a href="../api/translate_caption.html">TranslateCaption</a>
+<a href="../api/update_asset_track.html">UpdateAssetTrack</a>
+<a href="../api/upload.html">Upload</a>
+<a href="../api/url_signing_key.html">UrlSigningKey</a>
+<a href="../api/video_view.html">VideoView</a>
+<a href="../api/webhook.html">Webhook</a>
+<a href="../api/who_am_i.html">WhoAmI</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="findbestthumbnail">FindBestThumbnail</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-robotsv0jobsfind-best-thumbnails"><code>/robots/v0/jobs/find-best-thumbnails</code></a></td>
+<td><code>create</code></td>
+<td>Find best thumbnails job queued</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-robotsv0jobsfind-best-thumbnailsjob_id"><code>/robots/v0/jobs/find-best-thumbnails/{JOB_ID}</code></a></td>
+<td><code>load</code></td>
+<td>Find best thumbnails job state</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">find_best_thumbnail, err := client.FindBestThumbnail(nil).Load(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(find_best_thumbnail)
+created, err := client.FindBestThumbnail(nil).Create(map[string]any{&quot;created_at&quot;: 1, &quot;directive&quot;: map[string]any{}, &quot;id&quot;: &quot;example&quot;, &quot;outputs&quot;: map[string]any{}, &quot;parameters&quot;: map[string]any{}, &quot;resources&quot;: map[string]any{}, &quot;status&quot;: &quot;example&quot;, &quot;units_consumed&quot;: 1, &quot;updated_at&quot;: 1, &quot;workflow&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local find_best_thumbnail, err = client:FindBestThumbnail():load({ id = &quot;example_id&quot; })
+local created, err = client:FindBestThumbnail():create({ created_at = 1, directive = {}, id = &quot;example&quot;, outputs = {}, parameters = {}, resources = {}, status = &quot;example&quot;, units_consumed = 1, updated_at = 1, workflow = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$find_best_thumbnail = $client-&gt;FindBestThumbnail()-&gt;load([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+$created = $client-&gt;FindBestThumbnail()-&gt;create([&quot;created_at&quot; =&gt; 1, &quot;directive&quot; =&gt; [], &quot;id&quot; =&gt; &quot;example&quot;, &quot;outputs&quot; =&gt; [], &quot;parameters&quot; =&gt; [], &quot;resources&quot; =&gt; [], &quot;status&quot; =&gt; &quot;example&quot;, &quot;units_consumed&quot; =&gt; 1, &quot;updated_at&quot; =&gt; 1, &quot;workflow&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">find_best_thumbnail = client.FindBestThumbnail().load({&quot;id&quot;: &quot;example_id&quot;})
+created = client.FindBestThumbnail().create({ &quot;created_at&quot;: 1, &quot;directive&quot;: {}, &quot;id&quot;: &quot;example&quot;, &quot;outputs&quot;: {}, &quot;parameters&quot;: {}, &quot;resources&quot;: {}, &quot;status&quot;: &quot;example&quot;, &quot;units_consumed&quot;: 1, &quot;updated_at&quot;: 1, &quot;workflow&quot;: &quot;example&quot; })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">find_best_thumbnail = client.FindBestThumbnail.load({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+created = client.FindBestThumbnail.create({ &quot;created_at&quot; =&gt; 1, &quot;directive&quot; =&gt; {}, &quot;id&quot; =&gt; &quot;example&quot;, &quot;outputs&quot; =&gt; {}, &quot;parameters&quot; =&gt; {}, &quot;resources&quot; =&gt; {}, &quot;status&quot; =&gt; &quot;example&quot;, &quot;units_consumed&quot; =&gt; 1, &quot;updated_at&quot; =&gt; 1, &quot;workflow&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const find_best_thumbnail = await client.FindBestThumbnail().load({ id: &quot;example_id&quot; })
+const created = await client.FindBestThumbnail().create({ created_at: 1, directive: {}, id: &quot;example&quot;, outputs: {}, parameters: {}, resources: {}, status: &quot;example&quot;, units_consumed: 1, updated_at: 1, workflow: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>created_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) when the job was created.</td>
+</tr>
+<tr>
+<td><code>directive</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>The directive run that dispatched this job.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Error details.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique job identifier.</td>
+</tr>
+<tr>
+<td><code>outputs</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Workflow results.</td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Parameters</td>
+</tr>
+<tr>
+<td><code>passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Arbitrary string supplied at creation, returned as-is.</td>
+</tr>
+<tr>
+<td><code>resources</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Related Mux resources linked to this job.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Current job status.</td>
+</tr>
+<tr>
+<td><code>units_consumed</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of Mux AI units consumed by this job.</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) of the job's last state transition (for example</td>
+</tr>
+<tr>
+<td><code>workflow</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Workflow</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-robotsv0jobsfind-best-thumbnails" class="operation" data-method="post"><code>POST</code> /robots/v0/jobs/find-best-thumbnails</h3>
+<p>Operation ID: <code>create-find-best-thumbnails-job</code>.</p>
+<p>Authentication: basic token (<code>accessToken</code>) or bearer token (<code>authorizationToken</code>).</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>parameters</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>parameters.asset_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Mux asset ID.</td>
+</tr>
+<tr>
+<td><code>parameters.max_thumbnails</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum number of candidate thumbnails to return (1-5). Defaults to 1.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Curated <code>output_steering</code> controls for execution scope, thumbnail scoring strategy, explicit user intent, audience, campaign style, and scoring priorities. Scope is enforced; other controls guide model behavior but do not guarantee exact output.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.audience</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Intended audience used as best-effort scoring guidance. Does not change the output schema.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.campaign_style</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Short description of the campaign/channel thumbnail style to prefer when supported by the frame.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.looking_for</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Open-ended description of what the user is explicitly looking for in candidate thumbnails. Best-effort guidance only.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.scope</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.scoring_priorities</code></td>
+<td><code>array of enum: focus, face_or_action, composition, contrast_color, brand_fit</code></td>
+<td>No</td>
+<td>Rubric criteria to emphasize in close calls. Best-effort guidance only.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.selection_strategy</code></td>
+<td><code>enum: face_or_action, clean_composition, high_contrast, brand_safe, campaign_thumbnail</code></td>
+<td>No</td>
+<td>Best-effort guidance for what kind of thumbnail candidate should score highest.</td>
+</tr>
+<tr>
+<td><code>parameters.update_asset_thumbnail</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, the highest-scoring thumbnail's timestamp is written to the Mux asset's <code>thumbnail_time</code> once the job completes, making that frame the asset's default poster image. The new thumbnail will appear for some clients sooner than others, depending on local cache settings.</td>
+</tr>
+<tr>
+<td><code>passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Arbitrary string stored with the job and returned in responses. Useful for correlating jobs with your own systems.</td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;parameters&quot;: {
+    &quot;asset_id&quot;: &quot;mux_asset_123abc&quot;,
+    &quot;max_thumbnails&quot;: 3,
+    &quot;output_steering&quot;: {
+      &quot;scope&quot;: {
+        &quot;end_time&quot;: 180,
+        &quot;start_time&quot;: 30
+      },
+      &quot;scoring_priorities&quot;: [
+        &quot;composition&quot;,
+        &quot;brand_fit&quot;
+      ],
+      &quot;selection_strategy&quot;: &quot;campaign_thumbnail&quot;
+    },
+    &quot;update_asset_thumbnail&quot;: true
+  }
+}
+</code></pre>
+<h4 id="responses">Responses</h4>
+<h5 id="202-find-best-thumbnails-job-queued" class="status" data-status="2xx">202: Find best thumbnails job queued</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.created_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) when the job was created.</td>
+</tr>
+<tr>
+<td><code>data.directive</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The directive run that dispatched this job. Absent for jobs created via direct API POST.</td>
+</tr>
+<tr>
+<td><code>data.directive.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ID of the directive that dispatched this job.</td>
+</tr>
+<tr>
+<td><code>data.directive.run_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ID of the specific directive run that dispatched this job.</td>
+</tr>
+<tr>
+<td><code>data.errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Error details. Present when status is 'errored'.</td>
+</tr>
+<tr>
+<td><code>data.errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable public error message.</td>
+</tr>
+<tr>
+<td><code>data.errors[].retryable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether retrying this job may resolve the error.</td>
+</tr>
+<tr>
+<td><code>data.errors[].type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Stable public error category identifier.</td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique job identifier.</td>
+</tr>
+<tr>
+<td><code>data.outputs</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Workflow results. Present when status is 'completed'.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Selected candidate thumbnails from the original asset timeline, ordered best to worst by overall quality score.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].alt_text</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Suggested alternative text for the candidate thumbnail image, suitable for use with the thumbnail URL in an accessible UI.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>AI-generated description of the frame content.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].overall</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Overall quality score from 0 to 1.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Per-category quality scores.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores.brand_fit</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Alignment with brand guidelines score (0-1).</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores.composition</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Visual composition and framing quality score (0-1).</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores.contrast_color</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Color contrast and vibrancy score (0-1).</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores.face_or_action</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Presence of faces or dynamic action score (0-1).</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores.focus</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Sharpness and focus quality score (0-1).</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].timestamp_ms</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Absolute frame timestamp in whole milliseconds on the original asset timeline.</td>
+</tr>
+<tr>
+<td><code>data.parameters</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.parameters.asset_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Mux asset ID.</td>
+</tr>
+<tr>
+<td><code>data.parameters.max_thumbnails</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum number of candidate thumbnails to return (1-5). Defaults to 1.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Curated <code>output_steering</code> controls for execution scope, thumbnail scoring strategy, explicit user intent, audience, campaign style, and scoring priorities. Scope is enforced; other controls guide model behavior but do not guarantee exact output.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.audience</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Intended audience used as best-effort scoring guidance. Does not change the output schema.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.campaign_style</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Short description of the campaign/channel thumbnail style to prefer when supported by the frame.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.looking_for</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Open-ended description of what the user is explicitly looking for in candidate thumbnails. Best-effort guidance only.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.scope</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.scoring_priorities</code></td>
+<td><code>array of enum: focus, face_or_action, composition, contrast_color, brand_fit</code></td>
+<td>No</td>
+<td>Rubric criteria to emphasize in close calls. Best-effort guidance only.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.selection_strategy</code></td>
+<td><code>enum: face_or_action, clean_composition, high_contrast, brand_safe, campaign_thumbnail</code></td>
+<td>No</td>
+<td>Best-effort guidance for what kind of thumbnail candidate should score highest.</td>
+</tr>
+<tr>
+<td><code>data.parameters.update_asset_thumbnail</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, the highest-scoring thumbnail's timestamp is written to the Mux asset's <code>thumbnail_time</code> once the job completes, making that frame the asset's default poster image. The new thumbnail will appear for some clients sooner than others, depending on local cache settings.</td>
+</tr>
+<tr>
+<td><code>data.passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Arbitrary string supplied at creation, returned as-is.</td>
+</tr>
+<tr>
+<td><code>data.resources</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Related Mux resources linked to this job.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Mux assets associated with this job.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[]._links</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Hypermedia links for the asset.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[]._links.self</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Mux asset ID.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Mux asset metadata, if available.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.creator_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Creator identifier from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.external_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>External identifier from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Asset title from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Passthrough string from the Mux asset.</td>
+</tr>
+<tr>
+<td><code>data.status</code></td>
+<td><code>enum: pending, processing, completed, errored, cancelled</code></td>
+<td>Yes</td>
+<td>Current job status.</td>
+</tr>
+<tr>
+<td><code>data.units_consumed</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of Mux AI units consumed by this job.</td>
+</tr>
+<tr>
+<td><code>data.updated_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) of the job's last state transition (for example when it started processing or reached a terminal state).</td>
+</tr>
+<tr>
+<td><code>data.workflow</code></td>
+<td><code>enum: find-best-thumbnails</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;created_at&quot;: 1700000000,
+    &quot;id&quot;: &quot;rjob_example123&quot;,
+    &quot;parameters&quot;: {
+      &quot;asset_id&quot;: &quot;mux_asset_123abc&quot;,
+      &quot;max_thumbnails&quot;: 3,
+      &quot;output_steering&quot;: {
+        &quot;scope&quot;: {
+          &quot;end_time&quot;: 180,
+          &quot;start_time&quot;: 30
+        },
+        &quot;scoring_priorities&quot;: [
+          &quot;composition&quot;,
+          &quot;brand_fit&quot;
+        ],
+        &quot;selection_strategy&quot;: &quot;campaign_thumbnail&quot;
+      },
+      &quot;update_asset_thumbnail&quot;: true
+    },
+    &quot;status&quot;: &quot;pending&quot;,
+    &quot;units_consumed&quot;: 0,
+    &quot;updated_at&quot;: 1700000060,
+    &quot;workflow&quot;: &quot;find-best-thumbnails&quot;
+  }
+}
+</code></pre>
+<h5 id="401-missing-mux-credentials" class="status" data-status="4xx">401: Missing Mux credentials</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-robots-is-not-enabled-for-this-environment-accept-the-robots-beta-terms-in-the-mux-dashboard-to-enable-access-or-a-free-plan-limit-has-prevented-job-creation" class="status" data-status="4xx">403: Robots is not enabled for this environment (accept the Robots beta terms in the Mux Dashboard to enable access), or a free-plan limit has prevented job creation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="409-a-job-with-the-same-workflow-and-parameters-is-already-pending-or-processing-for-this-environment" class="status" data-status="4xx">409: A job with the same workflow and parameters is already pending or processing for this environment</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="422-asset-not-found-not-a-video-asset-missing-public-or-signed-playback-id-or-scope-does-not-contain-a-whole-millisecond-interval-within-the-asset" class="status" data-status="4xx">422: Asset not found, not a video asset, missing public or signed playback ID, or scope does not contain a whole-millisecond interval within the asset</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-server-error" class="status" data-status="5xx">500: Server error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-robotsv0jobsfind-best-thumbnailsjob_id" class="operation" data-method="get"><code>GET</code> /robots/v0/jobs/find-best-thumbnails/{JOB_ID}</h3>
+<p>Operation ID: <code>get-find-best-thumbnails-job</code>.</p>
+<p>Authentication: basic token (<code>accessToken</code>) or bearer token (<code>authorizationToken</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>JOB_ID</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-find-best-thumbnails-job-state" class="status" data-status="2xx">200: Find best thumbnails job state</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.created_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) when the job was created.</td>
+</tr>
+<tr>
+<td><code>data.directive</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The directive run that dispatched this job. Absent for jobs created via direct API POST.</td>
+</tr>
+<tr>
+<td><code>data.directive.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ID of the directive that dispatched this job.</td>
+</tr>
+<tr>
+<td><code>data.directive.run_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ID of the specific directive run that dispatched this job.</td>
+</tr>
+<tr>
+<td><code>data.errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Error details. Present when status is 'errored'.</td>
+</tr>
+<tr>
+<td><code>data.errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable public error message.</td>
+</tr>
+<tr>
+<td><code>data.errors[].retryable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether retrying this job may resolve the error.</td>
+</tr>
+<tr>
+<td><code>data.errors[].type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Stable public error category identifier.</td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique job identifier.</td>
+</tr>
+<tr>
+<td><code>data.outputs</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Workflow results. Present when status is 'completed'.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Selected candidate thumbnails from the original asset timeline, ordered best to worst by overall quality score.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].alt_text</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Suggested alternative text for the candidate thumbnail image, suitable for use with the thumbnail URL in an accessible UI.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>AI-generated description of the frame content.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].overall</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Overall quality score from 0 to 1.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Per-category quality scores.</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores.brand_fit</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Alignment with brand guidelines score (0-1).</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores.composition</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Visual composition and framing quality score (0-1).</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores.contrast_color</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Color contrast and vibrancy score (0-1).</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores.face_or_action</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Presence of faces or dynamic action score (0-1).</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].subscores.focus</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Sharpness and focus quality score (0-1).</td>
+</tr>
+<tr>
+<td><code>data.outputs.best_thumbnails[].timestamp_ms</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Absolute frame timestamp in whole milliseconds on the original asset timeline.</td>
+</tr>
+<tr>
+<td><code>data.parameters</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.parameters.asset_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Mux asset ID.</td>
+</tr>
+<tr>
+<td><code>data.parameters.max_thumbnails</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum number of candidate thumbnails to return (1-5). Defaults to 1.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Curated <code>output_steering</code> controls for execution scope, thumbnail scoring strategy, explicit user intent, audience, campaign style, and scoring priorities. Scope is enforced; other controls guide model behavior but do not guarantee exact output.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.audience</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Intended audience used as best-effort scoring guidance. Does not change the output schema.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.campaign_style</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Short description of the campaign/channel thumbnail style to prefer when supported by the frame.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.looking_for</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Open-ended description of what the user is explicitly looking for in candidate thumbnails. Best-effort guidance only.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.scope</code></td>
+<td><code>object and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.scoring_priorities</code></td>
+<td><code>array of enum: focus, face_or_action, composition, contrast_color, brand_fit</code></td>
+<td>No</td>
+<td>Rubric criteria to emphasize in close calls. Best-effort guidance only.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.selection_strategy</code></td>
+<td><code>enum: face_or_action, clean_composition, high_contrast, brand_safe, campaign_thumbnail</code></td>
+<td>No</td>
+<td>Best-effort guidance for what kind of thumbnail candidate should score highest.</td>
+</tr>
+<tr>
+<td><code>data.parameters.update_asset_thumbnail</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, the highest-scoring thumbnail's timestamp is written to the Mux asset's <code>thumbnail_time</code> once the job completes, making that frame the asset's default poster image. The new thumbnail will appear for some clients sooner than others, depending on local cache settings.</td>
+</tr>
+<tr>
+<td><code>data.passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Arbitrary string supplied at creation, returned as-is.</td>
+</tr>
+<tr>
+<td><code>data.resources</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Related Mux resources linked to this job.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Mux assets associated with this job.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[]._links</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Hypermedia links for the asset.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[]._links.self</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Mux asset ID.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Mux asset metadata, if available.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.creator_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Creator identifier from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.external_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>External identifier from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Asset title from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Passthrough string from the Mux asset.</td>
+</tr>
+<tr>
+<td><code>data.status</code></td>
+<td><code>enum: pending, processing, completed, errored, cancelled</code></td>
+<td>Yes</td>
+<td>Current job status.</td>
+</tr>
+<tr>
+<td><code>data.units_consumed</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of Mux AI units consumed by this job.</td>
+</tr>
+<tr>
+<td><code>data.updated_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) of the job's last state transition (for example when it started processing or reached a terminal state).</td>
+</tr>
+<tr>
+<td><code>data.workflow</code></td>
+<td><code>enum: find-best-thumbnails</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="401-missing-mux-credentials-1" class="status" data-status="4xx">401: Missing Mux credentials</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-robots-is-not-enabled-for-this-environment-accept-the-robots-beta-terms-in-the-mux-dashboard-to-enable-access" class="status" data-status="4xx">403: Robots is not enabled for this environment. Accept the Robots beta terms in the Mux Dashboard to enable access</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-no-job-exists-for-the-supplied-id" class="status" data-status="4xx">404: No job exists for the supplied id</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-server-error-1" class="status" data-status="5xx">500: Server error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

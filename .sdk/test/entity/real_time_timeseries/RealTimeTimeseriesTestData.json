@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "real_time_timeseries": {
+      "REAL_TIME_TIMESERIES00": {
+        "concurrent_viewers": 30,
+        "date": "s1f",
+        "value": 32,
+        "realtime_metric_id": "REALTIME_METRIC01"
+      },
+      "REAL_TIME_TIMESERIES01": {
+        "concurrent_viewers": 60,
+        "date": "s3d",
+        "value": 62,
+        "realtime_metric_id": "REALTIME_METRIC01"
+      },
+      "REAL_TIME_TIMESERIES02": {
+        "concurrent_viewers": 90,
+        "date": "s5b",
+        "value": 92,
+        "realtime_metric_id": "REALTIME_METRIC01"
+      }
+    }
+  },
+  "new": {
+    "real_time_timeseries": {
+      "real_time_timeseries_ref01": {
+        "concurrent_viewers": 120,
+        "date": "s79",
+        "value": 122
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

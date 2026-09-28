@@ -1,0 +1,85 @@
+# Entity: list_subview_dimension
+
+main: kit: entity: list_subview_dimension: {
+
+  alias: field: {}
+
+  fields: {
+    subview: {
+      h: "Subview"
+      n: "subview"
+      r: true
+      t: "`$ARRAY`"
+    }
+    view: {
+      h: "View"
+      n: "view"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "list_subview_dimension"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "rendition"
+                k: "param"
+                n: "subview_type"
+                or: "subview_type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions"
+          q: {
+            exist: [
+              "subview_type"
+            ]
+          }
+          r: {
+            param: {
+              SUBVIEW_TYPE: "subview_type"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "subview-metrics"
+            }
+            {
+              var: "subview_type"
+            }
+            {
+              lit: "dimensions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

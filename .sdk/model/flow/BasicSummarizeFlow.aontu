@@ -1,0 +1,40 @@
+# BasicSummarizeFlow
+
+main: kit: flow: BasicSummarizeFlow:
+{
+  entity: "summarize",
+  kind: "basic",
+  name: "BasicSummarizeFlow",
+  step: [
+    {
+      i: {
+        ref: "summarize_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "summarize_ref01",
+        srcdatavar: "summarize_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "summarize01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-summarize_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSummarizeFlow"
+}

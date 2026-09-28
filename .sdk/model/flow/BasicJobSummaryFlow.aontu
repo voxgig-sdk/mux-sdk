@@ -1,0 +1,22 @@
+# BasicJobSummaryFlow
+
+main: kit: flow: BasicJobSummaryFlow:
+{
+  entity: "job_summary",
+  kind: "basic",
+  name: "BasicJobSummaryFlow",
+  step: [
+    {
+      i: {
+        ref: "job_summary_ref01"
+      }
+
+      m: {
+        job_id: "job01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicJobSummaryFlow"
+}

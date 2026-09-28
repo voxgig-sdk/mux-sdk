@@ -1,0 +1,113 @@
+# Entity: list_playback_restriction
+
+main: kit: entity: list_playback_restriction: {
+
+  alias: field: {}
+
+  fields: {
+    created_at: {
+      fo: "int64"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch)."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for the Playback Restriction."
+      t: "`$STRING`"
+    }
+    referrer: {
+      h: "Referrer"
+      n: "referrer"
+      r: true
+      sh: "A list of domains allowed to play your videos."
+      t: "`$OBJECT`"
+    }
+    updated_at: {
+      fo: "int64"
+      h: "Updated At"
+      n: "updated_at"
+      r: true
+      sh: "Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch)."
+      t: "`$STRING`"
+    }
+    user_agent: {
+      h: "User Agent"
+      n: "user_agent"
+      r: true
+      sh: "Rules that control what user agents are allowed to play your videos."
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "list_playback_restriction"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/playback-restrictions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/playback-restrictions"
+          q: {
+            exist: [
+              "limit"
+              "page"
+            ]
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "playback-restrictions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

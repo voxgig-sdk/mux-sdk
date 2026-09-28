@@ -1,0 +1,263 @@
+# Entity: transcription_vocabulary
+
+main: kit: entity: transcription_vocabulary: {
+
+  alias: field: {}
+
+  fields: {
+    created_at: {
+      fo: "int64"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch)."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for the Transcription Vocabulary"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The user-supplied name of the Transcription Vocabulary."
+      t: "`$STRING`"
+    }
+    passthrough: {
+      h: "Passthrough"
+      n: "passthrough"
+      r: false
+      sh: "Arbitrary user-supplied metadata set for the Transcription Vocabulary."
+      t: "`$STRING`"
+    }
+    phrases: {
+      h: "Phrases"
+      n: "phrases"
+      op: {
+        create: {
+          req: true
+          type: "`$ARRAY`"
+        }
+        update: {
+          req: true
+          type: "`$ARRAY`"
+        }
+      }
+      r: false
+      sh: "Phrases, individual words, or proper names to include in the Transcription Vocabulary."
+      t: "`$ARRAY`"
+    }
+    updated_at: {
+      fo: "int64"
+      h: "Updated At"
+      n: "updated_at"
+      r: true
+      sh: "Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch)."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "transcription_vocabulary"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /video/v1/transcription-vocabularies"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/video/v1/transcription-vocabularies"
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transcription-vocabularies"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "transcription_vocabulary_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              TRANSCRIPTION_VOCABULARY_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transcription-vocabularies"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "transcription_vocabulary_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              TRANSCRIPTION_VOCABULARY_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transcription-vocabularies"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "transcription_vocabulary_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              TRANSCRIPTION_VOCABULARY_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transcription-vocabularies"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,22 @@
+# BasicListMonitoringDimensionFlow
+
+main: kit: flow: BasicListMonitoringDimensionFlow:
+{
+  entity: "list_monitoring_dimension",
+  kind: "basic",
+  name: "BasicListMonitoringDimensionFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_monitoring_dimension_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListMonitoringDimensionFlow"
+}

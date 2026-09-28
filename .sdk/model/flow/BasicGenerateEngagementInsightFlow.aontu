@@ -1,0 +1,40 @@
+# BasicGenerateEngagementInsightFlow
+
+main: kit: flow: BasicGenerateEngagementInsightFlow:
+{
+  entity: "generate_engagement_insight",
+  kind: "basic",
+  name: "BasicGenerateEngagementInsightFlow",
+  step: [
+    {
+      i: {
+        ref: "generate_engagement_insight_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "generate_engagement_insight_ref01",
+        srcdatavar: "generate_engagement_insight_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "generate_engagement_insight01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-generate_engagement_insight_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGenerateEngagementInsightFlow"
+}

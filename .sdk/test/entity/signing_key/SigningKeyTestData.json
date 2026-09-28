@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "signing_key": {
+      "SIGNING_KEY00": {
+        "created_at": "s28",
+        "data": {},
+        "id": "SIGNING_KEY00",
+        "private_key": "s2b"
+      },
+      "SIGNING_KEY01": {
+        "created_at": "s50",
+        "data": {},
+        "id": "SIGNING_KEY01",
+        "private_key": "s53"
+      },
+      "SIGNING_KEY02": {
+        "created_at": "s78",
+        "data": {},
+        "id": "SIGNING_KEY02",
+        "private_key": "s7b"
+      }
+    }
+  },
+  "new": {
+    "signing_key": {
+      "signing_key_ref01": {
+        "created_at": "sa0",
+        "data": {},
+        "private_key": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /system/v1/signing-keys": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /video/v1/signing-keys": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /system/v1/signing-keys/{SIGNING_KEY_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /video/v1/signing-keys/{SIGNING_KEY_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /system/v1/signing-keys/{SIGNING_KEY_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

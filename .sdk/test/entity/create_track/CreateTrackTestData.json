@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "create_track": {
+      "CREATE_TRACK00": {
+        "closed_captions": true,
+        "language_code": "s47",
+        "name": "s48",
+        "passthrough": "s49",
+        "text_type": "s4a",
+        "type": "s4b",
+        "url": "s4c",
+        "asset_id": "ASSET01",
+        "id": "CREATE_TRACK00"
+      },
+      "CREATE_TRACK01": {
+        "closed_captions": true,
+        "language_code": "s8d",
+        "name": "s8e",
+        "passthrough": "s8f",
+        "text_type": "s90",
+        "type": "s91",
+        "url": "s92",
+        "asset_id": "ASSET01",
+        "id": "CREATE_TRACK01"
+      },
+      "CREATE_TRACK02": {
+        "closed_captions": true,
+        "language_code": "sd3",
+        "name": "sd4",
+        "passthrough": "sd5",
+        "text_type": "sd6",
+        "type": "sd7",
+        "url": "sd8",
+        "asset_id": "ASSET01",
+        "id": "CREATE_TRACK02"
+      }
+    }
+  },
+  "new": {
+    "create_track": {
+      "create_track_ref01": {
+        "closed_captions": true,
+        "language_code": "s119",
+        "name": "s11a",
+        "passthrough": "s11b",
+        "text_type": "s11c",
+        "type": "s11d",
+        "url": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "POST /video/v1/assets/{ASSET_ID}/tracks": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

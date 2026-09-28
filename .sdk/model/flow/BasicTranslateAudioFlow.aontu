@@ -1,0 +1,40 @@
+# BasicTranslateAudioFlow
+
+main: kit: flow: BasicTranslateAudioFlow:
+{
+  entity: "translate_audio",
+  kind: "basic",
+  name: "BasicTranslateAudioFlow",
+  step: [
+    {
+      i: {
+        ref: "translate_audio_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "translate_audio_ref01",
+        srcdatavar: "translate_audio_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "translate_audio01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-translate_audio_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTranslateAudioFlow"
+}

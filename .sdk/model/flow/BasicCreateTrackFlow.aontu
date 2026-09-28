@@ -1,0 +1,22 @@
+# BasicCreateTrackFlow
+
+main: kit: flow: BasicCreateTrackFlow:
+{
+  entity: "create_track",
+  kind: "basic",
+  name: "BasicCreateTrackFlow",
+  step: [
+    {
+      i: {
+        ref: "create_track_ref01"
+      }
+
+      m: {
+        asset_id: "asset01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicCreateTrackFlow"
+}

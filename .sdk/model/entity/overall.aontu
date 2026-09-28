@@ -1,0 +1,132 @@
+# Entity: overall
+
+main: kit: entity: overall: {
+
+  alias: field: {}
+
+  fields: {
+    data: {
+      h: "Data"
+      n: "data"
+      r: true
+      t: "`$OBJECT`"
+    }
+    meta: {
+      h: "Meta"
+      n: "meta"
+      r: true
+      t: "`$OBJECT`"
+    }
+    timeframe: {
+      h: "Timeframe"
+      n: "timeframe"
+      r: true
+      t: "`$ARRAY`"
+    }
+    total_row_count: {
+      fo: "int64"
+      h: "Total Row Count"
+      n: "total_row_count"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "overall"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/metrics/{METRIC_ID}/overall"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "video_startup_time"
+                k: "param"
+                n: "metric_id"
+                or: "metric_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "measurement"
+                or: "measurement"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "metric_filter"
+                or: "metric_filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/metrics/{METRIC_ID}/overall"
+          q: {
+            exist: [
+              "filter"
+              "measurement"
+              "metric_filter"
+              "metric_id"
+              "timeframe"
+            ]
+          }
+          r: {
+            param: {
+              METRIC_ID: "metric_id"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              var: "metric_id"
+            }
+            {
+              lit: "overall"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

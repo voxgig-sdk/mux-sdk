@@ -1,0 +1,22 @@
+# BasicListUploadFlow
+
+main: kit: flow: BasicListUploadFlow:
+{
+  entity: "list_upload",
+  kind: "basic",
+  name: "BasicListUploadFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_upload_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListUploadFlow"
+}

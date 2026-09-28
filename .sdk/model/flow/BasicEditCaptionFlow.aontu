@@ -1,0 +1,40 @@
+# BasicEditCaptionFlow
+
+main: kit: flow: BasicEditCaptionFlow:
+{
+  entity: "edit_caption",
+  kind: "basic",
+  name: "BasicEditCaptionFlow",
+  step: [
+    {
+      i: {
+        ref: "edit_caption_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "edit_caption_ref01",
+        srcdatavar: "edit_caption_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "edit_caption01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-edit_caption_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEditCaptionFlow"
+}

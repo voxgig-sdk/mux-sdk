@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "monitoring_histogram_timeseries": {
+      "MONITORING_HISTOGRAM_TIMESERIES00": {
+        "average": 70,
+        "bucket_values": [],
+        "max_percentage": 72,
+        "median": 73,
+        "p95": 74,
+        "sum": 75,
+        "timestamp": "s4c",
+        "monitoring_histogram_metric_id": "MONITORING_HISTOGRAM_METRIC01"
+      },
+      "MONITORING_HISTOGRAM_TIMESERIES01": {
+        "average": 140,
+        "bucket_values": [],
+        "max_percentage": 142,
+        "median": 143,
+        "p95": 144,
+        "sum": 145,
+        "timestamp": "s92",
+        "monitoring_histogram_metric_id": "MONITORING_HISTOGRAM_METRIC01"
+      },
+      "MONITORING_HISTOGRAM_TIMESERIES02": {
+        "average": 210,
+        "bucket_values": [],
+        "max_percentage": 212,
+        "median": 213,
+        "p95": 214,
+        "sum": 215,
+        "timestamp": "sd8",
+        "monitoring_histogram_metric_id": "MONITORING_HISTOGRAM_METRIC01"
+      }
+    }
+  },
+  "new": {
+    "monitoring_histogram_timeseries": {
+      "monitoring_histogram_timeseries_ref01": {
+        "average": 280,
+        "bucket_values": [],
+        "max_percentage": 282,
+        "median": 283,
+        "p95": 284,
+        "sum": 285,
+        "timestamp": "s11e"
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

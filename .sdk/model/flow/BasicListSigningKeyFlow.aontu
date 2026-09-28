@@ -1,0 +1,22 @@
+# BasicListSigningKeyFlow
+
+main: kit: flow: BasicListSigningKeyFlow:
+{
+  entity: "list_signing_key",
+  kind: "basic",
+  name: "BasicListSigningKeyFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_signing_key_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListSigningKeyFlow"
+}

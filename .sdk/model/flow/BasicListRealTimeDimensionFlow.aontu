@@ -1,0 +1,22 @@
+# BasicListRealTimeDimensionFlow
+
+main: kit: flow: BasicListRealTimeDimensionFlow:
+{
+  entity: "list_real_time_dimension",
+  kind: "basic",
+  name: "BasicListRealTimeDimensionFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_real_time_dimension_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListRealTimeDimensionFlow"
+}

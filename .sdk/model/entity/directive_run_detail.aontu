@@ -1,0 +1,135 @@
+# Entity: directive_run_detail
+
+main: kit: entity: directive_run_detail: {
+
+  alias: field: {}
+
+  fields: {
+    completed_at: {
+      h: "Completed At"
+      n: "completed_at"
+      r: true
+      sh: "Unix timestamp (seconds) when the run reached terminal state."
+      t: [
+        "`$ONE`"
+        [
+          "`$INTEGER`"
+          "`$NULL`"
+        ]
+      ]
+    }
+    node_states: {
+      h: "Node States"
+      n: "node_states"
+      r: true
+      sh: "Per-binding status entries, one per binding, in the order the bindings appear in `directive.workflows[]`."
+      t: "`$ARRAY`"
+    }
+    run_id: {
+      h: "Run Id"
+      n: "run_id"
+      r: true
+      sh: "Unique run identifier (drvrun_...)."
+      t: "`$STRING`"
+    }
+    started_at: {
+      h: "Started At"
+      n: "started_at"
+      r: true
+      sh: "Unix timestamp (seconds) when the run started."
+      t: "`$INTEGER`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "Current run status."
+      t: "`$STRING`"
+    }
+    subject_id: {
+      h: "Subject Id"
+      n: "subject_id"
+      r: true
+      sh: "The bare Mux asset ID this run targeted."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "directive_run_detail"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /robots/v0/directives/{DIRECTIVE_ID}/runs/{RUN_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "directive_id"
+                or: "directive_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "run_id"
+                or: "run_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/robots/v0/directives/{DIRECTIVE_ID}/runs/{RUN_ID}"
+          q: {
+            exist: [
+              "directive_id"
+              "run_id"
+            ]
+          }
+          r: {
+            param: {
+              DIRECTIVE_ID: "directive_id"
+              RUN_ID: "run_id"
+            }
+          }
+          s: [
+            {
+              lit: "robots"
+            }
+            {
+              lit: "v0"
+            }
+            {
+              lit: "directives"
+            }
+            {
+              var: "directive_id"
+            }
+            {
+              lit: "runs"
+            }
+            {
+              var: "run_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.directive")]
+  ]
+
+}

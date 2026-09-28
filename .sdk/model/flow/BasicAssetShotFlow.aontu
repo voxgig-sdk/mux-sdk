@@ -1,0 +1,32 @@
+# BasicAssetShotFlow
+
+main: kit: flow: BasicAssetShotFlow:
+{
+  entity: "asset_shot",
+  kind: "basic",
+  name: "BasicAssetShotFlow",
+  step: [
+    {
+      i: {
+        ref: "asset_shot_ref01",
+        srcdatavar: "asset_shot_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "asset_shot01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-asset_shot_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAssetShotFlow"
+}

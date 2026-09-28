@@ -1,0 +1,120 @@
+# Entity: list_usage_export
+
+main: kit: entity: list_usage_export: {
+
+  alias: field: {}
+
+  fields: {
+    date: {
+      fo: "date"
+      h: "Date"
+      n: "date"
+      r: true
+      sh: "The calendar date this CSV covers, in `YYYY-MM-DD` format."
+      t: "`$STRING`"
+    }
+    download_url: {
+      h: "Download Url"
+      n: "download_url"
+      r: true
+      sh: "A pre-signed URL to download the CSV."
+      t: "`$STRING`"
+    }
+    download_url_expires_at: {
+      h: "Download Url Expires At"
+      n: "download_url_expires_at"
+      r: true
+      sh: "Unix timestamp (seconds since epoch) at which `download_url` expires."
+      t: "`$INTEGER`"
+    }
+    file_size: {
+      h: "File Size"
+      n: "file_size"
+      r: true
+      sh: "Uncompressed size of the CSV file in bytes."
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "list_usage_export"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /system/v1/usage/exports"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 3600
+                k: "query"
+                n: "download_url_ttl"
+                or: "download_url_ttl"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/system/v1/usage/exports"
+          q: {
+            exist: [
+              "download_url_ttl"
+              "limit"
+              "page"
+              "timeframe"
+            ]
+          }
+          s: [
+            {
+              lit: "system"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "usage"
+            }
+            {
+              lit: "exports"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

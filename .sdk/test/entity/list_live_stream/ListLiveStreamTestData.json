@@ -1,0 +1,120 @@
+{
+  "existing": {
+    "list_live_stream": {
+      "LIST_LIVE_STREAM00": {
+        "active_asset_id": "ACTIVE_ASSET01",
+        "active_ingest_protocol": "sf1",
+        "audio_only": true,
+        "created_at": "sf3",
+        "embedded_subtitles": [],
+        "generated_subtitles": [],
+        "id": "LIST_LIVE_STREAM00",
+        "latency_mode": "sf7",
+        "low_latency": true,
+        "max_continuous_duration": 249,
+        "meta": {},
+        "new_asset_settings": {},
+        "passthrough": "sfc",
+        "playback_ids": [],
+        "recent_asset_ids": [],
+        "reconnect_slate_url": "sff",
+        "reconnect_window": 256,
+        "reduced_latency": false,
+        "simulcast_targets": [],
+        "srt_passphrase": "s103",
+        "status": "s104",
+        "stream_key": "s105",
+        "test": true,
+        "use_slate_for_standard_latency": false
+      },
+      "LIST_LIVE_STREAM01": {
+        "active_asset_id": "ACTIVE_ASSET01",
+        "active_ingest_protocol": "s1e1",
+        "audio_only": true,
+        "created_at": "s1e3",
+        "embedded_subtitles": [],
+        "generated_subtitles": [],
+        "id": "LIST_LIVE_STREAM01",
+        "latency_mode": "s1e7",
+        "low_latency": true,
+        "max_continuous_duration": 489,
+        "meta": {},
+        "new_asset_settings": {},
+        "passthrough": "s1ec",
+        "playback_ids": [],
+        "recent_asset_ids": [],
+        "reconnect_slate_url": "s1ef",
+        "reconnect_window": 496,
+        "reduced_latency": false,
+        "simulcast_targets": [],
+        "srt_passphrase": "s1f3",
+        "status": "s1f4",
+        "stream_key": "s1f5",
+        "test": true,
+        "use_slate_for_standard_latency": false
+      },
+      "LIST_LIVE_STREAM02": {
+        "active_asset_id": "ACTIVE_ASSET01",
+        "active_ingest_protocol": "s2d1",
+        "audio_only": true,
+        "created_at": "s2d3",
+        "embedded_subtitles": [],
+        "generated_subtitles": [],
+        "id": "LIST_LIVE_STREAM02",
+        "latency_mode": "s2d7",
+        "low_latency": true,
+        "max_continuous_duration": 729,
+        "meta": {},
+        "new_asset_settings": {},
+        "passthrough": "s2dc",
+        "playback_ids": [],
+        "recent_asset_ids": [],
+        "reconnect_slate_url": "s2df",
+        "reconnect_window": 736,
+        "reduced_latency": false,
+        "simulcast_targets": [],
+        "srt_passphrase": "s2e3",
+        "status": "s2e4",
+        "stream_key": "s2e5",
+        "test": true,
+        "use_slate_for_standard_latency": false
+      }
+    }
+  },
+  "new": {
+    "list_live_stream": {
+      "list_live_stream_ref01": {
+        "active_asset_id": "ACTIVE_ASSET01",
+        "active_ingest_protocol": "s3c1",
+        "audio_only": true,
+        "created_at": "s3c3",
+        "embedded_subtitles": [],
+        "generated_subtitles": [],
+        "latency_mode": "s3c7",
+        "low_latency": true,
+        "max_continuous_duration": 969,
+        "meta": {},
+        "new_asset_settings": {},
+        "passthrough": "s3cc",
+        "playback_ids": [],
+        "recent_asset_ids": [],
+        "reconnect_slate_url": "s3cf",
+        "reconnect_window": 976,
+        "reduced_latency": false,
+        "simulcast_targets": [],
+        "srt_passphrase": "s3d3",
+        "status": "s3d4",
+        "stream_key": "s3d5",
+        "test": true,
+        "use_slate_for_standard_latency": false
+      }
+    }
+  },
+  "requests": {
+    "GET /video/v1/live-streams": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

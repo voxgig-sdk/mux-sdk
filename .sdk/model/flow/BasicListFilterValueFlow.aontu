@@ -1,0 +1,32 @@
+# BasicListFilterValueFlow
+
+main: kit: flow: BasicListFilterValueFlow:
+{
+  entity: "list_filter_value",
+  kind: "basic",
+  name: "BasicListFilterValueFlow",
+  step: [
+    {
+      i: {
+        ref: "list_filter_value_ref01",
+        srcdatavar: "list_filter_value_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "list_filter_value01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-list_filter_value_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListFilterValueFlow"
+}

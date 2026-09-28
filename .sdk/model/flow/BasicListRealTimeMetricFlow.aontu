@@ -1,0 +1,22 @@
+# BasicListRealTimeMetricFlow
+
+main: kit: flow: BasicListRealTimeMetricFlow:
+{
+  entity: "list_real_time_metric",
+  kind: "basic",
+  name: "BasicListRealTimeMetricFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_real_time_metric_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListRealTimeMetricFlow"
+}

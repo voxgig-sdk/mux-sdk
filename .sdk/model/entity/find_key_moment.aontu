@@ -1,0 +1,191 @@
+# Entity: find_key_moment
+
+main: kit: entity: find_key_moment: {
+
+  alias: field: {}
+
+  fields: {
+    created_at: {
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "Unix timestamp (seconds) when the job was created."
+      t: "`$INTEGER`"
+    }
+    directive: {
+      h: "Directive"
+      n: "directive"
+      r: true
+      sh: "The directive run that dispatched this job."
+      t: "`$OBJECT`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: false
+      sh: "Error details."
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique job identifier."
+      t: "`$STRING`"
+    }
+    outputs: {
+      h: "Outputs"
+      n: "outputs"
+      r: true
+      sh: "Workflow results."
+      t: "`$OBJECT`"
+    }
+    parameters: {
+      h: "Parameters"
+      n: "parameters"
+      r: true
+      t: "`$OBJECT`"
+    }
+    passthrough: {
+      h: "Passthrough"
+      n: "passthrough"
+      r: false
+      sh: "Arbitrary string supplied at creation, returned as-is."
+      t: "`$STRING`"
+    }
+    resources: {
+      h: "Resources"
+      n: "resources"
+      r: true
+      sh: "Related Mux resources linked to this job."
+      t: "`$OBJECT`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "Current job status."
+      t: "`$STRING`"
+    }
+    units_consumed: {
+      h: "Units Consumed"
+      n: "units_consumed"
+      r: true
+      sh: "Number of Mux AI units consumed by this job."
+      t: "`$INTEGER`"
+    }
+    updated_at: {
+      h: "Updated At"
+      n: "updated_at"
+      r: true
+      sh: "Unix timestamp (seconds) of the job's last state transition (e.g."
+      t: "`$INTEGER`"
+    }
+    workflow: {
+      h: "Workflow"
+      n: "workflow"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "find_key_moment"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /robots/v0/jobs/find-key-moments"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/robots/v0/jobs/find-key-moments"
+          s: [
+            {
+              lit: "robots"
+            }
+            {
+              lit: "v0"
+            }
+            {
+              lit: "jobs"
+            }
+            {
+              lit: "find-key-moments"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /robots/v0/jobs/find-key-moments/{JOB_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "job_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/robots/v0/jobs/find-key-moments/{JOB_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              JOB_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "robots"
+            }
+            {
+              lit: "v0"
+            }
+            {
+              lit: "jobs"
+            }
+            {
+              lit: "find-key-moments"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

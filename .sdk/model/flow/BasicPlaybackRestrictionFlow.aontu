@@ -1,0 +1,72 @@
+# BasicPlaybackRestrictionFlow
+
+main: kit: flow: BasicPlaybackRestrictionFlow:
+{
+  entity: "playback_restriction",
+  kind: "basic",
+  name: "BasicPlaybackRestrictionFlow",
+  step: [
+    {
+      i: {
+        ref: "playback_restriction_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "playback_restriction_ref01",
+        srcdatavar: "playback_restriction_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-playback_restriction_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "playback_restriction_ref01",
+        srcdatavar: "playback_restriction_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "playback_restriction01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-playback_restriction_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "playback_restriction_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "playback_restriction01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicPlaybackRestrictionFlow"
+}

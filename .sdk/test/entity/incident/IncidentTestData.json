@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "incident": {
+      "INCIDENT00": {
+        "data": {},
+        "id": "INCIDENT00",
+        "timeframe": [],
+        "total_row_count": 43
+      },
+      "INCIDENT01": {
+        "data": {},
+        "id": "INCIDENT01",
+        "timeframe": [],
+        "total_row_count": 83
+      },
+      "INCIDENT02": {
+        "data": {},
+        "id": "INCIDENT02",
+        "timeframe": [],
+        "total_row_count": 123
+      }
+    }
+  },
+  "new": {
+    "incident": {
+      "incident_ref01": {
+        "data": {},
+        "timeframe": [],
+        "total_row_count": 163
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/incidents/{INCIDENT_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

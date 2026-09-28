@@ -1,0 +1,9 @@
+# BasicUrlSigningKeyFlow
+
+main: kit: flow: BasicUrlSigningKeyFlow:
+{
+  entity: "url_signing_key",
+  kind: "basic",
+  name: "BasicUrlSigningKeyFlow",
+  "key$": "BasicUrlSigningKeyFlow"
+}

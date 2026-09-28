@@ -1,0 +1,26 @@
+# BasicMonitoringBreakdownFlow
+
+main: kit: flow: BasicMonitoringBreakdownFlow:
+{
+  entity: "monitoring_breakdown",
+  kind: "basic",
+  name: "BasicMonitoringBreakdownFlow",
+  step: [
+    {
+      m: {
+        monitoring_metric_id: "monitoring_metric01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "monitoring_breakdown_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMonitoringBreakdownFlow"
+}

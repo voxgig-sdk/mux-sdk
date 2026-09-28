@@ -1,0 +1,120 @@
+# Entity: list_transcription_vocabulary
+
+main: kit: entity: list_transcription_vocabulary: {
+
+  alias: field: {}
+
+  fields: {
+    created_at: {
+      fo: "int64"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch)."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for the Transcription Vocabulary"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The user-supplied name of the Transcription Vocabulary."
+      t: "`$STRING`"
+    }
+    passthrough: {
+      h: "Passthrough"
+      n: "passthrough"
+      r: false
+      sh: "Arbitrary user-supplied metadata set for the Transcription Vocabulary."
+      t: "`$STRING`"
+    }
+    phrases: {
+      h: "Phrases"
+      n: "phrases"
+      r: false
+      sh: "Phrases, individual words, or proper names to include in the Transcription Vocabulary."
+      t: "`$ARRAY`"
+    }
+    updated_at: {
+      fo: "int64"
+      h: "Updated At"
+      n: "updated_at"
+      r: true
+      sh: "Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch)."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "list_transcription_vocabulary"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/transcription-vocabularies"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/transcription-vocabularies"
+          q: {
+            exist: [
+              "limit"
+              "page"
+            ]
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transcription-vocabularies"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

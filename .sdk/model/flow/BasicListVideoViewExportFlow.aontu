@@ -1,0 +1,22 @@
+# BasicListVideoViewExportFlow
+
+main: kit: flow: BasicListVideoViewExportFlow:
+{
+  entity: "list_video_view_export",
+  kind: "basic",
+  name: "BasicListVideoViewExportFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_video_view_export_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListVideoViewExportFlow"
+}

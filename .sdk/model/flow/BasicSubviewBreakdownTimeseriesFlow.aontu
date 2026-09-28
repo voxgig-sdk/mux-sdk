@@ -1,0 +1,27 @@
+# BasicSubviewBreakdownTimeseriesFlow
+
+main: kit: flow: BasicSubviewBreakdownTimeseriesFlow:
+{
+  entity: "subview_breakdown_timeseries",
+  kind: "basic",
+  name: "BasicSubviewBreakdownTimeseriesFlow",
+  step: [
+    {
+      m: {
+        subview_metric_id: "subview_metric01",
+        subview_type: "subview_type01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "subview_breakdown_timeseries_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSubviewBreakdownTimeseriesFlow"
+}

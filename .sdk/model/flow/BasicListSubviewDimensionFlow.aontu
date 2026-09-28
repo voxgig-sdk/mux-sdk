@@ -1,0 +1,32 @@
+# BasicListSubviewDimensionFlow
+
+main: kit: flow: BasicListSubviewDimensionFlow:
+{
+  entity: "list_subview_dimension",
+  kind: "basic",
+  name: "BasicListSubviewDimensionFlow",
+  step: [
+    {
+      i: {
+        ref: "list_subview_dimension_ref01",
+        srcdatavar: "list_subview_dimension_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "list_subview_dimension01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-list_subview_dimension_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListSubviewDimensionFlow"
+}

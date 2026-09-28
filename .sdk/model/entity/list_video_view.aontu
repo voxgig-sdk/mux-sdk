@@ -1,0 +1,212 @@
+# Entity: list_video_view
+
+main: kit: entity: list_video_view: {
+
+  alias: field: {}
+
+  fields: {
+    country_code: {
+      h: "Country Code"
+      n: "country_code"
+      r: true
+      t: "`$STRING`"
+    }
+    error_type_id: {
+      fo: "int32"
+      h: "Error Type Id"
+      n: "error_type_id"
+      r: true
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      t: "`$STRING`"
+    }
+    playback_failure: {
+      h: "Playback Failure"
+      n: "playback_failure"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    player_error_code: {
+      h: "Player Error Code"
+      n: "player_error_code"
+      r: true
+      t: "`$STRING`"
+    }
+    player_error_message: {
+      h: "Player Error Message"
+      n: "player_error_message"
+      r: true
+      t: "`$STRING`"
+    }
+    total_row_count: {
+      fo: "int64"
+      h: "Total Row Count"
+      n: "total_row_count"
+      r: true
+      t: "`$INTEGER`"
+    }
+    video_title: {
+      h: "Video Title"
+      n: "video_title"
+      r: true
+      t: "`$STRING`"
+    }
+    view_end: {
+      h: "View End"
+      n: "view_end"
+      r: true
+      t: "`$STRING`"
+    }
+    view_start: {
+      h: "View Start"
+      n: "view_start"
+      r: true
+      t: "`$STRING`"
+    }
+    viewer_application_name: {
+      h: "Viewer Application Name"
+      n: "viewer_application_name"
+      r: true
+      t: "`$STRING`"
+    }
+    viewer_experience_score: {
+      fo: "float"
+      h: "Viewer Experience Score"
+      n: "viewer_experience_score"
+      r: true
+      t: "`$NUMBER`"
+    }
+    viewer_os_family: {
+      h: "Viewer Os Family"
+      n: "viewer_os_family"
+      r: true
+      t: "`$STRING`"
+    }
+    watch_time: {
+      fo: "int32"
+      h: "Watch Time"
+      n: "watch_time"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "list_video_view"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/video-views"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "error_id"
+                or: "error_id"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "metric_filter"
+                or: "metric_filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "order_direction"
+                or: "order_direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "viewer_id"
+                or: "viewer_id"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/video-views"
+          q: {
+            exist: [
+              "error_id"
+              "filter"
+              "limit"
+              "metric_filter"
+              "order_direction"
+              "page"
+              "timeframe"
+              "viewer_id"
+            ]
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "video-views"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

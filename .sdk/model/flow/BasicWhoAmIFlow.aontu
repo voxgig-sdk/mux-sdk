@@ -1,0 +1,28 @@
+# BasicWhoAmIFlow
+
+main: kit: flow: BasicWhoAmIFlow:
+{
+  entity: "who_am_i",
+  kind: "basic",
+  name: "BasicWhoAmIFlow",
+  step: [
+    {
+      i: {
+        ref: "who_am_i_ref01",
+        srcdatavar: "who_am_i_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-who_am_i_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWhoAmIFlow"
+}

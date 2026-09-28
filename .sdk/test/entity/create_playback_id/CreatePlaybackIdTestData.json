@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "create_playback_id": {
+      "CREATE_PLAYBACK_ID00": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "policy": "s15",
+        "asset_id": "ASSET01",
+        "live_stream_id": "LIVE_STREAM01",
+        "id": "CREATE_PLAYBACK_ID00"
+      },
+      "CREATE_PLAYBACK_ID01": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "policy": "s29",
+        "asset_id": "ASSET01",
+        "live_stream_id": "LIVE_STREAM01",
+        "id": "CREATE_PLAYBACK_ID01"
+      },
+      "CREATE_PLAYBACK_ID02": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "policy": "s3d",
+        "asset_id": "ASSET01",
+        "live_stream_id": "LIVE_STREAM01",
+        "id": "CREATE_PLAYBACK_ID02"
+      }
+    }
+  },
+  "new": {
+    "create_playback_id": {
+      "create_playback_id_ref01": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "policy": "s51"
+      }
+    }
+  },
+  "requests": {
+    "POST /video/v1/assets/{ASSET_ID}/playback-ids": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

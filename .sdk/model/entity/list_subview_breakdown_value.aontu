@@ -1,0 +1,143 @@
+# Entity: list_subview_breakdown_value
+
+main: kit: entity: list_subview_breakdown_value: {
+
+  alias: field: {}
+
+  fields: {
+    breakdown_value: {
+      h: "Breakdown Value"
+      n: "breakdown_value"
+      r: true
+      t: "`$STRING`"
+    }
+    metric_value: {
+      fo: "double"
+      h: "Metric Value"
+      n: "metric_value"
+      r: true
+      t: "`$NUMBER`"
+    }
+  }
+
+  name: "list_subview_breakdown_value"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "playing_time"
+                k: "param"
+                n: "subview_metric_id"
+                or: "metric_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "rendition"
+                k: "param"
+                n: "subview_type"
+                or: "subview_type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "group_by"
+                or: "group_by"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown"
+          q: {
+            exist: [
+              "filter"
+              "group_by"
+              "limit"
+              "page"
+              "subview_metric_id"
+              "subview_type"
+              "timeframe"
+            ]
+          }
+          r: {
+            param: {
+              METRIC_ID: "subview_metric_id"
+              SUBVIEW_TYPE: "subview_type"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "subview-metrics"
+            }
+            {
+              var: "subview_metric_id"
+            }
+            {
+              var: "subview_type"
+            }
+            {
+              lit: "breakdown"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

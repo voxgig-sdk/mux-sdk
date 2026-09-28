@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Go CLI | Mux API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Mux API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/mux-sdk">voxgig-sdk/mux-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Mux API</a></details>
+<details><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/annotation.html">Annotation</a>
+<a href="../api/ask_question.html">AskQuestion</a>
+<a href="../api/asset.html">Asset</a>
+<a href="../api/asset_or_live_stream_id.html">AssetOrLiveStreamId</a>
+<a href="../api/asset_playback_id.html">AssetPlaybackId</a>
+<a href="../api/asset_shot.html">AssetShot</a>
+<a href="../api/create_playback_id.html">CreatePlaybackId</a>
+<a href="../api/create_track.html">CreateTrack</a>
+<a href="../api/directive.html">Directive</a>
+<a href="../api/directive_run_detail.html">DirectiveRunDetail</a>
+<a href="../api/directive_run_list.html">DirectiveRunList</a>
+<a href="../api/drm_configuration.html">DrmConfiguration</a>
+<a href="../api/edit_caption.html">EditCaption</a>
+<a href="../api/engagement_heatmap.html">EngagementHeatmap</a>
+<a href="../api/engagement_hotspot.html">EngagementHotspot</a>
+<a href="../api/find_best_thumbnail.html">FindBestThumbnail</a>
+<a href="../api/find_key_moment.html">FindKeyMoment</a>
+<a href="../api/find_scene.html">FindScene</a>
+<a href="../api/generate_asset_shot.html">GenerateAssetShot</a>
+<a href="../api/generate_chapter.html">GenerateChapter</a>
+<a href="../api/generate_engagement_insight.html">GenerateEngagementInsight</a>
+<a href="../api/generate_premium_caption.html">GeneratePremiumCaption</a>
+<a href="../api/generate_track_subtitle.html">GenerateTrackSubtitle</a>
+<a href="../api/incident.html">Incident</a>
+<a href="../api/input_info.html">InputInfo</a>
+<a href="../api/job_summary.html">JobSummary</a>
+<a href="../api/list_all_metric_value.html">ListAllMetricValue</a>
+<a href="../api/list_annotation.html">ListAnnotation</a>
+<a href="../api/list_asset.html">ListAsset</a>
+<a href="../api/list_breakdown_value.html">ListBreakdownValue</a>
+<a href="../api/list_delivery_usage.html">ListDeliveryUsage</a>
+<a href="../api/list_dimension.html">ListDimension</a>
+<a href="../api/list_dimension_value.html">ListDimensionValue</a>
+<a href="../api/list_drm_configuration.html">ListDrmConfiguration</a>
+<a href="../api/list_error.html">ListError</a>
+<a href="../api/list_export.html">ListExport</a>
+<a href="../api/list_filter.html">ListFilter</a>
+<a href="../api/list_filter_value.html">ListFilterValue</a>
+<a href="../api/list_incident.html">ListIncident</a>
+<a href="../api/list_insight.html">ListInsight</a>
+<a href="../api/list_job.html">ListJob</a>
+<a href="../api/list_live_stream.html">ListLiveStream</a>
+<a href="../api/list_monitoring_dimension.html">ListMonitoringDimension</a>
+<a href="../api/list_monitoring_metric.html">ListMonitoringMetric</a>
+<a href="../api/list_playback_restriction.html">ListPlaybackRestriction</a>
+<a href="../api/list_real_time_dimension.html">ListRealTimeDimension</a>
+<a href="../api/list_real_time_metric.html">ListRealTimeMetric</a>
+<a href="../api/list_related_incident.html">ListRelatedIncident</a>
+<a href="../api/list_signing_key.html">ListSigningKey</a>
+<a href="../api/list_subview_breakdown_value.html">ListSubviewBreakdownValue</a>
+<a href="../api/list_subview_comparison_value.html">ListSubviewComparisonValue</a>
+<a href="../api/list_subview_dimension.html">ListSubviewDimension</a>
+<a href="../api/list_subview_dimension_value.html">ListSubviewDimensionValue</a>
+<a href="../api/list_transcription_vocabulary.html">ListTranscriptionVocabulary</a>
+<a href="../api/list_upload.html">ListUpload</a>
+<a href="../api/list_usage_export.html">ListUsageExport</a>
+<a href="../api/list_video_view.html">ListVideoView</a>
+<a href="../api/list_video_view_export.html">ListVideoViewExport</a>
+<a href="../api/list_webhook.html">ListWebhook</a>
+<a href="../api/live_stream.html">LiveStream</a>
+<a href="../api/live_stream_playback_id.html">LiveStreamPlaybackId</a>
+<a href="../api/metric_timeseries_data.html">MetricTimeseriesData</a>
+<a href="../api/moderate.html">Moderate</a>
+<a href="../api/monitoring_breakdown.html">MonitoringBreakdown</a>
+<a href="../api/monitoring_breakdown_timeseries.html">MonitoringBreakdownTimeseries</a>
+<a href="../api/monitoring_histogram_timeseries.html">MonitoringHistogramTimeseries</a>
+<a href="../api/monitoring_timeseries.html">MonitoringTimeseries</a>
+<a href="../api/overall.html">Overall</a>
+<a href="../api/playback_restriction.html">PlaybackRestriction</a>
+<a href="../api/real_time_breakdown.html">RealTimeBreakdown</a>
+<a href="../api/real_time_histogram_timeseries.html">RealTimeHistogramTimeseries</a>
+<a href="../api/real_time_timeseries.html">RealTimeTimeseries</a>
+<a href="../api/signal_live_stream_complete.html">SignalLiveStreamComplete</a>
+<a href="../api/signing_key.html">SigningKey</a>
+<a href="../api/simulcast_target.html">SimulcastTarget</a>
+<a href="../api/static_rendition.html">StaticRendition</a>
+<a href="../api/subview_breakdown_timeseries.html">SubviewBreakdownTimeseries</a>
+<a href="../api/subview_overall_value.html">SubviewOverallValue</a>
+<a href="../api/summarize.html">Summarize</a>
+<a href="../api/transcription_vocabulary.html">TranscriptionVocabulary</a>
+<a href="../api/translate_audio.html">TranslateAudio</a>
+<a href="../api/translate_caption.html">TranslateCaption</a>
+<a href="../api/update_asset_track.html">UpdateAssetTrack</a>
+<a href="../api/upload.html">Upload</a>
+<a href="../api/url_signing_key.html">UrlSigningKey</a>
+<a href="../api/video_view.html">VideoView</a>
+<a href="../api/webhook.html">Webhook</a>
+<a href="../api/who_am_i.html">WhoAmI</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details open><summary>Tools</summary><a aria-current="page" href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>Tools</div><h1 id="go-cli">Go CLI</h1>
+<p>Go CLI</p>
+<h2 id="install">Install</h2>
+<p>Not published. Build from the go-cli directory.</p>
+<h2 id="package">Package</h2>
+<p><code>github.com/voxgig-sdk/mux-sdk/go-cli</code></p>
+<h2 id="api-reference">API reference</h2>
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Operations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../api/annotation.html">Annotation</a></td>
+<td><code>create</code>, <code>load</code>, <code>remove</code>, <code>update</code></td>
+</tr>
+<tr>
+<td><a href="../api/ask_question.html">AskQuestion</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/asset.html">Asset</a></td>
+<td><code>create</code>, <code>load</code>, <code>remove</code>, <code>update</code></td>
+</tr>
+<tr>
+<td><a href="../api/asset_or_live_stream_id.html">AssetOrLiveStreamId</a></td>
+<td><code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/asset_playback_id.html">AssetPlaybackId</a></td>
+<td><code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/asset_shot.html">AssetShot</a></td>
+<td><code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/create_playback_id.html">CreatePlaybackId</a></td>
+<td><code>create</code></td>
+</tr>
+<tr>
+<td><a href="../api/create_track.html">CreateTrack</a></td>
+<td><code>create</code></td>
+</tr>
+<tr>
+<td><a href="../api/directive.html">Directive</a></td>
+<td><code>create</code>, <code>list</code>, <code>load</code>, <code>remove</code></td>
+</tr>
+<tr>
+<td><a href="../api/directive_run_detail.html">DirectiveRunDetail</a></td>
+<td><code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/directive_run_list.html">DirectiveRunList</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/drm_configuration.html">DrmConfiguration</a></td>
+<td><code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/edit_caption.html">EditCaption</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/engagement_heatmap.html">EngagementHeatmap</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/engagement_hotspot.html">EngagementHotspot</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/find_best_thumbnail.html">FindBestThumbnail</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/find_key_moment.html">FindKeyMoment</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/find_scene.html">FindScene</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/generate_asset_shot.html">GenerateAssetShot</a></td>
+<td><code>create</code></td>
+</tr>
+<tr>
+<td><a href="../api/generate_chapter.html">GenerateChapter</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/generate_engagement_insight.html">GenerateEngagementInsight</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/generate_premium_caption.html">GeneratePremiumCaption</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/generate_track_subtitle.html">GenerateTrackSubtitle</a></td>
+<td><code>create</code></td>
+</tr>
+<tr>
+<td><a href="../api/incident.html">Incident</a></td>
+<td><code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/input_info.html">InputInfo</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/job_summary.html">JobSummary</a></td>
+<td><code>create</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_all_metric_value.html">ListAllMetricValue</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_annotation.html">ListAnnotation</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_asset.html">ListAsset</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_breakdown_value.html">ListBreakdownValue</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_delivery_usage.html">ListDeliveryUsage</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_dimension.html">ListDimension</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_dimension_value.html">ListDimensionValue</a></td>
+<td><code>list</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_drm_configuration.html">ListDrmConfiguration</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_error.html">ListError</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_export.html">ListExport</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_filter.html">ListFilter</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_filter_value.html">ListFilterValue</a></td>
+<td><code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_incident.html">ListIncident</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_insight.html">ListInsight</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_job.html">ListJob</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_live_stream.html">ListLiveStream</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_monitoring_dimension.html">ListMonitoringDimension</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_monitoring_metric.html">ListMonitoringMetric</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_playback_restriction.html">ListPlaybackRestriction</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_real_time_dimension.html">ListRealTimeDimension</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_real_time_metric.html">ListRealTimeMetric</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_related_incident.html">ListRelatedIncident</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_signing_key.html">ListSigningKey</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_subview_breakdown_value.html">ListSubviewBreakdownValue</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_subview_comparison_value.html">ListSubviewComparisonValue</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_subview_dimension.html">ListSubviewDimension</a></td>
+<td><code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_subview_dimension_value.html">ListSubviewDimensionValue</a></td>
+<td><code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_transcription_vocabulary.html">ListTranscriptionVocabulary</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_upload.html">ListUpload</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_usage_export.html">ListUsageExport</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_video_view.html">ListVideoView</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_video_view_export.html">ListVideoViewExport</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/list_webhook.html">ListWebhook</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/live_stream.html">LiveStream</a></td>
+<td><code>create</code>, <code>load</code>, <code>remove</code>, <code>update</code></td>
+</tr>
+<tr>
+<td><a href="../api/live_stream_playback_id.html">LiveStreamPlaybackId</a></td>
+<td><code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/metric_timeseries_data.html">MetricTimeseriesData</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/moderate.html">Moderate</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/monitoring_breakdown.html">MonitoringBreakdown</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/monitoring_breakdown_timeseries.html">MonitoringBreakdownTimeseries</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/monitoring_histogram_timeseries.html">MonitoringHistogramTimeseries</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/monitoring_timeseries.html">MonitoringTimeseries</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/overall.html">Overall</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/playback_restriction.html">PlaybackRestriction</a></td>
+<td><code>create</code>, <code>load</code>, <code>remove</code>, <code>update</code></td>
+</tr>
+<tr>
+<td><a href="../api/real_time_breakdown.html">RealTimeBreakdown</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/real_time_histogram_timeseries.html">RealTimeHistogramTimeseries</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/real_time_timeseries.html">RealTimeTimeseries</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/signal_live_stream_complete.html">SignalLiveStreamComplete</a></td>
+<td><code>update</code></td>
+</tr>
+<tr>
+<td><a href="../api/signing_key.html">SigningKey</a></td>
+<td><code>create</code>, <code>load</code>, <code>remove</code></td>
+</tr>
+<tr>
+<td><a href="../api/simulcast_target.html">SimulcastTarget</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/static_rendition.html">StaticRendition</a></td>
+<td><code>create</code></td>
+</tr>
+<tr>
+<td><a href="../api/subview_breakdown_timeseries.html">SubviewBreakdownTimeseries</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/subview_overall_value.html">SubviewOverallValue</a></td>
+<td><code>list</code></td>
+</tr>
+<tr>
+<td><a href="../api/summarize.html">Summarize</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/transcription_vocabulary.html">TranscriptionVocabulary</a></td>
+<td><code>create</code>, <code>load</code>, <code>remove</code>, <code>update</code></td>
+</tr>
+<tr>
+<td><a href="../api/translate_audio.html">TranslateAudio</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/translate_caption.html">TranslateCaption</a></td>
+<td><code>create</code>, <code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/update_asset_track.html">UpdateAssetTrack</a></td>
+<td><code>update</code></td>
+</tr>
+<tr>
+<td><a href="../api/upload.html">Upload</a></td>
+<td><code>create</code>, <code>load</code>, <code>update</code></td>
+</tr>
+<tr>
+<td><a href="../api/url_signing_key.html">UrlSigningKey</a></td>
+<td><code>remove</code></td>
+</tr>
+<tr>
+<td><a href="../api/video_view.html">VideoView</a></td>
+<td><code>load</code></td>
+</tr>
+<tr>
+<td><a href="../api/webhook.html">Webhook</a></td>
+<td><code>create</code>, <code>load</code>, <code>remove</code>, <code>update</code></td>
+</tr>
+<tr>
+<td><a href="../api/who_am_i.html">WhoAmI</a></td>
+<td><code>load</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuration">Configuration</h2>
+<p>Set the server URL and credentials for your environment. Enable only the features your application needs.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li><a href="../features/debug.html">Debug capture</a></li>
+<li><a href="../features/idempotency.html">Idempotency</a></li>
+<li><a href="../features/metrics.html">Metrics</a></li>
+<li><a href="../features/paging.html">Paging</a></li>
+<li><a href="../features/ratelimit.html">Rate limiting</a></li>
+<li><a href="../features/retry.html">Retry</a></li>
+<li><a href="../features/test.html">Test transport</a></li>
+<li><a href="../features/timeout.html">Timeout</a></li>
+</ul>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

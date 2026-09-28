@@ -1,0 +1,23 @@
+# BasicGenerateTrackSubtitleFlow
+
+main: kit: flow: BasicGenerateTrackSubtitleFlow:
+{
+  entity: "generate_track_subtitle",
+  kind: "basic",
+  name: "BasicGenerateTrackSubtitleFlow",
+  step: [
+    {
+      i: {
+        ref: "generate_track_subtitle_ref01"
+      }
+
+      m: {
+        asset_id: "asset01",
+        track_id: "track01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicGenerateTrackSubtitleFlow"
+}

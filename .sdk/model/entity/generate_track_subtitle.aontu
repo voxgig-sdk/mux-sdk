@@ -1,0 +1,97 @@
+# Entity: generate_track_subtitle
+
+main: kit: entity: generate_track_subtitle: {
+
+  alias: field: {}
+
+  fields: {
+    generated_subtitles: {
+      h: "Generated Subtitles"
+      n: "generated_subtitles"
+      r: true
+      sh: "Generate subtitle tracks using automatic speech recognition with this configuration."
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "generate_track_subtitle"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "track_id"
+                or: "track_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles"
+          q: {
+            exist: [
+              "asset_id"
+              "track_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+              TRACK_ID: "track_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "tracks"
+            }
+            {
+              var: "track_id"
+            }
+            {
+              lit: "generate-subtitles"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.asset")]
+  ]
+
+}

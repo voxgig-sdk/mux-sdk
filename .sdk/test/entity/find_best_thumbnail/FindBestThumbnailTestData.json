@@ -1,0 +1,77 @@
+{
+  "existing": {
+    "find_best_thumbnail": {
+      "FIND_BEST_THUMBNAIL00": {
+        "created_at": 120,
+        "directive": {},
+        "errors": [],
+        "id": "FIND_BEST_THUMBNAIL00",
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "s7e",
+        "resources": {},
+        "status": "s80",
+        "units_consumed": 129,
+        "updated_at": 130,
+        "workflow": "s83"
+      },
+      "FIND_BEST_THUMBNAIL01": {
+        "created_at": 240,
+        "directive": {},
+        "errors": [],
+        "id": "FIND_BEST_THUMBNAIL01",
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "sf6",
+        "resources": {},
+        "status": "sf8",
+        "units_consumed": 249,
+        "updated_at": 250,
+        "workflow": "sfb"
+      },
+      "FIND_BEST_THUMBNAIL02": {
+        "created_at": 360,
+        "directive": {},
+        "errors": [],
+        "id": "FIND_BEST_THUMBNAIL02",
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "s16e",
+        "resources": {},
+        "status": "s170",
+        "units_consumed": 369,
+        "updated_at": 370,
+        "workflow": "s173"
+      }
+    }
+  },
+  "new": {
+    "find_best_thumbnail": {
+      "find_best_thumbnail_ref01": {
+        "created_at": 480,
+        "directive": {},
+        "errors": [],
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "s1e6",
+        "resources": {},
+        "status": "s1e8",
+        "units_consumed": 489,
+        "updated_at": 490,
+        "workflow": "s1eb"
+      }
+    }
+  },
+  "requests": {
+    "POST /robots/v0/jobs/find-best-thumbnails": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /robots/v0/jobs/find-best-thumbnails/{JOB_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

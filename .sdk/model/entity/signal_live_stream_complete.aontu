@@ -1,0 +1,81 @@
+# Entity: signal_live_stream_complete
+
+main: kit: entity: signal_live_stream_complete: {
+
+  alias: field: {}
+
+  fields: {
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "signal_live_stream_complete"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /video/v1/live-streams/{LIVE_STREAM_ID}/complete"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}/complete"
+          q: {
+            exist: [
+              "live_stream_id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "live_stream_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "live_stream_id"
+            }
+            {
+              lit: "complete"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.live_stream")]
+  ]
+
+}

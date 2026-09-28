@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ListIncident | Mux API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Mux API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/mux-sdk">voxgig-sdk/mux-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Mux API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/annotation.html">Annotation</a>
+<a href="../api/ask_question.html">AskQuestion</a>
+<a href="../api/asset.html">Asset</a>
+<a href="../api/asset_or_live_stream_id.html">AssetOrLiveStreamId</a>
+<a href="../api/asset_playback_id.html">AssetPlaybackId</a>
+<a href="../api/asset_shot.html">AssetShot</a>
+<a href="../api/create_playback_id.html">CreatePlaybackId</a>
+<a href="../api/create_track.html">CreateTrack</a>
+<a href="../api/directive.html">Directive</a>
+<a href="../api/directive_run_detail.html">DirectiveRunDetail</a>
+<a href="../api/directive_run_list.html">DirectiveRunList</a>
+<a href="../api/drm_configuration.html">DrmConfiguration</a>
+<a href="../api/edit_caption.html">EditCaption</a>
+<a href="../api/engagement_heatmap.html">EngagementHeatmap</a>
+<a href="../api/engagement_hotspot.html">EngagementHotspot</a>
+<a href="../api/find_best_thumbnail.html">FindBestThumbnail</a>
+<a href="../api/find_key_moment.html">FindKeyMoment</a>
+<a href="../api/find_scene.html">FindScene</a>
+<a href="../api/generate_asset_shot.html">GenerateAssetShot</a>
+<a href="../api/generate_chapter.html">GenerateChapter</a>
+<a href="../api/generate_engagement_insight.html">GenerateEngagementInsight</a>
+<a href="../api/generate_premium_caption.html">GeneratePremiumCaption</a>
+<a href="../api/generate_track_subtitle.html">GenerateTrackSubtitle</a>
+<a href="../api/incident.html">Incident</a>
+<a href="../api/input_info.html">InputInfo</a>
+<a href="../api/job_summary.html">JobSummary</a>
+<a href="../api/list_all_metric_value.html">ListAllMetricValue</a>
+<a href="../api/list_annotation.html">ListAnnotation</a>
+<a href="../api/list_asset.html">ListAsset</a>
+<a href="../api/list_breakdown_value.html">ListBreakdownValue</a>
+<a href="../api/list_delivery_usage.html">ListDeliveryUsage</a>
+<a href="../api/list_dimension.html">ListDimension</a>
+<a href="../api/list_dimension_value.html">ListDimensionValue</a>
+<a href="../api/list_drm_configuration.html">ListDrmConfiguration</a>
+<a href="../api/list_error.html">ListError</a>
+<a href="../api/list_export.html">ListExport</a>
+<a href="../api/list_filter.html">ListFilter</a>
+<a href="../api/list_filter_value.html">ListFilterValue</a>
+<a aria-current="page" href="../api/list_incident.html">ListIncident</a><div class="nav-sections"><a class="nav-section" href="#get-datav1incidents">GET /data/v1/incidents</a></div>
+<a href="../api/list_insight.html">ListInsight</a>
+<a href="../api/list_job.html">ListJob</a>
+<a href="../api/list_live_stream.html">ListLiveStream</a>
+<a href="../api/list_monitoring_dimension.html">ListMonitoringDimension</a>
+<a href="../api/list_monitoring_metric.html">ListMonitoringMetric</a>
+<a href="../api/list_playback_restriction.html">ListPlaybackRestriction</a>
+<a href="../api/list_real_time_dimension.html">ListRealTimeDimension</a>
+<a href="../api/list_real_time_metric.html">ListRealTimeMetric</a>
+<a href="../api/list_related_incident.html">ListRelatedIncident</a>
+<a href="../api/list_signing_key.html">ListSigningKey</a>
+<a href="../api/list_subview_breakdown_value.html">ListSubviewBreakdownValue</a>
+<a href="../api/list_subview_comparison_value.html">ListSubviewComparisonValue</a>
+<a href="../api/list_subview_dimension.html">ListSubviewDimension</a>
+<a href="../api/list_subview_dimension_value.html">ListSubviewDimensionValue</a>
+<a href="../api/list_transcription_vocabulary.html">ListTranscriptionVocabulary</a>
+<a href="../api/list_upload.html">ListUpload</a>
+<a href="../api/list_usage_export.html">ListUsageExport</a>
+<a href="../api/list_video_view.html">ListVideoView</a>
+<a href="../api/list_video_view_export.html">ListVideoViewExport</a>
+<a href="../api/list_webhook.html">ListWebhook</a>
+<a href="../api/live_stream.html">LiveStream</a>
+<a href="../api/live_stream_playback_id.html">LiveStreamPlaybackId</a>
+<a href="../api/metric_timeseries_data.html">MetricTimeseriesData</a>
+<a href="../api/moderate.html">Moderate</a>
+<a href="../api/monitoring_breakdown.html">MonitoringBreakdown</a>
+<a href="../api/monitoring_breakdown_timeseries.html">MonitoringBreakdownTimeseries</a>
+<a href="../api/monitoring_histogram_timeseries.html">MonitoringHistogramTimeseries</a>
+<a href="../api/monitoring_timeseries.html">MonitoringTimeseries</a>
+<a href="../api/overall.html">Overall</a>
+<a href="../api/playback_restriction.html">PlaybackRestriction</a>
+<a href="../api/real_time_breakdown.html">RealTimeBreakdown</a>
+<a href="../api/real_time_histogram_timeseries.html">RealTimeHistogramTimeseries</a>
+<a href="../api/real_time_timeseries.html">RealTimeTimeseries</a>
+<a href="../api/signal_live_stream_complete.html">SignalLiveStreamComplete</a>
+<a href="../api/signing_key.html">SigningKey</a>
+<a href="../api/simulcast_target.html">SimulcastTarget</a>
+<a href="../api/static_rendition.html">StaticRendition</a>
+<a href="../api/subview_breakdown_timeseries.html">SubviewBreakdownTimeseries</a>
+<a href="../api/subview_overall_value.html">SubviewOverallValue</a>
+<a href="../api/summarize.html">Summarize</a>
+<a href="../api/transcription_vocabulary.html">TranscriptionVocabulary</a>
+<a href="../api/translate_audio.html">TranslateAudio</a>
+<a href="../api/translate_caption.html">TranslateCaption</a>
+<a href="../api/update_asset_track.html">UpdateAssetTrack</a>
+<a href="../api/upload.html">Upload</a>
+<a href="../api/url_signing_key.html">UrlSigningKey</a>
+<a href="../api/video_view.html">VideoView</a>
+<a href="../api/webhook.html">Webhook</a>
+<a href="../api/who_am_i.html">WhoAmI</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="listincident">ListIncident</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-datav1incidents"><code>/data/v1/incidents</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">list_incidents, err := client.ListIncident(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(list_incidents)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local list_incidents, err = client:ListIncident():list()
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$list_incidents = $client-&gt;ListIncident()-&gt;list();
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">list_incidents = client.ListIncident().list()
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">list_incidents = client.ListIncident.list()
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const list_incidents = await client.ListIncident().list()
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>affected_views</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Affected Views</td>
+</tr>
+<tr>
+<td><code>affected_views_per_hour</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Affected Views Per Hour</td>
+</tr>
+<tr>
+<td><code>affected_views_per_hour_on_open</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Affected Views Per Hour On Open</td>
+</tr>
+<tr>
+<td><code>breakdowns</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Breakdowns</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>error_description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Error Description</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>impact</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Impact</td>
+</tr>
+<tr>
+<td><code>incident_key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Incident Key</td>
+</tr>
+<tr>
+<td><code>measured_value</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Measured Value</td>
+</tr>
+<tr>
+<td><code>measured_value_on_close</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Measured Value On Close</td>
+</tr>
+<tr>
+<td><code>measurement</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Measurement</td>
+</tr>
+<tr>
+<td><code>notification_rules</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Notification Rules</td>
+</tr>
+<tr>
+<td><code>notifications</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Notifications</td>
+</tr>
+<tr>
+<td><code>resolved_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Resolved At</td>
+</tr>
+<tr>
+<td><code>sample_size</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Sample Size</td>
+</tr>
+<tr>
+<td><code>sample_size_unit</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Sample Size Unit</td>
+</tr>
+<tr>
+<td><code>severity</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Severity</td>
+</tr>
+<tr>
+<td><code>started_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Started At</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Status</td>
+</tr>
+<tr>
+<td><code>threshold</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Threshold</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-datav1incidents" class="operation" data-method="get"><code>GET</code> /data/v1/incidents</h3>
+<p>Operation ID: <code>list-incidents</code>.</p>
+<p>Authentication: basic token (<code>accessToken</code>) or bearer token (<code>authorizationToken</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>limit</code> | <code>query</code> | <code>integer (int32)</code> | No | Number of items to include in the response |
+| <code>page</code> | <code>query</code> | <code>integer (int32)</code> | No | Offset by this many pages, of the size of <code>limit</code> |
+| <code>order_by</code> | <code>query</code> | <code>enum: negative_impact, value, views, field</code> | No | Value to order the results by |
+| <code>order_direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No | Sort order. |
+| <code>status</code> | <code>query</code> | <code>enum: open, closed, expired</code> | No | Status to filter incidents by |
+| <code>severity</code> | <code>query</code> | <code>enum: warning, alert</code> | No | Severity to filter incidents by |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].affected_views</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].affected_views_per_hour</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].affected_views_per_hour_on_open</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].breakdowns</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].breakdowns[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].breakdowns[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].breakdowns[].value</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].error_description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].impact</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].incident_key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].measured_value</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].measured_value_on_close</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].measurement</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notification_rules</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notification_rules[].action</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notification_rules[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notification_rules[].property_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notification_rules[].rules</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notification_rules[].rules[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notification_rules[].rules[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notification_rules[].rules[].value</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notification_rules[].status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notifications</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notifications[].attempted_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notifications[].id</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].notifications[].queued_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].resolved_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].sample_size</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].sample_size_unit</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].severity</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].started_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].threshold</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>timeframe</code></td>
+<td><code>array of integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>total_row_count</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;affected_views&quot;: 71,
+      &quot;affected_views_per_hour&quot;: 29,
+      &quot;affected_views_per_hour_on_open&quot;: 75,
+      &quot;breakdowns&quot;: [
+        {
+          &quot;id&quot;: &quot;abcdef&quot;,
+          &quot;name&quot;: &quot;error_type_id&quot;,
+          &quot;value&quot;: &quot;697070&quot;
+        }
+      ],
+      &quot;description&quot;: &quot;Something is broken&quot;,
+      &quot;error_description&quot;: &quot;No seriously, something is really really broken :(&quot;,
+      &quot;id&quot;: &quot;4u13td&quot;,
+      &quot;impact&quot;: &quot;*71 views* were affected at a rate of *29 per hour*&quot;,
+      &quot;incident_key&quot;: &quot;5312a7c0bbb5d8353bd88602f01fe58eb15e9febac8fd2f0d8ce8f1cb138145c&quot;,
+      &quot;measured_value&quot;: 5.9,
+      &quot;measured_value_on_close&quot;: 0.1,
+      &quot;measurement&quot;: &quot;error_rate&quot;,
+      &quot;notification_rules&quot;: [],
+      &quot;notifications&quot;: [
+        {
+          &quot;attempted_at&quot;: &quot;2021-01-05T09:52:15.119040Z&quot;,
+          &quot;id&quot;: 103014,
+          &quot;queued_at&quot;: &quot;2021-01-05T09:52:14.945157Z&quot;
+        },
+        {
+          &quot;attempted_at&quot;: &quot;2021-01-05T11:31:08.244462Z&quot;,
+          &quot;id&quot;: 102025,
+          &quot;queued_at&quot;: &quot;2021-01-05T11:31:08.061924Z&quot;
+        }
+      ],
+      &quot;resolved_at&quot;: &quot;2021-01-05T11:31:04.000000Z&quot;,
+      &quot;sample_size&quot;: 1000,
+      &quot;sample_size_unit&quot;: &quot;views&quot;,
+      &quot;severity&quot;: &quot;alert&quot;,
+      &quot;started_at&quot;: &quot;2021-01-05T09:04:46.000000Z&quot;,
+      &quot;status&quot;: &quot;closed&quot;,
+      &quot;threshold&quot;: 5
+    },
+    {
+      &quot;affected_views&quot;: 132,
+      &quot;affected_views_per_hour&quot;: 11,
+      &quot;affected_views_per_hour_on_open&quot;: 65,
+      &quot;breakdowns&quot;: [
+        {
+          &quot;id&quot;: &quot;abcdef&quot;,
+          &quot;name&quot;: &quot;video_title&quot;,
+          &quot;value&quot;: &quot;Layla the dog video 1337&quot;
+        },
+        {
+          &quot;id&quot;: &quot;abcdef&quot;,
+          &quot;name&quot;: &quot;error_type_id&quot;,
+          &quot;value&quot;: &quot;697065&quot;
+        }
+      ],
+      &quot;description&quot;: &quot;Something else is broken&quot;,
+      &quot;error_description&quot;: &quot;Detailed error: On no!&quot;,
+      &quot;id&quot;: &quot;rd9579&quot;,
+      &quot;impact&quot;: &quot;*132 views* were affected at a rate of *11 per hour*&quot;,
+      &quot;incident_key&quot;: &quot;fd9add7a85a013d768f4039f9e726133eddb476c2f16b22ebfe56f18f7c03b27&quot;,
+      &quot;measured_value&quot;: 97,
+      &quot;measured_value_on_close&quot;: 1,
+      &quot;measurement&quot;: &quot;error_rate&quot;,
+      &quot;notification_rules&quot;: [],
+      &quot;notifications&quot;: [
+        {
+          &quot;attempted_at&quot;: &quot;2020-12-31T09:26:19.416919Z&quot;,
+          &quot;id&quot;: 102198,
+          &quot;queued_at&quot;: &quot;2020-12-31T09:26:18.987717Z&quot;
+        },
+        {
+          &quot;attempted_at&quot;: &quot;2020-12-31T20:23:57.279325Z&quot;,
+          &quot;id&quot;: 101269,
+          &quot;queued_at&quot;: &quot;2020-12-31T20:23:56.997068Z&quot;
+        }
+      ],
+      &quot;resolved_at&quot;: &quot;2020-12-31T20:22:54.000000Z&quot;,
+      &quot;sample_size&quot;: 100,
+      &quot;sample_size_unit&quot;: &quot;views&quot;,
+      &quot;severity&quot;: &quot;alert&quot;,
+      &quot;started_at&quot;: &quot;2020-12-31T07:56:22.000000Z&quot;,
+      &quot;status&quot;: &quot;closed&quot;,
+      &quot;threshold&quot;: 96
+    }
+  ],
+  &quot;timeframe&quot;: [
+    1610035979,
+    1610122379
+  ],
+  &quot;total_row_count&quot;: 2
+}
+</code></pre>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

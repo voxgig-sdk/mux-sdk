@@ -1,0 +1,1549 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Summarize | Mux API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Mux API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/mux-sdk">voxgig-sdk/mux-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Mux API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/annotation.html">Annotation</a>
+<a href="../api/ask_question.html">AskQuestion</a>
+<a href="../api/asset.html">Asset</a>
+<a href="../api/asset_or_live_stream_id.html">AssetOrLiveStreamId</a>
+<a href="../api/asset_playback_id.html">AssetPlaybackId</a>
+<a href="../api/asset_shot.html">AssetShot</a>
+<a href="../api/create_playback_id.html">CreatePlaybackId</a>
+<a href="../api/create_track.html">CreateTrack</a>
+<a href="../api/directive.html">Directive</a>
+<a href="../api/directive_run_detail.html">DirectiveRunDetail</a>
+<a href="../api/directive_run_list.html">DirectiveRunList</a>
+<a href="../api/drm_configuration.html">DrmConfiguration</a>
+<a href="../api/edit_caption.html">EditCaption</a>
+<a href="../api/engagement_heatmap.html">EngagementHeatmap</a>
+<a href="../api/engagement_hotspot.html">EngagementHotspot</a>
+<a href="../api/find_best_thumbnail.html">FindBestThumbnail</a>
+<a href="../api/find_key_moment.html">FindKeyMoment</a>
+<a href="../api/find_scene.html">FindScene</a>
+<a href="../api/generate_asset_shot.html">GenerateAssetShot</a>
+<a href="../api/generate_chapter.html">GenerateChapter</a>
+<a href="../api/generate_engagement_insight.html">GenerateEngagementInsight</a>
+<a href="../api/generate_premium_caption.html">GeneratePremiumCaption</a>
+<a href="../api/generate_track_subtitle.html">GenerateTrackSubtitle</a>
+<a href="../api/incident.html">Incident</a>
+<a href="../api/input_info.html">InputInfo</a>
+<a href="../api/job_summary.html">JobSummary</a>
+<a href="../api/list_all_metric_value.html">ListAllMetricValue</a>
+<a href="../api/list_annotation.html">ListAnnotation</a>
+<a href="../api/list_asset.html">ListAsset</a>
+<a href="../api/list_breakdown_value.html">ListBreakdownValue</a>
+<a href="../api/list_delivery_usage.html">ListDeliveryUsage</a>
+<a href="../api/list_dimension.html">ListDimension</a>
+<a href="../api/list_dimension_value.html">ListDimensionValue</a>
+<a href="../api/list_drm_configuration.html">ListDrmConfiguration</a>
+<a href="../api/list_error.html">ListError</a>
+<a href="../api/list_export.html">ListExport</a>
+<a href="../api/list_filter.html">ListFilter</a>
+<a href="../api/list_filter_value.html">ListFilterValue</a>
+<a href="../api/list_incident.html">ListIncident</a>
+<a href="../api/list_insight.html">ListInsight</a>
+<a href="../api/list_job.html">ListJob</a>
+<a href="../api/list_live_stream.html">ListLiveStream</a>
+<a href="../api/list_monitoring_dimension.html">ListMonitoringDimension</a>
+<a href="../api/list_monitoring_metric.html">ListMonitoringMetric</a>
+<a href="../api/list_playback_restriction.html">ListPlaybackRestriction</a>
+<a href="../api/list_real_time_dimension.html">ListRealTimeDimension</a>
+<a href="../api/list_real_time_metric.html">ListRealTimeMetric</a>
+<a href="../api/list_related_incident.html">ListRelatedIncident</a>
+<a href="../api/list_signing_key.html">ListSigningKey</a>
+<a href="../api/list_subview_breakdown_value.html">ListSubviewBreakdownValue</a>
+<a href="../api/list_subview_comparison_value.html">ListSubviewComparisonValue</a>
+<a href="../api/list_subview_dimension.html">ListSubviewDimension</a>
+<a href="../api/list_subview_dimension_value.html">ListSubviewDimensionValue</a>
+<a href="../api/list_transcription_vocabulary.html">ListTranscriptionVocabulary</a>
+<a href="../api/list_upload.html">ListUpload</a>
+<a href="../api/list_usage_export.html">ListUsageExport</a>
+<a href="../api/list_video_view.html">ListVideoView</a>
+<a href="../api/list_video_view_export.html">ListVideoViewExport</a>
+<a href="../api/list_webhook.html">ListWebhook</a>
+<a href="../api/live_stream.html">LiveStream</a>
+<a href="../api/live_stream_playback_id.html">LiveStreamPlaybackId</a>
+<a href="../api/metric_timeseries_data.html">MetricTimeseriesData</a>
+<a href="../api/moderate.html">Moderate</a>
+<a href="../api/monitoring_breakdown.html">MonitoringBreakdown</a>
+<a href="../api/monitoring_breakdown_timeseries.html">MonitoringBreakdownTimeseries</a>
+<a href="../api/monitoring_histogram_timeseries.html">MonitoringHistogramTimeseries</a>
+<a href="../api/monitoring_timeseries.html">MonitoringTimeseries</a>
+<a href="../api/overall.html">Overall</a>
+<a href="../api/playback_restriction.html">PlaybackRestriction</a>
+<a href="../api/real_time_breakdown.html">RealTimeBreakdown</a>
+<a href="../api/real_time_histogram_timeseries.html">RealTimeHistogramTimeseries</a>
+<a href="../api/real_time_timeseries.html">RealTimeTimeseries</a>
+<a href="../api/signal_live_stream_complete.html">SignalLiveStreamComplete</a>
+<a href="../api/signing_key.html">SigningKey</a>
+<a href="../api/simulcast_target.html">SimulcastTarget</a>
+<a href="../api/static_rendition.html">StaticRendition</a>
+<a href="../api/subview_breakdown_timeseries.html">SubviewBreakdownTimeseries</a>
+<a href="../api/subview_overall_value.html">SubviewOverallValue</a>
+<a aria-current="page" href="../api/summarize.html">Summarize</a><div class="nav-sections"><a class="nav-section" href="#post-robotsv0jobssummarize">POST /robots/v0/jobs/summarize</a>
+<a class="nav-section" href="#get-robotsv0jobssummarizejob_id">GET /robots/v0/jobs/summarize/{JOB_ID}</a></div>
+<a href="../api/transcription_vocabulary.html">TranscriptionVocabulary</a>
+<a href="../api/translate_audio.html">TranslateAudio</a>
+<a href="../api/translate_caption.html">TranslateCaption</a>
+<a href="../api/update_asset_track.html">UpdateAssetTrack</a>
+<a href="../api/upload.html">Upload</a>
+<a href="../api/url_signing_key.html">UrlSigningKey</a>
+<a href="../api/video_view.html">VideoView</a>
+<a href="../api/webhook.html">Webhook</a>
+<a href="../api/who_am_i.html">WhoAmI</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="summarize">Summarize</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-robotsv0jobssummarize"><code>/robots/v0/jobs/summarize</code></a></td>
+<td><code>create</code></td>
+<td>Summarize job queued</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-robotsv0jobssummarizejob_id"><code>/robots/v0/jobs/summarize/{JOB_ID}</code></a></td>
+<td><code>load</code></td>
+<td>Current status for the requested job</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">summarize, err := client.Summarize(nil).Load(map[string]any{&quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(summarize)
+created, err := client.Summarize(nil).Create(map[string]any{&quot;created_at&quot;: 1, &quot;directive&quot;: map[string]any{}, &quot;id&quot;: &quot;example&quot;, &quot;outputs&quot;: map[string]any{}, &quot;parameters&quot;: map[string]any{}, &quot;resources&quot;: map[string]any{}, &quot;status&quot;: &quot;example&quot;, &quot;units_consumed&quot;: 1, &quot;updated_at&quot;: 1, &quot;workflow&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local summarize, err = client:Summarize():load({ id = &quot;example_id&quot; })
+local created, err = client:Summarize():create({ created_at = 1, directive = {}, id = &quot;example&quot;, outputs = {}, parameters = {}, resources = {}, status = &quot;example&quot;, units_consumed = 1, updated_at = 1, workflow = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$summarize = $client-&gt;Summarize()-&gt;load([&quot;id&quot; =&gt; &quot;example_id&quot;]);
+$created = $client-&gt;Summarize()-&gt;create([&quot;created_at&quot; =&gt; 1, &quot;directive&quot; =&gt; [], &quot;id&quot; =&gt; &quot;example&quot;, &quot;outputs&quot; =&gt; [], &quot;parameters&quot; =&gt; [], &quot;resources&quot; =&gt; [], &quot;status&quot; =&gt; &quot;example&quot;, &quot;units_consumed&quot; =&gt; 1, &quot;updated_at&quot; =&gt; 1, &quot;workflow&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">summarize = client.Summarize().load({&quot;id&quot;: &quot;example_id&quot;})
+created = client.Summarize().create({ &quot;created_at&quot;: 1, &quot;directive&quot;: {}, &quot;id&quot;: &quot;example&quot;, &quot;outputs&quot;: {}, &quot;parameters&quot;: {}, &quot;resources&quot;: {}, &quot;status&quot;: &quot;example&quot;, &quot;units_consumed&quot;: 1, &quot;updated_at&quot;: 1, &quot;workflow&quot;: &quot;example&quot; })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">summarize = client.Summarize.load({ &quot;id&quot; =&gt; &quot;example_id&quot; })
+created = client.Summarize.create({ &quot;created_at&quot; =&gt; 1, &quot;directive&quot; =&gt; {}, &quot;id&quot; =&gt; &quot;example&quot;, &quot;outputs&quot; =&gt; {}, &quot;parameters&quot; =&gt; {}, &quot;resources&quot; =&gt; {}, &quot;status&quot; =&gt; &quot;example&quot;, &quot;units_consumed&quot; =&gt; 1, &quot;updated_at&quot; =&gt; 1, &quot;workflow&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const summarize = await client.Summarize().load({ id: &quot;example_id&quot; })
+const created = await client.Summarize().create({ created_at: 1, directive: {}, id: &quot;example&quot;, outputs: {}, parameters: {}, resources: {}, status: &quot;example&quot;, units_consumed: 1, updated_at: 1, workflow: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>created_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) when the job was created.</td>
+</tr>
+<tr>
+<td><code>directive</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>The directive run that dispatched this job.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>Error details.</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique job identifier.</td>
+</tr>
+<tr>
+<td><code>outputs</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Workflow results.</td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Parameters</td>
+</tr>
+<tr>
+<td><code>passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Arbitrary string supplied at creation, returned as-is.</td>
+</tr>
+<tr>
+<td><code>resources</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Related Mux resources linked to this job.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Current job status.</td>
+</tr>
+<tr>
+<td><code>units_consumed</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of Mux AI units consumed by this job.</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) of the job's last state transition (for example</td>
+</tr>
+<tr>
+<td><code>workflow</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Workflow</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-robotsv0jobssummarize" class="operation" data-method="post"><code>POST</code> /robots/v0/jobs/summarize</h3>
+<p>Operation ID: <code>create-summarize-job</code>.</p>
+<p>Authentication: basic token (<code>accessToken</code>) or bearer token (<code>authorizationToken</code>).</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>parameters</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>parameters.asset_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The Mux asset ID of the video to summarize.</td>
+</tr>
+<tr>
+<td><code>parameters.description_length</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum description length in words.</td>
+</tr>
+<tr>
+<td><code>parameters.language_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>BCP 47 language code of the caption track to analyze (for example &quot;en&quot;, &quot;fr&quot;). When omitted, the SDK uses the default track.</td>
+</tr>
+<tr>
+<td><code>parameters.output_language_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>BCP 47 language code for the generated summary output (for example &quot;en&quot;, &quot;fr&quot;, &quot;ja&quot;). Auto-detected from the transcript if omitted.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Curated <code>output_steering</code> controls for execution scope, summary style, audience, brand terminology, and tag taxonomy. Scope is enforced; other controls guide model behavior but do not guarantee exact output.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.audience</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Intended audience used as best-effort model guidance. Does not change the output schema.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.brand_terms</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Preferred brand or domain terms to use when supported by the source content.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.scope</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Optional execution window in seconds on the original asset timeline. Omit <code>start_time</code> to begin at the asset start and omit <code>end_time</code> to continue through the asset end. The summary and tags are generated only from media within this window.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.scope.end_time</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>End of the execution window in seconds from the beginning of the media. When omitted, the window extends to the end.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.scope.start_time</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Start of the execution window in seconds from the beginning of the media. When omitted, the window starts at the beginning.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.summary_style</code></td>
+<td><code>enum: concise, detailed, editorial</code></td>
+<td>No</td>
+<td>Best-effort style guidance for the generated title and description.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.tag_taxonomy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Controlled vocabulary for tag generation. This steers tags and may be deterministically filtered after generation. Supports up to 50 values and 2000 serialized characters.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.tag_taxonomy.allow_other</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>When false, generated tags are filtered to taxonomy labels and aliases. When true, unmatched tags may remain.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.tag_taxonomy.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional customer-facing name for the taxonomy, up to 100 characters.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.tag_taxonomy.values</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Controlled vocabulary values for generated tags. Supports 1-50 values.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.tag_taxonomy.values[].aliases</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Accepted alternate names that should normalize to the canonical label. Up to 10 aliases, each up to 100 characters.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.tag_taxonomy.values[].description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Short explanation of when this tag applies, up to 300 characters.</td>
+</tr>
+<tr>
+<td><code>parameters.output_steering.tag_taxonomy.values[].label</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Canonical tag value to prefer in generated tags, up to 100 characters.</td>
+</tr>
+<tr>
+<td><code>parameters.prompt_overrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Deprecated: use <code>output_steering</code>. Raw prompt-section overrides; any section supplied here takes precedence over the equivalent <code>output_steering</code> guidance.</td>
+</tr>
+<tr>
+<td><code>parameters.prompt_overrides.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the description generation requirements.</td>
+</tr>
+<tr>
+<td><code>parameters.prompt_overrides.keywords</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the keyword/tag extraction requirements.</td>
+</tr>
+<tr>
+<td><code>parameters.prompt_overrides.quality_guidelines</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the quality standards for analysis.</td>
+</tr>
+<tr>
+<td><code>parameters.prompt_overrides.task</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the core task instruction for summarization.</td>
+</tr>
+<tr>
+<td><code>parameters.prompt_overrides.title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the title generation requirements.</td>
+</tr>
+<tr>
+<td><code>parameters.tag_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum number of tags to include in the generated output. Defaults to 10.</td>
+</tr>
+<tr>
+<td><code>parameters.title_length</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum title length in words.</td>
+</tr>
+<tr>
+<td><code>parameters.tone</code></td>
+<td><code>enum: neutral, playful, professional</code></td>
+<td>No</td>
+<td>Tone for the generated summary. &quot;neutral&quot; for straightforward analysis, &quot;playful&quot; for witty and conversational, &quot;professional&quot; for executive-level reporting.</td>
+</tr>
+<tr>
+<td><code>parameters.update_asset_meta</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, the generated title is written to the Mux asset's metadata (asset.meta.title) once the summary completes. Best-effort: a metadata-write failure does not fail the summary.</td>
+</tr>
+<tr>
+<td><code>passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Arbitrary string stored with the job and returned in responses. Useful for correlating jobs with your own systems.</td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;parameters&quot;: {
+    &quot;asset_id&quot;: &quot;mux_asset_123abc&quot;,
+    &quot;output_steering&quot;: {
+      &quot;audience&quot;: &quot;Product marketers&quot;,
+      &quot;brand_terms&quot;: [
+        &quot;Mux&quot;,
+        &quot;Robots&quot;
+      ],
+      &quot;scope&quot;: {
+        &quot;end_time&quot;: 180,
+        &quot;start_time&quot;: 30
+      },
+      &quot;summary_style&quot;: &quot;concise&quot;
+    },
+    &quot;tag_count&quot;: 10,
+    &quot;tone&quot;: &quot;neutral&quot;
+  }
+}
+</code></pre>
+<h4 id="responses">Responses</h4>
+<h5 id="202-summarize-job-queued" class="status" data-status="2xx">202: Summarize job queued</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.created_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) when the job was created.</td>
+</tr>
+<tr>
+<td><code>data.directive</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The directive run that dispatched this job. Absent for jobs created via direct API POST.</td>
+</tr>
+<tr>
+<td><code>data.directive.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ID of the directive that dispatched this job.</td>
+</tr>
+<tr>
+<td><code>data.directive.run_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ID of the specific directive run that dispatched this job.</td>
+</tr>
+<tr>
+<td><code>data.errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Error details. Present when status is 'errored'.</td>
+</tr>
+<tr>
+<td><code>data.errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable public error message.</td>
+</tr>
+<tr>
+<td><code>data.errors[].retryable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether retrying this job may resolve the error.</td>
+</tr>
+<tr>
+<td><code>data.errors[].type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Stable public error category identifier.</td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique job identifier.</td>
+</tr>
+<tr>
+<td><code>data.outputs</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Workflow results. Present when status is 'completed'.</td>
+</tr>
+<tr>
+<td><code>data.outputs.description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Generated description of the video content (typically 2-4 sentences).</td>
+</tr>
+<tr>
+<td><code>data.outputs.tags</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Generated keyword tags for the video.</td>
+</tr>
+<tr>
+<td><code>data.outputs.title</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Generated title capturing the essence of the video.</td>
+</tr>
+<tr>
+<td><code>data.parameters</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.parameters.asset_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The Mux asset ID of the video to summarize.</td>
+</tr>
+<tr>
+<td><code>data.parameters.description_length</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum description length in words.</td>
+</tr>
+<tr>
+<td><code>data.parameters.language_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>BCP 47 language code of the caption track to analyze (for example &quot;en&quot;, &quot;fr&quot;). When omitted, the SDK uses the default track.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_language_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>BCP 47 language code for the generated summary output (for example &quot;en&quot;, &quot;fr&quot;, &quot;ja&quot;). Auto-detected from the transcript if omitted.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Curated <code>output_steering</code> controls for execution scope, summary style, audience, brand terminology, and tag taxonomy. Scope is enforced; other controls guide model behavior but do not guarantee exact output.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.audience</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Intended audience used as best-effort model guidance. Does not change the output schema.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.brand_terms</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Preferred brand or domain terms to use when supported by the source content.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.scope</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Optional execution window in seconds on the original asset timeline. Omit <code>start_time</code> to begin at the asset start and omit <code>end_time</code> to continue through the asset end. The summary and tags are generated only from media within this window.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.scope.end_time</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>End of the execution window in seconds from the beginning of the media. When omitted, the window extends to the end.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.scope.start_time</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Start of the execution window in seconds from the beginning of the media. When omitted, the window starts at the beginning.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.summary_style</code></td>
+<td><code>enum: concise, detailed, editorial</code></td>
+<td>No</td>
+<td>Best-effort style guidance for the generated title and description.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.tag_taxonomy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Controlled vocabulary for tag generation. This steers tags and may be deterministically filtered after generation. Supports up to 50 values and 2000 serialized characters.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.tag_taxonomy.allow_other</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>When false, generated tags are filtered to taxonomy labels and aliases. When true, unmatched tags may remain.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.tag_taxonomy.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional customer-facing name for the taxonomy, up to 100 characters.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.tag_taxonomy.values</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Controlled vocabulary values for generated tags. Supports 1-50 values.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Deprecated: use <code>output_steering</code>. Raw prompt-section overrides; any section supplied here takes precedence over the equivalent <code>output_steering</code> guidance.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the description generation requirements.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides.keywords</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the keyword/tag extraction requirements.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides.quality_guidelines</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the quality standards for analysis.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides.task</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the core task instruction for summarization.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides.title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the title generation requirements.</td>
+</tr>
+<tr>
+<td><code>data.parameters.tag_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum number of tags to include in the generated output. Defaults to 10.</td>
+</tr>
+<tr>
+<td><code>data.parameters.title_length</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum title length in words.</td>
+</tr>
+<tr>
+<td><code>data.parameters.tone</code></td>
+<td><code>enum: neutral, playful, professional</code></td>
+<td>No</td>
+<td>Tone for the generated summary. &quot;neutral&quot; for straightforward analysis, &quot;playful&quot; for witty and conversational, &quot;professional&quot; for executive-level reporting.</td>
+</tr>
+<tr>
+<td><code>data.parameters.update_asset_meta</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, the generated title is written to the Mux asset's metadata (asset.meta.title) once the summary completes. Best-effort: a metadata-write failure does not fail the summary.</td>
+</tr>
+<tr>
+<td><code>data.passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Arbitrary string supplied at creation, returned as-is.</td>
+</tr>
+<tr>
+<td><code>data.resources</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Related Mux resources linked to this job.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Mux assets associated with this job.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[]._links</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Hypermedia links for the asset.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[]._links.self</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Mux asset ID.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Mux asset metadata, if available.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.creator_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Creator identifier from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.external_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>External identifier from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Asset title from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Passthrough string from the Mux asset.</td>
+</tr>
+<tr>
+<td><code>data.status</code></td>
+<td><code>enum: pending, processing, completed, errored, cancelled</code></td>
+<td>Yes</td>
+<td>Current job status.</td>
+</tr>
+<tr>
+<td><code>data.units_consumed</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of Mux AI units consumed by this job.</td>
+</tr>
+<tr>
+<td><code>data.updated_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) of the job's last state transition (for example when it started processing or reached a terminal state).</td>
+</tr>
+<tr>
+<td><code>data.workflow</code></td>
+<td><code>enum: summarize</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;created_at&quot;: 1700000000,
+    &quot;id&quot;: &quot;rjob_example123&quot;,
+    &quot;parameters&quot;: {
+      &quot;asset_id&quot;: &quot;mux_asset_123abc&quot;,
+      &quot;output_steering&quot;: {
+        &quot;audience&quot;: &quot;Product marketers&quot;,
+        &quot;brand_terms&quot;: [
+          &quot;Mux&quot;,
+          &quot;Robots&quot;
+        ],
+        &quot;scope&quot;: {
+          &quot;end_time&quot;: 180,
+          &quot;start_time&quot;: 30
+        },
+        &quot;summary_style&quot;: &quot;concise&quot;
+      },
+      &quot;tag_count&quot;: 10,
+      &quot;tone&quot;: &quot;neutral&quot;
+    },
+    &quot;status&quot;: &quot;pending&quot;,
+    &quot;units_consumed&quot;: 0,
+    &quot;updated_at&quot;: 1700000060,
+    &quot;workflow&quot;: &quot;summarize&quot;
+  }
+}
+</code></pre>
+<h5 id="401-missing-mux-credentials" class="status" data-status="4xx">401: Missing Mux credentials</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-robots-is-not-enabled-for-this-environment-accept-the-robots-beta-terms-in-the-mux-dashboard-to-enable-access-or-a-free-plan-limit-has-prevented-job-creation" class="status" data-status="4xx">403: Robots is not enabled for this environment (accept the Robots beta terms in the Mux Dashboard to enable access), or a free-plan limit has prevented job creation</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="409-a-job-with-the-same-workflow-and-parameters-is-already-pending-or-processing-for-this-environment" class="status" data-status="4xx">409: A job with the same workflow and parameters is already pending or processing for this environment</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="422-asset-not-found-or-missing-public-or-signed-playback-id" class="status" data-status="4xx">422: Asset not found or missing public or signed playback ID</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-server-error" class="status" data-status="5xx">500: Server error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-robotsv0jobssummarizejob_id" class="operation" data-method="get"><code>GET</code> /robots/v0/jobs/summarize/{JOB_ID}</h3>
+<p>Operation ID: <code>get-summarize-job</code>.</p>
+<p>Authentication: basic token (<code>accessToken</code>) or bearer token (<code>authorizationToken</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>JOB_ID</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-current-status-for-the-requested-job" class="status" data-status="2xx">200: Current status for the requested job</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.created_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) when the job was created.</td>
+</tr>
+<tr>
+<td><code>data.directive</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>The directive run that dispatched this job. Absent for jobs created via direct API POST.</td>
+</tr>
+<tr>
+<td><code>data.directive.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ID of the directive that dispatched this job.</td>
+</tr>
+<tr>
+<td><code>data.directive.run_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ID of the specific directive run that dispatched this job.</td>
+</tr>
+<tr>
+<td><code>data.errors</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Error details. Present when status is 'errored'.</td>
+</tr>
+<tr>
+<td><code>data.errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable public error message.</td>
+</tr>
+<tr>
+<td><code>data.errors[].retryable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether retrying this job may resolve the error.</td>
+</tr>
+<tr>
+<td><code>data.errors[].type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Stable public error category identifier.</td>
+</tr>
+<tr>
+<td><code>data.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique job identifier.</td>
+</tr>
+<tr>
+<td><code>data.outputs</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Workflow results. Present when status is 'completed'.</td>
+</tr>
+<tr>
+<td><code>data.outputs.description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Generated description of the video content (typically 2-4 sentences).</td>
+</tr>
+<tr>
+<td><code>data.outputs.tags</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Generated keyword tags for the video.</td>
+</tr>
+<tr>
+<td><code>data.outputs.title</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Generated title capturing the essence of the video.</td>
+</tr>
+<tr>
+<td><code>data.parameters</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.parameters.asset_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The Mux asset ID of the video to summarize.</td>
+</tr>
+<tr>
+<td><code>data.parameters.description_length</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum description length in words.</td>
+</tr>
+<tr>
+<td><code>data.parameters.language_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>BCP 47 language code of the caption track to analyze (for example &quot;en&quot;, &quot;fr&quot;). When omitted, the SDK uses the default track.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_language_code</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>BCP 47 language code for the generated summary output (for example &quot;en&quot;, &quot;fr&quot;, &quot;ja&quot;). Auto-detected from the transcript if omitted.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Curated <code>output_steering</code> controls for execution scope, summary style, audience, brand terminology, and tag taxonomy. Scope is enforced; other controls guide model behavior but do not guarantee exact output.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.audience</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Intended audience used as best-effort model guidance. Does not change the output schema.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.brand_terms</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Preferred brand or domain terms to use when supported by the source content.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.scope</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Optional execution window in seconds on the original asset timeline. Omit <code>start_time</code> to begin at the asset start and omit <code>end_time</code> to continue through the asset end. The summary and tags are generated only from media within this window.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.scope.end_time</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>End of the execution window in seconds from the beginning of the media. When omitted, the window extends to the end.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.scope.start_time</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Start of the execution window in seconds from the beginning of the media. When omitted, the window starts at the beginning.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.summary_style</code></td>
+<td><code>enum: concise, detailed, editorial</code></td>
+<td>No</td>
+<td>Best-effort style guidance for the generated title and description.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.tag_taxonomy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Controlled vocabulary for tag generation. This steers tags and may be deterministically filtered after generation. Supports up to 50 values and 2000 serialized characters.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.tag_taxonomy.allow_other</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>When false, generated tags are filtered to taxonomy labels and aliases. When true, unmatched tags may remain.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.tag_taxonomy.name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional customer-facing name for the taxonomy, up to 100 characters.</td>
+</tr>
+<tr>
+<td><code>data.parameters.output_steering.tag_taxonomy.values</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Controlled vocabulary values for generated tags. Supports 1-50 values.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Deprecated: use <code>output_steering</code>. Raw prompt-section overrides; any section supplied here takes precedence over the equivalent <code>output_steering</code> guidance.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides.description</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the description generation requirements.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides.keywords</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the keyword/tag extraction requirements.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides.quality_guidelines</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the quality standards for analysis.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides.task</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the core task instruction for summarization.</td>
+</tr>
+<tr>
+<td><code>data.parameters.prompt_overrides.title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Override the title generation requirements.</td>
+</tr>
+<tr>
+<td><code>data.parameters.tag_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum number of tags to include in the generated output. Defaults to 10.</td>
+</tr>
+<tr>
+<td><code>data.parameters.title_length</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum title length in words.</td>
+</tr>
+<tr>
+<td><code>data.parameters.tone</code></td>
+<td><code>enum: neutral, playful, professional</code></td>
+<td>No</td>
+<td>Tone for the generated summary. &quot;neutral&quot; for straightforward analysis, &quot;playful&quot; for witty and conversational, &quot;professional&quot; for executive-level reporting.</td>
+</tr>
+<tr>
+<td><code>data.parameters.update_asset_meta</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, the generated title is written to the Mux asset's metadata (asset.meta.title) once the summary completes. Best-effort: a metadata-write failure does not fail the summary.</td>
+</tr>
+<tr>
+<td><code>data.passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Arbitrary string supplied at creation, returned as-is.</td>
+</tr>
+<tr>
+<td><code>data.resources</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Related Mux resources linked to this job.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>Mux assets associated with this job.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[]._links</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Hypermedia links for the asset.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[]._links.self</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Mux asset ID.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Mux asset metadata, if available.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.creator_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Creator identifier from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.external_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>External identifier from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].meta.title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Asset title from Mux metadata.</td>
+</tr>
+<tr>
+<td><code>data.resources.assets[].passthrough</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Passthrough string from the Mux asset.</td>
+</tr>
+<tr>
+<td><code>data.status</code></td>
+<td><code>enum: pending, processing, completed, errored, cancelled</code></td>
+<td>Yes</td>
+<td>Current job status.</td>
+</tr>
+<tr>
+<td><code>data.units_consumed</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Number of Mux AI units consumed by this job.</td>
+</tr>
+<tr>
+<td><code>data.updated_at</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Unix timestamp (seconds) of the job's last state transition (for example when it started processing or reached a terminal state).</td>
+</tr>
+<tr>
+<td><code>data.workflow</code></td>
+<td><code>enum: summarize</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;created_at&quot;: 1700000000,
+    &quot;id&quot;: &quot;rjob_example123&quot;,
+    &quot;outputs&quot;: {
+      &quot;description&quot;: &quot;This video walks through the step-by-step process of creating a sustainable backyard garden, covering soil preparation, plant selection, and organic pest control methods.&quot;,
+      &quot;tags&quot;: [
+        &quot;gardening&quot;,
+        &quot;sustainability&quot;,
+        &quot;backyard&quot;,
+        &quot;organic&quot;,
+        &quot;soil preparation&quot;,
+        &quot;composting&quot;,
+        &quot;pest control&quot;,
+        &quot;beginner&quot;,
+        &quot;how-to&quot;,
+        &quot;plants&quot;
+      ],
+      &quot;title&quot;: &quot;How to Build a Sustainable Garden in Your Backyard&quot;
+    },
+    &quot;parameters&quot;: {
+      &quot;asset_id&quot;: &quot;mux_asset_123abc&quot;,
+      &quot;output_steering&quot;: {
+        &quot;audience&quot;: &quot;Product marketers&quot;,
+        &quot;brand_terms&quot;: [
+          &quot;Mux&quot;,
+          &quot;Robots&quot;
+        ],
+        &quot;scope&quot;: {
+          &quot;end_time&quot;: 180,
+          &quot;start_time&quot;: 30
+        },
+        &quot;summary_style&quot;: &quot;concise&quot;
+      },
+      &quot;tag_count&quot;: 10,
+      &quot;tone&quot;: &quot;neutral&quot;
+    },
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;units_consumed&quot;: 1,
+    &quot;updated_at&quot;: 1700000060,
+    &quot;workflow&quot;: &quot;summarize&quot;
+  }
+}
+</code></pre>
+<h5 id="401-missing-mux-credentials-1" class="status" data-status="4xx">401: Missing Mux credentials</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-robots-is-not-enabled-for-this-environment-accept-the-robots-beta-terms-in-the-mux-dashboard-to-enable-access" class="status" data-status="4xx">403: Robots is not enabled for this environment. Accept the Robots beta terms in the Mux Dashboard to enable access</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-no-job-exists-for-the-supplied-id" class="status" data-status="4xx">404: No job exists for the supplied id</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-server-error-1" class="status" data-status="5xx">500: Server error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>error</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>error.message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable error message describing what went wrong.</td>
+</tr>
+<tr>
+<td><code>error.type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Machine-readable error type.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

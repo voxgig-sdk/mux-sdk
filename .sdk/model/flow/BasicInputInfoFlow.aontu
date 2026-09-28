@@ -1,0 +1,26 @@
+# BasicInputInfoFlow
+
+main: kit: flow: BasicInputInfoFlow:
+{
+  entity: "input_info",
+  kind: "basic",
+  name: "BasicInputInfoFlow",
+  step: [
+    {
+      m: {
+        asset_id: "asset01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "input_info_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicInputInfoFlow"
+}

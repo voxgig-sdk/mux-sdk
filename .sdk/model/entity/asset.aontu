@@ -1,0 +1,861 @@
+# Entity: asset
+
+main: kit: entity: asset: {
+
+  alias: field: {}
+
+  fields: {
+    aspect_ratio: {
+      h: "Aspect Ratio"
+      n: "aspect_ratio"
+      r: false
+      sh: "The aspect ratio of the asset in the form of `width:height`, for example `16:9`."
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "int64"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "Time the Asset was created, defined as a Unix timestamp (seconds since epoch)."
+      t: "`$STRING`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      t: "`$OBJECT`"
+    }
+    directives: {
+      h: "Directives"
+      n: "directives"
+      r: false
+      sh: "The Mux Robots directives applied to the asset."
+      t: "`$ARRAY`"
+    }
+    duration: {
+      fo: "double"
+      h: "Duration"
+      n: "duration"
+      r: false
+      sh: "The duration of the asset in seconds (max duration for a single asset is 12 hours)."
+      t: "`$NUMBER`"
+    }
+    encoding_tier: {
+      de: true
+      h: "Encoding Tier"
+      n: "encoding_tier"
+      r: true
+      sh: "This field is deprecated."
+      t: "`$STRING`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: false
+      sh: "Object that describes any errors that happened when processing this asset."
+      t: "`$OBJECT`"
+    }
+    generate_shots: {
+      h: "Generate Shots"
+      n: "generate_shots"
+      r: false
+      sh: "Whether to perform shot detection on this asset."
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for the Asset."
+      t: "`$STRING`"
+    }
+    ingest_type: {
+      h: "Ingest Type"
+      n: "ingest_type"
+      r: false
+      sh: "The type of ingest used to create the asset."
+      t: "`$STRING`"
+    }
+    is_live: {
+      fo: "boolean"
+      h: "Is Live"
+      n: "is_live"
+      r: false
+      sh: "Indicates whether the live stream that created this asset is currently `active` and not in `idle` state."
+      t: "`$BOOLEAN`"
+    }
+    live_stream_id: {
+      h: "Live Stream Id"
+      n: "live_stream_id"
+      r: false
+      sh: "Unique identifier for the live stream."
+      t: "`$STRING`"
+    }
+    master: {
+      h: "Master"
+      n: "master"
+      r: false
+      sh: "An object containing the current status of Master Access and the link to the Master MP4 file when ready."
+      t: "`$OBJECT`"
+    }
+    master_access: {
+      h: "Master Access"
+      n: "master_access"
+      r: true
+      t: "`$STRING`"
+    }
+    max_resolution_tier: {
+      h: "Max Resolution Tier"
+      n: "max_resolution_tier"
+      r: true
+      sh: "Max resolution tier can be used to control the maximum `resolution_tier` your asset is encoded, stored, and streamed at."
+      t: "`$STRING`"
+    }
+    max_stored_frame_rate: {
+      fo: "double"
+      h: "Max Stored Frame Rate"
+      n: "max_stored_frame_rate"
+      r: false
+      sh: "The maximum frame rate that has been stored for the asset."
+      t: "`$NUMBER`"
+    }
+    max_stored_resolution: {
+      de: true
+      h: "Max Stored Resolution"
+      n: "max_stored_resolution"
+      r: false
+      sh: "This field is deprecated."
+      t: "`$STRING`"
+    }
+    meta: {
+      h: "Meta"
+      n: "meta"
+      r: false
+      sh: "Customer provided metadata about this asset."
+      t: "`$OBJECT`"
+    }
+    mp4_support: {
+      de: true
+      h: "Mp4 Support"
+      n: "mp4_support"
+      r: false
+      sh: "Deprecated."
+      t: "`$STRING`"
+    }
+    non_standard_input_reasons: {
+      h: "Non Standard Input Reasons"
+      n: "non_standard_input_reasons"
+      r: false
+      sh: "An object containing one or more reasons the input file is non-standard."
+      t: "`$OBJECT`"
+    }
+    normalize_audio: {
+      h: "Normalize Audio"
+      n: "normalize_audio"
+      r: false
+      sh: "Normalize the audio track loudness level."
+      t: "`$BOOLEAN`"
+    }
+    passthrough: {
+      h: "Passthrough"
+      n: "passthrough"
+      r: false
+      sh: "You can set this field to anything you want."
+      t: "`$STRING`"
+    }
+    playback_ids: {
+      h: "Playback Ids"
+      n: "playback_ids"
+      r: false
+      sh: "An array of Playback ID objects."
+      t: "`$ARRAY`"
+    }
+    progress: {
+      h: "Progress"
+      n: "progress"
+      r: true
+      sh: "Detailed state information about the asset ingest process."
+      t: "`$OBJECT`"
+    }
+    recording_times: {
+      h: "Recording Times"
+      n: "recording_times"
+      r: false
+      sh: "An array of individual live stream recording sessions."
+      t: "`$ARRAY`"
+    }
+    resolution_tier: {
+      h: "Resolution Tier"
+      n: "resolution_tier"
+      r: false
+      sh: "The resolution tier that the asset was ingested at, affecting billing for ingest & storage."
+      t: "`$STRING`"
+    }
+    shots: {
+      h: "Shots"
+      n: "shots"
+      r: true
+      sh: "The results of generating shots on the video"
+      t: "`$OBJECT`"
+    }
+    source_asset_id: {
+      h: "Source Asset Id"
+      n: "source_asset_id"
+      r: false
+      sh: "Asset Identifier of the video used as the source for creating the clip."
+      t: "`$STRING`"
+    }
+    static_renditions: {
+      h: "Static Renditions"
+      n: "static_renditions"
+      r: false
+      sh: "An object containing the current status of any static renditions (MP4s) for this asset."
+      t: "`$OBJECT`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "The status of the asset."
+      t: "`$STRING`"
+    }
+    test: {
+      fo: "boolean"
+      h: "Test"
+      n: "test"
+      r: false
+      sh: "True means this live stream is a test asset."
+      t: "`$BOOLEAN`"
+    }
+    thumbnail_time: {
+      fo: "float"
+      h: "Thumbnail Time"
+      n: "thumbnail_time"
+      r: false
+      sh: "The media time within the asset used when a thumbnail without an explicit time is requested."
+      t: "`$NUMBER`"
+    }
+    tracks: {
+      h: "Tracks"
+      n: "tracks"
+      r: false
+      sh: "The individual media tracks that make up an asset."
+      t: "`$ARRAY`"
+    }
+    upload_id: {
+      h: "Upload Id"
+      n: "upload_id"
+      r: false
+      sh: "Unique identifier for the Direct Upload."
+      t: "`$STRING`"
+    }
+    video_quality: {
+      h: "Video Quality"
+      n: "video_quality"
+      r: false
+      sh: "The video quality controls the cost, quality, and available platform features for the asset."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "asset"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /video/v1/assets"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/video/v1/assets"
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/assets/{ASSET_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/assets/{ASSET_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "playback_id"
+                or: "playback_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID}"
+          q: {
+            exist: [
+              "asset_id"
+              "playback_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+              PLAYBACK_ID: "playback_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "playback-ids"
+            }
+            {
+              var: "playback_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /video/v1/assets/{ASSET_ID}/static-renditions/{STATIC_RENDITION_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "static_rendition_id"
+                or: "static_rendition_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/assets/{ASSET_ID}/static-renditions/{STATIC_RENDITION_ID}"
+          q: {
+            exist: [
+              "asset_id"
+              "static_rendition_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+              STATIC_RENDITION_ID: "static_rendition_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "static-renditions"
+            }
+            {
+              var: "static_rendition_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "track_id"
+                or: "track_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}"
+          q: {
+            exist: [
+              "asset_id"
+              "track_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+              TRACK_ID: "track_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "tracks"
+            }
+            {
+              var: "track_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /video/v1/assets/{ASSET_ID}/shots"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/assets/{ASSET_ID}/shots"
+          q: {
+            "$action": "shot"
+            exist: [
+              "asset_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "shots"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /video/v1/assets/{ASSET_ID}/thumbnail-time"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/assets/{ASSET_ID}/thumbnail-time"
+          q: {
+            "$action": "thumbnail_time"
+            exist: [
+              "asset_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "thumbnail-time"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /video/v1/assets/{ASSET_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/assets/{ASSET_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /video/v1/assets/{ASSET_ID}/master-access"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/assets/{ASSET_ID}/master-access"
+          q: {
+            "$action": "master_access"
+            exist: [
+              "asset_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "master-access"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /video/v1/assets/{ASSET_ID}/mp4-support"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/assets/{ASSET_ID}/mp4-support"
+          q: {
+            "$action": "mp4_support"
+            exist: [
+              "asset_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "mp4-support"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "PATCH /video/v1/assets/{ASSET_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/video/v1/assets/{ASSET_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.static_rendition")]
+  ]
+
+}

@@ -1,0 +1,32 @@
+# BasicDrmConfigurationFlow
+
+main: kit: flow: BasicDrmConfigurationFlow:
+{
+  entity: "drm_configuration",
+  kind: "basic",
+  name: "BasicDrmConfigurationFlow",
+  step: [
+    {
+      i: {
+        ref: "drm_configuration_ref01",
+        srcdatavar: "drm_configuration_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "drm_configuration01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-drm_configuration_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDrmConfigurationFlow"
+}

@@ -1,0 +1,53 @@
+# BasicSigningKeyFlow
+
+main: kit: flow: BasicSigningKeyFlow:
+{
+  entity: "signing_key",
+  kind: "basic",
+  name: "BasicSigningKeyFlow",
+  step: [
+    {
+      i: {
+        ref: "signing_key_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "signing_key_ref01",
+        srcdatavar: "signing_key_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "signing_key01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-signing_key_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "signing_key_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        id: "signing_key01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicSigningKeyFlow"
+}

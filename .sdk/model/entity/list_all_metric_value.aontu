@@ -1,0 +1,169 @@
+# Entity: list_all_metric_value
+
+main: kit: entity: list_all_metric_value: {
+
+  alias: field: {}
+
+  fields: {
+    ended_views: {
+      fo: "int64"
+      h: "Ended Views"
+      n: "ended_views"
+      r: false
+      t: "`$INTEGER`"
+    }
+    items: {
+      h: "Items"
+      n: "items"
+      r: false
+      t: "`$ARRAY`"
+    }
+    metric: {
+      h: "Metric"
+      n: "metric"
+      r: false
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      t: "`$STRING`"
+    }
+    started_views: {
+      fo: "int64"
+      h: "Started Views"
+      n: "started_views"
+      r: false
+      t: "`$INTEGER`"
+    }
+    total_playing_time: {
+      fo: "int64"
+      h: "Total Playing Time"
+      n: "total_playing_time"
+      r: false
+      t: "`$INTEGER`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      t: "`$STRING`"
+    }
+    unique_viewers: {
+      fo: "int64"
+      h: "Unique Viewers"
+      n: "unique_viewers"
+      r: false
+      t: "`$INTEGER`"
+    }
+    value: {
+      fo: "double"
+      h: "Value"
+      n: "value"
+      r: false
+      t: "`$NUMBER`"
+    }
+    view_count: {
+      fo: "int64"
+      h: "View Count"
+      n: "view_count"
+      r: false
+      t: "`$INTEGER`"
+    }
+    watch_time: {
+      fo: "int64"
+      h: "Watch Time"
+      n: "watch_time"
+      r: false
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "list_all_metric_value"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/metrics/comparison"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "dimension"
+                or: "dimension"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "metric_filter"
+                or: "metric_filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "value"
+                or: "value"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/metrics/comparison"
+          q: {
+            exist: [
+              "dimension"
+              "filter"
+              "metric_filter"
+              "timeframe"
+              "value"
+            ]
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              lit: "comparison"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,77 @@
+{
+  "existing": {
+    "find_key_moment": {
+      "FIND_KEY_MOMENT00": {
+        "created_at": 120,
+        "directive": {},
+        "errors": [],
+        "id": "FIND_KEY_MOMENT00",
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "s7e",
+        "resources": {},
+        "status": "s80",
+        "units_consumed": 129,
+        "updated_at": 130,
+        "workflow": "s83"
+      },
+      "FIND_KEY_MOMENT01": {
+        "created_at": 240,
+        "directive": {},
+        "errors": [],
+        "id": "FIND_KEY_MOMENT01",
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "sf6",
+        "resources": {},
+        "status": "sf8",
+        "units_consumed": 249,
+        "updated_at": 250,
+        "workflow": "sfb"
+      },
+      "FIND_KEY_MOMENT02": {
+        "created_at": 360,
+        "directive": {},
+        "errors": [],
+        "id": "FIND_KEY_MOMENT02",
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "s16e",
+        "resources": {},
+        "status": "s170",
+        "units_consumed": 369,
+        "updated_at": 370,
+        "workflow": "s173"
+      }
+    }
+  },
+  "new": {
+    "find_key_moment": {
+      "find_key_moment_ref01": {
+        "created_at": 480,
+        "directive": {},
+        "errors": [],
+        "outputs": {},
+        "parameters": {},
+        "passthrough": "s1e6",
+        "resources": {},
+        "status": "s1e8",
+        "units_consumed": 489,
+        "updated_at": 490,
+        "workflow": "s1eb"
+      }
+    }
+  },
+  "requests": {
+    "POST /robots/v0/jobs/find-key-moments": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /robots/v0/jobs/find-key-moments/{JOB_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

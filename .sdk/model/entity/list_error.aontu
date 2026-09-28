@@ -1,0 +1,149 @@
+# Entity: list_error
+
+main: kit: entity: list_error: {
+
+  alias: field: {}
+
+  fields: {
+    code: {
+      fo: "int64"
+      h: "Code"
+      n: "code"
+      r: true
+      sh: "The error code"
+      t: "`$INTEGER`"
+    }
+    count: {
+      fo: "int64"
+      h: "Count"
+      n: "count"
+      r: true
+      sh: "The total number of views that experienced this error."
+      t: "`$INTEGER`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: true
+      sh: "Description of the error."
+      t: "`$STRING`"
+    }
+    id: {
+      fo: "int64"
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "A unique identifier for this error."
+      t: "`$INTEGER`"
+    }
+    last_seen: {
+      h: "Last Seen"
+      n: "last_seen"
+      r: true
+      sh: "The last time this error was seen (ISO 8601 timestamp)."
+      t: "`$STRING`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: true
+      sh: "The error message."
+      t: "`$STRING`"
+    }
+    notes: {
+      h: "Notes"
+      n: "notes"
+      r: true
+      sh: "Notes that are attached to this error."
+      t: "`$STRING`"
+    }
+    percentage: {
+      fo: "double"
+      h: "Percentage"
+      n: "percentage"
+      r: true
+      sh: "The percentage of views that experienced this error."
+      t: "`$NUMBER`"
+    }
+    player_error_code: {
+      h: "Player Error Code"
+      n: "player_error_code"
+      r: true
+      sh: "The string version of the error code"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "list_error"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/errors"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "metric_filter"
+                or: "metric_filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/errors"
+          q: {
+            exist: [
+              "filter"
+              "metric_filter"
+              "timeframe"
+            ]
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "errors"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

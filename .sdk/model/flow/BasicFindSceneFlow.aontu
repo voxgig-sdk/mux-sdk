@@ -1,0 +1,40 @@
+# BasicFindSceneFlow
+
+main: kit: flow: BasicFindSceneFlow:
+{
+  entity: "find_scene",
+  kind: "basic",
+  name: "BasicFindSceneFlow",
+  step: [
+    {
+      i: {
+        ref: "find_scene_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "find_scene_ref01",
+        srcdatavar: "find_scene_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "find_scene01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-find_scene_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFindSceneFlow"
+}

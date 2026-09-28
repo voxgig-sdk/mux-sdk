@@ -1,0 +1,190 @@
+# Entity: list_breakdown_value
+
+main: kit: entity: list_breakdown_value: {
+
+  alias: field: {}
+
+  fields: {
+    field: {
+      h: "Field"
+      n: "field"
+      r: true
+      t: "`$STRING`"
+    }
+    negative_impact: {
+      fo: "int32"
+      h: "Negative Impact"
+      n: "negative_impact"
+      r: true
+      t: "`$INTEGER`"
+    }
+    total_playing_time: {
+      fo: "int64"
+      h: "Total Playing Time"
+      n: "total_playing_time"
+      r: true
+      t: "`$INTEGER`"
+    }
+    total_watch_time: {
+      fo: "int64"
+      h: "Total Watch Time"
+      n: "total_watch_time"
+      r: true
+      t: "`$INTEGER`"
+    }
+    value: {
+      fo: "double"
+      h: "Value"
+      n: "value"
+      r: true
+      t: "`$NUMBER`"
+    }
+    views: {
+      fo: "int64"
+      h: "Views"
+      n: "views"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "list_breakdown_value"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/metrics/{METRIC_ID}/breakdown"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "video_startup_time"
+                k: "param"
+                n: "metric_id"
+                or: "metric_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "group_by"
+                or: "group_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "measurement"
+                or: "measurement"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "metric_filter"
+                or: "metric_filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order_direction"
+                or: "order_direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/metrics/{METRIC_ID}/breakdown"
+          q: {
+            exist: [
+              "filter"
+              "group_by"
+              "limit"
+              "measurement"
+              "metric_filter"
+              "metric_id"
+              "order_by"
+              "order_direction"
+              "page"
+              "timeframe"
+            ]
+          }
+          r: {
+            param: {
+              METRIC_ID: "metric_id"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              var: "metric_id"
+            }
+            {
+              lit: "breakdown"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

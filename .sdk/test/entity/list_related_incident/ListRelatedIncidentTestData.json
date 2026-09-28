@@ -1,0 +1,111 @@
+{
+  "existing": {
+    "list_related_incident": {
+      "LIST_RELATED_INCIDENT00": {
+        "affected_views": 210,
+        "affected_views_per_hour": 211,
+        "affected_views_per_hour_on_open": 212,
+        "breakdowns": [],
+        "description": "sd6",
+        "error_description": "sd7",
+        "id": "LIST_RELATED_INCIDENT00",
+        "impact": "sd9",
+        "incident_key": "sda",
+        "measured_value": 219,
+        "measured_value_on_close": 220,
+        "measurement": "sdd",
+        "notification_rules": [],
+        "notifications": [],
+        "resolved_at": "se0",
+        "sample_size": 225,
+        "sample_size_unit": "se2",
+        "severity": "se3",
+        "started_at": "se4",
+        "status": "se5",
+        "threshold": 230,
+        "incident_id": "INCIDENT01"
+      },
+      "LIST_RELATED_INCIDENT01": {
+        "affected_views": 420,
+        "affected_views_per_hour": 421,
+        "affected_views_per_hour_on_open": 422,
+        "breakdowns": [],
+        "description": "s1a8",
+        "error_description": "s1a9",
+        "id": "LIST_RELATED_INCIDENT01",
+        "impact": "s1ab",
+        "incident_key": "s1ac",
+        "measured_value": 429,
+        "measured_value_on_close": 430,
+        "measurement": "s1af",
+        "notification_rules": [],
+        "notifications": [],
+        "resolved_at": "s1b2",
+        "sample_size": 435,
+        "sample_size_unit": "s1b4",
+        "severity": "s1b5",
+        "started_at": "s1b6",
+        "status": "s1b7",
+        "threshold": 440,
+        "incident_id": "INCIDENT01"
+      },
+      "LIST_RELATED_INCIDENT02": {
+        "affected_views": 630,
+        "affected_views_per_hour": 631,
+        "affected_views_per_hour_on_open": 632,
+        "breakdowns": [],
+        "description": "s27a",
+        "error_description": "s27b",
+        "id": "LIST_RELATED_INCIDENT02",
+        "impact": "s27d",
+        "incident_key": "s27e",
+        "measured_value": 639,
+        "measured_value_on_close": 640,
+        "measurement": "s281",
+        "notification_rules": [],
+        "notifications": [],
+        "resolved_at": "s284",
+        "sample_size": 645,
+        "sample_size_unit": "s286",
+        "severity": "s287",
+        "started_at": "s288",
+        "status": "s289",
+        "threshold": 650,
+        "incident_id": "INCIDENT01"
+      }
+    }
+  },
+  "new": {
+    "list_related_incident": {
+      "list_related_incident_ref01": {
+        "affected_views": 840,
+        "affected_views_per_hour": 841,
+        "affected_views_per_hour_on_open": 842,
+        "breakdowns": [],
+        "description": "s34c",
+        "error_description": "s34d",
+        "impact": "s34f",
+        "incident_key": "s350",
+        "measured_value": 849,
+        "measured_value_on_close": 850,
+        "measurement": "s353",
+        "notification_rules": [],
+        "notifications": [],
+        "resolved_at": "s356",
+        "sample_size": 855,
+        "sample_size_unit": "s358",
+        "severity": "s359",
+        "started_at": "s35a",
+        "status": "s35b",
+        "threshold": 860
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/incidents/{INCIDENT_ID}/related": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

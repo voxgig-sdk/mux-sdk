@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MonitoringHistogramTimeseries | Mux API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Mux API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/mux-sdk">voxgig-sdk/mux-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Mux API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/annotation.html">Annotation</a>
+<a href="../api/ask_question.html">AskQuestion</a>
+<a href="../api/asset.html">Asset</a>
+<a href="../api/asset_or_live_stream_id.html">AssetOrLiveStreamId</a>
+<a href="../api/asset_playback_id.html">AssetPlaybackId</a>
+<a href="../api/asset_shot.html">AssetShot</a>
+<a href="../api/create_playback_id.html">CreatePlaybackId</a>
+<a href="../api/create_track.html">CreateTrack</a>
+<a href="../api/directive.html">Directive</a>
+<a href="../api/directive_run_detail.html">DirectiveRunDetail</a>
+<a href="../api/directive_run_list.html">DirectiveRunList</a>
+<a href="../api/drm_configuration.html">DrmConfiguration</a>
+<a href="../api/edit_caption.html">EditCaption</a>
+<a href="../api/engagement_heatmap.html">EngagementHeatmap</a>
+<a href="../api/engagement_hotspot.html">EngagementHotspot</a>
+<a href="../api/find_best_thumbnail.html">FindBestThumbnail</a>
+<a href="../api/find_key_moment.html">FindKeyMoment</a>
+<a href="../api/find_scene.html">FindScene</a>
+<a href="../api/generate_asset_shot.html">GenerateAssetShot</a>
+<a href="../api/generate_chapter.html">GenerateChapter</a>
+<a href="../api/generate_engagement_insight.html">GenerateEngagementInsight</a>
+<a href="../api/generate_premium_caption.html">GeneratePremiumCaption</a>
+<a href="../api/generate_track_subtitle.html">GenerateTrackSubtitle</a>
+<a href="../api/incident.html">Incident</a>
+<a href="../api/input_info.html">InputInfo</a>
+<a href="../api/job_summary.html">JobSummary</a>
+<a href="../api/list_all_metric_value.html">ListAllMetricValue</a>
+<a href="../api/list_annotation.html">ListAnnotation</a>
+<a href="../api/list_asset.html">ListAsset</a>
+<a href="../api/list_breakdown_value.html">ListBreakdownValue</a>
+<a href="../api/list_delivery_usage.html">ListDeliveryUsage</a>
+<a href="../api/list_dimension.html">ListDimension</a>
+<a href="../api/list_dimension_value.html">ListDimensionValue</a>
+<a href="../api/list_drm_configuration.html">ListDrmConfiguration</a>
+<a href="../api/list_error.html">ListError</a>
+<a href="../api/list_export.html">ListExport</a>
+<a href="../api/list_filter.html">ListFilter</a>
+<a href="../api/list_filter_value.html">ListFilterValue</a>
+<a href="../api/list_incident.html">ListIncident</a>
+<a href="../api/list_insight.html">ListInsight</a>
+<a href="../api/list_job.html">ListJob</a>
+<a href="../api/list_live_stream.html">ListLiveStream</a>
+<a href="../api/list_monitoring_dimension.html">ListMonitoringDimension</a>
+<a href="../api/list_monitoring_metric.html">ListMonitoringMetric</a>
+<a href="../api/list_playback_restriction.html">ListPlaybackRestriction</a>
+<a href="../api/list_real_time_dimension.html">ListRealTimeDimension</a>
+<a href="../api/list_real_time_metric.html">ListRealTimeMetric</a>
+<a href="../api/list_related_incident.html">ListRelatedIncident</a>
+<a href="../api/list_signing_key.html">ListSigningKey</a>
+<a href="../api/list_subview_breakdown_value.html">ListSubviewBreakdownValue</a>
+<a href="../api/list_subview_comparison_value.html">ListSubviewComparisonValue</a>
+<a href="../api/list_subview_dimension.html">ListSubviewDimension</a>
+<a href="../api/list_subview_dimension_value.html">ListSubviewDimensionValue</a>
+<a href="../api/list_transcription_vocabulary.html">ListTranscriptionVocabulary</a>
+<a href="../api/list_upload.html">ListUpload</a>
+<a href="../api/list_usage_export.html">ListUsageExport</a>
+<a href="../api/list_video_view.html">ListVideoView</a>
+<a href="../api/list_video_view_export.html">ListVideoViewExport</a>
+<a href="../api/list_webhook.html">ListWebhook</a>
+<a href="../api/live_stream.html">LiveStream</a>
+<a href="../api/live_stream_playback_id.html">LiveStreamPlaybackId</a>
+<a href="../api/metric_timeseries_data.html">MetricTimeseriesData</a>
+<a href="../api/moderate.html">Moderate</a>
+<a href="../api/monitoring_breakdown.html">MonitoringBreakdown</a>
+<a href="../api/monitoring_breakdown_timeseries.html">MonitoringBreakdownTimeseries</a>
+<a aria-current="page" href="../api/monitoring_histogram_timeseries.html">MonitoringHistogramTimeseries</a><div class="nav-sections"><a class="nav-section" href="#get-datav1monitoringmetricsmonitoring_histogram_metric_idhistogram-timeseries">GET /data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries</a></div>
+<a href="../api/monitoring_timeseries.html">MonitoringTimeseries</a>
+<a href="../api/overall.html">Overall</a>
+<a href="../api/playback_restriction.html">PlaybackRestriction</a>
+<a href="../api/real_time_breakdown.html">RealTimeBreakdown</a>
+<a href="../api/real_time_histogram_timeseries.html">RealTimeHistogramTimeseries</a>
+<a href="../api/real_time_timeseries.html">RealTimeTimeseries</a>
+<a href="../api/signal_live_stream_complete.html">SignalLiveStreamComplete</a>
+<a href="../api/signing_key.html">SigningKey</a>
+<a href="../api/simulcast_target.html">SimulcastTarget</a>
+<a href="../api/static_rendition.html">StaticRendition</a>
+<a href="../api/subview_breakdown_timeseries.html">SubviewBreakdownTimeseries</a>
+<a href="../api/subview_overall_value.html">SubviewOverallValue</a>
+<a href="../api/summarize.html">Summarize</a>
+<a href="../api/transcription_vocabulary.html">TranscriptionVocabulary</a>
+<a href="../api/translate_audio.html">TranslateAudio</a>
+<a href="../api/translate_caption.html">TranslateCaption</a>
+<a href="../api/update_asset_track.html">UpdateAssetTrack</a>
+<a href="../api/upload.html">Upload</a>
+<a href="../api/url_signing_key.html">UrlSigningKey</a>
+<a href="../api/video_view.html">VideoView</a>
+<a href="../api/webhook.html">Webhook</a>
+<a href="../api/who_am_i.html">WhoAmI</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Debug capture</a>
+<a href="../features/idempotency.html">Idempotency</a>
+<a href="../features/metrics.html">Metrics</a>
+<a href="../features/paging.html">Paging</a>
+<a href="../features/ratelimit.html">Rate limiting</a>
+<a href="../features/retry.html">Retry</a>
+<a href="../features/test.html">Test transport</a>
+<a href="../features/timeout.html">Timeout</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="monitoringhistogramtimeseries">MonitoringHistogramTimeseries</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-datav1monitoringmetricsmonitoring_histogram_metric_idhistogram-timeseries"><code>/data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries</code></a></td>
+<td><code>list</code></td>
+<td>OK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">monitoring_histogram_timeseriess, err := client.MonitoringHistogramTimeseries(nil).List(map[string]any{&quot;monitoring_histogram_metric_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(monitoring_histogram_timeseriess)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local monitoring_histogram_timeseriess, err = client:MonitoringHistogramTimeseries():list({ monitoring_histogram_metric_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$monitoring_histogram_timeseriess = $client-&gt;MonitoringHistogramTimeseries()-&gt;list([&quot;monitoring_histogram_metric_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">monitoring_histogram_timeseriess = client.MonitoringHistogramTimeseries().list({&quot;monitoring_histogram_metric_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">monitoring_histogram_timeseriess = client.MonitoringHistogramTimeseries.list({ &quot;monitoring_histogram_metric_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const monitoring_histogram_timeseriess = await client.MonitoringHistogramTimeseries().list({ monitoring_histogram_metric_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>average</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Average</td>
+</tr>
+<tr>
+<td><code>bucket_values</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Bucket Values</td>
+</tr>
+<tr>
+<td><code>max_percentage</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Max Percentage</td>
+</tr>
+<tr>
+<td><code>median</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Median</td>
+</tr>
+<tr>
+<td><code>p95</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>P95</td>
+</tr>
+<tr>
+<td><code>sum</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Sum</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Timestamp</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-datav1monitoringmetricsmonitoring_histogram_metric_idhistogram-timeseries" class="operation" data-method="get"><code>GET</code> /data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries</h3>
+<p>Operation ID: <code>get-monitoring-histogram-timeseries</code>.</p>
+<p>Authentication: basic token (<code>accessToken</code>) or bearer token (<code>authorizationToken</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>MONITORING_HISTOGRAM_METRIC_ID</code> | <code>path</code> | <code>enum: video-startup-time</code> | Yes | ID of the Monitoring Histogram Metric |
+| <code>filters[]</code> | <code>query</code> | <code>array of string</code> | No | Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter. To exclude rows that match a certain condition, prepend a <code>!</code> character to the dimension. Possible filter names are the same as returned by the List Monitoring Dimensions endpoint. Example: * <code>filters[]=</code>operating_system<code>:windows&amp;amp;filters[]=!country:US</code> |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-ok" class="status" data-status="2xx">200: OK</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].average</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].bucket_values</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].bucket_values[].count</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].bucket_values[].percentage</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].max_percentage</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].median</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].p95</code></td>
+<td><code>number (double)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].sum</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>data[].timestamp</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>meta</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>meta.bucket_unit</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>meta.buckets</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>meta.buckets[].end</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>meta.buckets[].start</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>timeframe</code></td>
+<td><code>array of integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>total_row_count</code></td>
+<td><code>integer (int64)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;average&quot;: 5298.1612903225805,
+      &quot;bucket_values&quot;: [
+        {
+          &quot;count&quot;: 3,
+          &quot;percentage&quot;: 0.0967741935483871
+        },
+        {
+          &quot;count&quot;: 0,
+          &quot;percentage&quot;: 0
+        },
+        {
+          &quot;count&quot;: 0,
+          &quot;percentage&quot;: 0
+        },
+        {
+          &quot;count&quot;: 1,
+          &quot;percentage&quot;: 0.03225806451612903
+        },
+        {
+          &quot;count&quot;: 16,
+          &quot;percentage&quot;: 0.5161290322580645
+        },
+        {
+          &quot;count&quot;: 7,
+          &quot;percentage&quot;: 0.22580645161290322
+        },
+        {
+          &quot;count&quot;: 4,
+          &quot;percentage&quot;: 0.12903225806451613
+        }
+      ],
+      &quot;max_percentage&quot;: 0.5161290322580645,
+      &quot;median&quot;: 4463,
+      &quot;p95&quot;: 14834,
+      &quot;sum&quot;: 31,
+      &quot;timestamp&quot;: &quot;2021-01-08T15:30:00Z&quot;
+    },
+    {
+      &quot;average&quot;: 3828.4146341463415,
+      &quot;bucket_values&quot;: [
+        {
+          &quot;count&quot;: 5,
+          &quot;percentage&quot;: 0.12195121951219512
+        },
+        {
+          &quot;count&quot;: 0,
+          &quot;percentage&quot;: 0
+        },
+        {
+          &quot;count&quot;: 0,
+          &quot;percentage&quot;: 0
+        },
+        {
+          &quot;count&quot;: 4,
+          &quot;percentage&quot;: 0.0975609756097561
+        },
+        {
+          &quot;count&quot;: 18,
+          &quot;percentage&quot;: 0.43902439024390244
+        },
+        {
+          &quot;count&quot;: 12,
+          &quot;percentage&quot;: 0.2926829268292683
+        },
+        {
+          &quot;count&quot;: 2,
+          &quot;percentage&quot;: 0.04878048780487805
+        }
+      ],
+      &quot;max_percentage&quot;: 0.43902439024390244,
+      &quot;median&quot;: 2625,
+      &quot;p95&quot;: 7378,
+      &quot;sum&quot;: 41,
+      &quot;timestamp&quot;: &quot;2021-01-08T15:31:00Z&quot;
+    }
+  ],
+  &quot;meta&quot;: {
+    &quot;bucket_unit&quot;: &quot;milliseconds&quot;,
+    &quot;buckets&quot;: [
+      {
+        &quot;end&quot;: 100,
+        &quot;start&quot;: 0
+      },
+      {
+        &quot;end&quot;: 500,
+        &quot;start&quot;: 100
+      },
+      {
+        &quot;end&quot;: 1000,
+        &quot;start&quot;: 500
+      },
+      {
+        &quot;end&quot;: 2000,
+        &quot;start&quot;: 1000
+      },
+      {
+        &quot;end&quot;: 5000,
+        &quot;start&quot;: 2000
+      },
+      {
+        &quot;end&quot;: 10000,
+        &quot;start&quot;: 5000
+      },
+      {
+        &quot;end&quot;: 15000,
+        &quot;start&quot;: 10000
+      }
+    ]
+  },
+  &quot;timeframe&quot;: [
+    1610119800,
+    1610121540
+  ],
+  &quot;total_row_count&quot;: 1
+}
+</code></pre>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "list_error": {
+      "LIST_ERROR00": {
+        "code": 90,
+        "count": 91,
+        "description": "s5c",
+        "id": "LIST_ERROR00",
+        "last_seen": "s5e",
+        "message": "s5f",
+        "notes": "s60",
+        "percentage": 97,
+        "player_error_code": "s62"
+      },
+      "LIST_ERROR01": {
+        "code": 180,
+        "count": 181,
+        "description": "sb6",
+        "id": "LIST_ERROR01",
+        "last_seen": "sb8",
+        "message": "sb9",
+        "notes": "sba",
+        "percentage": 187,
+        "player_error_code": "sbc"
+      },
+      "LIST_ERROR02": {
+        "code": 270,
+        "count": 271,
+        "description": "s110",
+        "id": "LIST_ERROR02",
+        "last_seen": "s112",
+        "message": "s113",
+        "notes": "s114",
+        "percentage": 277,
+        "player_error_code": "s116"
+      }
+    }
+  },
+  "new": {
+    "list_error": {
+      "list_error_ref01": {
+        "code": 360,
+        "count": 361,
+        "description": "s16a",
+        "last_seen": "s16c",
+        "message": "s16d",
+        "notes": "s16e",
+        "percentage": 367,
+        "player_error_code": "s170"
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/errors": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

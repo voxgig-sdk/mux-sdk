@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "overall": {
+      "OVERALL00": {
+        "data": {},
+        "meta": {},
+        "timeframe": [],
+        "total_row_count": 43,
+        "metric_id": "METRIC01"
+      },
+      "OVERALL01": {
+        "data": {},
+        "meta": {},
+        "timeframe": [],
+        "total_row_count": 83,
+        "metric_id": "METRIC01"
+      },
+      "OVERALL02": {
+        "data": {},
+        "meta": {},
+        "timeframe": [],
+        "total_row_count": 123,
+        "metric_id": "METRIC01"
+      }
+    }
+  },
+  "new": {
+    "overall": {
+      "overall_ref01": {
+        "data": {},
+        "meta": {},
+        "timeframe": [],
+        "total_row_count": 163
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/metrics/{METRIC_ID}/overall": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

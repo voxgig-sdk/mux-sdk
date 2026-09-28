@@ -1,0 +1,88 @@
+# Entity: static_rendition
+
+main: kit: entity: static_rendition: {
+
+  alias: field: {}
+
+  fields: {
+    passthrough: {
+      h: "Passthrough"
+      n: "passthrough"
+      r: false
+      sh: "Arbitrary user-supplied metadata set for the static rendition."
+      t: "`$STRING`"
+    }
+    resolution: {
+      h: "Resolution"
+      n: "resolution"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "static_rendition"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /video/v1/assets/{ASSET_ID}/static-renditions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/video/v1/assets/{ASSET_ID}/static-renditions"
+          q: {
+            exist: [
+              "asset_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "static-renditions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.asset")]
+  ]
+
+}

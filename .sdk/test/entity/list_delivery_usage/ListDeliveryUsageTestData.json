@@ -1,0 +1,73 @@
+{
+  "existing": {
+    "list_delivery_usage": {
+      "LIST_DELIVERY_USAGE00": {
+        "asset_duration": 120,
+        "asset_encoding_tier": "s79",
+        "asset_id": "ASSET01",
+        "asset_resolution_tier": "s7b",
+        "asset_state": "s7c",
+        "asset_video_quality": "s7d",
+        "created_at": "s7e",
+        "deleted_at": "s7f",
+        "delivered_seconds": 128,
+        "delivered_seconds_by_resolution": {},
+        "live_stream_id": "LIVE_STREAM01",
+        "passthrough": "s83"
+      },
+      "LIST_DELIVERY_USAGE01": {
+        "asset_duration": 240,
+        "asset_encoding_tier": "sf1",
+        "asset_id": "ASSET01",
+        "asset_resolution_tier": "sf3",
+        "asset_state": "sf4",
+        "asset_video_quality": "sf5",
+        "created_at": "sf6",
+        "deleted_at": "sf7",
+        "delivered_seconds": 248,
+        "delivered_seconds_by_resolution": {},
+        "live_stream_id": "LIVE_STREAM01",
+        "passthrough": "sfb"
+      },
+      "LIST_DELIVERY_USAGE02": {
+        "asset_duration": 360,
+        "asset_encoding_tier": "s169",
+        "asset_id": "ASSET01",
+        "asset_resolution_tier": "s16b",
+        "asset_state": "s16c",
+        "asset_video_quality": "s16d",
+        "created_at": "s16e",
+        "deleted_at": "s16f",
+        "delivered_seconds": 368,
+        "delivered_seconds_by_resolution": {},
+        "live_stream_id": "LIVE_STREAM01",
+        "passthrough": "s173"
+      }
+    }
+  },
+  "new": {
+    "list_delivery_usage": {
+      "list_delivery_usage_ref01": {
+        "asset_duration": 480,
+        "asset_encoding_tier": "s1e1",
+        "asset_id": "ASSET01",
+        "asset_resolution_tier": "s1e3",
+        "asset_state": "s1e4",
+        "asset_video_quality": "s1e5",
+        "created_at": "s1e6",
+        "deleted_at": "s1e7",
+        "delivered_seconds": 488,
+        "delivered_seconds_by_resolution": {},
+        "live_stream_id": "LIVE_STREAM01",
+        "passthrough": "s1eb"
+      }
+    }
+  },
+  "requests": {
+    "GET /video/v1/delivery-usage": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

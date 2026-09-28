@@ -1,0 +1,61 @@
+# Entity: list_video_view_export
+
+main: kit: entity: list_video_view_export: {
+
+  alias: field: {}
+
+  fields: {
+    export_date: {
+      fo: "date"
+      h: "Export Date"
+      n: "export_date"
+      r: true
+      t: "`$STRING`"
+    }
+    files: {
+      h: "Files"
+      n: "files"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "list_video_view_export"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/exports/views"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/data/v1/exports/views"
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "exports"
+            }
+            {
+              lit: "views"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

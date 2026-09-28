@@ -1,0 +1,238 @@
+# Entity: engagement_heatmap
+
+main: kit: entity: engagement_heatmap: {
+
+  alias: field: {}
+
+  fields: {
+    data: {
+      h: "Data"
+      n: "data"
+      r: true
+      t: "`$OBJECT`"
+    }
+    timeframe: {
+      h: "Timeframe"
+      n: "timeframe"
+      r: true
+      t: "`$ARRAY`"
+    }
+    total_row_count: {
+      fo: "int64"
+      h: "Total Row Count"
+      n: "total_row_count"
+      r: true
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "engagement_heatmap"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/engagement/assets/{ASSET_ID}/heatmap"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "rmp7fvw5lPD01l8PZ2aN74js84XrTWxHy"
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/engagement/assets/{ASSET_ID}/heatmap"
+          q: {
+            exist: [
+              "asset_id"
+              "timeframe"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "engagement"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "heatmap"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /data/v1/engagement/playback-ids/{PLAYBACK_ID}/heatmap"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "nLp01dgPzELHV6101iHGXmS3Og7lEU01TUDb02kg2Z6mPRs"
+                k: "param"
+                n: "playback_id_id"
+                or: "playback_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/engagement/playback-ids/{PLAYBACK_ID}/heatmap"
+          q: {
+            exist: [
+              "playback_id_id"
+              "timeframe"
+            ]
+          }
+          r: {
+            param: {
+              PLAYBACK_ID: "playback_id_id"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "engagement"
+            }
+            {
+              lit: "playback-ids"
+            }
+            {
+              var: "playback_id_id"
+            }
+            {
+              lit: "heatmap"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /data/v1/engagement/videos/{VIDEO_ID}/heatmap"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "abcd1234"
+                k: "param"
+                n: "video_id"
+                or: "video_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/engagement/videos/{VIDEO_ID}/heatmap"
+          q: {
+            exist: [
+              "timeframe"
+              "video_id"
+            ]
+          }
+          r: {
+            param: {
+              VIDEO_ID: "video_id"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "engagement"
+            }
+            {
+              lit: "videos"
+            }
+            {
+              var: "video_id"
+            }
+            {
+              lit: "heatmap"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.asset")]
+  ]
+
+}

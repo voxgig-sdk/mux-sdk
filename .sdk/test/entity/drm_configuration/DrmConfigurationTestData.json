@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "drm_configuration": {
+      "DRM_CONFIGURATION00": {
+        "id": "DRM_CONFIGURATION00"
+      },
+      "DRM_CONFIGURATION01": {
+        "id": "DRM_CONFIGURATION01"
+      },
+      "DRM_CONFIGURATION02": {
+        "id": "DRM_CONFIGURATION02"
+      }
+    }
+  },
+  "new": {
+    "drm_configuration": {
+      "drm_configuration_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /video/v1/drm-configurations/{DRM_CONFIGURATION_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "live_stream_playback_id": {
+      "LIVE_STREAM_PLAYBACK_ID00": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "id": "LIVE_STREAM_PLAYBACK_ID00",
+        "policy": "s20",
+        "live_stream_id": "LIVE_STREAM01"
+      },
+      "LIVE_STREAM_PLAYBACK_ID01": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "id": "LIVE_STREAM_PLAYBACK_ID01",
+        "policy": "s3e",
+        "live_stream_id": "LIVE_STREAM01"
+      },
+      "LIVE_STREAM_PLAYBACK_ID02": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "id": "LIVE_STREAM_PLAYBACK_ID02",
+        "policy": "s5c",
+        "live_stream_id": "LIVE_STREAM01"
+      }
+    }
+  },
+  "new": {
+    "live_stream_playback_id": {
+      "live_stream_playback_id_ref01": {
+        "drm_configuration_id": "DRM_CONFIGURATION01",
+        "policy": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "GET /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

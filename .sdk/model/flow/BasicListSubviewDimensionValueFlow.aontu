@@ -1,0 +1,33 @@
+# BasicListSubviewDimensionValueFlow
+
+main: kit: flow: BasicListSubviewDimensionValueFlow:
+{
+  entity: "list_subview_dimension_value",
+  kind: "basic",
+  name: "BasicListSubviewDimensionValueFlow",
+  step: [
+    {
+      i: {
+        ref: "list_subview_dimension_value_ref01",
+        srcdatavar: "list_subview_dimension_value_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "list_subview_dimension_value01",
+        subview_metric_id: "subview_metric01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-list_subview_dimension_value_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListSubviewDimensionValueFlow"
+}

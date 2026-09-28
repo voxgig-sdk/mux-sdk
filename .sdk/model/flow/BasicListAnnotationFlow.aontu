@@ -1,0 +1,22 @@
+# BasicListAnnotationFlow
+
+main: kit: flow: BasicListAnnotationFlow:
+{
+  entity: "list_annotation",
+  kind: "basic",
+  name: "BasicListAnnotationFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_annotation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListAnnotationFlow"
+}

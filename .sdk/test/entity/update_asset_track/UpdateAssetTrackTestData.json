@@ -1,0 +1,91 @@
+{
+  "existing": {
+    "update_asset_track": {
+      "UPDATE_ASSET_TRACK00": {
+        "auto_language_confidence": 160,
+        "closed_captions": false,
+        "duration": 162,
+        "id": "UPDATE_ASSET_TRACK00",
+        "language_code": "sa4",
+        "max_channels": 165,
+        "max_frame_rate": 166,
+        "max_height": 167,
+        "max_width": 168,
+        "name": "sa9",
+        "passthrough": "saa",
+        "primary": false,
+        "status": "sac",
+        "text_source": "sad",
+        "text_type": "sae",
+        "type": "saf",
+        "asset_id": "ASSET01"
+      },
+      "UPDATE_ASSET_TRACK01": {
+        "auto_language_confidence": 320,
+        "closed_captions": false,
+        "duration": 322,
+        "id": "UPDATE_ASSET_TRACK01",
+        "language_code": "s144",
+        "max_channels": 325,
+        "max_frame_rate": 326,
+        "max_height": 327,
+        "max_width": 328,
+        "name": "s149",
+        "passthrough": "s14a",
+        "primary": false,
+        "status": "s14c",
+        "text_source": "s14d",
+        "text_type": "s14e",
+        "type": "s14f",
+        "asset_id": "ASSET01"
+      },
+      "UPDATE_ASSET_TRACK02": {
+        "auto_language_confidence": 480,
+        "closed_captions": false,
+        "duration": 482,
+        "id": "UPDATE_ASSET_TRACK02",
+        "language_code": "s1e4",
+        "max_channels": 485,
+        "max_frame_rate": 486,
+        "max_height": 487,
+        "max_width": 488,
+        "name": "s1e9",
+        "passthrough": "s1ea",
+        "primary": false,
+        "status": "s1ec",
+        "text_source": "s1ed",
+        "text_type": "s1ee",
+        "type": "s1ef",
+        "asset_id": "ASSET01"
+      }
+    }
+  },
+  "new": {
+    "update_asset_track": {
+      "update_asset_track_ref01": {
+        "auto_language_confidence": 640,
+        "closed_captions": false,
+        "duration": 642,
+        "language_code": "s284",
+        "max_channels": 645,
+        "max_frame_rate": 646,
+        "max_height": 647,
+        "max_width": 648,
+        "name": "s289",
+        "passthrough": "s28a",
+        "primary": false,
+        "status": "s28c",
+        "text_source": "s28d",
+        "text_type": "s28e",
+        "type": "s28f"
+      }
+    }
+  },
+  "requests": {
+    "PATCH /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

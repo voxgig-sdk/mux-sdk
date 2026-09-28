@@ -1,0 +1,95 @@
+# Entity: asset_or_live_stream_id
+
+main: kit: entity: asset_or_live_stream_id: {
+
+  alias: field: {}
+
+  fields: {
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "The Playback ID used to retrieve the corresponding asset or the live stream ID"
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: true
+      sh: "Describes the Asset or LiveStream object associated with the playback ID."
+      t: "`$OBJECT`"
+    }
+    policy: {
+      h: "Policy"
+      n: "policy"
+      r: true
+      sh: "* `public` playback IDs are accessible by constructing an HLS URL like `https://stream.mux.com/${PLAYBACK_ID}` * `signed` playback IDs should be used with tokens `https://stream.mux.com/${PLAYBACK_ID}?token={TOKEN}`."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "asset_or_live_stream_id"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/playback-ids/{PLAYBACK_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "playback_id"
+                or: "playback_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/playback-ids/{PLAYBACK_ID}"
+          q: {
+            exist: [
+              "playback_id"
+            ]
+          }
+          r: {
+            param: {
+              PLAYBACK_ID: "playback_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "playback-ids"
+            }
+            {
+              var: "playback_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

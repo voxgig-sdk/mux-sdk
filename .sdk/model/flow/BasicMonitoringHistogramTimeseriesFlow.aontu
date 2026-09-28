@@ -1,0 +1,26 @@
+# BasicMonitoringHistogramTimeseriesFlow
+
+main: kit: flow: BasicMonitoringHistogramTimeseriesFlow:
+{
+  entity: "monitoring_histogram_timeseries",
+  kind: "basic",
+  name: "BasicMonitoringHistogramTimeseriesFlow",
+  step: [
+    {
+      m: {
+        monitoring_histogram_metric_id: "monitoring_histogram_metric01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "monitoring_histogram_timeseries_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMonitoringHistogramTimeseriesFlow"
+}

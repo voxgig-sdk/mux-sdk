@@ -1,0 +1,32 @@
+# BasicAssetOrLiveStreamIdFlow
+
+main: kit: flow: BasicAssetOrLiveStreamIdFlow:
+{
+  entity: "asset_or_live_stream_id",
+  kind: "basic",
+  name: "BasicAssetOrLiveStreamIdFlow",
+  step: [
+    {
+      i: {
+        ref: "asset_or_live_stream_id_ref01",
+        srcdatavar: "asset_or_live_stream_id_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "asset_or_live_stream_id01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-asset_or_live_stream_id_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAssetOrLiveStreamIdFlow"
+}

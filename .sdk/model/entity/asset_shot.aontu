@@ -1,0 +1,96 @@
+# Entity: asset_shot
+
+main: kit: entity: asset_shot: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: false
+      sh: "An object describing any errors encountered during the shot detection process."
+      t: "`$OBJECT`"
+    }
+    shots_manifest_url: {
+      h: "Shots Manifest Url"
+      n: "shots_manifest_url"
+      r: false
+      sh: "A URL to a JSON manifest describing the shot changes detected in the video along with shot preview images for each shot."
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "The status of the shot detection process"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "asset_shot"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/assets/{ASSET_ID}/shots"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/assets/{ASSET_ID}/shots"
+          q: {
+            exist: [
+              "asset_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "shots"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.asset")]
+  ]
+
+}

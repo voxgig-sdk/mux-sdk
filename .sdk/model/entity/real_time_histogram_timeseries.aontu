@@ -1,0 +1,133 @@
+# Entity: real_time_histogram_timeseries
+
+main: kit: entity: real_time_histogram_timeseries: {
+
+  alias: field: {}
+
+  fields: {
+    average: {
+      fo: "double"
+      h: "Average"
+      n: "average"
+      r: true
+      t: "`$NUMBER`"
+    }
+    bucket_values: {
+      h: "Bucket Values"
+      n: "bucket_values"
+      r: true
+      t: "`$ARRAY`"
+    }
+    max_percentage: {
+      fo: "double"
+      h: "Max Percentage"
+      n: "max_percentage"
+      r: true
+      t: "`$NUMBER`"
+    }
+    median: {
+      fo: "double"
+      h: "Median"
+      n: "median"
+      r: true
+      t: "`$NUMBER`"
+    }
+    p95: {
+      fo: "double"
+      h: "P95"
+      n: "p95"
+      r: true
+      t: "`$NUMBER`"
+    }
+    sum: {
+      fo: "int64"
+      h: "Sum"
+      n: "sum"
+      r: true
+      t: "`$INTEGER`"
+    }
+    timestamp: {
+      h: "Timestamp"
+      n: "timestamp"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "real_time_histogram_timeseries"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/realtime/metrics/{REALTIME_HISTOGRAM_METRIC_ID}/histogram-timeseries"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "video-startup-time"
+                k: "param"
+                n: "realtime_histogram_metric_id"
+                or: "realtime_histogram_metric_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/realtime/metrics/{REALTIME_HISTOGRAM_METRIC_ID}/histogram-timeseries"
+          q: {
+            exist: [
+              "filter"
+              "realtime_histogram_metric_id"
+            ]
+          }
+          r: {
+            param: {
+              REALTIME_HISTOGRAM_METRIC_ID: "realtime_histogram_metric_id"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "realtime"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              var: "realtime_histogram_metric_id"
+            }
+            {
+              lit: "histogram-timeseries"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

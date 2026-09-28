@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "real_time_breakdown": {
+      "REAL_TIME_BREAKDOWN00": {
+        "concurrent_viewers": 60,
+        "display_value": "s3d",
+        "metric_value": 62,
+        "negative_impact": 63,
+        "starting_up_viewers": 64,
+        "value": "s41",
+        "realtime_metric_id": "REALTIME_METRIC01"
+      },
+      "REAL_TIME_BREAKDOWN01": {
+        "concurrent_viewers": 120,
+        "display_value": "s79",
+        "metric_value": 122,
+        "negative_impact": 123,
+        "starting_up_viewers": 124,
+        "value": "s7d",
+        "realtime_metric_id": "REALTIME_METRIC01"
+      },
+      "REAL_TIME_BREAKDOWN02": {
+        "concurrent_viewers": 180,
+        "display_value": "sb5",
+        "metric_value": 182,
+        "negative_impact": 183,
+        "starting_up_viewers": 184,
+        "value": "sb9",
+        "realtime_metric_id": "REALTIME_METRIC01"
+      }
+    }
+  },
+  "new": {
+    "real_time_breakdown": {
+      "real_time_breakdown_ref01": {
+        "concurrent_viewers": 240,
+        "display_value": "sf1",
+        "metric_value": 242,
+        "negative_impact": 243,
+        "starting_up_viewers": 244,
+        "value": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/realtime/metrics/{REALTIME_METRIC_ID}/breakdown": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

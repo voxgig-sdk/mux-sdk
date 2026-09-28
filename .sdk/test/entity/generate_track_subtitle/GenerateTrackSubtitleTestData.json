@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "generate_track_subtitle": {
+      "GENERATE_TRACK_SUBTITLE00": {
+        "generated_subtitles": [],
+        "asset_id": "ASSET01",
+        "track_id": "TRACK01",
+        "id": "GENERATE_TRACK_SUBTITLE00"
+      },
+      "GENERATE_TRACK_SUBTITLE01": {
+        "generated_subtitles": [],
+        "asset_id": "ASSET01",
+        "track_id": "TRACK01",
+        "id": "GENERATE_TRACK_SUBTITLE01"
+      },
+      "GENERATE_TRACK_SUBTITLE02": {
+        "generated_subtitles": [],
+        "asset_id": "ASSET01",
+        "track_id": "TRACK01",
+        "id": "GENERATE_TRACK_SUBTITLE02"
+      }
+    }
+  },
+  "new": {
+    "generate_track_subtitle": {
+      "generate_track_subtitle_ref01": {
+        "generated_subtitles": []
+      }
+    }
+  },
+  "requests": {
+    "POST /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

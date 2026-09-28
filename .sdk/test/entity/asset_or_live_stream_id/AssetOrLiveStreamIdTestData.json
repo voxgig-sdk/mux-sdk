@@ -1,0 +1,39 @@
+{
+  "existing": {
+    "asset_or_live_stream_id": {
+      "ASSET_OR_LIVE_STREAM_ID00": {
+        "id": "ASSET_OR_LIVE_STREAM_ID00",
+        "object": {},
+        "policy": "s20",
+        "playback_id": "PLAYBACK01"
+      },
+      "ASSET_OR_LIVE_STREAM_ID01": {
+        "id": "ASSET_OR_LIVE_STREAM_ID01",
+        "object": {},
+        "policy": "s3e",
+        "playback_id": "PLAYBACK01"
+      },
+      "ASSET_OR_LIVE_STREAM_ID02": {
+        "id": "ASSET_OR_LIVE_STREAM_ID02",
+        "object": {},
+        "policy": "s5c",
+        "playback_id": "PLAYBACK01"
+      }
+    }
+  },
+  "new": {
+    "asset_or_live_stream_id": {
+      "asset_or_live_stream_id_ref01": {
+        "object": {},
+        "policy": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "GET /video/v1/playback-ids/{PLAYBACK_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

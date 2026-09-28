@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "video_view": {
+      "VIDEO_VIEW00": {
+        "data": {},
+        "id": "VIDEO_VIEW00",
+        "timeframe": [],
+        "total_row_count": 43
+      },
+      "VIDEO_VIEW01": {
+        "data": {},
+        "id": "VIDEO_VIEW01",
+        "timeframe": [],
+        "total_row_count": 83
+      },
+      "VIDEO_VIEW02": {
+        "data": {},
+        "id": "VIDEO_VIEW02",
+        "timeframe": [],
+        "total_row_count": 123
+      }
+    }
+  },
+  "new": {
+    "video_view": {
+      "video_view_ref01": {
+        "data": {},
+        "timeframe": [],
+        "total_row_count": 163
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/video-views/{VIDEO_VIEW_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

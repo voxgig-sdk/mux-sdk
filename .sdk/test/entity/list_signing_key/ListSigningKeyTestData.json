@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "list_signing_key": {
+      "LIST_SIGNING_KEY00": {
+        "created_at": "s1e",
+        "id": "LIST_SIGNING_KEY00",
+        "private_key": "s20"
+      },
+      "LIST_SIGNING_KEY01": {
+        "created_at": "s3c",
+        "id": "LIST_SIGNING_KEY01",
+        "private_key": "s3e"
+      },
+      "LIST_SIGNING_KEY02": {
+        "created_at": "s5a",
+        "id": "LIST_SIGNING_KEY02",
+        "private_key": "s5c"
+      }
+    }
+  },
+  "new": {
+    "list_signing_key": {
+      "list_signing_key_ref01": {
+        "created_at": "s78",
+        "private_key": "s7a"
+      }
+    }
+  },
+  "requests": {
+    "GET /system/v1/signing-keys": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /video/v1/signing-keys": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

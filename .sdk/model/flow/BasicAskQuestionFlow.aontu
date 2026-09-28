@@ -1,0 +1,40 @@
+# BasicAskQuestionFlow
+
+main: kit: flow: BasicAskQuestionFlow:
+{
+  entity: "ask_question",
+  kind: "basic",
+  name: "BasicAskQuestionFlow",
+  step: [
+    {
+      i: {
+        ref: "ask_question_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "ask_question_ref01",
+        srcdatavar: "ask_question_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "ask_question01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-ask_question_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAskQuestionFlow"
+}

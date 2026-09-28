@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "subview_overall_value": {
+      "SUBVIEW_OVERALL_VALUE00": {
+        "data": {},
+        "meta": {},
+        "timeframe": [],
+        "total_row_count": 43,
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      },
+      "SUBVIEW_OVERALL_VALUE01": {
+        "data": {},
+        "meta": {},
+        "timeframe": [],
+        "total_row_count": 83,
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      },
+      "SUBVIEW_OVERALL_VALUE02": {
+        "data": {},
+        "meta": {},
+        "timeframe": [],
+        "total_row_count": 123,
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      }
+    }
+  },
+  "new": {
+    "subview_overall_value": {
+      "subview_overall_value_ref01": {
+        "data": {},
+        "meta": {},
+        "timeframe": [],
+        "total_row_count": 163
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/overall": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

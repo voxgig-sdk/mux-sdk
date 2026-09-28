@@ -1,0 +1,903 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 88
+  metrics: count: path: 121
+  metrics: count: method: 153
+
+  entity: annotation: {
+    path: "/data/v1/annotations": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/data/v1/annotations/{ANNOTATION_ID}": {
+      rename: param: "ANNOTATION_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.data`")|top
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: ask_question: {
+    path: "/robots/v0/jobs/ask-questions": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/ask-questions/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: asset: {
+    path: "/video/v1/assets": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/assets/{ASSET_ID}": {
+      rename: param: "ASSET_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.data`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/video/v1/assets/{ASSET_ID}/master-access": {
+      action: "master_access": {}
+      rename: param: "ASSET_ID": *"asset_id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/assets/{ASSET_ID}/mp4-support": {
+      action: "mp4_support": {}
+      rename: param: "ASSET_ID": *"asset_id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID}": {
+      rename: param: "ASSET_ID": *"asset_id"
+      rename: param: "PLAYBACK_ID": *"playback_id"
+      op: remove: method: *DELETE
+    }
+    path: "/video/v1/assets/{ASSET_ID}/shots": {
+      action: "shot": {}
+      rename: param: "ASSET_ID": *"asset_id"
+      op: remove: method: *DELETE
+    }
+    path: "/video/v1/assets/{ASSET_ID}/static-renditions/{STATIC_RENDITION_ID}": {
+      rename: param: "ASSET_ID": *"asset_id"
+      rename: param: "STATIC_RENDITION_ID": *"static_rendition_id"
+      op: remove: method: *DELETE
+    }
+    path: "/video/v1/assets/{ASSET_ID}/thumbnail-time": {
+      action: "thumbnail_time": {}
+      rename: param: "ASSET_ID": *"asset_id"
+      op: remove: method: *DELETE
+    }
+    path: "/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}": {
+      rename: param: "ASSET_ID": *"asset_id"
+      rename: param: "TRACK_ID": *"track_id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: asset_or_live_stream_id: {
+    path: "/video/v1/playback-ids/{PLAYBACK_ID}": {
+      rename: param: "PLAYBACK_ID": *"playback_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: asset_playback_id: {
+    path: "/video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID}": {
+      rename: param: "ASSET_ID": *"asset_id"
+      rename: param: "PLAYBACK_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: asset_shot: {
+    path: "/video/v1/assets/{ASSET_ID}/shots": {
+      rename: param: "ASSET_ID": *"asset_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: create_playback_id: {
+    path: "/video/v1/assets/{ASSET_ID}/playback-ids": {
+      rename: param: "ASSET_ID": *"asset_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids": {
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: create_track: {
+    path: "/video/v1/assets/{ASSET_ID}/tracks": {
+      rename: param: "ASSET_ID": *"asset_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: directive: {
+    path: "/robots/v0/directives": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/robots/v0/directives/{DIRECTIVE_ID}": {
+      rename: param: "DIRECTIVE_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/robots/v0/directives/{DIRECTIVE_ID}/runs": {
+      action: "run": {}
+      rename: param: "DIRECTIVE_ID": *"directive_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: directive_run_detail: {
+    path: "/robots/v0/directives/{DIRECTIVE_ID}/runs/{RUN_ID}": {
+      rename: param: "DIRECTIVE_ID": *"directive_id"
+      rename: param: "RUN_ID": *"run_id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: directive_run_list: {
+    path: "/robots/v0/directives/{DIRECTIVE_ID}/runs": {
+      rename: param: "DIRECTIVE_ID": *"directive_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: drm_configuration: {
+    path: "/video/v1/drm-configurations/{DRM_CONFIGURATION_ID}": {
+      rename: param: "DRM_CONFIGURATION_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: edit_caption: {
+    path: "/robots/v0/jobs/edit-captions": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/edit-captions/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: engagement_heatmap: {
+    path: "/data/v1/engagement/assets/{ASSET_ID}/heatmap": {
+      rename: param: "ASSET_ID": *"asset_id"
+      op: list: method: *GET
+    }
+    path: "/data/v1/engagement/playback-ids/{PLAYBACK_ID}/heatmap": {
+      rename: param: "PLAYBACK_ID": *"playback_id_id"
+      op: list: method: *GET
+    }
+    path: "/data/v1/engagement/videos/{VIDEO_ID}/heatmap": {
+      rename: param: "VIDEO_ID": *"video_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: engagement_hotspot: {
+    path: "/data/v1/engagement/assets/{ASSET_ID}/hotspots": {
+      rename: param: "ASSET_ID": *"asset_id"
+      op: list: method: *GET
+    }
+    path: "/data/v1/engagement/playback-ids/{PLAYBACK_ID}/hotspots": {
+      rename: param: "PLAYBACK_ID": *"playback_id_id"
+      op: list: method: *GET
+    }
+    path: "/data/v1/engagement/videos/{VIDEO_ID}/hotspots": {
+      rename: param: "VIDEO_ID": *"video_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: find_best_thumbnail: {
+    path: "/robots/v0/jobs/find-best-thumbnails": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/find-best-thumbnails/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: find_key_moment: {
+    path: "/robots/v0/jobs/find-key-moments": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/find-key-moments/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: find_scene: {
+    path: "/robots/v0/jobs/find-scenes": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/find-scenes/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: generate_asset_shot: {
+    path: "/video/v1/assets/{ASSET_ID}/shots": {
+      rename: param: "ASSET_ID": *"asset_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: generate_chapter: {
+    path: "/robots/v0/jobs/generate-chapters": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/generate-chapters/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: generate_engagement_insight: {
+    path: "/robots/v0/jobs/generate-engagement-insights": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/generate-engagement-insights/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: generate_premium_caption: {
+    path: "/robots/v0/jobs/generate-premium-captions": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/generate-premium-captions/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: generate_track_subtitle: {
+    path: "/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles": {
+      rename: param: "ASSET_ID": *"asset_id"
+      rename: param: "TRACK_ID": *"track_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: incident: {
+    path: "/data/v1/incidents/{INCIDENT_ID}": {
+      rename: param: "INCIDENT_ID": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: input_info: {
+    path: "/video/v1/assets/{ASSET_ID}/input-info": {
+      rename: param: "ASSET_ID": *"asset_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: job_summary: {
+    path: "/robots/v0/jobs/{JOB_ID}/cancel": {
+      rename: param: "JOB_ID": *"job_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: list_all_metric_value: {
+    path: "/data/v1/metrics/comparison": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_annotation: {
+    path: "/data/v1/annotations": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_asset: {
+    path: "/video/v1/assets": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: list_breakdown_value: {
+    path: "/data/v1/metrics/{METRIC_ID}/breakdown": {
+      rename: param: "METRIC_ID": *"metric_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_delivery_usage: {
+    path: "/video/v1/delivery-usage": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_dimension: {
+    path: "/data/v1/dimensions": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_dimension_value: {
+    path: "/data/v1/dimensions/{DIMENSION_ID}": {
+      rename: param: "DIMENSION_ID": *"dimension_id"
+      op: load: method: *GET
+    }
+    path: "/data/v1/dimensions/{DIMENSION_ID}/elements": {
+      rename: param: "DIMENSION_ID": *"dimension_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_drm_configuration: {
+    path: "/video/v1/drm-configurations": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: list_error: {
+    path: "/data/v1/errors": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_export: {
+    path: "/data/v1/exports": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_filter: {
+    path: "/data/v1/filters": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_filter_value: {
+    path: "/data/v1/filters/{FILTER_ID}": {
+      rename: param: "FILTER_ID": *"filter_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: list_incident: {
+    path: "/data/v1/incidents": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_insight: {
+    path: "/data/v1/metrics/{METRIC_ID}/insights": {
+      rename: param: "METRIC_ID": *"metric_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_job: {
+    path: "/robots/v0/jobs": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: list_live_stream: {
+    path: "/video/v1/live-streams": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: list_monitoring_dimension: {
+    path: "/data/v1/monitoring/dimensions": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_monitoring_metric: {
+    path: "/data/v1/monitoring/metrics": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_playback_restriction: {
+    path: "/video/v1/playback-restrictions": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: list_real_time_dimension: {
+    path: "/data/v1/realtime/dimensions": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_real_time_metric: {
+    path: "/data/v1/realtime/metrics": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_related_incident: {
+    path: "/data/v1/incidents/{INCIDENT_ID}/related": {
+      rename: param: "INCIDENT_ID": *"incident_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_signing_key: {
+    path: "/system/v1/signing-keys": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/signing-keys": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: list_subview_breakdown_value: {
+    path: "/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown": {
+      rename: param: "METRIC_ID": *"subview_metric_id"
+      rename: param: "SUBVIEW_TYPE": *"subview_type"
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_subview_comparison_value: {
+    path: "/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/comparison": {
+      rename: param: "METRIC_ID": *"subview_metric_id"
+      rename: param: "SUBVIEW_TYPE": *"subview_type"
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_subview_dimension: {
+    path: "/data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions": {
+      rename: param: "SUBVIEW_TYPE": *"subview_type"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: list_subview_dimension_value: {
+    path: "/data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions/{DIMENSION_NAME}": {
+      rename: param: "DIMENSION_NAME": *"dimension_name"
+      rename: param: "SUBVIEW_TYPE": *"subview_metric_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: list_transcription_vocabulary: {
+    path: "/video/v1/transcription-vocabularies": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: list_upload: {
+    path: "/video/v1/uploads": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: list_usage_export: {
+    path: "/system/v1/usage/exports": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_video_view: {
+    path: "/data/v1/video-views": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_video_view_export: {
+    path: "/data/v1/exports/views": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: list_webhook: {
+    path: "/system/v1/webhooks": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: live_stream: {
+    path: "/video/v1/live-streams": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}": {
+      rename: param: "LIVE_STREAM_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.data`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/disable": {
+      action: "disable": {}
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/embedded-subtitles": {
+      action: "embedded_subtitle": {}
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/enable": {
+      action: "enable": {}
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/generated-subtitles": {
+      action: "generated_subtitle": {}
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions": {
+      action: "new_asset_setting_static_rendition": {}
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}": {
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      rename: param: "PLAYBACK_ID": *"playback_id"
+      op: remove: method: *DELETE
+    }
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/reset-stream-key": {
+      action: "reset_stream_key": {}
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}": {
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      rename: param: "SIMULCAST_TARGET_ID": *"simulcast_target_id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: live_stream_playback_id: {
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}": {
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      rename: param: "PLAYBACK_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: metric_timeseries_data: {
+    path: "/data/v1/metrics/{METRIC_ID}/timeseries": {
+      rename: param: "METRIC_ID": *"metric_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: moderate: {
+    path: "/robots/v0/jobs/moderate": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/moderate/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: monitoring_breakdown: {
+    path: "/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown": {
+      rename: param: "MONITORING_METRIC_ID": *"monitoring_metric_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: monitoring_breakdown_timeseries: {
+    path: "/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown-timeseries": {
+      rename: param: "MONITORING_METRIC_ID": *"monitoring_metric_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: monitoring_histogram_timeseries: {
+    path: "/data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries": {
+      rename: param: "MONITORING_HISTOGRAM_METRIC_ID": *"monitoring_histogram_metric_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: monitoring_timeseries: {
+    path: "/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries": {
+      rename: param: "MONITORING_METRIC_ID": *"monitoring_metric_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: overall: {
+    path: "/data/v1/metrics/{METRIC_ID}/overall": {
+      rename: param: "METRIC_ID": *"metric_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: playback_restriction: {
+    path: "/video/v1/playback-restrictions": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}": {
+      rename: param: "PLAYBACK_RESTRICTION_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/referrer": {
+      action: "referrer": {}
+      rename: param: "PLAYBACK_RESTRICTION_ID": *"playback_restriction_id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/user_agent": {
+      action: "user_agent": {}
+      rename: param: "PLAYBACK_RESTRICTION_ID": *"playback_restriction_id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: real_time_breakdown: {
+    path: "/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/breakdown": {
+      rename: param: "REALTIME_METRIC_ID": *"realtime_metric_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: real_time_histogram_timeseries: {
+    path: "/data/v1/realtime/metrics/{REALTIME_HISTOGRAM_METRIC_ID}/histogram-timeseries": {
+      rename: param: "REALTIME_HISTOGRAM_METRIC_ID": *"realtime_histogram_metric_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: real_time_timeseries: {
+    path: "/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries": {
+      rename: param: "REALTIME_METRIC_ID": *"realtime_metric_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: signal_live_stream_complete: {
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/complete": {
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: signing_key: {
+    path: "/system/v1/signing-keys": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/system/v1/signing-keys/{SIGNING_KEY_ID}": {
+      rename: param: "SIGNING_KEY_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+      op: remove: method: *DELETE
+    }
+    path: "/video/v1/signing-keys": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/signing-keys/{SIGNING_KEY_ID}": {
+      rename: param: "SIGNING_KEY_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: simulcast_target: {
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets": {
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}": {
+      rename: param: "LIVE_STREAM_ID": *"live_stream_id"
+      rename: param: "SIMULCAST_TARGET_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: static_rendition: {
+    path: "/video/v1/assets/{ASSET_ID}/static-renditions": {
+      rename: param: "ASSET_ID": *"asset_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: subview_breakdown_timeseries: {
+    path: "/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown-timeseries": {
+      rename: param: "METRIC_ID": *"subview_metric_id"
+      rename: param: "SUBVIEW_TYPE": *"subview_type"
+      op: list: method: *GET
+    }
+  }
+
+  entity: subview_overall_value: {
+    path: "/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/overall": {
+      rename: param: "METRIC_ID": *"subview_metric_id"
+      rename: param: "SUBVIEW_TYPE": *"subview_type"
+      op: list: method: *GET
+    }
+  }
+
+  entity: summarize: {
+    path: "/robots/v0/jobs/summarize": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/summarize/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: transcription_vocabulary: {
+    path: "/video/v1/transcription-vocabularies": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}": {
+      rename: param: "TRANSCRIPTION_VOCABULARY_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: translate_audio: {
+    path: "/robots/v0/jobs/translate-audio": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/translate-audio/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: translate_caption: {
+    path: "/robots/v0/jobs/translate-captions": {
+      op: create: method: *POST
+    }
+    path: "/robots/v0/jobs/translate-captions/{JOB_ID}": {
+      rename: param: "JOB_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: update_asset_track: {
+    path: "/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}": {
+      rename: param: "ASSET_ID": *"asset_id"
+      rename: param: "TRACK_ID": *"id"
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: upload: {
+    path: "/video/v1/uploads": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/uploads/{UPLOAD_ID}": {
+      rename: param: "UPLOAD_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+    path: "/video/v1/uploads/{UPLOAD_ID}/cancel": {
+      action: "cancel": {}
+      rename: param: "UPLOAD_ID": *"upload_id"
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.data`")|top
+    }
+  }
+
+  entity: url_signing_key: {
+    path: "/video/v1/signing-keys/{SIGNING_KEY_ID}": {
+      rename: param: "SIGNING_KEY_ID": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: video_view: {
+    path: "/data/v1/video-views/{VIDEO_VIEW_ID}": {
+      rename: param: "VIDEO_VIEW_ID": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: webhook: {
+    path: "/system/v1/webhooks": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
+    }
+    path: "/system/v1/webhooks/{WEBHOOK_ID}": {
+      rename: param: "WEBHOOK_ID": *"id"
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.data`")|top
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: who_am_i: {
+    path: "/system/v1/whoami": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
+    }
+  }
+
+}

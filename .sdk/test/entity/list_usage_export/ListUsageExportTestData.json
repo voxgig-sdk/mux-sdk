@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "list_usage_export": {
+      "LIST_USAGE_EXPORT00": {
+        "date": "s28",
+        "download_url": "s29",
+        "download_url_expires_at": 42,
+        "file_size": 43
+      },
+      "LIST_USAGE_EXPORT01": {
+        "date": "s50",
+        "download_url": "s51",
+        "download_url_expires_at": 82,
+        "file_size": 83
+      },
+      "LIST_USAGE_EXPORT02": {
+        "date": "s78",
+        "download_url": "s79",
+        "download_url_expires_at": 122,
+        "file_size": 123
+      }
+    }
+  },
+  "new": {
+    "list_usage_export": {
+      "list_usage_export_ref01": {
+        "date": "sa0",
+        "download_url": "sa1",
+        "download_url_expires_at": 162,
+        "file_size": 163
+      }
+    }
+  },
+  "requests": {
+    "GET /system/v1/usage/exports": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

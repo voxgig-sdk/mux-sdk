@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "engagement_heatmap": {
+      "ENGAGEMENT_HEATMAP00": {
+        "data": {},
+        "timeframe": [],
+        "total_row_count": 32,
+        "asset_id": "ASSET01",
+        "playback_id_id": "PLAYBACK_ID01",
+        "video_id": "VIDEO01"
+      },
+      "ENGAGEMENT_HEATMAP01": {
+        "data": {},
+        "timeframe": [],
+        "total_row_count": 62,
+        "asset_id": "ASSET01",
+        "playback_id_id": "PLAYBACK_ID01",
+        "video_id": "VIDEO01"
+      },
+      "ENGAGEMENT_HEATMAP02": {
+        "data": {},
+        "timeframe": [],
+        "total_row_count": 92,
+        "asset_id": "ASSET01",
+        "playback_id_id": "PLAYBACK_ID01",
+        "video_id": "VIDEO01"
+      }
+    }
+  },
+  "new": {
+    "engagement_heatmap": {
+      "engagement_heatmap_ref01": {
+        "data": {},
+        "timeframe": [],
+        "total_row_count": 122
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/engagement/assets/{ASSET_ID}/heatmap": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /data/v1/engagement/playback-ids/{PLAYBACK_ID}/heatmap": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /data/v1/engagement/videos/{VIDEO_ID}/heatmap": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# BasicListAllMetricValueFlow
+
+main: kit: flow: BasicListAllMetricValueFlow:
+{
+  entity: "list_all_metric_value",
+  kind: "basic",
+  name: "BasicListAllMetricValueFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_all_metric_value_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListAllMetricValueFlow"
+}

@@ -1,0 +1,22 @@
+# BasicGenerateAssetShotFlow
+
+main: kit: flow: BasicGenerateAssetShotFlow:
+{
+  entity: "generate_asset_shot",
+  kind: "basic",
+  name: "BasicGenerateAssetShotFlow",
+  step: [
+    {
+      i: {
+        ref: "generate_asset_shot_ref01"
+      }
+
+      m: {
+        asset_id: "asset01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicGenerateAssetShotFlow"
+}

@@ -1,0 +1,346 @@
+# Entity: list_asset
+
+main: kit: entity: list_asset: {
+
+  alias: field: {}
+
+  fields: {
+    aspect_ratio: {
+      h: "Aspect Ratio"
+      n: "aspect_ratio"
+      r: false
+      sh: "The aspect ratio of the asset in the form of `width:height`, for example `16:9`."
+      t: "`$STRING`"
+    }
+    created_at: {
+      fo: "int64"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "Time the Asset was created, defined as a Unix timestamp (seconds since epoch)."
+      t: "`$STRING`"
+    }
+    directives: {
+      h: "Directives"
+      n: "directives"
+      r: false
+      sh: "The Mux Robots directives applied to the asset."
+      t: "`$ARRAY`"
+    }
+    duration: {
+      fo: "double"
+      h: "Duration"
+      n: "duration"
+      r: false
+      sh: "The duration of the asset in seconds (max duration for a single asset is 12 hours)."
+      t: "`$NUMBER`"
+    }
+    encoding_tier: {
+      de: true
+      h: "Encoding Tier"
+      n: "encoding_tier"
+      r: true
+      sh: "This field is deprecated."
+      t: "`$STRING`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: false
+      sh: "Object that describes any errors that happened when processing this asset."
+      t: "`$OBJECT`"
+    }
+    generate_shots: {
+      h: "Generate Shots"
+      n: "generate_shots"
+      r: false
+      sh: "Whether to perform shot detection on this asset."
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for the Asset."
+      t: "`$STRING`"
+    }
+    ingest_type: {
+      h: "Ingest Type"
+      n: "ingest_type"
+      r: false
+      sh: "The type of ingest used to create the asset."
+      t: "`$STRING`"
+    }
+    is_live: {
+      fo: "boolean"
+      h: "Is Live"
+      n: "is_live"
+      r: false
+      sh: "Indicates whether the live stream that created this asset is currently `active` and not in `idle` state."
+      t: "`$BOOLEAN`"
+    }
+    live_stream_id: {
+      h: "Live Stream Id"
+      n: "live_stream_id"
+      r: false
+      sh: "Unique identifier for the live stream."
+      t: "`$STRING`"
+    }
+    master: {
+      h: "Master"
+      n: "master"
+      r: false
+      sh: "An object containing the current status of Master Access and the link to the Master MP4 file when ready."
+      t: "`$OBJECT`"
+    }
+    master_access: {
+      h: "Master Access"
+      n: "master_access"
+      r: true
+      t: "`$STRING`"
+    }
+    max_resolution_tier: {
+      h: "Max Resolution Tier"
+      n: "max_resolution_tier"
+      r: true
+      sh: "Max resolution tier can be used to control the maximum `resolution_tier` your asset is encoded, stored, and streamed at."
+      t: "`$STRING`"
+    }
+    max_stored_frame_rate: {
+      fo: "double"
+      h: "Max Stored Frame Rate"
+      n: "max_stored_frame_rate"
+      r: false
+      sh: "The maximum frame rate that has been stored for the asset."
+      t: "`$NUMBER`"
+    }
+    max_stored_resolution: {
+      de: true
+      h: "Max Stored Resolution"
+      n: "max_stored_resolution"
+      r: false
+      sh: "This field is deprecated."
+      t: "`$STRING`"
+    }
+    meta: {
+      h: "Meta"
+      n: "meta"
+      r: false
+      sh: "Customer provided metadata about this asset."
+      t: "`$OBJECT`"
+    }
+    mp4_support: {
+      de: true
+      h: "Mp4 Support"
+      n: "mp4_support"
+      r: false
+      sh: "Deprecated."
+      t: "`$STRING`"
+    }
+    non_standard_input_reasons: {
+      h: "Non Standard Input Reasons"
+      n: "non_standard_input_reasons"
+      r: false
+      sh: "An object containing one or more reasons the input file is non-standard."
+      t: "`$OBJECT`"
+    }
+    normalize_audio: {
+      h: "Normalize Audio"
+      n: "normalize_audio"
+      r: false
+      sh: "Normalize the audio track loudness level."
+      t: "`$BOOLEAN`"
+    }
+    passthrough: {
+      h: "Passthrough"
+      n: "passthrough"
+      r: false
+      sh: "You can set this field to anything you want."
+      t: "`$STRING`"
+    }
+    playback_ids: {
+      h: "Playback Ids"
+      n: "playback_ids"
+      r: false
+      sh: "An array of Playback ID objects."
+      t: "`$ARRAY`"
+    }
+    progress: {
+      h: "Progress"
+      n: "progress"
+      r: true
+      sh: "Detailed state information about the asset ingest process."
+      t: "`$OBJECT`"
+    }
+    recording_times: {
+      h: "Recording Times"
+      n: "recording_times"
+      r: false
+      sh: "An array of individual live stream recording sessions."
+      t: "`$ARRAY`"
+    }
+    resolution_tier: {
+      h: "Resolution Tier"
+      n: "resolution_tier"
+      r: false
+      sh: "The resolution tier that the asset was ingested at, affecting billing for ingest & storage."
+      t: "`$STRING`"
+    }
+    shots: {
+      h: "Shots"
+      n: "shots"
+      r: true
+      sh: "The results of generating shots on the video"
+      t: "`$OBJECT`"
+    }
+    source_asset_id: {
+      h: "Source Asset Id"
+      n: "source_asset_id"
+      r: false
+      sh: "Asset Identifier of the video used as the source for creating the clip."
+      t: "`$STRING`"
+    }
+    static_renditions: {
+      h: "Static Renditions"
+      n: "static_renditions"
+      r: false
+      sh: "An object containing the current status of any static renditions (MP4s) for this asset."
+      t: "`$OBJECT`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "The status of the asset."
+      t: "`$STRING`"
+    }
+    test: {
+      fo: "boolean"
+      h: "Test"
+      n: "test"
+      r: false
+      sh: "True means this live stream is a test asset."
+      t: "`$BOOLEAN`"
+    }
+    thumbnail_time: {
+      fo: "float"
+      h: "Thumbnail Time"
+      n: "thumbnail_time"
+      r: false
+      sh: "The media time within the asset used when a thumbnail without an explicit time is requested."
+      t: "`$NUMBER`"
+    }
+    tracks: {
+      h: "Tracks"
+      n: "tracks"
+      r: false
+      sh: "The individual media tracks that make up an asset."
+      t: "`$ARRAY`"
+    }
+    upload_id: {
+      h: "Upload Id"
+      n: "upload_id"
+      r: false
+      sh: "Unique identifier for the Direct Upload."
+      t: "`$STRING`"
+    }
+    video_quality: {
+      h: "Video Quality"
+      n: "video_quality"
+      r: false
+      sh: "The video quality controls the cost, quality, and available platform features for the asset."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "list_asset"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/assets"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "upload_id"
+                or: "upload_id"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/assets"
+          q: {
+            exist: [
+              "cursor"
+              "limit"
+              "live_stream_id"
+              "page"
+              "upload_id"
+            ]
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

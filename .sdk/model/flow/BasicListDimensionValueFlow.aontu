@@ -1,0 +1,48 @@
+# BasicListDimensionValueFlow
+
+main: kit: flow: BasicListDimensionValueFlow:
+{
+  entity: "list_dimension_value",
+  kind: "basic",
+  name: "BasicListDimensionValueFlow",
+  step: [
+    {
+      m: {
+        dimension_id: "dimension01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_dimension_value_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "list_dimension_value_ref01",
+        srcdatavar: "list_dimension_value_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "list_dimension_value01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-list_dimension_value_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListDimensionValueFlow"
+}

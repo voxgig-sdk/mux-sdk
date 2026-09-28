@@ -1,0 +1,40 @@
+# BasicFindBestThumbnailFlow
+
+main: kit: flow: BasicFindBestThumbnailFlow:
+{
+  entity: "find_best_thumbnail",
+  kind: "basic",
+  name: "BasicFindBestThumbnailFlow",
+  step: [
+    {
+      i: {
+        ref: "find_best_thumbnail_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "find_best_thumbnail_ref01",
+        srcdatavar: "find_best_thumbnail_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "find_best_thumbnail01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-find_best_thumbnail_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFindBestThumbnailFlow"
+}

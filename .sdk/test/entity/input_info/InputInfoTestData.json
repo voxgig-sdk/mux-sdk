@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "input_info": {
+      "INPUT_INFO00": {
+        "file": {},
+        "settings": {},
+        "asset_id": "ASSET01"
+      },
+      "INPUT_INFO01": {
+        "file": {},
+        "settings": {},
+        "asset_id": "ASSET01"
+      },
+      "INPUT_INFO02": {
+        "file": {},
+        "settings": {},
+        "asset_id": "ASSET01"
+      }
+    }
+  },
+  "new": {
+    "input_info": {
+      "input_info_ref01": {
+        "file": {},
+        "settings": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /video/v1/assets/{ASSET_ID}/input-info": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,302 @@
+# Entity: playback_restriction
+
+main: kit: entity: playback_restriction: {
+
+  alias: field: {}
+
+  fields: {
+    created_at: {
+      fo: "int64"
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch)."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for the Playback Restriction."
+      t: "`$STRING`"
+    }
+    referrer: {
+      h: "Referrer"
+      n: "referrer"
+      r: true
+      sh: "A list of domains allowed to play your videos."
+      t: "`$OBJECT`"
+    }
+    updated_at: {
+      fo: "int64"
+      h: "Updated At"
+      n: "updated_at"
+      r: true
+      sh: "Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch)."
+      t: "`$STRING`"
+    }
+    user_agent: {
+      h: "User Agent"
+      n: "user_agent"
+      r: true
+      sh: "Rules that control what user agents are allowed to play your videos."
+      t: "`$OBJECT`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "playback_restriction"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /video/v1/playback-restrictions"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/video/v1/playback-restrictions"
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "playback-restrictions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "playback_restriction_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              PLAYBACK_RESTRICTION_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "playback-restrictions"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "playback_restriction_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              PLAYBACK_RESTRICTION_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "playback-restrictions"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/referrer"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "playback_restriction_id"
+                or: "playback_restriction_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/referrer"
+          q: {
+            "$action": "referrer"
+            exist: [
+              "playback_restriction_id"
+            ]
+          }
+          r: {
+            param: {
+              PLAYBACK_RESTRICTION_ID: "playback_restriction_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "playback-restrictions"
+            }
+            {
+              var: "playback_restriction_id"
+            }
+            {
+              lit: "referrer"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/user_agent"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "playback_restriction_id"
+                or: "playback_restriction_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/user_agent"
+          q: {
+            "$action": "user_agent"
+            exist: [
+              "playback_restriction_id"
+            ]
+          }
+          r: {
+            param: {
+              PLAYBACK_RESTRICTION_ID: "playback_restriction_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "playback-restrictions"
+            }
+            {
+              var: "playback_restriction_id"
+            }
+            {
+              lit: "user_agent"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,26 @@
+# BasicRealTimeTimeseriesFlow
+
+main: kit: flow: BasicRealTimeTimeseriesFlow:
+{
+  entity: "real_time_timeseries",
+  kind: "basic",
+  name: "BasicRealTimeTimeseriesFlow",
+  step: [
+    {
+      m: {
+        realtime_metric_id: "realtime_metric01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "real_time_timeseries_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRealTimeTimeseriesFlow"
+}

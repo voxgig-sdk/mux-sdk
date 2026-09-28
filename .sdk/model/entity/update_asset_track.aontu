@@ -1,0 +1,210 @@
+# Entity: update_asset_track
+
+main: kit: entity: update_asset_track: {
+
+  alias: field: {}
+
+  fields: {
+    auto_language_confidence: {
+      fo: "double"
+      h: "Auto Language Confidence"
+      n: "auto_language_confidence"
+      r: false
+      sh: "The confidence value (0-1) of the determined language."
+      t: "`$NUMBER`"
+    }
+    closed_captions: {
+      h: "Closed Captions"
+      n: "closed_captions"
+      r: false
+      sh: "Indicates the track provides Subtitles for the Deaf or Hard-of-hearing (SDH)."
+      t: "`$BOOLEAN`"
+    }
+    duration: {
+      fo: "double"
+      h: "Duration"
+      n: "duration"
+      r: false
+      sh: "The duration in seconds of the track media."
+      t: "`$NUMBER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the Track"
+      t: "`$STRING`"
+    }
+    language_code: {
+      h: "Language Code"
+      n: "language_code"
+      r: false
+      sh: "The language code value represents [BCP 47](https://tools.ietf.org/html/bcp47) specification compliant value, or 'auto'."
+      t: "`$STRING`"
+    }
+    max_channels: {
+      fo: "int64"
+      h: "Max Channels"
+      n: "max_channels"
+      r: false
+      sh: "The maximum number of audio channels the track supports."
+      t: "`$INTEGER`"
+    }
+    max_frame_rate: {
+      fo: "double"
+      h: "Max Frame Rate"
+      n: "max_frame_rate"
+      r: false
+      sh: "The maximum frame rate available for the track."
+      t: "`$NUMBER`"
+    }
+    max_height: {
+      fo: "int64"
+      h: "Max Height"
+      n: "max_height"
+      r: false
+      sh: "The maximum height in pixels available for the track."
+      t: "`$INTEGER`"
+    }
+    max_width: {
+      fo: "int64"
+      h: "Max Width"
+      n: "max_width"
+      r: false
+      sh: "The maximum width in pixels available for the track."
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The name of the track containing a human-readable description."
+      t: "`$STRING`"
+    }
+    passthrough: {
+      h: "Passthrough"
+      n: "passthrough"
+      r: false
+      sh: "Arbitrary user-supplied metadata set for the track either when creating the asset or track."
+      t: "`$STRING`"
+    }
+    primary: {
+      h: "Primary"
+      n: "primary"
+      r: false
+      sh: "For an audio track, indicates that this is the primary audio track, ingested from the main input for this asset."
+      t: "`$BOOLEAN`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "The status of the track."
+      t: "`$STRING`"
+    }
+    text_source: {
+      h: "Text Source"
+      n: "text_source"
+      r: false
+      sh: "The source of the text contained in a Track of type `text`."
+      t: "`$STRING`"
+    }
+    text_type: {
+      h: "Text Type"
+      n: "text_type"
+      r: false
+      sh: "This parameter is only set for `text` type tracks."
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "The type of track"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "update_asset_track"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "track_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}"
+          q: {
+            exist: [
+              "asset_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+              TRACK_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "tracks"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.asset")]
+  ]
+
+}

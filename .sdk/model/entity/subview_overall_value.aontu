@@ -1,0 +1,130 @@
+# Entity: subview_overall_value
+
+main: kit: entity: subview_overall_value: {
+
+  alias: field: {}
+
+  fields: {
+    data: {
+      h: "Data"
+      n: "data"
+      r: true
+      t: "`$OBJECT`"
+    }
+    meta: {
+      h: "Meta"
+      n: "meta"
+      r: true
+      t: "`$OBJECT`"
+    }
+    timeframe: {
+      h: "Timeframe"
+      n: "timeframe"
+      r: true
+      t: "`$ARRAY`"
+    }
+    total_row_count: {
+      fo: "int64"
+      h: "Total Row Count"
+      n: "total_row_count"
+      r: true
+      sh: "Always `null` for this endpoint — a single aggregate value has no row count."
+      t: "`$INTEGER`"
+    }
+  }
+
+  name: "subview_overall_value"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/overall"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "playing_time"
+                k: "param"
+                n: "subview_metric_id"
+                or: "metric_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "rendition"
+                k: "param"
+                n: "subview_type"
+                or: "subview_type"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/overall"
+          q: {
+            exist: [
+              "filter"
+              "subview_metric_id"
+              "subview_type"
+              "timeframe"
+            ]
+          }
+          r: {
+            param: {
+              METRIC_ID: "subview_metric_id"
+              SUBVIEW_TYPE: "subview_type"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "subview-metrics"
+            }
+            {
+              var: "subview_metric_id"
+            }
+            {
+              var: "subview_type"
+            }
+            {
+              lit: "overall"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

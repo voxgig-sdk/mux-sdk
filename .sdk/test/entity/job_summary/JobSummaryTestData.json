@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "job_summary": {
+      "JOB_SUMMARY00": {
+        "created_at": 60,
+        "id": "JOB_SUMMARY00",
+        "links": {},
+        "status": "s3f",
+        "updated_at": 64,
+        "workflow": "s41",
+        "job_id": "JOB01"
+      },
+      "JOB_SUMMARY01": {
+        "created_at": 120,
+        "id": "JOB_SUMMARY01",
+        "links": {},
+        "status": "s7b",
+        "updated_at": 124,
+        "workflow": "s7d",
+        "job_id": "JOB01"
+      },
+      "JOB_SUMMARY02": {
+        "created_at": 180,
+        "id": "JOB_SUMMARY02",
+        "links": {},
+        "status": "sb7",
+        "updated_at": 184,
+        "workflow": "sb9",
+        "job_id": "JOB01"
+      }
+    }
+  },
+  "new": {
+    "job_summary": {
+      "job_summary_ref01": {
+        "created_at": 240,
+        "links": {},
+        "status": "sf3",
+        "updated_at": 244,
+        "workflow": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "POST /robots/v0/jobs/{JOB_ID}/cancel": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

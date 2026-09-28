@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "list_breakdown_value": {
+      "LIST_BREAKDOWN_VALUE00": {
+        "field": "s3c",
+        "negative_impact": 61,
+        "total_playing_time": 62,
+        "total_watch_time": 63,
+        "value": 64,
+        "views": 65,
+        "metric_id": "METRIC01"
+      },
+      "LIST_BREAKDOWN_VALUE01": {
+        "field": "s78",
+        "negative_impact": 121,
+        "total_playing_time": 122,
+        "total_watch_time": 123,
+        "value": 124,
+        "views": 125,
+        "metric_id": "METRIC01"
+      },
+      "LIST_BREAKDOWN_VALUE02": {
+        "field": "sb4",
+        "negative_impact": 181,
+        "total_playing_time": 182,
+        "total_watch_time": 183,
+        "value": 184,
+        "views": 185,
+        "metric_id": "METRIC01"
+      }
+    }
+  },
+  "new": {
+    "list_breakdown_value": {
+      "list_breakdown_value_ref01": {
+        "field": "sf0",
+        "negative_impact": 241,
+        "total_playing_time": 242,
+        "total_watch_time": 243,
+        "value": 244,
+        "views": 245
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/metrics/{METRIC_ID}/breakdown": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# BasicEngagementHeatmapFlow
+
+main: kit: flow: BasicEngagementHeatmapFlow:
+{
+  entity: "engagement_heatmap",
+  kind: "basic",
+  name: "BasicEngagementHeatmapFlow",
+  step: [
+    {
+      m: {
+        video_id: "video01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "engagement_heatmap_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEngagementHeatmapFlow"
+}

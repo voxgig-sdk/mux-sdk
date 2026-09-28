@@ -1,0 +1,26 @@
+# BasicMetricTimeseriesDataFlow
+
+main: kit: flow: BasicMetricTimeseriesDataFlow:
+{
+  entity: "metric_timeseries_data",
+  kind: "basic",
+  name: "BasicMetricTimeseriesDataFlow",
+  step: [
+    {
+      m: {
+        metric_id: "metric01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "metric_timeseries_data_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMetricTimeseriesDataFlow"
+}

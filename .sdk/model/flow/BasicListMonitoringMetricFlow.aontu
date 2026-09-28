@@ -1,0 +1,22 @@
+# BasicListMonitoringMetricFlow
+
+main: kit: flow: BasicListMonitoringMetricFlow:
+{
+  entity: "list_monitoring_metric",
+  kind: "basic",
+  name: "BasicListMonitoringMetricFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_monitoring_metric_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListMonitoringMetricFlow"
+}

@@ -1,0 +1,231 @@
+# Entity: upload
+
+main: kit: entity: upload: {
+
+  alias: field: {}
+
+  fields: {
+    asset_id: {
+      h: "Asset Id"
+      n: "asset_id"
+      r: false
+      sh: "Only set once the upload is in the `asset_created` state."
+      t: "`$STRING`"
+    }
+    cors_origin: {
+      h: "Cors Origin"
+      n: "cors_origin"
+      r: true
+      sh: "If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers."
+      t: "`$STRING`"
+    }
+    error: {
+      h: "Error"
+      n: "error"
+      r: false
+      sh: "Only set if an error occurred during asset creation."
+      t: "`$OBJECT`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for the Direct Upload."
+      t: "`$STRING`"
+    }
+    new_asset_settings: {
+      h: "New Asset Settings"
+      n: "new_asset_settings"
+      r: false
+      t: "`$OBJECT`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      t: "`$STRING`"
+    }
+    test: {
+      fo: "boolean"
+      h: "Test"
+      n: "test"
+      r: false
+      sh: "Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset."
+      t: "`$BOOLEAN`"
+    }
+    timeout: {
+      fo: "int32"
+      h: "Timeout"
+      n: "timeout"
+      op: {
+        create: {
+          req: false
+          type: "`$INTEGER`"
+        }
+      }
+      r: true
+      sh: "Max time in seconds for the signed upload URL to be valid."
+      t: "`$INTEGER`"
+    }
+    url: {
+      h: "Url"
+      n: "url"
+      r: false
+      sh: "The URL to upload the associated source media to."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "upload"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /video/v1/uploads"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/video/v1/uploads"
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "uploads"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/uploads/{UPLOAD_ID}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "abcd1234"
+                k: "param"
+                n: "id"
+                or: "upload_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/uploads/{UPLOAD_ID}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              UPLOAD_ID: "id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "uploads"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /video/v1/uploads/{UPLOAD_ID}/cancel"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "abcd1234"
+                k: "param"
+                n: "upload_id"
+                or: "upload_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/video/v1/uploads/{UPLOAD_ID}/cancel"
+          q: {
+            "$action": "cancel"
+            exist: [
+              "upload_id"
+            ]
+          }
+          r: {
+            param: {
+              UPLOAD_ID: "upload_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "uploads"
+            }
+            {
+              var: "upload_id"
+            }
+            {
+              lit: "cancel"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "who_am_i": {
+      "WHO_AM_I00": {
+        "access_token_name": "s46",
+        "environment_id": "ENVIRONMENT01",
+        "environment_name": "s48",
+        "environment_type": "s49",
+        "organization_id": "ORGANIZATION01",
+        "organization_name": "s4b",
+        "permissions": [],
+        "id": "WHO_AM_I00"
+      },
+      "WHO_AM_I01": {
+        "access_token_name": "s8c",
+        "environment_id": "ENVIRONMENT01",
+        "environment_name": "s8e",
+        "environment_type": "s8f",
+        "organization_id": "ORGANIZATION01",
+        "organization_name": "s91",
+        "permissions": [],
+        "id": "WHO_AM_I01"
+      },
+      "WHO_AM_I02": {
+        "access_token_name": "sd2",
+        "environment_id": "ENVIRONMENT01",
+        "environment_name": "sd4",
+        "environment_type": "sd5",
+        "organization_id": "ORGANIZATION01",
+        "organization_name": "sd7",
+        "permissions": [],
+        "id": "WHO_AM_I02"
+      }
+    }
+  },
+  "new": {
+    "who_am_i": {
+      "who_am_i_ref01": {
+        "access_token_name": "s118",
+        "environment_id": "ENVIRONMENT01",
+        "environment_name": "s11a",
+        "environment_type": "s11b",
+        "organization_id": "ORGANIZATION01",
+        "organization_name": "s11d",
+        "permissions": []
+      }
+    }
+  },
+  "requests": {
+    "GET /system/v1/whoami": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

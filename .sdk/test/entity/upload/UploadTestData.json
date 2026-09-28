@@ -1,0 +1,73 @@
+{
+  "existing": {
+    "upload": {
+      "UPLOAD00": {
+        "asset_id": "ASSET01",
+        "cors_origin": "s5b",
+        "error": {},
+        "id": "UPLOAD00",
+        "new_asset_settings": {},
+        "status": "s5f",
+        "test": true,
+        "timeout": 97,
+        "url": "s62",
+        "upload_id": "UPLOAD01"
+      },
+      "UPLOAD01": {
+        "asset_id": "ASSET01",
+        "cors_origin": "sb5",
+        "error": {},
+        "id": "UPLOAD01",
+        "new_asset_settings": {},
+        "status": "sb9",
+        "test": true,
+        "timeout": 187,
+        "url": "sbc",
+        "upload_id": "UPLOAD01"
+      },
+      "UPLOAD02": {
+        "asset_id": "ASSET01",
+        "cors_origin": "s10f",
+        "error": {},
+        "id": "UPLOAD02",
+        "new_asset_settings": {},
+        "status": "s113",
+        "test": true,
+        "timeout": 277,
+        "url": "s116",
+        "upload_id": "UPLOAD01"
+      }
+    }
+  },
+  "new": {
+    "upload": {
+      "upload_ref01": {
+        "asset_id": "ASSET01",
+        "cors_origin": "s169",
+        "error": {},
+        "new_asset_settings": {},
+        "status": "s16d",
+        "test": true,
+        "timeout": 367,
+        "url": "s170"
+      }
+    }
+  },
+  "requests": {
+    "POST /video/v1/uploads": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /video/v1/uploads/{UPLOAD_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /video/v1/uploads/{UPLOAD_ID}/cancel": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

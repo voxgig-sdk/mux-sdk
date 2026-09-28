@@ -1,0 +1,160 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { MuxSDK, BaseFeature, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('RealTimeTimeseriesEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when MUX_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MUX_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = MuxSDK.test()
+    const ent = testsdk.RealTimeTimeseries()
+    assert(null != ent)
+  })
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.MUX_TEST_LIVE
+    for (const op of ['list']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'real_time_timeseries.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"concurrent_viewers":{"a":true,"fo":"int64","h":"Concurrent Viewers","n":"concurrent_viewers","r":true,"t":"`$INTEGER`","key$":"concurrent_viewers","index$":0},"date":{"a":true,"h":"Date","n":"date","r":true,"t":"`$STRING`","key$":"date","index$":1},"value":{"a":true,"fo":"double","h":"Value","n":"value","r":true,"t":"`$NUMBER`","key$":"value","index$":2}},"name":"real_time_timeseries","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"current-concurrent-viewers","k":"param","n":"realtime_metric_id","or":"realtime_metric_id","r":true,"t":"`$STRING`","index$":0}],"query":[{"a":true,"k":"query","n":"filter","or":"filter","r":false,"t":"`$ARRAY`","index$":0},{"a":true,"k":"query","n":"timestamp","or":"timestamp","r":false,"t":"`$INTEGER`","index$":1}]},"k":"http","m":"GET","o":"/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries","q":{"exist":["filter","realtime_metric_id","timestamp"]},"r":{"param":{"REALTIME_METRIC_ID":"realtime_metric_id"}},"s":[{"lit":"data"},{"lit":"v1"},{"lit":"realtime"},{"lit":"metrics"},{"var":"realtime_metric_id"},{"lit":"timeseries"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"real_time_timeseries","name__orig":"real_time_timeseries","Name":"RealTimeTimeseries","name_":"real_time_timeseries","name-":"real-time-timeseries","NAME":"REAL_TIME_TIMESERIES","index$":71}, {"active":true,"entity":"real_time_timeseries","key$":"BasicRealTimeTimeseriesFlow","kind":"basic","name":"BasicRealTimeTimeseriesFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{"realtime_metric_id":"realtime_metric01"},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"real_time_timeseries_ref01"}}],"index$":0}]}, 'RealTimeTimeseries', {"GET /data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries":{"protocol":"http","parameters":[{"name":"REALTIME_METRIC_ID","in":"path","description":"ID of the Realtime Metric","required":true,"example":"current-concurrent-viewers","schema":{"type":"string","enum":["current-concurrent-viewers","current-rebuffering-percentage","exits-before-video-start","playback-failure-percentage","current-average-bitrate"]},"x-ref":"#/components/parameters/realtime_metric_id","index$":0},{"name":"filters[]","in":"query","description":"Limit the results to rows that match conditions from provided key:value pairs. Must be provided as an array query string parameter.\n\nTo exclude rows that match a certain condition, prepend a `!` character to the dimension.\n\nPossible filter names are the same as returned by the List Monitoring Dimensions endpoint.\n\nExample:\n\n  * `filters[]=operating_system:windows&filters[]=!country:US`\n","required":false,"style":"form","explode":true,"schema":{"type":"array","items":{"type":"string"}},"x-ref":"#/components/parameters/monitoring_filters","index$":1},{"name":"timestamp","in":"query","description":"Timestamp to use as the start of the timeseries data. This value must be provided as a unix timestamp. Defaults to 30 minutes ago.","required":false,"schema":{"type":"integer","format":"int32"},"x-ref":"#/components/parameters/monitoring_timeseries_timestamp","index$":2}]}})
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+    let real_time_timeseries_ref01_data = Object.values(setup.data.existing.real_time_timeseries)[0] as any
+
+    // LIST
+    const real_time_timeseries_ref01_ent = client.RealTimeTimeseries()
+    const real_time_timeseries_ref01_match: any = {}
+    real_time_timeseries_ref01_match['realtime_metric_id'] = setup.idmap['realtime_metric01']
+
+    const real_time_timeseries_ref01_list = (await real_time_timeseries_ref01_ent.list(real_time_timeseries_ref01_match)).map((e: any) => e.data())
+
+
+  })
+})
+
+
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/real_time_timeseries/RealTimeTimeseriesTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = MuxSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['real_time_timeseries01','real_time_timeseries02','real_time_timeseries03','realtime_metric01'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'MUX_TEST_REAL_TIME_TIMESERIES_ENTID': idmap,
+    'MUX_TEST_LIVE': 'FALSE',
+    'MUX_TEST_EXPLAIN': 'FALSE',
+    'MUX_APIKEY': '',
+    'MUX_SECRET': '',
+  })
+
+  idmap = env['MUX_TEST_REAL_TIME_TIMESERIES_ENTID']
+
+  const live = 'TRUE' === env.MUX_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['MUX_TEST_REAL_TIME_TIMESERIES_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new MuxSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.MUX_APIKEY,
+        secret: env.MUX_SECRET,
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.MUX_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

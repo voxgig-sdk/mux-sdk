@@ -1,0 +1,87 @@
+# Entity: who_am_i
+
+main: kit: entity: who_am_i: {
+
+  alias: field: {}
+
+  fields: {
+    access_token_name: {
+      h: "Access Token Name"
+      n: "access_token_name"
+      r: true
+      t: "`$STRING`"
+    }
+    environment_id: {
+      h: "Environment Id"
+      n: "environment_id"
+      r: true
+      t: "`$STRING`"
+    }
+    environment_name: {
+      h: "Environment Name"
+      n: "environment_name"
+      r: true
+      t: "`$STRING`"
+    }
+    environment_type: {
+      h: "Environment Type"
+      n: "environment_type"
+      r: true
+      t: "`$STRING`"
+    }
+    organization_id: {
+      h: "Organization Id"
+      n: "organization_id"
+      r: true
+      t: "`$STRING`"
+    }
+    organization_name: {
+      h: "Organization Name"
+      n: "organization_name"
+      r: true
+      t: "`$STRING`"
+    }
+    permissions: {
+      h: "Permissions"
+      n: "permissions"
+      r: true
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "who_am_i"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /system/v1/whoami"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/system/v1/whoami"
+          s: [
+            {
+              lit: "system"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "whoami"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

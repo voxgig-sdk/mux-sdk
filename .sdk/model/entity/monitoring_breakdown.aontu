@@ -1,0 +1,158 @@
+# Entity: monitoring_breakdown
+
+main: kit: entity: monitoring_breakdown: {
+
+  alias: field: {}
+
+  fields: {
+    concurrent_viewers: {
+      fo: "int64"
+      h: "Concurrent Viewers"
+      n: "concurrent_viewers"
+      r: true
+      t: "`$INTEGER`"
+    }
+    display_value: {
+      h: "Display Value"
+      n: "display_value"
+      r: false
+      t: "`$STRING`"
+    }
+    metric_value: {
+      fo: "double"
+      h: "Metric Value"
+      n: "metric_value"
+      r: true
+      t: "`$NUMBER`"
+    }
+    negative_impact: {
+      fo: "int64"
+      h: "Negative Impact"
+      n: "negative_impact"
+      r: true
+      t: "`$INTEGER`"
+    }
+    starting_up_viewers: {
+      fo: "int64"
+      h: "Starting Up Viewers"
+      n: "starting_up_viewers"
+      r: true
+      t: "`$INTEGER`"
+    }
+    value: {
+      h: "Value"
+      n: "value"
+      r: true
+      t: "`$STRING`"
+    }
+  }
+
+  name: "monitoring_breakdown"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "current-concurrent-viewers"
+                k: "param"
+                n: "monitoring_metric_id"
+                or: "monitoring_metric_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "dimension"
+                or: "dimension"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "filter"
+                or: "filter"
+                r: false
+                t: "`$ARRAY`"
+              }
+              {
+                k: "query"
+                n: "order_by"
+                or: "order_by"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "order_direction"
+                or: "order_direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "timestamp"
+                or: "timestamp"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown"
+          q: {
+            exist: [
+              "dimension"
+              "filter"
+              "monitoring_metric_id"
+              "order_by"
+              "order_direction"
+              "timestamp"
+            ]
+          }
+          r: {
+            param: {
+              MONITORING_METRIC_ID: "monitoring_metric_id"
+            }
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "monitoring"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              var: "monitoring_metric_id"
+            }
+            {
+              lit: "breakdown"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

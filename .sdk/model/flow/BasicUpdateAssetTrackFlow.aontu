@@ -1,0 +1,33 @@
+# BasicUpdateAssetTrackFlow
+
+main: kit: flow: BasicUpdateAssetTrackFlow:
+{
+  entity: "update_asset_track",
+  kind: "basic",
+  name: "BasicUpdateAssetTrackFlow",
+  step: [
+    {
+      d: {
+        asset_id: "asset01"
+      }
+
+      i: {
+        ref: "update_asset_track_ref01",
+        srcdatavar: "update_asset_track_ref01_data",
+        suffix: "_up0",
+        textfield: "language_code"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-update_asset_track_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUpdateAssetTrackFlow"
+}

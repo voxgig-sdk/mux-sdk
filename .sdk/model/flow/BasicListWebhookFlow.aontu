@@ -1,0 +1,22 @@
+# BasicListWebhookFlow
+
+main: kit: flow: BasicListWebhookFlow:
+{
+  entity: "list_webhook",
+  kind: "basic",
+  name: "BasicListWebhookFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_webhook_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListWebhookFlow"
+}

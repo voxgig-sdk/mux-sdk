@@ -1,0 +1,141 @@
+# Entity: create_playback_id
+
+main: kit: entity: create_playback_id: {
+
+  alias: field: {}
+
+  fields: {
+    drm_configuration_id: {
+      h: "Drm Configuration Id"
+      n: "drm_configuration_id"
+      r: false
+      sh: "The DRM configuration used by this playback ID."
+      t: "`$STRING`"
+    }
+    policy: {
+      h: "Policy"
+      n: "policy"
+      r: false
+      sh: "* `public` playback IDs are accessible by constructing an HLS URL like `https://stream.mux.com/${PLAYBACK_ID}` * `signed` playback IDs should be used with tokens `https://stream.mux.com/${PLAYBACK_ID}?token={TOKEN}`."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "create_playback_id"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /video/v1/assets/{ASSET_ID}/playback-ids"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "asset_id"
+                or: "asset_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/video/v1/assets/{ASSET_ID}/playback-ids"
+          q: {
+            exist: [
+              "asset_id"
+            ]
+          }
+          r: {
+            param: {
+              ASSET_ID: "asset_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+            {
+              var: "asset_id"
+            }
+            {
+              lit: "playback-ids"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "POST /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids"
+          q: {
+            exist: [
+              "live_stream_id"
+            ]
+          }
+          r: {
+            param: {
+              LIVE_STREAM_ID: "live_stream_id"
+            }
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+            {
+              var: "live_stream_id"
+            }
+            {
+              lit: "playback-ids"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.asset")]
+    [path("$.main.kit.entity.live_stream")]
+  ]
+
+}

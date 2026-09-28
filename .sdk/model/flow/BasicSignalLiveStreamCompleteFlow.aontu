@@ -1,0 +1,28 @@
+# BasicSignalLiveStreamCompleteFlow
+
+main: kit: flow: BasicSignalLiveStreamCompleteFlow:
+{
+  entity: "signal_live_stream_complete",
+  kind: "basic",
+  name: "BasicSignalLiveStreamCompleteFlow",
+  step: [
+    {
+      i: {
+        ref: "signal_live_stream_complete_ref01",
+        srcdatavar: "signal_live_stream_complete_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-signal_live_stream_complete_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSignalLiveStreamCompleteFlow"
+}

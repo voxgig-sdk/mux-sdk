@@ -1,0 +1,40 @@
+# BasicFindKeyMomentFlow
+
+main: kit: flow: BasicFindKeyMomentFlow:
+{
+  entity: "find_key_moment",
+  kind: "basic",
+  name: "BasicFindKeyMomentFlow",
+  step: [
+    {
+      i: {
+        ref: "find_key_moment_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "find_key_moment_ref01",
+        srcdatavar: "find_key_moment_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "find_key_moment01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-find_key_moment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFindKeyMomentFlow"
+}

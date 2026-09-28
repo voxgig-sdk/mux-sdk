@@ -1,0 +1,22 @@
+# BasicListAssetFlow
+
+main: kit: flow: BasicListAssetFlow:
+{
+  entity: "list_asset",
+  kind: "basic",
+  name: "BasicListAssetFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_asset_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListAssetFlow"
+}

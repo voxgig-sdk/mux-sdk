@@ -1,0 +1,201 @@
+{
+  "existing": {
+    "live_stream": {
+      "LIVE_STREAM00": {
+        "active_asset_id": "ACTIVE_ASSET01",
+        "active_ingest_protocol": "s10f",
+        "advanced_playback_policies": [],
+        "audio_only": false,
+        "created_at": "s112",
+        "embedded_subtitles": [],
+        "generated_subtitles": [],
+        "id": "LIVE_STREAM00",
+        "latency_mode": "s116",
+        "low_latency": false,
+        "max_continuous_duration": 280,
+        "meta": {},
+        "new_asset_settings": {},
+        "passthrough": "s11b",
+        "playback_ids": [],
+        "playback_policies": [],
+        "playback_policy": [],
+        "recent_asset_ids": [],
+        "reconnect_slate_url": "s120",
+        "reconnect_window": 289,
+        "reduced_latency": true,
+        "simulcast_targets": [],
+        "srt_passphrase": "s124",
+        "status": "s125",
+        "stream_key": "s126",
+        "test": false,
+        "use_slate_for_standard_latency": true,
+        "live_stream_id": "LIVE_STREAM01",
+        "playback_id": "PLAYBACK01",
+        "simulcast_target_id": "SIMULCAST_TARGET01"
+      },
+      "LIVE_STREAM01": {
+        "active_asset_id": "ACTIVE_ASSET01",
+        "active_ingest_protocol": "s21d",
+        "advanced_playback_policies": [],
+        "audio_only": false,
+        "created_at": "s220",
+        "embedded_subtitles": [],
+        "generated_subtitles": [],
+        "id": "LIVE_STREAM01",
+        "latency_mode": "s224",
+        "low_latency": false,
+        "max_continuous_duration": 550,
+        "meta": {},
+        "new_asset_settings": {},
+        "passthrough": "s229",
+        "playback_ids": [],
+        "playback_policies": [],
+        "playback_policy": [],
+        "recent_asset_ids": [],
+        "reconnect_slate_url": "s22e",
+        "reconnect_window": 559,
+        "reduced_latency": true,
+        "simulcast_targets": [],
+        "srt_passphrase": "s232",
+        "status": "s233",
+        "stream_key": "s234",
+        "test": false,
+        "use_slate_for_standard_latency": true,
+        "live_stream_id": "LIVE_STREAM01",
+        "playback_id": "PLAYBACK01",
+        "simulcast_target_id": "SIMULCAST_TARGET01"
+      },
+      "LIVE_STREAM02": {
+        "active_asset_id": "ACTIVE_ASSET01",
+        "active_ingest_protocol": "s32b",
+        "advanced_playback_policies": [],
+        "audio_only": false,
+        "created_at": "s32e",
+        "embedded_subtitles": [],
+        "generated_subtitles": [],
+        "id": "LIVE_STREAM02",
+        "latency_mode": "s332",
+        "low_latency": false,
+        "max_continuous_duration": 820,
+        "meta": {},
+        "new_asset_settings": {},
+        "passthrough": "s337",
+        "playback_ids": [],
+        "playback_policies": [],
+        "playback_policy": [],
+        "recent_asset_ids": [],
+        "reconnect_slate_url": "s33c",
+        "reconnect_window": 829,
+        "reduced_latency": true,
+        "simulcast_targets": [],
+        "srt_passphrase": "s340",
+        "status": "s341",
+        "stream_key": "s342",
+        "test": false,
+        "use_slate_for_standard_latency": true,
+        "live_stream_id": "LIVE_STREAM01",
+        "playback_id": "PLAYBACK01",
+        "simulcast_target_id": "SIMULCAST_TARGET01"
+      }
+    }
+  },
+  "new": {
+    "live_stream": {
+      "live_stream_ref01": {
+        "active_asset_id": "ACTIVE_ASSET01",
+        "active_ingest_protocol": "s439",
+        "advanced_playback_policies": [],
+        "audio_only": false,
+        "created_at": "s43c",
+        "embedded_subtitles": [],
+        "generated_subtitles": [],
+        "latency_mode": "s440",
+        "low_latency": false,
+        "max_continuous_duration": 1090,
+        "meta": {},
+        "new_asset_settings": {},
+        "passthrough": "s445",
+        "playback_ids": [],
+        "playback_policies": [],
+        "playback_policy": [],
+        "recent_asset_ids": [],
+        "reconnect_slate_url": "s44a",
+        "reconnect_window": 1099,
+        "reduced_latency": true,
+        "simulcast_targets": [],
+        "srt_passphrase": "s44e",
+        "status": "s44f",
+        "stream_key": "s450",
+        "test": false,
+        "use_slate_for_standard_latency": true
+      }
+    }
+  },
+  "requests": {
+    "POST /video/v1/live-streams/{LIVE_STREAM_ID}/reset-stream-key": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /video/v1/live-streams": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /video/v1/live-streams/{LIVE_STREAM_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /video/v1/live-streams/{LIVE_STREAM_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /video/v1/live-streams/{LIVE_STREAM_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /video/v1/live-streams/{LIVE_STREAM_ID}/disable": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /video/v1/live-streams/{LIVE_STREAM_ID}/embedded-subtitles": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /video/v1/live-streams/{LIVE_STREAM_ID}/enable": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /video/v1/live-streams/{LIVE_STREAM_ID}/generated-subtitles": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

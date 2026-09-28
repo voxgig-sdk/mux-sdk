@@ -1,0 +1,27 @@
+# BasicSubviewOverallValueFlow
+
+main: kit: flow: BasicSubviewOverallValueFlow:
+{
+  entity: "subview_overall_value",
+  kind: "basic",
+  name: "BasicSubviewOverallValueFlow",
+  step: [
+    {
+      m: {
+        subview_metric_id: "subview_metric01",
+        subview_type: "subview_type01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "subview_overall_value_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSubviewOverallValueFlow"
+}

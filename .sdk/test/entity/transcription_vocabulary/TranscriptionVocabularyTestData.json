@@ -1,0 +1,63 @@
+{
+  "existing": {
+    "transcription_vocabulary": {
+      "TRANSCRIPTION_VOCABULARY00": {
+        "created_at": "s3c",
+        "id": "TRANSCRIPTION_VOCABULARY00",
+        "name": "s3e",
+        "passthrough": "s3f",
+        "phrases": [],
+        "updated_at": "s41"
+      },
+      "TRANSCRIPTION_VOCABULARY01": {
+        "created_at": "s78",
+        "id": "TRANSCRIPTION_VOCABULARY01",
+        "name": "s7a",
+        "passthrough": "s7b",
+        "phrases": [],
+        "updated_at": "s7d"
+      },
+      "TRANSCRIPTION_VOCABULARY02": {
+        "created_at": "sb4",
+        "id": "TRANSCRIPTION_VOCABULARY02",
+        "name": "sb6",
+        "passthrough": "sb7",
+        "phrases": [],
+        "updated_at": "sb9"
+      }
+    }
+  },
+  "new": {
+    "transcription_vocabulary": {
+      "transcription_vocabulary_ref01": {
+        "created_at": "sf0",
+        "name": "sf2",
+        "passthrough": "sf3",
+        "phrases": [],
+        "updated_at": "sf5"
+      }
+    }
+  },
+  "requests": {
+    "POST /video/v1/transcription-vocabularies": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

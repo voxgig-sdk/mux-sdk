@@ -1,0 +1,40 @@
+# BasicTranslateCaptionFlow
+
+main: kit: flow: BasicTranslateCaptionFlow:
+{
+  entity: "translate_caption",
+  kind: "basic",
+  name: "BasicTranslateCaptionFlow",
+  step: [
+    {
+      i: {
+        ref: "translate_caption_ref01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "translate_caption_ref01",
+        srcdatavar: "translate_caption_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "translate_caption01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-translate_caption_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTranslateCaptionFlow"
+}

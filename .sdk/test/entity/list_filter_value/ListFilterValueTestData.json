@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "list_filter_value": {
+      "LIST_FILTER_VALUE00": {
+        "data": [],
+        "timeframe": [],
+        "total_row_count": 32,
+        "filter_id": "FILTER01",
+        "id": "LIST_FILTER_VALUE00"
+      },
+      "LIST_FILTER_VALUE01": {
+        "data": [],
+        "timeframe": [],
+        "total_row_count": 62,
+        "filter_id": "FILTER01",
+        "id": "LIST_FILTER_VALUE01"
+      },
+      "LIST_FILTER_VALUE02": {
+        "data": [],
+        "timeframe": [],
+        "total_row_count": 92,
+        "filter_id": "FILTER01",
+        "id": "LIST_FILTER_VALUE02"
+      }
+    }
+  },
+  "new": {
+    "list_filter_value": {
+      "list_filter_value_ref01": {
+        "data": [],
+        "timeframe": [],
+        "total_row_count": 122
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/filters/{FILTER_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

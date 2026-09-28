@@ -1,0 +1,26 @@
+# BasicListRelatedIncidentFlow
+
+main: kit: flow: BasicListRelatedIncidentFlow:
+{
+  entity: "list_related_incident",
+  kind: "basic",
+  name: "BasicListRelatedIncidentFlow",
+  step: [
+    {
+      m: {
+        incident_id: "incident01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_related_incident_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListRelatedIncidentFlow"
+}

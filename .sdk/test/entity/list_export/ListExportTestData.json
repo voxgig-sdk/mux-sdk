@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "list_export": {
+      "LIST_EXPORT00": {
+        "data": [],
+        "timeframe": [],
+        "total_row_count": 32
+      },
+      "LIST_EXPORT01": {
+        "data": [],
+        "timeframe": [],
+        "total_row_count": 62
+      },
+      "LIST_EXPORT02": {
+        "data": [],
+        "timeframe": [],
+        "total_row_count": 92
+      }
+    }
+  },
+  "new": {
+    "list_export": {
+      "list_export_ref01": {
+        "data": [],
+        "timeframe": [],
+        "total_row_count": 122
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/exports": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "annotation": {
+      "ANNOTATION00": {
+        "date": "s28",
+        "id": "ANNOTATION00",
+        "note": "s2a",
+        "sub_property_id": "SUB_PROPERTY01"
+      },
+      "ANNOTATION01": {
+        "date": "s50",
+        "id": "ANNOTATION01",
+        "note": "s52",
+        "sub_property_id": "SUB_PROPERTY01"
+      },
+      "ANNOTATION02": {
+        "date": "s78",
+        "id": "ANNOTATION02",
+        "note": "s7a",
+        "sub_property_id": "SUB_PROPERTY01"
+      }
+    }
+  },
+  "new": {
+    "annotation": {
+      "annotation_ref01": {
+        "date": "sa0",
+        "note": "sa2",
+        "sub_property_id": "SUB_PROPERTY01"
+      }
+    }
+  },
+  "requests": {
+    "POST /data/v1/annotations": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /data/v1/annotations/{ANNOTATION_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /data/v1/annotations/{ANNOTATION_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /data/v1/annotations/{ANNOTATION_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

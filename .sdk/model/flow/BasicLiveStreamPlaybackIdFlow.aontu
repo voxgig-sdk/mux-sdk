@@ -1,0 +1,33 @@
+# BasicLiveStreamPlaybackIdFlow
+
+main: kit: flow: BasicLiveStreamPlaybackIdFlow:
+{
+  entity: "live_stream_playback_id",
+  kind: "basic",
+  name: "BasicLiveStreamPlaybackIdFlow",
+  step: [
+    {
+      i: {
+        ref: "live_stream_playback_id_ref01",
+        srcdatavar: "live_stream_playback_id_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "live_stream_playback_id01",
+        live_stream_id: "live_stream01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-live_stream_playback_id_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicLiveStreamPlaybackIdFlow"
+}

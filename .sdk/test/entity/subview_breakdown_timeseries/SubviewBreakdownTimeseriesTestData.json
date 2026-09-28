@@ -1,0 +1,43 @@
+{
+  "existing": {
+    "subview_breakdown_timeseries": {
+      "SUBVIEW_BREAKDOWN_TIMESERIES00": {
+        "date": "s1e",
+        "status": "s1f",
+        "values": [],
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      },
+      "SUBVIEW_BREAKDOWN_TIMESERIES01": {
+        "date": "s3c",
+        "status": "s3d",
+        "values": [],
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      },
+      "SUBVIEW_BREAKDOWN_TIMESERIES02": {
+        "date": "s5a",
+        "status": "s5b",
+        "values": [],
+        "subview_metric_id": "SUBVIEW_METRIC01",
+        "subview_type": "SUBVIEW_TYPE01"
+      }
+    }
+  },
+  "new": {
+    "subview_breakdown_timeseries": {
+      "subview_breakdown_timeseries_ref01": {
+        "date": "s78",
+        "status": "s79",
+        "values": []
+      }
+    }
+  },
+  "requests": {
+    "GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown-timeseries": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

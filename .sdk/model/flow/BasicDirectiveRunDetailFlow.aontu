@@ -1,0 +1,33 @@
+# BasicDirectiveRunDetailFlow
+
+main: kit: flow: BasicDirectiveRunDetailFlow:
+{
+  entity: "directive_run_detail",
+  kind: "basic",
+  name: "BasicDirectiveRunDetailFlow",
+  step: [
+    {
+      i: {
+        ref: "directive_run_detail_ref01",
+        srcdatavar: "directive_run_detail_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        directive_id: "directive01",
+        id: "directive_run_detail01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-directive_run_detail_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDirectiveRunDetailFlow"
+}

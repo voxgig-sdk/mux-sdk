@@ -1,0 +1,26 @@
+# BasicEngagementHotspotFlow
+
+main: kit: flow: BasicEngagementHotspotFlow:
+{
+  entity: "engagement_hotspot",
+  kind: "basic",
+  name: "BasicEngagementHotspotFlow",
+  step: [
+    {
+      m: {
+        video_id: "video01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "engagement_hotspot_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEngagementHotspotFlow"
+}

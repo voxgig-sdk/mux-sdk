@@ -1,0 +1,67 @@
+{
+  "existing": {
+    "playback_restriction": {
+      "PLAYBACK_RESTRICTION00": {
+        "created_at": "s32",
+        "id": "PLAYBACK_RESTRICTION00",
+        "referrer": {},
+        "updated_at": "s35",
+        "user_agent": {},
+        "playback_restriction_id": "PLAYBACK_RESTRICTION01"
+      },
+      "PLAYBACK_RESTRICTION01": {
+        "created_at": "s64",
+        "id": "PLAYBACK_RESTRICTION01",
+        "referrer": {},
+        "updated_at": "s67",
+        "user_agent": {},
+        "playback_restriction_id": "PLAYBACK_RESTRICTION01"
+      },
+      "PLAYBACK_RESTRICTION02": {
+        "created_at": "s96",
+        "id": "PLAYBACK_RESTRICTION02",
+        "referrer": {},
+        "updated_at": "s99",
+        "user_agent": {},
+        "playback_restriction_id": "PLAYBACK_RESTRICTION01"
+      }
+    }
+  },
+  "new": {
+    "playback_restriction": {
+      "playback_restriction_ref01": {
+        "created_at": "sc8",
+        "referrer": {},
+        "updated_at": "scb",
+        "user_agent": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /video/v1/playback-restrictions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/referrer": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/user_agent": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

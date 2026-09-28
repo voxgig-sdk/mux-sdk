@@ -1,0 +1,22 @@
+# BasicListPlaybackRestrictionFlow
+
+main: kit: flow: BasicListPlaybackRestrictionFlow:
+{
+  entity: "list_playback_restriction",
+  kind: "basic",
+  name: "BasicListPlaybackRestrictionFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_playback_restriction_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicListPlaybackRestrictionFlow"
+}
