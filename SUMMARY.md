@@ -12,7 +12,7 @@ An entity groups related API operations. An operation can have several routes wi
 
 ## What the API provides
 
-### [Annotation](docs/api/annotation.html)
+### Annotation
 
 Results: Created; OK; No Content.
 
@@ -25,7 +25,7 @@ Key fields to recognise:
 - `note`: The annotation note content
 - `sub_property_id`: Customer-defined sub-property identifier
 
-### [AskQuestion](docs/api/ask_question.html)
+### AskQuestion
 
 Results: Ask questions job queued; Current status for the requested job.
 
@@ -39,7 +39,7 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [Asset](docs/api/asset.html)
+### Asset
 
 Results: Asset Created; OK; No Content.
 
@@ -53,7 +53,7 @@ Key fields to recognise:
 - `duration`: The duration of the asset in seconds (max duration for a single asset is 12 hours).
 - `encoding_tier`: This field is deprecated. Please use `video_quality` instead. The encoding tier informs the cost, quality, and available platform features for the asset. The default encoding tier for an account can be set in the Mux Dashboard. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)
 
-### [AssetOrLiveStreamId](docs/api/asset_or_live_stream_id.html)
+### AssetOrLiveStreamId
 
 Results: OK.
 
@@ -65,7 +65,7 @@ Key fields to recognise:
 - `object`: Describes the Asset or LiveStream object associated with the playback ID.
 - `policy`: * `public` playback IDs are accessible by constructing an HLS URL like `https://stream.mux.com/$&#123;PLAYBACK_ID&#125;` * `signed` playback IDs should be used with tokens `https://stream.mux.com/$&#123;PLAYBACK_ID&#125;?token=&#123;TOKEN&#125;`. See [Secure video playback](https://docs.mux.com/guides/secure-video-playback) for details about creating tokens. * `drm` playback IDs are protected with DRM technologies. [See DRM documentation for more details](https://docs.mux.com/guides/protect-videos-with-drm).
 
-### [AssetPlaybackId](docs/api/asset_playback_id.html)
+### AssetPlaybackId
 
 Results: OK.
 
@@ -77,7 +77,7 @@ Key fields to recognise:
 - `id`: Unique identifier for the PlaybackID
 - `policy`: * `public` playback IDs are accessible by constructing an HLS URL like `https://stream.mux.com/$&#123;PLAYBACK_ID&#125;` * `signed` playback IDs should be used with tokens `https://stream.mux.com/$&#123;PLAYBACK_ID&#125;?token=&#123;TOKEN&#125;`. See [Secure video playback](https://docs.mux.com/guides/secure-video-playback) for details about creating tokens. * `drm` playback IDs are protected with DRM technologies. [See DRM documentation for more details](https://docs.mux.com/guides/protect-videos-with-drm).
 
-### [AssetShot](docs/api/asset_shot.html)
+### AssetShot
 
 Results: OK.
 
@@ -89,7 +89,7 @@ Key fields to recognise:
 - `shots_manifest_url`: A URL to a JSON manifest describing the shot changes detected in the video along with shot preview images for each shot. This field is only present when `status` is `completed`.
 - `status`: The status of the shot detection process
 
-### [CreatePlaybackId](docs/api/create_playback_id.html)
+### CreatePlaybackId
 
 Results: Created.
 
@@ -100,7 +100,7 @@ Key fields to recognise:
 - `drm_configuration_id`: The DRM configuration used by this playback ID. Must only be set when `policy` is set to `drm`.
 - `policy`: * `public` playback IDs are accessible by constructing an HLS URL like `https://stream.mux.com/$&#123;PLAYBACK_ID&#125;` * `signed` playback IDs should be used with tokens `https://stream.mux.com/$&#123;PLAYBACK_ID&#125;?token=&#123;TOKEN&#125;`. See [Secure video playback](https://docs.mux.com/guides/secure-video-playback) for details about creating tokens. * `drm` playback IDs are protected with DRM technologies. [See DRM documentation for more details](https://docs.mux.com/guides/protect-videos-with-drm).
 
-### [CreateTrack](docs/api/create_track.html)
+### CreateTrack
 
 Results: Created.
 
@@ -114,7 +114,7 @@ Key fields to recognise:
 - `passthrough`: Arbitrary user-supplied metadata set for the track either when creating the asset or track. This parameter is only set for `text` type tracks. Max 255 characters.
 - `text_type`: This parameter is only set for `text` type tracks.
 
-### [Directive](docs/api/directive.html)
+### Directive
 
 Results: Directive run started; Directive created; List of directives; Directive; Directive deleted.
 
@@ -128,7 +128,7 @@ Key fields to recognise:
 - `resources`: Resource declarations.
 - `updated_at`: Unix timestamp (seconds) when the directive was last updated.
 
-### [DirectiveRunDetail](docs/api/directive_run_detail.html)
+### DirectiveRunDetail
 
 Results: Directive run.
 
@@ -142,7 +142,7 @@ Key fields to recognise:
 - `started_at`: Unix timestamp (seconds) when the run started.
 - `status`: Current run status.
 
-### [DirectiveRunList](docs/api/directive_run_list.html)
+### DirectiveRunList
 
 Results: List of directive runs.
 
@@ -156,7 +156,7 @@ Key fields to recognise:
 - `started_at`: Unix timestamp (seconds) when the run started.
 - `status`: Current run status.
 
-### [DrmConfiguration](docs/api/drm_configuration.html)
+### DrmConfiguration
 
 Results: OK.
 
@@ -166,7 +166,7 @@ Key fields to recognise:
 
 - `id`: Unique identifier for the DRM Configuration. Max 255 characters.
 
-### [EditCaption](docs/api/edit_caption.html)
+### EditCaption
 
 Results: Caption editing job queued; Current status for the requested job.
 
@@ -180,19 +180,19 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [EngagementHeatmap](docs/api/engagement_heatmap.html)
+### EngagementHeatmap
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [EngagementHotspot](docs/api/engagement_hotspot.html)
+### EngagementHotspot
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [FindBestThumbnail](docs/api/find_best_thumbnail.html)
+### FindBestThumbnail
 
 Results: Find best thumbnails job queued; Find best thumbnails job state.
 
@@ -206,7 +206,7 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [FindKeyMoment](docs/api/find_key_moment.html)
+### FindKeyMoment
 
 Results: Key moments job queued; Current status for the requested job.
 
@@ -220,7 +220,7 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [FindScene](docs/api/find_scene.html)
+### FindScene
 
 Results: Find scenes job queued; Current status for the requested job.
 
@@ -234,7 +234,7 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [GenerateAssetShot](docs/api/generate_asset_shot.html)
+### GenerateAssetShot
 
 Results: Created.
 
@@ -244,7 +244,7 @@ Key fields to recognise:
 
 - `data`: The results of generating shots on the video
 
-### [GenerateChapter](docs/api/generate_chapter.html)
+### GenerateChapter
 
 Results: Chapters job queued; Current status for the requested job.
 
@@ -258,7 +258,7 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [GenerateEngagementInsight](docs/api/generate_engagement_insight.html)
+### GenerateEngagementInsight
 
 Results: Engagement insights job queued; Current status for the requested job.
 
@@ -272,7 +272,7 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [GeneratePremiumCaption](docs/api/generate_premium_caption.html)
+### GeneratePremiumCaption
 
 Results: Caption generation job queued; Current status for the requested job.
 
@@ -286,7 +286,7 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [GenerateTrackSubtitle](docs/api/generate_track_subtitle.html)
+### GenerateTrackSubtitle
 
 Results: Created.
 
@@ -296,13 +296,13 @@ Key fields to recognise:
 
 - `generated_subtitles`: Generate subtitle tracks using automatic speech recognition with this configuration.
 
-### [Incident](docs/api/incident.html)
+### Incident
 
 Results: OK.
 
 SDK operations: `load`.
 
-### [InputInfo](docs/api/input_info.html)
+### InputInfo
 
 Results: OK.
 
@@ -312,7 +312,7 @@ Key fields to recognise:
 
 - `settings`: An array of objects that each describe an input file to be used to create the asset. As a shortcut, `input` can also be a string URL for a file when only one input file is used. See `input[].url` for requirements.
 
-### [JobSummary](docs/api/job_summary.html)
+### JobSummary
 
 Results: Job cancelled successfully.
 
@@ -326,13 +326,13 @@ Key fields to recognise:
 - `status`: Current job status.
 - `updated_at`: Unix timestamp (seconds) of the job&#39;s last state transition (for example when it started processing or reached a terminal state).
 
-### [ListAllMetricValue](docs/api/list_all_metric_value.html)
+### ListAllMetricValue
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListAnnotation](docs/api/list_annotation.html)
+### ListAnnotation
 
 Results: OK.
 
@@ -345,7 +345,7 @@ Key fields to recognise:
 - `note`: The annotation note content
 - `sub_property_id`: Customer-defined sub-property identifier
 
-### [ListAsset](docs/api/list_asset.html)
+### ListAsset
 
 Results: OK.
 
@@ -359,13 +359,13 @@ Key fields to recognise:
 - `duration`: The duration of the asset in seconds (max duration for a single asset is 12 hours).
 - `encoding_tier`: This field is deprecated. Please use `video_quality` instead. The encoding tier informs the cost, quality, and available platform features for the asset. The default encoding tier for an account can be set in the Mux Dashboard. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)
 
-### [ListBreakdownValue](docs/api/list_breakdown_value.html)
+### ListBreakdownValue
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListDeliveryUsage](docs/api/list_delivery_usage.html)
+### ListDeliveryUsage
 
 Results: OK.
 
@@ -379,19 +379,19 @@ Key fields to recognise:
 - `asset_resolution_tier`: The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage
 - `asset_state`: The state of the asset.
 
-### [ListDimension](docs/api/list_dimension.html)
+### ListDimension
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListDimensionValue](docs/api/list_dimension_value.html)
+### ListDimensionValue
 
 Results: OK.
 
 SDK operations: `list`, `load`.
 
-### [ListDrmConfiguration](docs/api/list_drm_configuration.html)
+### ListDrmConfiguration
 
 Results: OK.
 
@@ -401,7 +401,7 @@ Key fields to recognise:
 
 - `id`: Unique identifier for the DRM Configuration. Max 255 characters.
 
-### [ListError](docs/api/list_error.html)
+### ListError
 
 Results: OK.
 
@@ -415,37 +415,37 @@ Key fields to recognise:
 - `id`: A unique identifier for this error.
 - `last_seen`: The last time this error was seen (ISO 8601 timestamp).
 
-### [ListExport](docs/api/list_export.html)
+### ListExport
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListFilter](docs/api/list_filter.html)
+### ListFilter
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListFilterValue](docs/api/list_filter_value.html)
+### ListFilterValue
 
 Results: OK.
 
 SDK operations: `load`.
 
-### [ListIncident](docs/api/list_incident.html)
+### ListIncident
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListInsight](docs/api/list_insight.html)
+### ListInsight
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListJob](docs/api/list_job.html)
+### ListJob
 
 Results: List of jobs.
 
@@ -459,7 +459,7 @@ Key fields to recognise:
 - `status`: Current job status.
 - `updated_at`: Unix timestamp (seconds) of the job&#39;s last state transition (for example when it started processing or reached a terminal state).
 
-### [ListLiveStream](docs/api/list_live_stream.html)
+### ListLiveStream
 
 Results: OK.
 
@@ -473,19 +473,19 @@ Key fields to recognise:
 - `created_at`: Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch).
 - `embedded_subtitles`: Describes the embedded closed caption configuration of the incoming live stream.
 
-### [ListMonitoringDimension](docs/api/list_monitoring_dimension.html)
+### ListMonitoringDimension
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListMonitoringMetric](docs/api/list_monitoring_metric.html)
+### ListMonitoringMetric
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListPlaybackRestriction](docs/api/list_playback_restriction.html)
+### ListPlaybackRestriction
 
 Results: OK.
 
@@ -499,25 +499,25 @@ Key fields to recognise:
 - `updated_at`: Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch).
 - `user_agent`: Rules that control what user agents are allowed to play your videos. Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
 
-### [ListRealTimeDimension](docs/api/list_real_time_dimension.html)
+### ListRealTimeDimension
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListRealTimeMetric](docs/api/list_real_time_metric.html)
+### ListRealTimeMetric
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListRelatedIncident](docs/api/list_related_incident.html)
+### ListRelatedIncident
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListSigningKey](docs/api/list_signing_key.html)
+### ListSigningKey
 
 Results: OK.
 
@@ -529,31 +529,31 @@ Key fields to recognise:
 - `id`: Unique identifier for the Signing Key.
 - `private_key`: A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). **Note that this value is only returned once when creating a URL signing key.**
 
-### [ListSubviewBreakdownValue](docs/api/list_subview_breakdown_value.html)
+### ListSubviewBreakdownValue
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListSubviewComparisonValue](docs/api/list_subview_comparison_value.html)
+### ListSubviewComparisonValue
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListSubviewDimension](docs/api/list_subview_dimension.html)
+### ListSubviewDimension
 
 Results: OK.
 
 SDK operations: `load`.
 
-### [ListSubviewDimensionValue](docs/api/list_subview_dimension_value.html)
+### ListSubviewDimensionValue
 
 Results: OK.
 
 SDK operations: `load`.
 
-### [ListTranscriptionVocabulary](docs/api/list_transcription_vocabulary.html)
+### ListTranscriptionVocabulary
 
 Results: OK.
 
@@ -567,7 +567,7 @@ Key fields to recognise:
 - `passthrough`: Arbitrary user-supplied metadata set for the Transcription Vocabulary. Max 255 characters.
 - `phrases`: Phrases, individual words, or proper names to include in the Transcription Vocabulary. When the Transcription Vocabulary is attached to a live stream&#39;s `generated_subtitles` configuration, the probability of successful speech recognition for these words or phrases is boosted.
 
-### [ListUpload](docs/api/list_upload.html)
+### ListUpload
 
 Results: OK.
 
@@ -581,7 +581,7 @@ Key fields to recognise:
 - `id`: Unique identifier for the Direct Upload.
 - `test`: Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset.
 
-### [ListUsageExport](docs/api/list_usage_export.html)
+### ListUsageExport
 
 Results: OK.
 
@@ -594,19 +594,19 @@ Key fields to recognise:
 - `download_url_expires_at`: Unix timestamp (seconds since epoch) at which `download_url` expires.
 - `file_size`: Uncompressed size of the CSV file in bytes. May be `null` if the size is unavailable.
 
-### [ListVideoView](docs/api/list_video_view.html)
+### ListVideoView
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListVideoViewExport](docs/api/list_video_view_export.html)
+### ListVideoViewExport
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [ListWebhook](docs/api/list_webhook.html)
+### ListWebhook
 
 Results: OK.
 
@@ -620,7 +620,7 @@ Key fields to recognise:
 - `id`: Unique identifier for the webhook.
 - `signing_secret`: Secret used to verify that webhook payloads were sent by Mux. **Note that this value is only returned once when creating a webhook.**
 
-### [LiveStream](docs/api/live_stream.html)
+### LiveStream
 
 Results: OK; Created; No Content.
 
@@ -634,7 +634,7 @@ Key fields to recognise:
 - `audio_only`: The live stream only processes the audio track if the value is set to true. Mux drops the video track if broadcasted.
 - `created_at`: Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch).
 
-### [LiveStreamPlaybackId](docs/api/live_stream_playback_id.html)
+### LiveStreamPlaybackId
 
 Results: OK.
 
@@ -646,13 +646,13 @@ Key fields to recognise:
 - `id`: Unique identifier for the PlaybackID
 - `policy`: * `public` playback IDs are accessible by constructing an HLS URL like `https://stream.mux.com/$&#123;PLAYBACK_ID&#125;` * `signed` playback IDs should be used with tokens `https://stream.mux.com/$&#123;PLAYBACK_ID&#125;?token=&#123;TOKEN&#125;`. See [Secure video playback](https://docs.mux.com/guides/secure-video-playback) for details about creating tokens. * `drm` playback IDs are protected with DRM technologies. [See DRM documentation for more details](https://docs.mux.com/guides/protect-videos-with-drm).
 
-### [MetricTimeseriesData](docs/api/metric_timeseries_data.html)
+### MetricTimeseriesData
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [Moderate](docs/api/moderate.html)
+### Moderate
 
 Results: Moderation job queued; Current status for the requested job.
 
@@ -666,37 +666,37 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [MonitoringBreakdown](docs/api/monitoring_breakdown.html)
+### MonitoringBreakdown
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [MonitoringBreakdownTimeseries](docs/api/monitoring_breakdown_timeseries.html)
+### MonitoringBreakdownTimeseries
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [MonitoringHistogramTimeseries](docs/api/monitoring_histogram_timeseries.html)
+### MonitoringHistogramTimeseries
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [MonitoringTimeseries](docs/api/monitoring_timeseries.html)
+### MonitoringTimeseries
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [Overall](docs/api/overall.html)
+### Overall
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [PlaybackRestriction](docs/api/playback_restriction.html)
+### PlaybackRestriction
 
 Results: Created; OK; No Content.
 
@@ -710,31 +710,31 @@ Key fields to recognise:
 - `updated_at`: Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch).
 - `user_agent`: Rules that control what user agents are allowed to play your videos. Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
 
-### [RealTimeBreakdown](docs/api/real_time_breakdown.html)
+### RealTimeBreakdown
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [RealTimeHistogramTimeseries](docs/api/real_time_histogram_timeseries.html)
+### RealTimeHistogramTimeseries
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [RealTimeTimeseries](docs/api/real_time_timeseries.html)
+### RealTimeTimeseries
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [SignalLiveStreamComplete](docs/api/signal_live_stream_complete.html)
+### SignalLiveStreamComplete
 
 Results: OK.
 
 SDK operations: `update`.
 
-### [SigningKey](docs/api/signing_key.html)
+### SigningKey
 
 Results: Created; OK; No Content.
 
@@ -746,7 +746,7 @@ Key fields to recognise:
 - `id`: Unique identifier for the Signing Key.
 - `private_key`: A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). **Note that this value is only returned once when creating a URL signing key.**
 
-### [SimulcastTarget](docs/api/simulcast_target.html)
+### SimulcastTarget
 
 Results: Created; OK.
 
@@ -760,7 +760,7 @@ Key fields to recognise:
 - `status`: The current status of the simulcast target. See Statuses below for detailed description. * `idle`: Default status. When the parent live stream is in disconnected status, simulcast targets will be idle state. * `starting`: The simulcast target transitions into this state when the parent live stream transition into connected state. * `broadcasting`: The simulcast target has successfully connected to the third party live streaming service and is pushing video to that service. * `errored`: The simulcast target encountered an error either while attempting to connect to the third party live streaming service, or mid-broadcasting. When a simulcast target has this status it will have an `error_severity` field with more details about the error.
 - `stream_key`: Stream Key represents a stream identifier on the third party live streaming service to send the parent live stream to. Only used for RTMP(s) simulcast destinations.
 
-### [StaticRendition](docs/api/static_rendition.html)
+### StaticRendition
 
 Results: Created.
 
@@ -771,13 +771,13 @@ Key fields to recognise:
 - `passthrough`: Arbitrary user-supplied metadata set for the static rendition. Max 255 characters.
 - `resolution`: Indicates the resolution of this specific MP4 version of this asset. Only present for static renditions created with the Static Renditions API. Not set for renditions created with the deprecated `mp4_support` option.
 
-### [SubviewBreakdownTimeseries](docs/api/subview_breakdown_timeseries.html)
+### SubviewBreakdownTimeseries
 
 Results: OK.
 
 SDK operations: `list`.
 
-### [SubviewOverallValue](docs/api/subview_overall_value.html)
+### SubviewOverallValue
 
 Results: OK.
 
@@ -787,7 +787,7 @@ Key fields to recognise:
 
 - `total_row_count`: Always `null` for this endpoint, a single aggregate value has no row count.
 
-### [Summarize](docs/api/summarize.html)
+### Summarize
 
 Results: Summarize job queued; Current status for the requested job.
 
@@ -801,7 +801,7 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [TranscriptionVocabulary](docs/api/transcription_vocabulary.html)
+### TranscriptionVocabulary
 
 Results: Transcription Vocabulary Created; OK; No Content.
 
@@ -815,7 +815,7 @@ Key fields to recognise:
 - `passthrough`: Arbitrary user-supplied metadata set for the Transcription Vocabulary. Max 255 characters.
 - `phrases`: Phrases, individual words, or proper names to include in the Transcription Vocabulary. When the Transcription Vocabulary is attached to a live stream&#39;s `generated_subtitles` configuration, the probability of successful speech recognition for these words or phrases is boosted.
 
-### [TranslateAudio](docs/api/translate_audio.html)
+### TranslateAudio
 
 Results: Audio translation job queued; Current status for the requested job.
 
@@ -829,7 +829,7 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [TranslateCaption](docs/api/translate_caption.html)
+### TranslateCaption
 
 Results: Caption translation job queued; Current status for the requested job.
 
@@ -843,7 +843,7 @@ Key fields to recognise:
 - `id`: Unique job identifier.
 - `outputs`: Workflow results. Present when status is &#39;completed&#39;.
 
-### [UpdateAssetTrack](docs/api/update_asset_track.html)
+### UpdateAssetTrack
 
 Results: OK.
 
@@ -857,7 +857,7 @@ Key fields to recognise:
 - `id`: Unique identifier for the Track
 - `language_code`: The language code value represents [BCP 47](https://tools.ietf.org/html/bcp47) specification compliant value, or &#39;auto&#39;. For example, `en` for English or `en-US` for the US version of English. This parameter is only set for `text` and `audio` track types. During automatic language detection for generated subtitles, this value will be set to `auto` until the language is determined.
 
-### [Upload](docs/api/upload.html)
+### Upload
 
 Results: Created; OK.
 
@@ -871,19 +871,19 @@ Key fields to recognise:
 - `id`: Unique identifier for the Direct Upload.
 - `test`: Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset.
 
-### [UrlSigningKey](docs/api/url_signing_key.html)
+### UrlSigningKey
 
 Results: No Content.
 
 SDK operations: `remove`.
 
-### [VideoView](docs/api/video_view.html)
+### VideoView
 
 Results: OK.
 
 SDK operations: `load`.
 
-### [Webhook](docs/api/webhook.html)
+### Webhook
 
 Results: Created; OK; No Content.
 
@@ -897,7 +897,7 @@ Key fields to recognise:
 - `id`: Unique identifier for the webhook.
 - `signing_secret`: Secret used to verify that webhook payloads were sent by Mux. **Note that this value is only returned once when creating a webhook.**
 
-### [WhoAmI](docs/api/who_am_i.html)
+### WhoAmI
 
 Results: Information retrieved successfully.
 
@@ -909,159 +909,159 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 
 | Entity | SDK operation | HTTP route | Authentication |
 | --- | --- | --- | --- |
-| [Annotation](docs/api/annotation.html) | `create` | `POST /data/v1/annotations` | Required |
-| [Annotation](docs/api/annotation.html) | `load` | `GET /data/v1/annotations/{ANNOTATION_ID}` | Required |
-| [Annotation](docs/api/annotation.html) | `remove` | `DELETE /data/v1/annotations/{ANNOTATION_ID}` | Required |
-| [Annotation](docs/api/annotation.html) | `update` | `PATCH /data/v1/annotations/{ANNOTATION_ID}` | Required |
-| [AskQuestion](docs/api/ask_question.html) | `create` | `POST /robots/v0/jobs/ask-questions` | Required |
-| [AskQuestion](docs/api/ask_question.html) | `load` | `GET /robots/v0/jobs/ask-questions/{JOB_ID}` | Required |
-| [Asset](docs/api/asset.html) | `create` | `POST /video/v1/assets` | Required |
-| [Asset](docs/api/asset.html) | `load` | `GET /video/v1/assets/{ASSET_ID}` | Required |
-| [Asset](docs/api/asset.html) | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID}` | Required |
-| [Asset](docs/api/asset.html) | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/static-renditions/{STATIC_RENDITION_ID}` | Required |
-| [Asset](docs/api/asset.html) | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}` | Required |
-| [Asset](docs/api/asset.html) | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/shots` | Required |
-| [Asset](docs/api/asset.html) | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/thumbnail-time` | Required |
-| [Asset](docs/api/asset.html) | `remove` | `DELETE /video/v1/assets/{ASSET_ID}` | Required |
-| [Asset](docs/api/asset.html) | `update` | `PUT /video/v1/assets/{ASSET_ID}/master-access` | Required |
-| [Asset](docs/api/asset.html) | `update` | `PUT /video/v1/assets/{ASSET_ID}/mp4-support` | Required |
-| [Asset](docs/api/asset.html) | `update` | `PATCH /video/v1/assets/{ASSET_ID}` | Required |
-| [AssetOrLiveStreamId](docs/api/asset_or_live_stream_id.html) | `load` | `GET /video/v1/playback-ids/{PLAYBACK_ID}` | Required |
-| [AssetPlaybackId](docs/api/asset_playback_id.html) | `load` | `GET /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID}` | Required |
-| [AssetShot](docs/api/asset_shot.html) | `load` | `GET /video/v1/assets/{ASSET_ID}/shots` | Required |
-| [CreatePlaybackId](docs/api/create_playback_id.html) | `create` | `POST /video/v1/assets/{ASSET_ID}/playback-ids` | Required |
-| [CreatePlaybackId](docs/api/create_playback_id.html) | `create` | `POST /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids` | Required |
-| [CreateTrack](docs/api/create_track.html) | `create` | `POST /video/v1/assets/{ASSET_ID}/tracks` | Required |
-| [Directive](docs/api/directive.html) | `create` | `POST /robots/v0/directives/{DIRECTIVE_ID}/runs` | Required |
-| [Directive](docs/api/directive.html) | `create` | `POST /robots/v0/directives` | Required |
-| [Directive](docs/api/directive.html) | `list` | `GET /robots/v0/directives` | Required |
-| [Directive](docs/api/directive.html) | `load` | `GET /robots/v0/directives/{DIRECTIVE_ID}` | Required |
-| [Directive](docs/api/directive.html) | `remove` | `DELETE /robots/v0/directives/{DIRECTIVE_ID}` | Required |
-| [DirectiveRunDetail](docs/api/directive_run_detail.html) | `load` | `GET /robots/v0/directives/{DIRECTIVE_ID}/runs/{RUN_ID}` | Required |
-| [DirectiveRunList](docs/api/directive_run_list.html) | `list` | `GET /robots/v0/directives/{DIRECTIVE_ID}/runs` | Required |
-| [DrmConfiguration](docs/api/drm_configuration.html) | `load` | `GET /video/v1/drm-configurations/{DRM_CONFIGURATION_ID}` | Required |
-| [EditCaption](docs/api/edit_caption.html) | `create` | `POST /robots/v0/jobs/edit-captions` | Required |
-| [EditCaption](docs/api/edit_caption.html) | `load` | `GET /robots/v0/jobs/edit-captions/{JOB_ID}` | Required |
-| [EngagementHeatmap](docs/api/engagement_heatmap.html) | `list` | `GET /data/v1/engagement/assets/{ASSET_ID}/heatmap` | Required |
-| [EngagementHeatmap](docs/api/engagement_heatmap.html) | `list` | `GET /data/v1/engagement/playback-ids/{PLAYBACK_ID}/heatmap` | Required |
-| [EngagementHeatmap](docs/api/engagement_heatmap.html) | `list` | `GET /data/v1/engagement/videos/{VIDEO_ID}/heatmap` | Required |
-| [EngagementHotspot](docs/api/engagement_hotspot.html) | `list` | `GET /data/v1/engagement/assets/{ASSET_ID}/hotspots` | Required |
-| [EngagementHotspot](docs/api/engagement_hotspot.html) | `list` | `GET /data/v1/engagement/playback-ids/{PLAYBACK_ID}/hotspots` | Required |
-| [EngagementHotspot](docs/api/engagement_hotspot.html) | `list` | `GET /data/v1/engagement/videos/{VIDEO_ID}/hotspots` | Required |
-| [FindBestThumbnail](docs/api/find_best_thumbnail.html) | `create` | `POST /robots/v0/jobs/find-best-thumbnails` | Required |
-| [FindBestThumbnail](docs/api/find_best_thumbnail.html) | `load` | `GET /robots/v0/jobs/find-best-thumbnails/{JOB_ID}` | Required |
-| [FindKeyMoment](docs/api/find_key_moment.html) | `create` | `POST /robots/v0/jobs/find-key-moments` | Required |
-| [FindKeyMoment](docs/api/find_key_moment.html) | `load` | `GET /robots/v0/jobs/find-key-moments/{JOB_ID}` | Required |
-| [FindScene](docs/api/find_scene.html) | `create` | `POST /robots/v0/jobs/find-scenes` | Required |
-| [FindScene](docs/api/find_scene.html) | `load` | `GET /robots/v0/jobs/find-scenes/{JOB_ID}` | Required |
-| [GenerateAssetShot](docs/api/generate_asset_shot.html) | `create` | `POST /video/v1/assets/{ASSET_ID}/shots` | Required |
-| [GenerateChapter](docs/api/generate_chapter.html) | `create` | `POST /robots/v0/jobs/generate-chapters` | Required |
-| [GenerateChapter](docs/api/generate_chapter.html) | `load` | `GET /robots/v0/jobs/generate-chapters/{JOB_ID}` | Required |
-| [GenerateEngagementInsight](docs/api/generate_engagement_insight.html) | `create` | `POST /robots/v0/jobs/generate-engagement-insights` | Required |
-| [GenerateEngagementInsight](docs/api/generate_engagement_insight.html) | `load` | `GET /robots/v0/jobs/generate-engagement-insights/{JOB_ID}` | Required |
-| [GeneratePremiumCaption](docs/api/generate_premium_caption.html) | `create` | `POST /robots/v0/jobs/generate-premium-captions` | Required |
-| [GeneratePremiumCaption](docs/api/generate_premium_caption.html) | `load` | `GET /robots/v0/jobs/generate-premium-captions/{JOB_ID}` | Required |
-| [GenerateTrackSubtitle](docs/api/generate_track_subtitle.html) | `create` | `POST /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles` | Required |
-| [Incident](docs/api/incident.html) | `load` | `GET /data/v1/incidents/{INCIDENT_ID}` | Required |
-| [InputInfo](docs/api/input_info.html) | `list` | `GET /video/v1/assets/{ASSET_ID}/input-info` | Required |
-| [JobSummary](docs/api/job_summary.html) | `create` | `POST /robots/v0/jobs/{JOB_ID}/cancel` | Required |
-| [ListAllMetricValue](docs/api/list_all_metric_value.html) | `list` | `GET /data/v1/metrics/comparison` | Required |
-| [ListAnnotation](docs/api/list_annotation.html) | `list` | `GET /data/v1/annotations` | Required |
-| [ListAsset](docs/api/list_asset.html) | `list` | `GET /video/v1/assets` | Required |
-| [ListBreakdownValue](docs/api/list_breakdown_value.html) | `list` | `GET /data/v1/metrics/{METRIC_ID}/breakdown` | Required |
-| [ListDeliveryUsage](docs/api/list_delivery_usage.html) | `list` | `GET /video/v1/delivery-usage` | Required |
-| [ListDimension](docs/api/list_dimension.html) | `list` | `GET /data/v1/dimensions` | Required |
-| [ListDimensionValue](docs/api/list_dimension_value.html) | `list` | `GET /data/v1/dimensions/{DIMENSION_ID}/elements` | Required |
-| [ListDimensionValue](docs/api/list_dimension_value.html) | `load` | `GET /data/v1/dimensions/{DIMENSION_ID}` | Required |
-| [ListDrmConfiguration](docs/api/list_drm_configuration.html) | `list` | `GET /video/v1/drm-configurations` | Required |
-| [ListError](docs/api/list_error.html) | `list` | `GET /data/v1/errors` | Required |
-| [ListExport](docs/api/list_export.html) | `list` | `GET /data/v1/exports` | Required |
-| [ListFilter](docs/api/list_filter.html) | `list` | `GET /data/v1/filters` | Required |
-| [ListFilterValue](docs/api/list_filter_value.html) | `load` | `GET /data/v1/filters/{FILTER_ID}` | Required |
-| [ListIncident](docs/api/list_incident.html) | `list` | `GET /data/v1/incidents` | Required |
-| [ListInsight](docs/api/list_insight.html) | `list` | `GET /data/v1/metrics/{METRIC_ID}/insights` | Required |
-| [ListJob](docs/api/list_job.html) | `list` | `GET /robots/v0/jobs` | Required |
-| [ListLiveStream](docs/api/list_live_stream.html) | `list` | `GET /video/v1/live-streams` | Required |
-| [ListMonitoringDimension](docs/api/list_monitoring_dimension.html) | `list` | `GET /data/v1/monitoring/dimensions` | Required |
-| [ListMonitoringMetric](docs/api/list_monitoring_metric.html) | `list` | `GET /data/v1/monitoring/metrics` | Required |
-| [ListPlaybackRestriction](docs/api/list_playback_restriction.html) | `list` | `GET /video/v1/playback-restrictions` | Required |
-| [ListRealTimeDimension](docs/api/list_real_time_dimension.html) | `list` | `GET /data/v1/realtime/dimensions` | Required |
-| [ListRealTimeMetric](docs/api/list_real_time_metric.html) | `list` | `GET /data/v1/realtime/metrics` | Required |
-| [ListRelatedIncident](docs/api/list_related_incident.html) | `list` | `GET /data/v1/incidents/{INCIDENT_ID}/related` | Required |
-| [ListSigningKey](docs/api/list_signing_key.html) | `list` | `GET /system/v1/signing-keys` | Required |
-| [ListSigningKey](docs/api/list_signing_key.html) | `list` | `GET /video/v1/signing-keys` | Required |
-| [ListSubviewBreakdownValue](docs/api/list_subview_breakdown_value.html) | `list` | `GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown` | Required |
-| [ListSubviewComparisonValue](docs/api/list_subview_comparison_value.html) | `list` | `GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/comparison` | Required |
-| [ListSubviewDimension](docs/api/list_subview_dimension.html) | `load` | `GET /data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions` | Required |
-| [ListSubviewDimensionValue](docs/api/list_subview_dimension_value.html) | `load` | `GET /data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions/{DIMENSION_NAME}` | Required |
-| [ListTranscriptionVocabulary](docs/api/list_transcription_vocabulary.html) | `list` | `GET /video/v1/transcription-vocabularies` | Required |
-| [ListUpload](docs/api/list_upload.html) | `list` | `GET /video/v1/uploads` | Required |
-| [ListUsageExport](docs/api/list_usage_export.html) | `list` | `GET /system/v1/usage/exports` | Required |
-| [ListVideoView](docs/api/list_video_view.html) | `list` | `GET /data/v1/video-views` | Required |
-| [ListVideoViewExport](docs/api/list_video_view_export.html) | `list` | `GET /data/v1/exports/views` | Required |
-| [ListWebhook](docs/api/list_webhook.html) | `list` | `GET /system/v1/webhooks` | Required |
-| [LiveStream](docs/api/live_stream.html) | `create` | `POST /video/v1/live-streams/{LIVE_STREAM_ID}/reset-stream-key` | Required |
-| [LiveStream](docs/api/live_stream.html) | `create` | `POST /video/v1/live-streams` | Required |
-| [LiveStream](docs/api/live_stream.html) | `load` | `GET /video/v1/live-streams/{LIVE_STREAM_ID}` | Required |
-| [LiveStream](docs/api/live_stream.html) | `remove` | `DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}` | Required |
-| [LiveStream](docs/api/live_stream.html) | `remove` | `DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}` | Required |
-| [LiveStream](docs/api/live_stream.html) | `remove` | `DELETE /video/v1/live-streams/{LIVE_STREAM_ID}` | Required |
-| [LiveStream](docs/api/live_stream.html) | `remove` | `DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions` | Required |
-| [LiveStream](docs/api/live_stream.html) | `update` | `PATCH /video/v1/live-streams/{LIVE_STREAM_ID}` | Required |
-| [LiveStream](docs/api/live_stream.html) | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/disable` | Required |
-| [LiveStream](docs/api/live_stream.html) | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/embedded-subtitles` | Required |
-| [LiveStream](docs/api/live_stream.html) | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/enable` | Required |
-| [LiveStream](docs/api/live_stream.html) | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/generated-subtitles` | Required |
-| [LiveStream](docs/api/live_stream.html) | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions` | Required |
-| [LiveStreamPlaybackId](docs/api/live_stream_playback_id.html) | `load` | `GET /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}` | Required |
-| [MetricTimeseriesData](docs/api/metric_timeseries_data.html) | `list` | `GET /data/v1/metrics/{METRIC_ID}/timeseries` | Required |
-| [Moderate](docs/api/moderate.html) | `create` | `POST /robots/v0/jobs/moderate` | Required |
-| [Moderate](docs/api/moderate.html) | `load` | `GET /robots/v0/jobs/moderate/{JOB_ID}` | Required |
-| [MonitoringBreakdown](docs/api/monitoring_breakdown.html) | `list` | `GET /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown` | Required |
-| [MonitoringBreakdownTimeseries](docs/api/monitoring_breakdown_timeseries.html) | `list` | `GET /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown-timeseries` | Required |
-| [MonitoringHistogramTimeseries](docs/api/monitoring_histogram_timeseries.html) | `list` | `GET /data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries` | Required |
-| [MonitoringTimeseries](docs/api/monitoring_timeseries.html) | `list` | `GET /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries` | Required |
-| [Overall](docs/api/overall.html) | `list` | `GET /data/v1/metrics/{METRIC_ID}/overall` | Required |
-| [PlaybackRestriction](docs/api/playback_restriction.html) | `create` | `POST /video/v1/playback-restrictions` | Required |
-| [PlaybackRestriction](docs/api/playback_restriction.html) | `load` | `GET /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}` | Required |
-| [PlaybackRestriction](docs/api/playback_restriction.html) | `remove` | `DELETE /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}` | Required |
-| [PlaybackRestriction](docs/api/playback_restriction.html) | `update` | `PUT /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/referrer` | Required |
-| [PlaybackRestriction](docs/api/playback_restriction.html) | `update` | `PUT /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/user_agent` | Required |
-| [RealTimeBreakdown](docs/api/real_time_breakdown.html) | `list` | `GET /data/v1/realtime/metrics/{REALTIME_METRIC_ID}/breakdown` | Required |
-| [RealTimeHistogramTimeseries](docs/api/real_time_histogram_timeseries.html) | `list` | `GET /data/v1/realtime/metrics/{REALTIME_HISTOGRAM_METRIC_ID}/histogram-timeseries` | Required |
-| [RealTimeTimeseries](docs/api/real_time_timeseries.html) | `list` | `GET /data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries` | Required |
-| [SignalLiveStreamComplete](docs/api/signal_live_stream_complete.html) | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/complete` | Required |
-| [SigningKey](docs/api/signing_key.html) | `create` | `POST /system/v1/signing-keys` | Required |
-| [SigningKey](docs/api/signing_key.html) | `create` | `POST /video/v1/signing-keys` | Required |
-| [SigningKey](docs/api/signing_key.html) | `load` | `GET /system/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
-| [SigningKey](docs/api/signing_key.html) | `load` | `GET /video/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
-| [SigningKey](docs/api/signing_key.html) | `remove` | `DELETE /system/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
-| [SimulcastTarget](docs/api/simulcast_target.html) | `create` | `POST /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets` | Required |
-| [SimulcastTarget](docs/api/simulcast_target.html) | `load` | `GET /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}` | Required |
-| [StaticRendition](docs/api/static_rendition.html) | `create` | `POST /video/v1/assets/{ASSET_ID}/static-renditions` | Required |
-| [SubviewBreakdownTimeseries](docs/api/subview_breakdown_timeseries.html) | `list` | `GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown-timeseries` | Required |
-| [SubviewOverallValue](docs/api/subview_overall_value.html) | `list` | `GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/overall` | Required |
-| [Summarize](docs/api/summarize.html) | `create` | `POST /robots/v0/jobs/summarize` | Required |
-| [Summarize](docs/api/summarize.html) | `load` | `GET /robots/v0/jobs/summarize/{JOB_ID}` | Required |
-| [TranscriptionVocabulary](docs/api/transcription_vocabulary.html) | `create` | `POST /video/v1/transcription-vocabularies` | Required |
-| [TranscriptionVocabulary](docs/api/transcription_vocabulary.html) | `load` | `GET /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}` | Required |
-| [TranscriptionVocabulary](docs/api/transcription_vocabulary.html) | `remove` | `DELETE /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}` | Required |
-| [TranscriptionVocabulary](docs/api/transcription_vocabulary.html) | `update` | `PUT /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}` | Required |
-| [TranslateAudio](docs/api/translate_audio.html) | `create` | `POST /robots/v0/jobs/translate-audio` | Required |
-| [TranslateAudio](docs/api/translate_audio.html) | `load` | `GET /robots/v0/jobs/translate-audio/{JOB_ID}` | Required |
-| [TranslateCaption](docs/api/translate_caption.html) | `create` | `POST /robots/v0/jobs/translate-captions` | Required |
-| [TranslateCaption](docs/api/translate_caption.html) | `load` | `GET /robots/v0/jobs/translate-captions/{JOB_ID}` | Required |
-| [UpdateAssetTrack](docs/api/update_asset_track.html) | `update` | `PATCH /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}` | Required |
-| [Upload](docs/api/upload.html) | `create` | `POST /video/v1/uploads` | Required |
-| [Upload](docs/api/upload.html) | `load` | `GET /video/v1/uploads/{UPLOAD_ID}` | Required |
-| [Upload](docs/api/upload.html) | `update` | `PUT /video/v1/uploads/{UPLOAD_ID}/cancel` | Required |
-| [UrlSigningKey](docs/api/url_signing_key.html) | `remove` | `DELETE /video/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
-| [VideoView](docs/api/video_view.html) | `load` | `GET /data/v1/video-views/{VIDEO_VIEW_ID}` | Required |
-| [Webhook](docs/api/webhook.html) | `create` | `POST /system/v1/webhooks` | Required |
-| [Webhook](docs/api/webhook.html) | `load` | `GET /system/v1/webhooks/{WEBHOOK_ID}` | Required |
-| [Webhook](docs/api/webhook.html) | `remove` | `DELETE /system/v1/webhooks/{WEBHOOK_ID}` | Required |
-| [Webhook](docs/api/webhook.html) | `update` | `PATCH /system/v1/webhooks/{WEBHOOK_ID}` | Required |
-| [WhoAmI](docs/api/who_am_i.html) | `load` | `GET /system/v1/whoami` | Required |
+| Annotation | `create` | `POST /data/v1/annotations` | Required |
+| Annotation | `load` | `GET /data/v1/annotations/{ANNOTATION_ID}` | Required |
+| Annotation | `remove` | `DELETE /data/v1/annotations/{ANNOTATION_ID}` | Required |
+| Annotation | `update` | `PATCH /data/v1/annotations/{ANNOTATION_ID}` | Required |
+| AskQuestion | `create` | `POST /robots/v0/jobs/ask-questions` | Required |
+| AskQuestion | `load` | `GET /robots/v0/jobs/ask-questions/{JOB_ID}` | Required |
+| Asset | `create` | `POST /video/v1/assets` | Required |
+| Asset | `load` | `GET /video/v1/assets/{ASSET_ID}` | Required |
+| Asset | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID}` | Required |
+| Asset | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/static-renditions/{STATIC_RENDITION_ID}` | Required |
+| Asset | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}` | Required |
+| Asset | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/shots` | Required |
+| Asset | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/thumbnail-time` | Required |
+| Asset | `remove` | `DELETE /video/v1/assets/{ASSET_ID}` | Required |
+| Asset | `update` | `PUT /video/v1/assets/{ASSET_ID}/master-access` | Required |
+| Asset | `update` | `PUT /video/v1/assets/{ASSET_ID}/mp4-support` | Required |
+| Asset | `update` | `PATCH /video/v1/assets/{ASSET_ID}` | Required |
+| AssetOrLiveStreamId | `load` | `GET /video/v1/playback-ids/{PLAYBACK_ID}` | Required |
+| AssetPlaybackId | `load` | `GET /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID}` | Required |
+| AssetShot | `load` | `GET /video/v1/assets/{ASSET_ID}/shots` | Required |
+| CreatePlaybackId | `create` | `POST /video/v1/assets/{ASSET_ID}/playback-ids` | Required |
+| CreatePlaybackId | `create` | `POST /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids` | Required |
+| CreateTrack | `create` | `POST /video/v1/assets/{ASSET_ID}/tracks` | Required |
+| Directive | `create` | `POST /robots/v0/directives/{DIRECTIVE_ID}/runs` | Required |
+| Directive | `create` | `POST /robots/v0/directives` | Required |
+| Directive | `list` | `GET /robots/v0/directives` | Required |
+| Directive | `load` | `GET /robots/v0/directives/{DIRECTIVE_ID}` | Required |
+| Directive | `remove` | `DELETE /robots/v0/directives/{DIRECTIVE_ID}` | Required |
+| DirectiveRunDetail | `load` | `GET /robots/v0/directives/{DIRECTIVE_ID}/runs/{RUN_ID}` | Required |
+| DirectiveRunList | `list` | `GET /robots/v0/directives/{DIRECTIVE_ID}/runs` | Required |
+| DrmConfiguration | `load` | `GET /video/v1/drm-configurations/{DRM_CONFIGURATION_ID}` | Required |
+| EditCaption | `create` | `POST /robots/v0/jobs/edit-captions` | Required |
+| EditCaption | `load` | `GET /robots/v0/jobs/edit-captions/{JOB_ID}` | Required |
+| EngagementHeatmap | `list` | `GET /data/v1/engagement/assets/{ASSET_ID}/heatmap` | Required |
+| EngagementHeatmap | `list` | `GET /data/v1/engagement/playback-ids/{PLAYBACK_ID}/heatmap` | Required |
+| EngagementHeatmap | `list` | `GET /data/v1/engagement/videos/{VIDEO_ID}/heatmap` | Required |
+| EngagementHotspot | `list` | `GET /data/v1/engagement/assets/{ASSET_ID}/hotspots` | Required |
+| EngagementHotspot | `list` | `GET /data/v1/engagement/playback-ids/{PLAYBACK_ID}/hotspots` | Required |
+| EngagementHotspot | `list` | `GET /data/v1/engagement/videos/{VIDEO_ID}/hotspots` | Required |
+| FindBestThumbnail | `create` | `POST /robots/v0/jobs/find-best-thumbnails` | Required |
+| FindBestThumbnail | `load` | `GET /robots/v0/jobs/find-best-thumbnails/{JOB_ID}` | Required |
+| FindKeyMoment | `create` | `POST /robots/v0/jobs/find-key-moments` | Required |
+| FindKeyMoment | `load` | `GET /robots/v0/jobs/find-key-moments/{JOB_ID}` | Required |
+| FindScene | `create` | `POST /robots/v0/jobs/find-scenes` | Required |
+| FindScene | `load` | `GET /robots/v0/jobs/find-scenes/{JOB_ID}` | Required |
+| GenerateAssetShot | `create` | `POST /video/v1/assets/{ASSET_ID}/shots` | Required |
+| GenerateChapter | `create` | `POST /robots/v0/jobs/generate-chapters` | Required |
+| GenerateChapter | `load` | `GET /robots/v0/jobs/generate-chapters/{JOB_ID}` | Required |
+| GenerateEngagementInsight | `create` | `POST /robots/v0/jobs/generate-engagement-insights` | Required |
+| GenerateEngagementInsight | `load` | `GET /robots/v0/jobs/generate-engagement-insights/{JOB_ID}` | Required |
+| GeneratePremiumCaption | `create` | `POST /robots/v0/jobs/generate-premium-captions` | Required |
+| GeneratePremiumCaption | `load` | `GET /robots/v0/jobs/generate-premium-captions/{JOB_ID}` | Required |
+| GenerateTrackSubtitle | `create` | `POST /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles` | Required |
+| Incident | `load` | `GET /data/v1/incidents/{INCIDENT_ID}` | Required |
+| InputInfo | `list` | `GET /video/v1/assets/{ASSET_ID}/input-info` | Required |
+| JobSummary | `create` | `POST /robots/v0/jobs/{JOB_ID}/cancel` | Required |
+| ListAllMetricValue | `list` | `GET /data/v1/metrics/comparison` | Required |
+| ListAnnotation | `list` | `GET /data/v1/annotations` | Required |
+| ListAsset | `list` | `GET /video/v1/assets` | Required |
+| ListBreakdownValue | `list` | `GET /data/v1/metrics/{METRIC_ID}/breakdown` | Required |
+| ListDeliveryUsage | `list` | `GET /video/v1/delivery-usage` | Required |
+| ListDimension | `list` | `GET /data/v1/dimensions` | Required |
+| ListDimensionValue | `list` | `GET /data/v1/dimensions/{DIMENSION_ID}/elements` | Required |
+| ListDimensionValue | `load` | `GET /data/v1/dimensions/{DIMENSION_ID}` | Required |
+| ListDrmConfiguration | `list` | `GET /video/v1/drm-configurations` | Required |
+| ListError | `list` | `GET /data/v1/errors` | Required |
+| ListExport | `list` | `GET /data/v1/exports` | Required |
+| ListFilter | `list` | `GET /data/v1/filters` | Required |
+| ListFilterValue | `load` | `GET /data/v1/filters/{FILTER_ID}` | Required |
+| ListIncident | `list` | `GET /data/v1/incidents` | Required |
+| ListInsight | `list` | `GET /data/v1/metrics/{METRIC_ID}/insights` | Required |
+| ListJob | `list` | `GET /robots/v0/jobs` | Required |
+| ListLiveStream | `list` | `GET /video/v1/live-streams` | Required |
+| ListMonitoringDimension | `list` | `GET /data/v1/monitoring/dimensions` | Required |
+| ListMonitoringMetric | `list` | `GET /data/v1/monitoring/metrics` | Required |
+| ListPlaybackRestriction | `list` | `GET /video/v1/playback-restrictions` | Required |
+| ListRealTimeDimension | `list` | `GET /data/v1/realtime/dimensions` | Required |
+| ListRealTimeMetric | `list` | `GET /data/v1/realtime/metrics` | Required |
+| ListRelatedIncident | `list` | `GET /data/v1/incidents/{INCIDENT_ID}/related` | Required |
+| ListSigningKey | `list` | `GET /system/v1/signing-keys` | Required |
+| ListSigningKey | `list` | `GET /video/v1/signing-keys` | Required |
+| ListSubviewBreakdownValue | `list` | `GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown` | Required |
+| ListSubviewComparisonValue | `list` | `GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/comparison` | Required |
+| ListSubviewDimension | `load` | `GET /data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions` | Required |
+| ListSubviewDimensionValue | `load` | `GET /data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions/{DIMENSION_NAME}` | Required |
+| ListTranscriptionVocabulary | `list` | `GET /video/v1/transcription-vocabularies` | Required |
+| ListUpload | `list` | `GET /video/v1/uploads` | Required |
+| ListUsageExport | `list` | `GET /system/v1/usage/exports` | Required |
+| ListVideoView | `list` | `GET /data/v1/video-views` | Required |
+| ListVideoViewExport | `list` | `GET /data/v1/exports/views` | Required |
+| ListWebhook | `list` | `GET /system/v1/webhooks` | Required |
+| LiveStream | `create` | `POST /video/v1/live-streams/{LIVE_STREAM_ID}/reset-stream-key` | Required |
+| LiveStream | `create` | `POST /video/v1/live-streams` | Required |
+| LiveStream | `load` | `GET /video/v1/live-streams/{LIVE_STREAM_ID}` | Required |
+| LiveStream | `remove` | `DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}` | Required |
+| LiveStream | `remove` | `DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}` | Required |
+| LiveStream | `remove` | `DELETE /video/v1/live-streams/{LIVE_STREAM_ID}` | Required |
+| LiveStream | `remove` | `DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions` | Required |
+| LiveStream | `update` | `PATCH /video/v1/live-streams/{LIVE_STREAM_ID}` | Required |
+| LiveStream | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/disable` | Required |
+| LiveStream | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/embedded-subtitles` | Required |
+| LiveStream | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/enable` | Required |
+| LiveStream | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/generated-subtitles` | Required |
+| LiveStream | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/new-asset-settings/static-renditions` | Required |
+| LiveStreamPlaybackId | `load` | `GET /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}` | Required |
+| MetricTimeseriesData | `list` | `GET /data/v1/metrics/{METRIC_ID}/timeseries` | Required |
+| Moderate | `create` | `POST /robots/v0/jobs/moderate` | Required |
+| Moderate | `load` | `GET /robots/v0/jobs/moderate/{JOB_ID}` | Required |
+| MonitoringBreakdown | `list` | `GET /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown` | Required |
+| MonitoringBreakdownTimeseries | `list` | `GET /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown-timeseries` | Required |
+| MonitoringHistogramTimeseries | `list` | `GET /data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries` | Required |
+| MonitoringTimeseries | `list` | `GET /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries` | Required |
+| Overall | `list` | `GET /data/v1/metrics/{METRIC_ID}/overall` | Required |
+| PlaybackRestriction | `create` | `POST /video/v1/playback-restrictions` | Required |
+| PlaybackRestriction | `load` | `GET /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}` | Required |
+| PlaybackRestriction | `remove` | `DELETE /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}` | Required |
+| PlaybackRestriction | `update` | `PUT /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/referrer` | Required |
+| PlaybackRestriction | `update` | `PUT /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/user_agent` | Required |
+| RealTimeBreakdown | `list` | `GET /data/v1/realtime/metrics/{REALTIME_METRIC_ID}/breakdown` | Required |
+| RealTimeHistogramTimeseries | `list` | `GET /data/v1/realtime/metrics/{REALTIME_HISTOGRAM_METRIC_ID}/histogram-timeseries` | Required |
+| RealTimeTimeseries | `list` | `GET /data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries` | Required |
+| SignalLiveStreamComplete | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/complete` | Required |
+| SigningKey | `create` | `POST /system/v1/signing-keys` | Required |
+| SigningKey | `create` | `POST /video/v1/signing-keys` | Required |
+| SigningKey | `load` | `GET /system/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
+| SigningKey | `load` | `GET /video/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
+| SigningKey | `remove` | `DELETE /system/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
+| SimulcastTarget | `create` | `POST /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets` | Required |
+| SimulcastTarget | `load` | `GET /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}` | Required |
+| StaticRendition | `create` | `POST /video/v1/assets/{ASSET_ID}/static-renditions` | Required |
+| SubviewBreakdownTimeseries | `list` | `GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown-timeseries` | Required |
+| SubviewOverallValue | `list` | `GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/overall` | Required |
+| Summarize | `create` | `POST /robots/v0/jobs/summarize` | Required |
+| Summarize | `load` | `GET /robots/v0/jobs/summarize/{JOB_ID}` | Required |
+| TranscriptionVocabulary | `create` | `POST /video/v1/transcription-vocabularies` | Required |
+| TranscriptionVocabulary | `load` | `GET /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}` | Required |
+| TranscriptionVocabulary | `remove` | `DELETE /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}` | Required |
+| TranscriptionVocabulary | `update` | `PUT /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}` | Required |
+| TranslateAudio | `create` | `POST /robots/v0/jobs/translate-audio` | Required |
+| TranslateAudio | `load` | `GET /robots/v0/jobs/translate-audio/{JOB_ID}` | Required |
+| TranslateCaption | `create` | `POST /robots/v0/jobs/translate-captions` | Required |
+| TranslateCaption | `load` | `GET /robots/v0/jobs/translate-captions/{JOB_ID}` | Required |
+| UpdateAssetTrack | `update` | `PATCH /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}` | Required |
+| Upload | `create` | `POST /video/v1/uploads` | Required |
+| Upload | `load` | `GET /video/v1/uploads/{UPLOAD_ID}` | Required |
+| Upload | `update` | `PUT /video/v1/uploads/{UPLOAD_ID}/cancel` | Required |
+| UrlSigningKey | `remove` | `DELETE /video/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
+| VideoView | `load` | `GET /data/v1/video-views/{VIDEO_VIEW_ID}` | Required |
+| Webhook | `create` | `POST /system/v1/webhooks` | Required |
+| Webhook | `load` | `GET /system/v1/webhooks/{WEBHOOK_ID}` | Required |
+| Webhook | `remove` | `DELETE /system/v1/webhooks/{WEBHOOK_ID}` | Required |
+| Webhook | `update` | `PATCH /system/v1/webhooks/{WEBHOOK_ID}` | Required |
+| WhoAmI | `load` | `GET /system/v1/whoami` | Required |
 
 ## Connect to the API
 
@@ -1089,12 +1089,12 @@ Choose the language already used by your application or service. The clients rep
 
 | Client | Repository directory | Distribution |
 | --- | --- | --- |
-| [Golang](docs/sdks/go.html) | `go/` | Build from source |
-| [Lua](docs/sdks/lua.html) | `lua/` | Build from source |
-| [PHP](docs/sdks/php.html) | `php/` | Build from source |
-| [Python](docs/sdks/py.html) | `py/` | Build from source |
-| [Ruby](docs/sdks/rb.html) | `rb/` | Build from source |
-| [TypeScript](docs/sdks/ts.html) | `ts/` | Build from source |
+| Golang | `go/` | Build from source |
+| Lua | `lua/` | Build from source |
+| PHP | `php/` | Build from source |
+| Python | `py/` | Build from source |
+| Ruby | `rb/` | Build from source |
+| TypeScript | `ts/` | Build from source |
 
 Build-from-source entries are not marked as published in the project model. Follow the build instructions in that target’s README, then consume the resulting package using your language’s local dependency mechanism. Published entries give the installation command recorded for that client.
 
@@ -1102,14 +1102,14 @@ Build-from-source entries are not marked as published in the project model. Foll
 
 These targets provide another way to use the API. Their available commands or tools can cover a smaller set of operations than the client libraries.
 
-### [Go CLI](docs/tools/go-cli.html)
+### Go CLI
 
 Use the command-line interface for shell-based tasks and scripts.
 
 Repository directory: `go-cli/`. Not published. Build from the go-cli directory.
 
 
-### [Go MCP server](docs/tools/go-mcp.html)
+### Go MCP server
 
 Use the MCP server to expose supported API operations to an MCP client.
 
@@ -1122,21 +1122,21 @@ Repository directory: `go-mcp/`. Not published. Build from the go-mcp directory.
 
 Features supply behaviour around API calls, such as request handling, diagnostics, or local testing. Inclusion in this project does not mean a feature is enabled at runtime. Check the selected SDK’s supported features and configuration defaults, then enable the behaviour your application needs.
 
-- [`debug`](docs/features/debug.html): Request/response capture ring buffer for debugging
-- [`idempotency`](docs/features/idempotency.html): Idempotency keys for safe retries of mutating operations
-- [`metrics`](docs/features/metrics.html): Statistics capture: per-operation counters and latency
-- [`paging`](docs/features/paging.html): Pagination signals for list operations
-- [`ratelimit`](docs/features/ratelimit.html): Client-side rate limiting via a token bucket
-- [`retry`](docs/features/retry.html): Automatic retry of transient failures with exponential backoff
-- [`test`](docs/features/test.html): In-memory mock transport for testing without a live server
-- [`timeout`](docs/features/timeout.html): Per-request timeout with transport abort
+- `debug`: Request/response capture ring buffer for debugging
+- `idempotency`: Idempotency keys for safe retries of mutating operations
+- `metrics`: Statistics capture: per-operation counters and latency
+- `paging`: Pagination signals for list operations
+- `ratelimit`: Client-side rate limiting via a token bucket
+- `retry`: Automatic retry of transient failures with exponential backoff
+- `test`: In-memory mock transport for testing without a live server
+- `timeout`: Per-request timeout with transport abort
 
 Start with the default client configuration. Add request limits and diagnostics as needed, test error paths, and review retry behaviour before using operations that change data. A retry can repeat an operation unless the API provides a suitable guarantee.
 
 ## Continue with the documentation
 
-- Follow the [first-call guide](docs/guides/first-call.html) for the setup sequence.
-- Read the [authentication guide](docs/guides/authentication.html) before using protected routes.
-- Use the [API reference](docs/api/index.html) for request schemas, response formats, and status codes.
+- Follow the first-call guide for the setup sequence.
+- Read the authentication guide before using protected routes.
+- Use the API reference for request schemas, response formats, and status codes.
 - Check the chosen SDK or companion tool reference for its configuration and supported operations.
 
