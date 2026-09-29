@@ -1,6 +1,6 @@
 # Mux: the Voxgig SDK and the Stainless SDK compared
 
-Vergleich: Stainless. Compared with muxinc/mux-node-sdk (@mux/ts 15.3.0 and @mux/mcp, generated with Stainless's stlc). Spec: www.mux.com/api-spec.json, OAS 3.1.0, 121 paths / 153 ops, Apache-2.0 (inherited from muxinc/mux-node-sdk). Added 2026-09-28.
+Vergleich: Stainless. Compared with muxinc/mux-node-sdk (@mux/ts 15.3.0 and @mux/mcp, generated with Stainless's stlc). Spec: www.mux.com/api-spec.json, OAS 3.1.0, 121 paths / 153 ops, Apache-2.0 (inherited from muxinc/mux-node-sdk). Added 2026-09-28. Rebuilt 2026-09-29 on sdkgen 4.32.1 and apidef 8.22.0.
 
 This repository is on the admin **vergleich** list. It is built only to be compared, and it is not published.
 
@@ -8,15 +8,15 @@ This repository is on the admin **vergleich** list. It is built only to be compa
 
 | | Voxgig | Stainless |
 |---|---|---|
-| SDK | this repository, commit `5479b4c`: eight targets (go, go-cli, go-mcp, ts, py, rb, lua, php) | `@mux/mux-node@15.3.0` (TypeScript) |
+| SDK | this repository, commit `6570428`: eight targets (go, go-cli, go-mcp, ts, py, rb, lua, php) | `@mux/mux-node@15.3.0` (TypeScript) |
 | Input | `mux-openapi.json`: OAS 3.1.0, `info.version` v1, 121 paths, 153 operations | the vendor's own generation; the note above names the definition version it came from |
 | Operations callable | 153 of 153 | 154 operation methods |
-| Entities | 88 | not applicable |
-| ts package | 3.78 MB, 596 files | 4.79 MB, 1017 files |
+| Entities | 73 | not applicable |
+| ts package | 3.60 MB, 536 files | 4.79 MB, 1017 files |
 | Runtime dependencies | 0 | 0 |
-| Generated tests | ts 551 pass / 0 fail; py 522 pass; rb 546 runs / 0 fail; lua 520 pass / 0 fail; php 546 tests, 0 fail; go, go-cli, go-mcp build, vet and test | not run: a published package |
+| Generated tests | ts 658 pass / 0 fail / 8 skipped; py 490 pass / 57 skipped; rb 514 runs / 0 fail; lua 488 pass / 0 fail; php 514 tests / 0 fail; go, go-cli, go-mcp build, vet and test | not run: a published package |
 | Determinism | a second generation on the same toolchain is byte-identical | not measured |
-| Scenario against a mock | 4 of 4 steps right, 0 request violations (static) | 4 of 4 steps right, 0 request violations (static) |
+| Scenario against a mock | 4 of 4 steps right, 0 returned wrong data, 0 request violations (static) | 4 of 4 steps right, 0 request violations (static) |
 
 ## Features
 
@@ -74,11 +74,11 @@ Each SDK lists one resource, loads and removes the first item it listed, and cre
   - ✓ `load`
   - ✓ `create`
   - ✓ `remove`
-- **Voxgig, dynamic:** 4 of 4 steps right, 0 request violations.
-  - ✓ `list`
-  - ✓ `load`
+- **Voxgig, dynamic:** 1 of 4 steps right, 0 request violations.
+  - ⚠ `list`: 0 items, because the mock generated an empty page (`data: []`)
+  - ✗ `load`: no listed item to load; on a fallback id it returned the asset
   - ✓ `create`
-  - ✓ `remove`
+  - ✗ `remove`: no listed item to remove
 - **Stainless, static:** 4 of 4 steps right, 0 request violations.
   - ✓ `list`
   - ✓ `load`
@@ -92,9 +92,9 @@ Each SDK lists one resource, loads and removes the first item it listed, and cre
 
 ## Voxgig toolchain findings
 
-- **QUERY-ECHO** (@voxgig/sdkgen 4.30.3 (PrepareQuery: ts, js and rb read the field; other targets not checked)). Every match field, path parameters included, is also sent as a query parameter: GET /video/v1/assets/a1?id=a1 (Mux), GET /assistant/asst_1?id=asst_1 (Vapi), DELETE .../containers/web?id=web&organization_name=acme&project_id=demo (SaladCloud). prepareQuery excludes names in point.params, but the generated config carries path parameters in point.args.params (which prepareParams reads), so nothing is excluded. Harmless to a lenient server, rejected by a strict one. Prism logs paths without query strings, so its runs did not show it. Reported, not changed: the same exclusion exists per target.
-- **ERGONOMICS** (@voxgig/apidef 8.17.2). Mux's assets are listed through a separate ListAsset entity (named after the list response) but loaded, created and removed through Asset. SaladCloud's container operations call the same path parameter project_name in list and create but project_id in load, update and remove. Reported.
-- **DOCS-QA** (@voxgig/docgen 0.29.2 (the generated Documentation workflow)). The generated API pages quote each vendor's own descriptions, and the Documentation workflow runs its prose checks over them. Vale reads identifiers such as `asset_id` as misspellings (272 errors on Mux, 44 on Neon), and docgen's own rules reject the vendor's repeated words and first-person prose (Apicurio). Vapi and Maxio fail the same step. Every SDK's tests pass on every target; only the documentation check fails. Reported, not changed: whether a vendor's text is prose-checked is docgen's design. Lob and Novu fail earlier, at generation, on the unpatched YAML parser (Y1-Y3). SaladCloud's pages pass the check; only the deploy fails, because GitHub Pages is not enabled for the repository.
+- **QUERY-ECHO** (@voxgig/sdkgen, PrepareQuery). Every match field, path parameters included, was also sent as a query parameter, such as `?id=` on a load. Fixed in voxgig/sdkgen#222, released in 4.31.0: query parameters go out under the definition's names, and the rebuild's scenario requests carry no echoed parameter.
+- **ERGONOMICS** (@voxgig/apidef). Mux's assets were listed through a separate ListAsset entity, named after the list response, and loaded, created and removed through Asset. Fixed in apidef 8.19.0: Asset carries all five operations.
+- **DOCS-QA** (@voxgig/docgen, the generated Documentation workflow). The generated API pages quote the vendor's own descriptions, and the workflow runs its prose checks over them, so the step fails on the vendor's identifiers and repeated words rather than on anything the generator wrote. Open: voxgig/docgen#33.
 
 ## How this was measured
 
@@ -102,4 +102,6 @@ Each SDK lists one resource, loads and removes the first item it listed, and cre
 - Package size and file count: `npm pack --dry-run` for the Voxgig ts target, and the registry's `dist.unpackedSize` and `dist.fileCount` for the compared package.
 - Tests: `admin/scripts/cedar-test-all.sh` runs each target's generated suite.
 - Features: read from the code of the published package, crediting a feature only for a mechanism, not a word in the API's own models.
-
+- Rebuild: 2026-09-29, on create-sdkgen 0.30.4, sdkgen 4.32.1, apidef 8.22.0, model 12.0.0 and @tabnas/yaml 0.5.14, all as published, with no overlay.
+- Tests on the rebuild: all eight targets, the lua suite under Lua 5.4 with busted 2.2.0.
+- Scenario on the rebuild: the Voxgig side was re-run on 2026-09-29; the compared SDK's run is from 2026-09-28, and its package is unchanged. The generated create input honours the definition's minimums, which the first run did not.
