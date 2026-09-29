@@ -36,7 +36,7 @@ main: kit: entity: input_info: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }

@@ -49,7 +49,7 @@ main: kit: entity: list_subview_dimension_value: {
                 ex: "country"
                 k: "param"
                 n: "dimension_name"
-                or: "dimension_name"
+                or: "DIMENSION_NAME"
                 r: true
                 t: "`$STRING`"
               }
@@ -57,7 +57,7 @@ main: kit: entity: list_subview_dimension_value: {
                 ex: "rendition"
                 k: "param"
                 n: "subview_metric_id"
-                or: "subview_type"
+                or: "SUBVIEW_TYPE"
                 r: true
                 t: "`$STRING`"
               }
@@ -66,7 +66,7 @@ main: kit: entity: list_subview_dimension_value: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -111,7 +111,7 @@ main: kit: entity: list_subview_dimension_value: {
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }

@@ -47,6 +47,11 @@
       "version": 2,
       "source": "openapi3"
     },
+    "GET /data/v1/dimensions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /data/v1/dimensions/{DIMENSION_ID}": {
       "provenance": "operation-contract",
       "version": 2,

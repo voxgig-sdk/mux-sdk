@@ -7,6 +7,18 @@ main: kit: flow: BasicDrmConfigurationFlow:
   name: "BasicDrmConfigurationFlow",
   step: [
     {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "drm_configuration_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       i: {
         ref: "drm_configuration_ref01",
         srcdatavar: "drm_configuration_ref01_data",

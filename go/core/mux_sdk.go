@@ -406,14 +406,6 @@ func (sdk *MuxSDK) DirectiveRunDetail(data map[string]any) MuxEntity {
 }
 
 
-// DirectiveRunList returns a DirectiveRunList entity bound to this client.
-// Idiomatic usage: client.DirectiveRunList(nil).List(nil, nil) or
-// client.DirectiveRunList(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) DirectiveRunList(data map[string]any) MuxEntity {
-	return NewDirectiveRunListEntityFunc(sdk, data)
-}
-
-
 // DrmConfiguration returns a DrmConfiguration entity bound to this client.
 // Idiomatic usage: client.DrmConfiguration(nil).List(nil, nil) or
 // client.DrmConfiguration(nil).Load(map[string]any{"id": ...}, nil).
@@ -542,22 +534,6 @@ func (sdk *MuxSDK) ListAllMetricValue(data map[string]any) MuxEntity {
 }
 
 
-// ListAnnotation returns a ListAnnotation entity bound to this client.
-// Idiomatic usage: client.ListAnnotation(nil).List(nil, nil) or
-// client.ListAnnotation(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListAnnotation(data map[string]any) MuxEntity {
-	return NewListAnnotationEntityFunc(sdk, data)
-}
-
-
-// ListAsset returns a ListAsset entity bound to this client.
-// Idiomatic usage: client.ListAsset(nil).List(nil, nil) or
-// client.ListAsset(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListAsset(data map[string]any) MuxEntity {
-	return NewListAssetEntityFunc(sdk, data)
-}
-
-
 // ListBreakdownValue returns a ListBreakdownValue entity bound to this client.
 // Idiomatic usage: client.ListBreakdownValue(nil).List(nil, nil) or
 // client.ListBreakdownValue(nil).Load(map[string]any{"id": ...}, nil).
@@ -574,27 +550,11 @@ func (sdk *MuxSDK) ListDeliveryUsage(data map[string]any) MuxEntity {
 }
 
 
-// ListDimension returns a ListDimension entity bound to this client.
-// Idiomatic usage: client.ListDimension(nil).List(nil, nil) or
-// client.ListDimension(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListDimension(data map[string]any) MuxEntity {
-	return NewListDimensionEntityFunc(sdk, data)
-}
-
-
 // ListDimensionValue returns a ListDimensionValue entity bound to this client.
 // Idiomatic usage: client.ListDimensionValue(nil).List(nil, nil) or
 // client.ListDimensionValue(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MuxSDK) ListDimensionValue(data map[string]any) MuxEntity {
 	return NewListDimensionValueEntityFunc(sdk, data)
-}
-
-
-// ListDrmConfiguration returns a ListDrmConfiguration entity bound to this client.
-// Idiomatic usage: client.ListDrmConfiguration(nil).List(nil, nil) or
-// client.ListDrmConfiguration(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListDrmConfiguration(data map[string]any) MuxEntity {
-	return NewListDrmConfigurationEntityFunc(sdk, data)
 }
 
 
@@ -614,14 +574,6 @@ func (sdk *MuxSDK) ListExport(data map[string]any) MuxEntity {
 }
 
 
-// ListFilter returns a ListFilter entity bound to this client.
-// Idiomatic usage: client.ListFilter(nil).List(nil, nil) or
-// client.ListFilter(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListFilter(data map[string]any) MuxEntity {
-	return NewListFilterEntityFunc(sdk, data)
-}
-
-
 // ListFilterValue returns a ListFilterValue entity bound to this client.
 // Idiomatic usage: client.ListFilterValue(nil).List(nil, nil) or
 // client.ListFilterValue(nil).Load(map[string]any{"id": ...}, nil).
@@ -630,35 +582,11 @@ func (sdk *MuxSDK) ListFilterValue(data map[string]any) MuxEntity {
 }
 
 
-// ListIncident returns a ListIncident entity bound to this client.
-// Idiomatic usage: client.ListIncident(nil).List(nil, nil) or
-// client.ListIncident(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListIncident(data map[string]any) MuxEntity {
-	return NewListIncidentEntityFunc(sdk, data)
-}
-
-
 // ListInsight returns a ListInsight entity bound to this client.
 // Idiomatic usage: client.ListInsight(nil).List(nil, nil) or
 // client.ListInsight(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MuxSDK) ListInsight(data map[string]any) MuxEntity {
 	return NewListInsightEntityFunc(sdk, data)
-}
-
-
-// ListJob returns a ListJob entity bound to this client.
-// Idiomatic usage: client.ListJob(nil).List(nil, nil) or
-// client.ListJob(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListJob(data map[string]any) MuxEntity {
-	return NewListJobEntityFunc(sdk, data)
-}
-
-
-// ListLiveStream returns a ListLiveStream entity bound to this client.
-// Idiomatic usage: client.ListLiveStream(nil).List(nil, nil) or
-// client.ListLiveStream(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListLiveStream(data map[string]any) MuxEntity {
-	return NewListLiveStreamEntityFunc(sdk, data)
 }
 
 
@@ -675,14 +603,6 @@ func (sdk *MuxSDK) ListMonitoringDimension(data map[string]any) MuxEntity {
 // client.ListMonitoringMetric(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MuxSDK) ListMonitoringMetric(data map[string]any) MuxEntity {
 	return NewListMonitoringMetricEntityFunc(sdk, data)
-}
-
-
-// ListPlaybackRestriction returns a ListPlaybackRestriction entity bound to this client.
-// Idiomatic usage: client.ListPlaybackRestriction(nil).List(nil, nil) or
-// client.ListPlaybackRestriction(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListPlaybackRestriction(data map[string]any) MuxEntity {
-	return NewListPlaybackRestrictionEntityFunc(sdk, data)
 }
 
 
@@ -707,14 +627,6 @@ func (sdk *MuxSDK) ListRealTimeMetric(data map[string]any) MuxEntity {
 // client.ListRelatedIncident(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MuxSDK) ListRelatedIncident(data map[string]any) MuxEntity {
 	return NewListRelatedIncidentEntityFunc(sdk, data)
-}
-
-
-// ListSigningKey returns a ListSigningKey entity bound to this client.
-// Idiomatic usage: client.ListSigningKey(nil).List(nil, nil) or
-// client.ListSigningKey(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListSigningKey(data map[string]any) MuxEntity {
-	return NewListSigningKeyEntityFunc(sdk, data)
 }
 
 
@@ -750,51 +662,11 @@ func (sdk *MuxSDK) ListSubviewDimensionValue(data map[string]any) MuxEntity {
 }
 
 
-// ListTranscriptionVocabulary returns a ListTranscriptionVocabulary entity bound to this client.
-// Idiomatic usage: client.ListTranscriptionVocabulary(nil).List(nil, nil) or
-// client.ListTranscriptionVocabulary(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListTranscriptionVocabulary(data map[string]any) MuxEntity {
-	return NewListTranscriptionVocabularyEntityFunc(sdk, data)
-}
-
-
-// ListUpload returns a ListUpload entity bound to this client.
-// Idiomatic usage: client.ListUpload(nil).List(nil, nil) or
-// client.ListUpload(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListUpload(data map[string]any) MuxEntity {
-	return NewListUploadEntityFunc(sdk, data)
-}
-
-
-// ListUsageExport returns a ListUsageExport entity bound to this client.
-// Idiomatic usage: client.ListUsageExport(nil).List(nil, nil) or
-// client.ListUsageExport(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListUsageExport(data map[string]any) MuxEntity {
-	return NewListUsageExportEntityFunc(sdk, data)
-}
-
-
-// ListVideoView returns a ListVideoView entity bound to this client.
-// Idiomatic usage: client.ListVideoView(nil).List(nil, nil) or
-// client.ListVideoView(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListVideoView(data map[string]any) MuxEntity {
-	return NewListVideoViewEntityFunc(sdk, data)
-}
-
-
 // ListVideoViewExport returns a ListVideoViewExport entity bound to this client.
 // Idiomatic usage: client.ListVideoViewExport(nil).List(nil, nil) or
 // client.ListVideoViewExport(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MuxSDK) ListVideoViewExport(data map[string]any) MuxEntity {
 	return NewListVideoViewExportEntityFunc(sdk, data)
-}
-
-
-// ListWebhook returns a ListWebhook entity bound to this client.
-// Idiomatic usage: client.ListWebhook(nil).List(nil, nil) or
-// client.ListWebhook(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *MuxSDK) ListWebhook(data map[string]any) MuxEntity {
-	return NewListWebhookEntityFunc(sdk, data)
 }
 
 
@@ -1003,6 +875,14 @@ func (sdk *MuxSDK) Upload(data map[string]any) MuxEntity {
 // client.UrlSigningKey(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MuxSDK) UrlSigningKey(data map[string]any) MuxEntity {
 	return NewUrlSigningKeyEntityFunc(sdk, data)
+}
+
+
+// UsageExport returns a UsageExport entity bound to this client.
+// Idiomatic usage: client.UsageExport(nil).List(nil, nil) or
+// client.UsageExport(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *MuxSDK) UsageExport(data map[string]any) MuxEntity {
+	return NewUsageExportEntityFunc(sdk, data)
 }
 
 

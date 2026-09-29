@@ -15,11 +15,52 @@ describe("AnnotationEntity", function()
     assert.is_not_nil(ent)
   end)
 
+  -- Feature #4: the entity stream(action, ...) method runs the op pipeline and
+  -- returns an iterator over result items. With the streaming feature active it
+  -- yields the feature's incremental output; otherwise it falls back to the
+  -- materialised list so stream always yields.
+  it("should stream", function()
+    local seed = {
+      entity = {
+        ["annotation"] = {
+          s1 = { id = "s1" },
+          s2 = { id = "s2" },
+          s3 = { id = "s3" },
+        },
+      },
+    }
+
+    -- Fallback: streaming inactive -> yields the materialised list items.
+    local base = sdk.test(seed, nil)
+    local seen = {}
+    for item in base:Annotation(nil):stream("list", nil, nil) do
+      table.insert(seen, item)
+    end
+    assert.are.equal(3, #seen)
+
+    -- Inbound: streaming active -> yields each item from the feature.
+    local config = require("config_shared")()
+    if type(config.feature) == "table" and config.feature.streaming ~= nil then
+      local streamsdk = sdk.test(seed, { feature = { streaming = { active = true } } })
+      local got = {}
+      for item in streamsdk:Annotation(nil):stream("list", nil, nil) do
+        if vs.islist(item) then
+          for _, sub in ipairs(item) do
+            table.insert(got, sub)
+          end
+        else
+          table.insert(got, item)
+        end
+      end
+      assert.are.equal(3, #got)
+    end
+  end)
+
   it("should run basic flow", function()
     local setup = annotation_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"create", "update", "load", "remove"}) do
+    for _, _op in ipairs({"create", "list", "update", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "annotation." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -44,6 +85,18 @@ describe("AnnotationEntity", function()
     annotation_ref01_data = helpers.to_map(type(annotation_ref01_data_result) == 'table' and annotation_ref01_data_result.data_get and annotation_ref01_data_result:data_get() or annotation_ref01_data_result)
     assert.is_not_nil(annotation_ref01_data)
     assert.is_not_nil(annotation_ref01_data["id"])
+
+    -- LIST
+    local annotation_ref01_match = {}
+
+    local annotation_ref01_list_result, err = annotation_ref01_ent:list(annotation_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(annotation_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(annotation_ref01_list_result),
+      { id = annotation_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
 
     -- UPDATE
     local annotation_ref01_data_up0_up = {
@@ -77,6 +130,18 @@ describe("AnnotationEntity", function()
     }
     local _, err = annotation_ref01_ent:remove(annotation_ref01_match_rm0, nil)
     assert.is_nil(err)
+
+    -- LIST
+    local annotation_ref01_match_rt0 = {}
+
+    local annotation_ref01_list_rt0_result, err = annotation_ref01_ent:list(annotation_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(annotation_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(annotation_ref01_list_rt0_result),
+      { id = annotation_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)

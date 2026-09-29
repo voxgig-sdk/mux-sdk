@@ -37,7 +37,7 @@ main: kit: entity: create_playback_id: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -88,7 +88,7 @@ main: kit: entity: create_playback_id: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }

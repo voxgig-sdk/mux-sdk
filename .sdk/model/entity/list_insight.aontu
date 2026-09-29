@@ -71,7 +71,7 @@ main: kit: entity: list_insight: {
                 ex: "video_startup_time"
                 k: "param"
                 n: "metric_id"
-                or: "metric_id"
+                or: "METRIC_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -80,7 +80,7 @@ main: kit: entity: list_insight: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -94,7 +94,7 @@ main: kit: entity: list_insight: {
               {
                 k: "query"
                 n: "metric_filter"
-                or: "metric_filter"
+                or: "metric_filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -108,7 +108,7 @@ main: kit: entity: list_insight: {
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -150,7 +150,7 @@ main: kit: entity: list_insight: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

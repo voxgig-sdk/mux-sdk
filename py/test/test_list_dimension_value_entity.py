@@ -82,9 +82,7 @@ class TestListDimensionValueEntity:
 
         # LIST
         list_dimension_value_ref01_ent = client.ListDimensionValue(None)
-        list_dimension_value_ref01_match = {
-            "dimension_id": setup["idmap"]["dimension01"],
-        }
+        list_dimension_value_ref01_match = {}
 
         list_dimension_value_ref01_list_result = list_dimension_value_ref01_ent.list(list_dimension_value_ref01_match, None)
         assert isinstance(list_dimension_value_ref01_list_result, list)
@@ -112,7 +110,7 @@ def _list_dimension_value_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["list_dimension_value01", "list_dimension_value02", "list_dimension_value03", "dimension01"],
+        ["list_dimension_value01", "list_dimension_value02", "list_dimension_value03"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

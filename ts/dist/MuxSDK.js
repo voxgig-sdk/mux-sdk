@@ -12,7 +12,6 @@ const CreatePlaybackIdEntity_1 = require("./entity/CreatePlaybackIdEntity");
 const CreateTrackEntity_1 = require("./entity/CreateTrackEntity");
 const DirectiveEntity_1 = require("./entity/DirectiveEntity");
 const DirectiveRunDetailEntity_1 = require("./entity/DirectiveRunDetailEntity");
-const DirectiveRunListEntity_1 = require("./entity/DirectiveRunListEntity");
 const DrmConfigurationEntity_1 = require("./entity/DrmConfigurationEntity");
 const EditCaptionEntity_1 = require("./entity/EditCaptionEntity");
 const EngagementHeatmapEntity_1 = require("./entity/EngagementHeatmapEntity");
@@ -29,38 +28,23 @@ const IncidentEntity_1 = require("./entity/IncidentEntity");
 const InputInfoEntity_1 = require("./entity/InputInfoEntity");
 const JobSummaryEntity_1 = require("./entity/JobSummaryEntity");
 const ListAllMetricValueEntity_1 = require("./entity/ListAllMetricValueEntity");
-const ListAnnotationEntity_1 = require("./entity/ListAnnotationEntity");
-const ListAssetEntity_1 = require("./entity/ListAssetEntity");
 const ListBreakdownValueEntity_1 = require("./entity/ListBreakdownValueEntity");
 const ListDeliveryUsageEntity_1 = require("./entity/ListDeliveryUsageEntity");
-const ListDimensionEntity_1 = require("./entity/ListDimensionEntity");
 const ListDimensionValueEntity_1 = require("./entity/ListDimensionValueEntity");
-const ListDrmConfigurationEntity_1 = require("./entity/ListDrmConfigurationEntity");
 const ListErrorEntity_1 = require("./entity/ListErrorEntity");
 const ListExportEntity_1 = require("./entity/ListExportEntity");
-const ListFilterEntity_1 = require("./entity/ListFilterEntity");
 const ListFilterValueEntity_1 = require("./entity/ListFilterValueEntity");
-const ListIncidentEntity_1 = require("./entity/ListIncidentEntity");
 const ListInsightEntity_1 = require("./entity/ListInsightEntity");
-const ListJobEntity_1 = require("./entity/ListJobEntity");
-const ListLiveStreamEntity_1 = require("./entity/ListLiveStreamEntity");
 const ListMonitoringDimensionEntity_1 = require("./entity/ListMonitoringDimensionEntity");
 const ListMonitoringMetricEntity_1 = require("./entity/ListMonitoringMetricEntity");
-const ListPlaybackRestrictionEntity_1 = require("./entity/ListPlaybackRestrictionEntity");
 const ListRealTimeDimensionEntity_1 = require("./entity/ListRealTimeDimensionEntity");
 const ListRealTimeMetricEntity_1 = require("./entity/ListRealTimeMetricEntity");
 const ListRelatedIncidentEntity_1 = require("./entity/ListRelatedIncidentEntity");
-const ListSigningKeyEntity_1 = require("./entity/ListSigningKeyEntity");
 const ListSubviewBreakdownValueEntity_1 = require("./entity/ListSubviewBreakdownValueEntity");
 const ListSubviewComparisonValueEntity_1 = require("./entity/ListSubviewComparisonValueEntity");
 const ListSubviewDimensionEntity_1 = require("./entity/ListSubviewDimensionEntity");
 const ListSubviewDimensionValueEntity_1 = require("./entity/ListSubviewDimensionValueEntity");
-const ListTranscriptionVocabularyEntity_1 = require("./entity/ListTranscriptionVocabularyEntity");
-const ListUploadEntity_1 = require("./entity/ListUploadEntity");
-const ListUsageExportEntity_1 = require("./entity/ListUsageExportEntity");
-const ListVideoViewEntity_1 = require("./entity/ListVideoViewEntity");
 const ListVideoViewExportEntity_1 = require("./entity/ListVideoViewExportEntity");
-const ListWebhookEntity_1 = require("./entity/ListWebhookEntity");
 const LiveStreamEntity_1 = require("./entity/LiveStreamEntity");
 const LiveStreamPlaybackIdEntity_1 = require("./entity/LiveStreamPlaybackIdEntity");
 const MetricTimeseriesDataEntity_1 = require("./entity/MetricTimeseriesDataEntity");
@@ -87,6 +71,7 @@ const TranslateCaptionEntity_1 = require("./entity/TranslateCaptionEntity");
 const UpdateAssetTrackEntity_1 = require("./entity/UpdateAssetTrackEntity");
 const UploadEntity_1 = require("./entity/UploadEntity");
 const UrlSigningKeyEntity_1 = require("./entity/UrlSigningKeyEntity");
+const UsageExportEntity_1 = require("./entity/UsageExportEntity");
 const VideoViewEntity_1 = require("./entity/VideoViewEntity");
 const WebhookEntity_1 = require("./entity/WebhookEntity");
 const WhoAmIEntity_1 = require("./entity/WhoAmIEntity");
@@ -367,13 +352,6 @@ class MuxSDK {
         const self = this;
         return new DirectiveRunDetailEntity_1.DirectiveRunDetailEntity(self, entopts);
     }
-    // Entity access: `client.DirectiveRunList().list()` / `client.DirectiveRunList().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    DirectiveRunList(entopts) {
-        const self = this;
-        return new DirectiveRunListEntity_1.DirectiveRunListEntity(self, entopts);
-    }
     // Entity access: `client.DrmConfiguration().list()` / `client.DrmConfiguration().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
@@ -486,20 +464,6 @@ class MuxSDK {
         const self = this;
         return new ListAllMetricValueEntity_1.ListAllMetricValueEntity(self, entopts);
     }
-    // Entity access: `client.ListAnnotation().list()` / `client.ListAnnotation().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListAnnotation(entopts) {
-        const self = this;
-        return new ListAnnotationEntity_1.ListAnnotationEntity(self, entopts);
-    }
-    // Entity access: `client.ListAsset().list()` / `client.ListAsset().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListAsset(entopts) {
-        const self = this;
-        return new ListAssetEntity_1.ListAssetEntity(self, entopts);
-    }
     // Entity access: `client.ListBreakdownValue().list()` / `client.ListBreakdownValue().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
@@ -514,26 +478,12 @@ class MuxSDK {
         const self = this;
         return new ListDeliveryUsageEntity_1.ListDeliveryUsageEntity(self, entopts);
     }
-    // Entity access: `client.ListDimension().list()` / `client.ListDimension().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListDimension(entopts) {
-        const self = this;
-        return new ListDimensionEntity_1.ListDimensionEntity(self, entopts);
-    }
     // Entity access: `client.ListDimensionValue().list()` / `client.ListDimensionValue().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     ListDimensionValue(entopts) {
         const self = this;
         return new ListDimensionValueEntity_1.ListDimensionValueEntity(self, entopts);
-    }
-    // Entity access: `client.ListDrmConfiguration().list()` / `client.ListDrmConfiguration().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListDrmConfiguration(entopts) {
-        const self = this;
-        return new ListDrmConfigurationEntity_1.ListDrmConfigurationEntity(self, entopts);
     }
     // Entity access: `client.ListError().list()` / `client.ListError().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -549,13 +499,6 @@ class MuxSDK {
         const self = this;
         return new ListExportEntity_1.ListExportEntity(self, entopts);
     }
-    // Entity access: `client.ListFilter().list()` / `client.ListFilter().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListFilter(entopts) {
-        const self = this;
-        return new ListFilterEntity_1.ListFilterEntity(self, entopts);
-    }
     // Entity access: `client.ListFilterValue().list()` / `client.ListFilterValue().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
@@ -563,33 +506,12 @@ class MuxSDK {
         const self = this;
         return new ListFilterValueEntity_1.ListFilterValueEntity(self, entopts);
     }
-    // Entity access: `client.ListIncident().list()` / `client.ListIncident().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListIncident(entopts) {
-        const self = this;
-        return new ListIncidentEntity_1.ListIncidentEntity(self, entopts);
-    }
     // Entity access: `client.ListInsight().list()` / `client.ListInsight().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     ListInsight(entopts) {
         const self = this;
         return new ListInsightEntity_1.ListInsightEntity(self, entopts);
-    }
-    // Entity access: `client.ListJob().list()` / `client.ListJob().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListJob(entopts) {
-        const self = this;
-        return new ListJobEntity_1.ListJobEntity(self, entopts);
-    }
-    // Entity access: `client.ListLiveStream().list()` / `client.ListLiveStream().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListLiveStream(entopts) {
-        const self = this;
-        return new ListLiveStreamEntity_1.ListLiveStreamEntity(self, entopts);
     }
     // Entity access: `client.ListMonitoringDimension().list()` / `client.ListMonitoringDimension().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -604,13 +526,6 @@ class MuxSDK {
     ListMonitoringMetric(entopts) {
         const self = this;
         return new ListMonitoringMetricEntity_1.ListMonitoringMetricEntity(self, entopts);
-    }
-    // Entity access: `client.ListPlaybackRestriction().list()` / `client.ListPlaybackRestriction().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListPlaybackRestriction(entopts) {
-        const self = this;
-        return new ListPlaybackRestrictionEntity_1.ListPlaybackRestrictionEntity(self, entopts);
     }
     // Entity access: `client.ListRealTimeDimension().list()` / `client.ListRealTimeDimension().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -632,13 +547,6 @@ class MuxSDK {
     ListRelatedIncident(entopts) {
         const self = this;
         return new ListRelatedIncidentEntity_1.ListRelatedIncidentEntity(self, entopts);
-    }
-    // Entity access: `client.ListSigningKey().list()` / `client.ListSigningKey().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListSigningKey(entopts) {
-        const self = this;
-        return new ListSigningKeyEntity_1.ListSigningKeyEntity(self, entopts);
     }
     // Entity access: `client.ListSubviewBreakdownValue().list()` / `client.ListSubviewBreakdownValue().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -668,47 +576,12 @@ class MuxSDK {
         const self = this;
         return new ListSubviewDimensionValueEntity_1.ListSubviewDimensionValueEntity(self, entopts);
     }
-    // Entity access: `client.ListTranscriptionVocabulary().list()` / `client.ListTranscriptionVocabulary().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListTranscriptionVocabulary(entopts) {
-        const self = this;
-        return new ListTranscriptionVocabularyEntity_1.ListTranscriptionVocabularyEntity(self, entopts);
-    }
-    // Entity access: `client.ListUpload().list()` / `client.ListUpload().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListUpload(entopts) {
-        const self = this;
-        return new ListUploadEntity_1.ListUploadEntity(self, entopts);
-    }
-    // Entity access: `client.ListUsageExport().list()` / `client.ListUsageExport().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListUsageExport(entopts) {
-        const self = this;
-        return new ListUsageExportEntity_1.ListUsageExportEntity(self, entopts);
-    }
-    // Entity access: `client.ListVideoView().list()` / `client.ListVideoView().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListVideoView(entopts) {
-        const self = this;
-        return new ListVideoViewEntity_1.ListVideoViewEntity(self, entopts);
-    }
     // Entity access: `client.ListVideoViewExport().list()` / `client.ListVideoViewExport().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
     ListVideoViewExport(entopts) {
         const self = this;
         return new ListVideoViewExportEntity_1.ListVideoViewExportEntity(self, entopts);
-    }
-    // Entity access: `client.ListWebhook().list()` / `client.ListWebhook().load({ id })`.
-    // The argument is the entity OPTIONS object (passed to the entity
-    // constructor as entopts), not initial entity data.
-    ListWebhook(entopts) {
-        const self = this;
-        return new ListWebhookEntity_1.ListWebhookEntity(self, entopts);
     }
     // Entity access: `client.LiveStream().list()` / `client.LiveStream().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
@@ -891,6 +764,13 @@ class MuxSDK {
     UrlSigningKey(entopts) {
         const self = this;
         return new UrlSigningKeyEntity_1.UrlSigningKeyEntity(self, entopts);
+    }
+    // Entity access: `client.UsageExport().list()` / `client.UsageExport().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    UsageExport(entopts) {
+        const self = this;
+        return new UsageExportEntity_1.UsageExportEntity(self, entopts);
     }
     // Entity access: `client.VideoView().list()` / `client.VideoView().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity

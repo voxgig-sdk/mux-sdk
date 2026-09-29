@@ -97,6 +97,61 @@ main: kit: entity: transcription_vocabulary: {
         }
       ]
     }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/transcription-vocabularies"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 10
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/transcription-vocabularies"
+          q: {
+            exist: [
+              "limit"
+              "page"
+            ]
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "transcription-vocabularies"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
     load: {
       name: "load"
       points: [
@@ -111,7 +166,7 @@ main: kit: entity: transcription_vocabulary: {
               {
                 k: "param"
                 n: "id"
-                or: "transcription_vocabulary_id"
+                or: "TRANSCRIPTION_VOCABULARY_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -164,7 +219,7 @@ main: kit: entity: transcription_vocabulary: {
               {
                 k: "param"
                 n: "id"
-                or: "transcription_vocabulary_id"
+                or: "TRANSCRIPTION_VOCABULARY_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -217,7 +272,7 @@ main: kit: entity: transcription_vocabulary: {
               {
                 k: "param"
                 n: "id"
-                or: "transcription_vocabulary_id"
+                or: "TRANSCRIPTION_VOCABULARY_ID"
                 r: true
                 t: "`$STRING`"
               }

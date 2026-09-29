@@ -493,20 +493,6 @@ function MuxSDK:DirectiveRunDetail(data)
 end
 
 
--- Idiomatic facade: client:DirectiveRunList():list() / client:DirectiveRunList():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:DirectiveRunList(data)
-  local EntityMod = require("entity.directive_run_list_entity")
-  if data == nil then
-    if self._directive_run_list == nil then
-      self._directive_run_list = EntityMod.new(self, nil)
-    end
-    return self._directive_run_list
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:DrmConfiguration():list() / client:DrmConfiguration():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function MuxSDK:DrmConfiguration(data)
@@ -731,34 +717,6 @@ function MuxSDK:ListAllMetricValue(data)
 end
 
 
--- Idiomatic facade: client:ListAnnotation():list() / client:ListAnnotation():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListAnnotation(data)
-  local EntityMod = require("entity.list_annotation_entity")
-  if data == nil then
-    if self._list_annotation == nil then
-      self._list_annotation = EntityMod.new(self, nil)
-    end
-    return self._list_annotation
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:ListAsset():list() / client:ListAsset():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListAsset(data)
-  local EntityMod = require("entity.list_asset_entity")
-  if data == nil then
-    if self._list_asset == nil then
-      self._list_asset = EntityMod.new(self, nil)
-    end
-    return self._list_asset
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:ListBreakdownValue():list() / client:ListBreakdownValue():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function MuxSDK:ListBreakdownValue(data)
@@ -787,20 +745,6 @@ function MuxSDK:ListDeliveryUsage(data)
 end
 
 
--- Idiomatic facade: client:ListDimension():list() / client:ListDimension():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListDimension(data)
-  local EntityMod = require("entity.list_dimension_entity")
-  if data == nil then
-    if self._list_dimension == nil then
-      self._list_dimension = EntityMod.new(self, nil)
-    end
-    return self._list_dimension
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:ListDimensionValue():list() / client:ListDimensionValue():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function MuxSDK:ListDimensionValue(data)
@@ -810,20 +754,6 @@ function MuxSDK:ListDimensionValue(data)
       self._list_dimension_value = EntityMod.new(self, nil)
     end
     return self._list_dimension_value
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:ListDrmConfiguration():list() / client:ListDrmConfiguration():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListDrmConfiguration(data)
-  local EntityMod = require("entity.list_drm_configuration_entity")
-  if data == nil then
-    if self._list_drm_configuration == nil then
-      self._list_drm_configuration = EntityMod.new(self, nil)
-    end
-    return self._list_drm_configuration
   end
   return EntityMod.new(self, data)
 end
@@ -857,20 +787,6 @@ function MuxSDK:ListExport(data)
 end
 
 
--- Idiomatic facade: client:ListFilter():list() / client:ListFilter():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListFilter(data)
-  local EntityMod = require("entity.list_filter_entity")
-  if data == nil then
-    if self._list_filter == nil then
-      self._list_filter = EntityMod.new(self, nil)
-    end
-    return self._list_filter
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:ListFilterValue():list() / client:ListFilterValue():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function MuxSDK:ListFilterValue(data)
@@ -885,20 +801,6 @@ function MuxSDK:ListFilterValue(data)
 end
 
 
--- Idiomatic facade: client:ListIncident():list() / client:ListIncident():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListIncident(data)
-  local EntityMod = require("entity.list_incident_entity")
-  if data == nil then
-    if self._list_incident == nil then
-      self._list_incident = EntityMod.new(self, nil)
-    end
-    return self._list_incident
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:ListInsight():list() / client:ListInsight():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function MuxSDK:ListInsight(data)
@@ -908,34 +810,6 @@ function MuxSDK:ListInsight(data)
       self._list_insight = EntityMod.new(self, nil)
     end
     return self._list_insight
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:ListJob():list() / client:ListJob():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListJob(data)
-  local EntityMod = require("entity.list_job_entity")
-  if data == nil then
-    if self._list_job == nil then
-      self._list_job = EntityMod.new(self, nil)
-    end
-    return self._list_job
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:ListLiveStream():list() / client:ListLiveStream():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListLiveStream(data)
-  local EntityMod = require("entity.list_live_stream_entity")
-  if data == nil then
-    if self._list_live_stream == nil then
-      self._list_live_stream = EntityMod.new(self, nil)
-    end
-    return self._list_live_stream
   end
   return EntityMod.new(self, data)
 end
@@ -964,20 +838,6 @@ function MuxSDK:ListMonitoringMetric(data)
       self._list_monitoring_metric = EntityMod.new(self, nil)
     end
     return self._list_monitoring_metric
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:ListPlaybackRestriction():list() / client:ListPlaybackRestriction():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListPlaybackRestriction(data)
-  local EntityMod = require("entity.list_playback_restriction_entity")
-  if data == nil then
-    if self._list_playback_restriction == nil then
-      self._list_playback_restriction = EntityMod.new(self, nil)
-    end
-    return self._list_playback_restriction
   end
   return EntityMod.new(self, data)
 end
@@ -1020,20 +880,6 @@ function MuxSDK:ListRelatedIncident(data)
       self._list_related_incident = EntityMod.new(self, nil)
     end
     return self._list_related_incident
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:ListSigningKey():list() / client:ListSigningKey():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListSigningKey(data)
-  local EntityMod = require("entity.list_signing_key_entity")
-  if data == nil then
-    if self._list_signing_key == nil then
-      self._list_signing_key = EntityMod.new(self, nil)
-    end
-    return self._list_signing_key
   end
   return EntityMod.new(self, data)
 end
@@ -1095,62 +941,6 @@ function MuxSDK:ListSubviewDimensionValue(data)
 end
 
 
--- Idiomatic facade: client:ListTranscriptionVocabulary():list() / client:ListTranscriptionVocabulary():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListTranscriptionVocabulary(data)
-  local EntityMod = require("entity.list_transcription_vocabulary_entity")
-  if data == nil then
-    if self._list_transcription_vocabulary == nil then
-      self._list_transcription_vocabulary = EntityMod.new(self, nil)
-    end
-    return self._list_transcription_vocabulary
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:ListUpload():list() / client:ListUpload():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListUpload(data)
-  local EntityMod = require("entity.list_upload_entity")
-  if data == nil then
-    if self._list_upload == nil then
-      self._list_upload = EntityMod.new(self, nil)
-    end
-    return self._list_upload
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:ListUsageExport():list() / client:ListUsageExport():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListUsageExport(data)
-  local EntityMod = require("entity.list_usage_export_entity")
-  if data == nil then
-    if self._list_usage_export == nil then
-      self._list_usage_export = EntityMod.new(self, nil)
-    end
-    return self._list_usage_export
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:ListVideoView():list() / client:ListVideoView():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListVideoView(data)
-  local EntityMod = require("entity.list_video_view_entity")
-  if data == nil then
-    if self._list_video_view == nil then
-      self._list_video_view = EntityMod.new(self, nil)
-    end
-    return self._list_video_view
-  end
-  return EntityMod.new(self, data)
-end
-
-
 -- Idiomatic facade: client:ListVideoViewExport():list() / client:ListVideoViewExport():load({ id = ... })
 -- Entity access is capitalised (PascalCase) for parity with the other SDKs.
 function MuxSDK:ListVideoViewExport(data)
@@ -1160,20 +950,6 @@ function MuxSDK:ListVideoViewExport(data)
       self._list_video_view_export = EntityMod.new(self, nil)
     end
     return self._list_video_view_export
-  end
-  return EntityMod.new(self, data)
-end
-
-
--- Idiomatic facade: client:ListWebhook():list() / client:ListWebhook():load({ id = ... })
--- Entity access is capitalised (PascalCase) for parity with the other SDKs.
-function MuxSDK:ListWebhook(data)
-  local EntityMod = require("entity.list_webhook_entity")
-  if data == nil then
-    if self._list_webhook == nil then
-      self._list_webhook = EntityMod.new(self, nil)
-    end
-    return self._list_webhook
   end
   return EntityMod.new(self, data)
 end
@@ -1538,6 +1314,20 @@ function MuxSDK:UrlSigningKey(data)
       self._url_signing_key = EntityMod.new(self, nil)
     end
     return self._url_signing_key
+  end
+  return EntityMod.new(self, data)
+end
+
+
+-- Idiomatic facade: client:UsageExport():list() / client:UsageExport():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MuxSDK:UsageExport(data)
+  local EntityMod = require("entity.usage_export_entity")
+  if data == nil then
+    if self._usage_export == nil then
+      self._usage_export = EntityMod.new(self, nil)
+    end
+    return self._usage_export
   end
   return EntityMod.new(self, data)
 end

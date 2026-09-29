@@ -46,6 +46,11 @@
       "provenance": "operation-contract",
       "version": 2,
       "source": "openapi3"
+    },
+    "GET /robots/v0/jobs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
     }
   }
 }

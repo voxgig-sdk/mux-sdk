@@ -12,20 +12,20 @@ Learn more about Voxgig SDKs at [voxgig.com/sdk](https://voxgig.com/sdk/).
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI with an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
 
-> **Features:** `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined`, `undefined` — opt-in,
+> **Features:** `debug`, `idempotency`, `metrics`, `paging`, `ratelimit`, `retry`, `test`, `timeout` — opt-in,
 > inactive until switched on, and configured per client. See the Features
 > section of any SDK README below for what each one does.
 
 ## Entities, not endpoints
 
-This SDK exposes the API as **88 semantic entities** that you
+This SDK exposes the API as **73 semantic entities** that you
 call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`, `create`, `update`, `remove`):
 
 ```ts
 const client = new MuxSDK()
-const annotation = await client.Annotation().load({ id: "example_id" })
+const items = await client.Annotation().list()
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -44,23 +44,23 @@ network, and no credentials:
 // Shape: { entity: { <entity-name>: { <id>: <record> } } }
 const client = MuxSDK.test({
   entity: {
-    list_dimension_value: {
+    real_time_breakdown: {
       test01: { id: 'test01' },
     },
   },
 })
-const listdimensionvalues = await client.ListDimensionValue().list()
-// listdimensionvalues is an array of ListDimensionValue entities, populated with mock data
-// — call listdimensionvalues[0].data() for the record itself
-console.log(listdimensionvalues)
+const realtimebreakdowns = await client.RealTimeBreakdown().list()
+// realtimebreakdowns is an array of RealTimeBreakdown entities, populated with mock data
+// — call realtimebreakdowns[0].data() for the record itself
+console.log(realtimebreakdowns)
 ```
 
 ### Python
 
 ```python
 client = MuxSDK.test()
-listdimensionvalues = client.ListDimensionValue().list()
-print(listdimensionvalues)
+realtimebreakdowns = client.RealTimeBreakdown().list()
+print(realtimebreakdowns)
 ```
 
 ### PHP
@@ -68,16 +68,16 @@ print(listdimensionvalues)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = MuxSDK::test([
-    "entity" => ["listdimensionvalue" => ["test01" => []]],
+    "entity" => ["realtimebreakdown" => ["test01" => []]],
 ]);
-$listdimensionvalues = $client->ListDimensionValue()->list();
+$realtimebreakdowns = $client->RealTimeBreakdown()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.ListDimensionValue(nil).List(
+result, err := client.RealTimeBreakdown(nil).List(
     nil, nil,
 )
 ```
@@ -87,28 +87,28 @@ result, err := client.ListDimensionValue(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = MuxSDK.test({
-  "entity" => { "listdimensionvalue" => { "test01" => {} } },
+  "entity" => { "realtimebreakdown" => { "test01" => {} } },
 })
-listdimensionvalues = client.ListDimensionValue.list()
+realtimebreakdowns = client.RealTimeBreakdown.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:ListDimensionValue():list()
+local results, err = client:RealTimeBreakdown():list()
 ```
 
 ## Packages
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/mux-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mux-sdk/tags) |
-| Python | `voxgig-sdk-mux-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mux-sdk/tags) |
-| PHP | `voxgig-sdk/mux-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mux-sdk/tags) |
+| TypeScript | `@voxgig-sdk/mux-sdk` | publish pending — [install from source](ts/README.md#install) |
+| Python | `voxgig-sdk-mux-sdk` | publish pending — [install from source](py/README.md#install) |
+| PHP | `voxgig-sdk/mux-sdk` | publish pending — [install from source](php/README.md#install) |
 | Golang | `github.com/voxgig-sdk/mux-sdk/go` | `go get github.com/voxgig-sdk/mux-sdk/go@latest` |
-| Ruby | `voxgig-sdk-mux-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mux-sdk/tags) |
-| Lua | `voxgig-sdk-mux-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mux-sdk/tags) |
+| Ruby | `voxgig-sdk-mux-sdk` | publish pending — [install from source](rb/README.md#install) |
+| Lua | `voxgig-sdk-mux-sdk` | publish pending — [install from source](lua/README.md#install) |
 | Go CLI | `github.com/voxgig-sdk/mux-sdk/go-cli` | `go install github.com/voxgig-sdk/mux-sdk/go-cli/cmd/mux@latest` |
 | Go MCP server | `github.com/voxgig-sdk/mux-sdk/go-mcp` | `go get github.com/voxgig-sdk/mux-sdk/go-mcp@latest` |
 
@@ -124,6 +124,11 @@ const client = new MuxSDK({
   secret: process.env.MUX_SECRET,
 })
 
+// List all annotations (returns AnnotationEntity[] — .data() for the record)
+const annotations = await client.Annotation().list()
+for (const annotation of annotations) {
+  console.log(annotation)
+}
 
 // Load a specific assetplaybackid (returns a AssetPlaybackId)
 const assetplaybackid = await client.AssetPlaybackId().load({
@@ -167,22 +172,21 @@ Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
 
 ## Entities
 
-The API exposes 88 entities:
+The API exposes 73 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Annotation** | The Annotation entity (create, load, remove, update). | `/data/v1/annotations/{ANNOTATION_ID}` |
+| **Annotation** | The Annotation entity (create, list, load, remove, update). | `/data/v1/annotations` |
 | **AskQuestion** | The AskQuestion entity (create, load). | `/robots/v0/jobs/ask-questions/{JOB_ID}` |
-| **Asset** | The Asset entity (create, load, remove, update). | `/video/v1/assets/{ASSET_ID}` |
+| **Asset** | The Asset entity (create, list, load, remove, update). | `/video/v1/assets` |
 | **AssetOrLiveStreamId** | The AssetOrLiveStreamId entity (load). | `/video/v1/playback-ids/{PLAYBACK_ID}` |
 | **AssetPlaybackId** | The AssetPlaybackId entity (load). | `/video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID}` |
 | **AssetShot** | The AssetShot entity (load). | `/video/v1/assets/{ASSET_ID}/shots` |
 | **CreatePlaybackId** | The CreatePlaybackId entity (create). | `/video/v1/assets/{ASSET_ID}/playback-ids` |
 | **CreateTrack** | The CreateTrack entity (create). | `/video/v1/assets/{ASSET_ID}/tracks` |
 | **Directive** | The Directive entity (create, list, load, remove). | `/robots/v0/directives` |
-| **DirectiveRunDetail** | The DirectiveRunDetail entity (load). | `/robots/v0/directives/{DIRECTIVE_ID}/runs/{RUN_ID}` |
-| **DirectiveRunList** | The DirectiveRunList entity (list). | `/robots/v0/directives/{DIRECTIVE_ID}/runs` |
-| **DrmConfiguration** | The DrmConfiguration entity (load). | `/video/v1/drm-configurations/{DRM_CONFIGURATION_ID}` |
+| **DirectiveRunDetail** | The DirectiveRunDetail entity (list, load). | `/robots/v0/directives/{DIRECTIVE_ID}/runs` |
+| **DrmConfiguration** | The DrmConfiguration entity (list, load). | `/video/v1/drm-configurations` |
 | **EditCaption** | The EditCaption entity (create, load). | `/robots/v0/jobs/edit-captions/{JOB_ID}` |
 | **EngagementHeatmap** | The EngagementHeatmap entity (list). | `/data/v1/engagement/assets/{ASSET_ID}/heatmap` |
 | **EngagementHotspot** | The EngagementHotspot entity (list). | `/data/v1/engagement/assets/{ASSET_ID}/hotspots` |
@@ -194,43 +198,28 @@ The API exposes 88 entities:
 | **GenerateEngagementInsight** | The GenerateEngagementInsight entity (create, load). | `/robots/v0/jobs/generate-engagement-insights/{JOB_ID}` |
 | **GeneratePremiumCaption** | The GeneratePremiumCaption entity (create, load). | `/robots/v0/jobs/generate-premium-captions/{JOB_ID}` |
 | **GenerateTrackSubtitle** | The GenerateTrackSubtitle entity (create). | `/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles` |
-| **Incident** | The Incident entity (load). | `/data/v1/incidents/{INCIDENT_ID}` |
+| **Incident** | The Incident entity (list, load). | `/data/v1/incidents` |
 | **InputInfo** | The InputInfo entity (list). | `/video/v1/assets/{ASSET_ID}/input-info` |
-| **JobSummary** | The JobSummary entity (create). | `/robots/v0/jobs/{JOB_ID}/cancel` |
+| **JobSummary** | The JobSummary entity (create, list). | `/robots/v0/jobs` |
 | **ListAllMetricValue** | The ListAllMetricValue entity (list). | `/data/v1/metrics/comparison` |
-| **ListAnnotation** | The ListAnnotation entity (list). | `/data/v1/annotations` |
-| **ListAsset** | The ListAsset entity (list). | `/video/v1/assets` |
 | **ListBreakdownValue** | The ListBreakdownValue entity (list). | `/data/v1/metrics/{METRIC_ID}/breakdown` |
 | **ListDeliveryUsage** | The ListDeliveryUsage entity (list). | `/video/v1/delivery-usage` |
-| **ListDimension** | The ListDimension entity (list). | `/data/v1/dimensions` |
 | **ListDimensionValue** | The ListDimensionValue entity (list, load). | `/data/v1/dimensions/{DIMENSION_ID}/elements` |
-| **ListDrmConfiguration** | The ListDrmConfiguration entity (list). | `/video/v1/drm-configurations` |
 | **ListError** | The ListError entity (list). | `/data/v1/errors` |
 | **ListExport** | The ListExport entity (list). | `/data/v1/exports` |
-| **ListFilter** | The ListFilter entity (list). | `/data/v1/filters` |
-| **ListFilterValue** | The ListFilterValue entity (load). | `/data/v1/filters/{FILTER_ID}` |
-| **ListIncident** | The ListIncident entity (list). | `/data/v1/incidents` |
+| **ListFilterValue** | The ListFilterValue entity (list, load). | `/data/v1/filters` |
 | **ListInsight** | The ListInsight entity (list). | `/data/v1/metrics/{METRIC_ID}/insights` |
-| **ListJob** | The ListJob entity (list). | `/robots/v0/jobs` |
-| **ListLiveStream** | The ListLiveStream entity (list). | `/video/v1/live-streams` |
 | **ListMonitoringDimension** | The ListMonitoringDimension entity (list). | `/data/v1/monitoring/dimensions` |
 | **ListMonitoringMetric** | The ListMonitoringMetric entity (list). | `/data/v1/monitoring/metrics` |
-| **ListPlaybackRestriction** | The ListPlaybackRestriction entity (list). | `/video/v1/playback-restrictions` |
 | **ListRealTimeDimension** | The ListRealTimeDimension entity (list). | `/data/v1/realtime/dimensions` |
 | **ListRealTimeMetric** | The ListRealTimeMetric entity (list). | `/data/v1/realtime/metrics` |
 | **ListRelatedIncident** | The ListRelatedIncident entity (list). | `/data/v1/incidents/{INCIDENT_ID}/related` |
-| **ListSigningKey** | The ListSigningKey entity (list). | `/system/v1/signing-keys` |
 | **ListSubviewBreakdownValue** | The ListSubviewBreakdownValue entity (list). | `/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown` |
 | **ListSubviewComparisonValue** | The ListSubviewComparisonValue entity (list). | `/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/comparison` |
 | **ListSubviewDimension** | The ListSubviewDimension entity (load). | `/data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions` |
 | **ListSubviewDimensionValue** | The ListSubviewDimensionValue entity (load). | `/data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions/{DIMENSION_NAME}` |
-| **ListTranscriptionVocabulary** | The ListTranscriptionVocabulary entity (list). | `/video/v1/transcription-vocabularies` |
-| **ListUpload** | The ListUpload entity (list). | `/video/v1/uploads` |
-| **ListUsageExport** | The ListUsageExport entity (list). | `/system/v1/usage/exports` |
-| **ListVideoView** | The ListVideoView entity (list). | `/data/v1/video-views` |
 | **ListVideoViewExport** | The ListVideoViewExport entity (list). | `/data/v1/exports/views` |
-| **ListWebhook** | The ListWebhook entity (list). | `/system/v1/webhooks` |
-| **LiveStream** | The LiveStream entity (create, load, remove, update). | `/video/v1/live-streams/{LIVE_STREAM_ID}` |
+| **LiveStream** | The LiveStream entity (create, list, load, remove, update). | `/video/v1/live-streams` |
 | **LiveStreamPlaybackId** | The LiveStreamPlaybackId entity (load). | `/video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}` |
 | **MetricTimeseriesData** | The MetricTimeseriesData entity (list). | `/data/v1/metrics/{METRIC_ID}/timeseries` |
 | **Moderate** | The Moderate entity (create, load). | `/robots/v0/jobs/moderate/{JOB_ID}` |
@@ -239,25 +228,26 @@ The API exposes 88 entities:
 | **MonitoringHistogramTimeseries** | The MonitoringHistogramTimeseries entity (list). | `/data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries` |
 | **MonitoringTimeseries** | The MonitoringTimeseries entity (list). | `/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries` |
 | **Overall** | The Overall entity (list). | `/data/v1/metrics/{METRIC_ID}/overall` |
-| **PlaybackRestriction** | The PlaybackRestriction entity (create, load, remove, update). | `/video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}` |
+| **PlaybackRestriction** | The PlaybackRestriction entity (create, list, load, remove, update). | `/video/v1/playback-restrictions` |
 | **RealTimeBreakdown** | The RealTimeBreakdown entity (list). | `/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/breakdown` |
 | **RealTimeHistogramTimeseries** | The RealTimeHistogramTimeseries entity (list). | `/data/v1/realtime/metrics/{REALTIME_HISTOGRAM_METRIC_ID}/histogram-timeseries` |
 | **RealTimeTimeseries** | The RealTimeTimeseries entity (list). | `/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries` |
 | **SignalLiveStreamComplete** | The SignalLiveStreamComplete entity (update). | `/video/v1/live-streams/{LIVE_STREAM_ID}/complete` |
-| **SigningKey** | The SigningKey entity (create, load, remove). | `/system/v1/signing-keys/{SIGNING_KEY_ID}` |
+| **SigningKey** | The SigningKey entity (create, list, load, remove). | `/system/v1/signing-keys` |
 | **SimulcastTarget** | The SimulcastTarget entity (create, load). | `/video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}` |
 | **StaticRendition** | The StaticRendition entity (create). | `/video/v1/assets/{ASSET_ID}/static-renditions` |
 | **SubviewBreakdownTimeseries** | The SubviewBreakdownTimeseries entity (list). | `/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown-timeseries` |
 | **SubviewOverallValue** | The SubviewOverallValue entity (list). | `/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/overall` |
 | **Summarize** | The Summarize entity (create, load). | `/robots/v0/jobs/summarize/{JOB_ID}` |
-| **TranscriptionVocabulary** | The TranscriptionVocabulary entity (create, load, remove, update). | `/video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}` |
+| **TranscriptionVocabulary** | The TranscriptionVocabulary entity (create, list, load, remove, update). | `/video/v1/transcription-vocabularies` |
 | **TranslateAudio** | The TranslateAudio entity (create, load). | `/robots/v0/jobs/translate-audio/{JOB_ID}` |
 | **TranslateCaption** | The TranslateCaption entity (create, load). | `/robots/v0/jobs/translate-captions/{JOB_ID}` |
 | **UpdateAssetTrack** | The UpdateAssetTrack entity (update). | `/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}` |
-| **Upload** | The Upload entity (create, load, update). | `/video/v1/uploads/{UPLOAD_ID}` |
+| **Upload** | The Upload entity (create, list, load, update). | `/video/v1/uploads` |
 | **UrlSigningKey** | The UrlSigningKey entity (remove). | `/video/v1/signing-keys/{SIGNING_KEY_ID}` |
-| **VideoView** | The VideoView entity (load). | `/data/v1/video-views/{VIDEO_VIEW_ID}` |
-| **Webhook** | The Webhook entity (create, load, remove, update). | `/system/v1/webhooks/{WEBHOOK_ID}` |
+| **UsageExport** | The UsageExport entity (list). | `/system/v1/usage/exports` |
+| **VideoView** | The VideoView entity (list, load). | `/data/v1/video-views` |
+| **Webhook** | The Webhook entity (create, list, load, remove, update). | `/system/v1/webhooks` |
 | **WhoAmI** | The WhoAmI entity (load). | `/system/v1/whoami` |
 
 The operations available across these entities are **load**, **list**, **create**, **update**, **remove** — see each entity's
@@ -275,6 +265,10 @@ client = MuxSDK({
     "apikey": os.environ.get("MUX_APIKEY"),
 })
 
+# List all annotations (returns a list, raises on error)
+annotations = client.Annotation().list()
+for annotation in annotations:
+    print(annotation)
 
 # Load a specific annotation (returns the record, raises on error)
 annotation = client.Annotation().load({"id": "example_id"})
@@ -291,6 +285,9 @@ $client = new MuxSDK([
     "apikey" => getenv("MUX_APIKEY"),
 ]);
 
+// List all annotations (returns an array; throws on error)
+$annotations = $client->Annotation()->list();
+print_r(array_map(fn($item) => $item->data_get(), $annotations));
 
 // Load a specific annotation (returns the ENTITY; call data_get() for the record; throws on error)
 $annotation = $client->Annotation()->load(["id" => "example_id"]);
@@ -306,6 +303,12 @@ client := sdk.NewMuxSDK(map[string]any{
     "apikey": os.Getenv("MUX_APIKEY"),
 })
 
+// List all annotations
+annotations, err := client.Annotation(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(annotations)
 
 // Load a specific assetplaybackid
 assetPlaybackId, err := client.AssetPlaybackId(nil).Load(
@@ -326,6 +329,9 @@ client = MuxSDK.new({
   "apikey" => ENV["MUX_APIKEY"],
 })
 
+# List all annotations (returns an Array; raises on error)
+annotations = client.Annotation.list
+puts annotations
 
 # Load a specific annotation (returns the ENTITY; call data_get for the record)
 annotation = client.Annotation.load({ "id" => "example_id" })
@@ -341,6 +347,9 @@ local client = sdk.new({
   apikey = os.getenv("MUX_APIKEY"),
 })
 
+-- List all annotations
+local annotations, err = client:Annotation():list()
+print(annotations)
 
 -- Load a specific annotation
 local annotation, err = client:Annotation():load({ id = "example_id" })

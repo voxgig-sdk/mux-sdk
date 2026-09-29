@@ -19,6 +19,18 @@ main: kit: flow: BasicLiveStreamFlow:
     }
 
     {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "live_stream_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       i: {
         ref: "live_stream_ref01",
         srcdatavar: "live_stream_ref01_data",
@@ -70,6 +82,22 @@ main: kit: flow: BasicLiveStreamFlow:
       }
 
       o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "live_stream_ref01"
+          }
+        }
+      ]
     }
   ],
   "key$": "BasicLiveStreamFlow"

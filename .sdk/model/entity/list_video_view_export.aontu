@@ -49,7 +49,7 @@ main: kit: entity: list_video_view_export: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

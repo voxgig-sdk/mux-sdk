@@ -146,14 +146,14 @@ main: kit: entity: update_asset_track: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
               {
                 k: "param"
                 n: "id"
-                or: "track_id"
+                or: "TRACK_ID"
                 r: true
                 t: "`$STRING`"
               }

@@ -367,12 +367,6 @@ class MuxSDK:
         return DirectiveRunDetailEntity(self, data)
 
 
-    def DirectiveRunList(self, data=None) -> "DirectiveRunListEntity":
-        """Entity factory: client.DirectiveRunList().list() / client.DirectiveRunList().load({"id": ...})."""
-        from mux_sdk.entity.directive_run_list_entity import DirectiveRunListEntity
-        return DirectiveRunListEntity(self, data)
-
-
     def DrmConfiguration(self, data=None) -> "DrmConfigurationEntity":
         """Entity factory: client.DrmConfiguration().list() / client.DrmConfiguration().load({"id": ...})."""
         from mux_sdk.entity.drm_configuration_entity import DrmConfigurationEntity
@@ -469,18 +463,6 @@ class MuxSDK:
         return ListAllMetricValueEntity(self, data)
 
 
-    def ListAnnotation(self, data=None) -> "ListAnnotationEntity":
-        """Entity factory: client.ListAnnotation().list() / client.ListAnnotation().load({"id": ...})."""
-        from mux_sdk.entity.list_annotation_entity import ListAnnotationEntity
-        return ListAnnotationEntity(self, data)
-
-
-    def ListAsset(self, data=None) -> "ListAssetEntity":
-        """Entity factory: client.ListAsset().list() / client.ListAsset().load({"id": ...})."""
-        from mux_sdk.entity.list_asset_entity import ListAssetEntity
-        return ListAssetEntity(self, data)
-
-
     def ListBreakdownValue(self, data=None) -> "ListBreakdownValueEntity":
         """Entity factory: client.ListBreakdownValue().list() / client.ListBreakdownValue().load({"id": ...})."""
         from mux_sdk.entity.list_breakdown_value_entity import ListBreakdownValueEntity
@@ -493,22 +475,10 @@ class MuxSDK:
         return ListDeliveryUsageEntity(self, data)
 
 
-    def ListDimension(self, data=None) -> "ListDimensionEntity":
-        """Entity factory: client.ListDimension().list() / client.ListDimension().load({"id": ...})."""
-        from mux_sdk.entity.list_dimension_entity import ListDimensionEntity
-        return ListDimensionEntity(self, data)
-
-
     def ListDimensionValue(self, data=None) -> "ListDimensionValueEntity":
         """Entity factory: client.ListDimensionValue().list() / client.ListDimensionValue().load({"id": ...})."""
         from mux_sdk.entity.list_dimension_value_entity import ListDimensionValueEntity
         return ListDimensionValueEntity(self, data)
-
-
-    def ListDrmConfiguration(self, data=None) -> "ListDrmConfigurationEntity":
-        """Entity factory: client.ListDrmConfiguration().list() / client.ListDrmConfiguration().load({"id": ...})."""
-        from mux_sdk.entity.list_drm_configuration_entity import ListDrmConfigurationEntity
-        return ListDrmConfigurationEntity(self, data)
 
 
     def ListError(self, data=None) -> "ListErrorEntity":
@@ -523,40 +493,16 @@ class MuxSDK:
         return ListExportEntity(self, data)
 
 
-    def ListFilter(self, data=None) -> "ListFilterEntity":
-        """Entity factory: client.ListFilter().list() / client.ListFilter().load({"id": ...})."""
-        from mux_sdk.entity.list_filter_entity import ListFilterEntity
-        return ListFilterEntity(self, data)
-
-
     def ListFilterValue(self, data=None) -> "ListFilterValueEntity":
         """Entity factory: client.ListFilterValue().list() / client.ListFilterValue().load({"id": ...})."""
         from mux_sdk.entity.list_filter_value_entity import ListFilterValueEntity
         return ListFilterValueEntity(self, data)
 
 
-    def ListIncident(self, data=None) -> "ListIncidentEntity":
-        """Entity factory: client.ListIncident().list() / client.ListIncident().load({"id": ...})."""
-        from mux_sdk.entity.list_incident_entity import ListIncidentEntity
-        return ListIncidentEntity(self, data)
-
-
     def ListInsight(self, data=None) -> "ListInsightEntity":
         """Entity factory: client.ListInsight().list() / client.ListInsight().load({"id": ...})."""
         from mux_sdk.entity.list_insight_entity import ListInsightEntity
         return ListInsightEntity(self, data)
-
-
-    def ListJob(self, data=None) -> "ListJobEntity":
-        """Entity factory: client.ListJob().list() / client.ListJob().load({"id": ...})."""
-        from mux_sdk.entity.list_job_entity import ListJobEntity
-        return ListJobEntity(self, data)
-
-
-    def ListLiveStream(self, data=None) -> "ListLiveStreamEntity":
-        """Entity factory: client.ListLiveStream().list() / client.ListLiveStream().load({"id": ...})."""
-        from mux_sdk.entity.list_live_stream_entity import ListLiveStreamEntity
-        return ListLiveStreamEntity(self, data)
 
 
     def ListMonitoringDimension(self, data=None) -> "ListMonitoringDimensionEntity":
@@ -569,12 +515,6 @@ class MuxSDK:
         """Entity factory: client.ListMonitoringMetric().list() / client.ListMonitoringMetric().load({"id": ...})."""
         from mux_sdk.entity.list_monitoring_metric_entity import ListMonitoringMetricEntity
         return ListMonitoringMetricEntity(self, data)
-
-
-    def ListPlaybackRestriction(self, data=None) -> "ListPlaybackRestrictionEntity":
-        """Entity factory: client.ListPlaybackRestriction().list() / client.ListPlaybackRestriction().load({"id": ...})."""
-        from mux_sdk.entity.list_playback_restriction_entity import ListPlaybackRestrictionEntity
-        return ListPlaybackRestrictionEntity(self, data)
 
 
     def ListRealTimeDimension(self, data=None) -> "ListRealTimeDimensionEntity":
@@ -593,12 +533,6 @@ class MuxSDK:
         """Entity factory: client.ListRelatedIncident().list() / client.ListRelatedIncident().load({"id": ...})."""
         from mux_sdk.entity.list_related_incident_entity import ListRelatedIncidentEntity
         return ListRelatedIncidentEntity(self, data)
-
-
-    def ListSigningKey(self, data=None) -> "ListSigningKeyEntity":
-        """Entity factory: client.ListSigningKey().list() / client.ListSigningKey().load({"id": ...})."""
-        from mux_sdk.entity.list_signing_key_entity import ListSigningKeyEntity
-        return ListSigningKeyEntity(self, data)
 
 
     def ListSubviewBreakdownValue(self, data=None) -> "ListSubviewBreakdownValueEntity":
@@ -625,40 +559,10 @@ class MuxSDK:
         return ListSubviewDimensionValueEntity(self, data)
 
 
-    def ListTranscriptionVocabulary(self, data=None) -> "ListTranscriptionVocabularyEntity":
-        """Entity factory: client.ListTranscriptionVocabulary().list() / client.ListTranscriptionVocabulary().load({"id": ...})."""
-        from mux_sdk.entity.list_transcription_vocabulary_entity import ListTranscriptionVocabularyEntity
-        return ListTranscriptionVocabularyEntity(self, data)
-
-
-    def ListUpload(self, data=None) -> "ListUploadEntity":
-        """Entity factory: client.ListUpload().list() / client.ListUpload().load({"id": ...})."""
-        from mux_sdk.entity.list_upload_entity import ListUploadEntity
-        return ListUploadEntity(self, data)
-
-
-    def ListUsageExport(self, data=None) -> "ListUsageExportEntity":
-        """Entity factory: client.ListUsageExport().list() / client.ListUsageExport().load({"id": ...})."""
-        from mux_sdk.entity.list_usage_export_entity import ListUsageExportEntity
-        return ListUsageExportEntity(self, data)
-
-
-    def ListVideoView(self, data=None) -> "ListVideoViewEntity":
-        """Entity factory: client.ListVideoView().list() / client.ListVideoView().load({"id": ...})."""
-        from mux_sdk.entity.list_video_view_entity import ListVideoViewEntity
-        return ListVideoViewEntity(self, data)
-
-
     def ListVideoViewExport(self, data=None) -> "ListVideoViewExportEntity":
         """Entity factory: client.ListVideoViewExport().list() / client.ListVideoViewExport().load({"id": ...})."""
         from mux_sdk.entity.list_video_view_export_entity import ListVideoViewExportEntity
         return ListVideoViewExportEntity(self, data)
-
-
-    def ListWebhook(self, data=None) -> "ListWebhookEntity":
-        """Entity factory: client.ListWebhook().list() / client.ListWebhook().load({"id": ...})."""
-        from mux_sdk.entity.list_webhook_entity import ListWebhookEntity
-        return ListWebhookEntity(self, data)
 
 
     def LiveStream(self, data=None) -> "LiveStreamEntity":
@@ -817,6 +721,12 @@ class MuxSDK:
         return UrlSigningKeyEntity(self, data)
 
 
+    def UsageExport(self, data=None) -> "UsageExportEntity":
+        """Entity factory: client.UsageExport().list() / client.UsageExport().load({"id": ...})."""
+        from mux_sdk.entity.usage_export_entity import UsageExportEntity
+        return UsageExportEntity(self, data)
+
+
     def VideoView(self, data=None) -> "VideoViewEntity":
         """Entity factory: client.VideoView().list() / client.VideoView().load({"id": ...})."""
         from mux_sdk.entity.video_view_entity import VideoViewEntity
@@ -872,7 +782,6 @@ if TYPE_CHECKING:
     from mux_sdk.entity.create_track_entity import CreateTrackEntity
     from mux_sdk.entity.directive_entity import DirectiveEntity
     from mux_sdk.entity.directive_run_detail_entity import DirectiveRunDetailEntity
-    from mux_sdk.entity.directive_run_list_entity import DirectiveRunListEntity
     from mux_sdk.entity.drm_configuration_entity import DrmConfigurationEntity
     from mux_sdk.entity.edit_caption_entity import EditCaptionEntity
     from mux_sdk.entity.engagement_heatmap_entity import EngagementHeatmapEntity
@@ -889,38 +798,23 @@ if TYPE_CHECKING:
     from mux_sdk.entity.input_info_entity import InputInfoEntity
     from mux_sdk.entity.job_summary_entity import JobSummaryEntity
     from mux_sdk.entity.list_all_metric_value_entity import ListAllMetricValueEntity
-    from mux_sdk.entity.list_annotation_entity import ListAnnotationEntity
-    from mux_sdk.entity.list_asset_entity import ListAssetEntity
     from mux_sdk.entity.list_breakdown_value_entity import ListBreakdownValueEntity
     from mux_sdk.entity.list_delivery_usage_entity import ListDeliveryUsageEntity
-    from mux_sdk.entity.list_dimension_entity import ListDimensionEntity
     from mux_sdk.entity.list_dimension_value_entity import ListDimensionValueEntity
-    from mux_sdk.entity.list_drm_configuration_entity import ListDrmConfigurationEntity
     from mux_sdk.entity.list_error_entity import ListErrorEntity
     from mux_sdk.entity.list_export_entity import ListExportEntity
-    from mux_sdk.entity.list_filter_entity import ListFilterEntity
     from mux_sdk.entity.list_filter_value_entity import ListFilterValueEntity
-    from mux_sdk.entity.list_incident_entity import ListIncidentEntity
     from mux_sdk.entity.list_insight_entity import ListInsightEntity
-    from mux_sdk.entity.list_job_entity import ListJobEntity
-    from mux_sdk.entity.list_live_stream_entity import ListLiveStreamEntity
     from mux_sdk.entity.list_monitoring_dimension_entity import ListMonitoringDimensionEntity
     from mux_sdk.entity.list_monitoring_metric_entity import ListMonitoringMetricEntity
-    from mux_sdk.entity.list_playback_restriction_entity import ListPlaybackRestrictionEntity
     from mux_sdk.entity.list_real_time_dimension_entity import ListRealTimeDimensionEntity
     from mux_sdk.entity.list_real_time_metric_entity import ListRealTimeMetricEntity
     from mux_sdk.entity.list_related_incident_entity import ListRelatedIncidentEntity
-    from mux_sdk.entity.list_signing_key_entity import ListSigningKeyEntity
     from mux_sdk.entity.list_subview_breakdown_value_entity import ListSubviewBreakdownValueEntity
     from mux_sdk.entity.list_subview_comparison_value_entity import ListSubviewComparisonValueEntity
     from mux_sdk.entity.list_subview_dimension_entity import ListSubviewDimensionEntity
     from mux_sdk.entity.list_subview_dimension_value_entity import ListSubviewDimensionValueEntity
-    from mux_sdk.entity.list_transcription_vocabulary_entity import ListTranscriptionVocabularyEntity
-    from mux_sdk.entity.list_upload_entity import ListUploadEntity
-    from mux_sdk.entity.list_usage_export_entity import ListUsageExportEntity
-    from mux_sdk.entity.list_video_view_entity import ListVideoViewEntity
     from mux_sdk.entity.list_video_view_export_entity import ListVideoViewExportEntity
-    from mux_sdk.entity.list_webhook_entity import ListWebhookEntity
     from mux_sdk.entity.live_stream_entity import LiveStreamEntity
     from mux_sdk.entity.live_stream_playback_id_entity import LiveStreamPlaybackIdEntity
     from mux_sdk.entity.metric_timeseries_data_entity import MetricTimeseriesDataEntity
@@ -947,6 +841,7 @@ if TYPE_CHECKING:
     from mux_sdk.entity.update_asset_track_entity import UpdateAssetTrackEntity
     from mux_sdk.entity.upload_entity import UploadEntity
     from mux_sdk.entity.url_signing_key_entity import UrlSigningKeyEntity
+    from mux_sdk.entity.usage_export_entity import UsageExportEntity
     from mux_sdk.entity.video_view_entity import VideoViewEntity
     from mux_sdk.entity.webhook_entity import WebhookEntity
     from mux_sdk.entity.who_am_i_entity import WhoAmIEntity

@@ -7,6 +7,18 @@ main: kit: flow: BasicListFilterValueFlow:
   name: "BasicListFilterValueFlow",
   step: [
     {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "list_filter_value_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       i: {
         ref: "list_filter_value_ref01",
         srcdatavar: "list_filter_value_ref01_data",

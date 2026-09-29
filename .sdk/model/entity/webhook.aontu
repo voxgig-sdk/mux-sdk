@@ -91,6 +91,61 @@ main: kit: entity: webhook: {
         }
       ]
     }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /system/v1/webhooks"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/system/v1/webhooks"
+          q: {
+            exist: [
+              "limit"
+              "page"
+            ]
+          }
+          s: [
+            {
+              lit: "system"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "webhooks"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
     load: {
       name: "load"
       points: [
@@ -105,7 +160,7 @@ main: kit: entity: webhook: {
               {
                 k: "param"
                 n: "id"
-                or: "webhook_id"
+                or: "WEBHOOK_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -158,7 +213,7 @@ main: kit: entity: webhook: {
               {
                 k: "param"
                 n: "id"
-                or: "webhook_id"
+                or: "WEBHOOK_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -211,7 +266,7 @@ main: kit: entity: webhook: {
               {
                 k: "param"
                 n: "id"
-                or: "webhook_id"
+                or: "WEBHOOK_ID"
                 r: true
                 t: "`$STRING`"
               }

@@ -43,6 +43,11 @@
       "version": 2,
       "source": "openapi3"
     },
+    "GET /video/v1/playback-restrictions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}": {
       "provenance": "operation-contract",
       "version": 2,

@@ -4,7 +4,7 @@
 #   guide.aontu
 
 guide: {
-  metrics: count: entity: 88
+  metrics: count: entity: 73
   metrics: count: path: 121
   metrics: count: method: 153
 
@@ -12,6 +12,8 @@ guide: {
     path: "/data/v1/annotations": {
       op: create: method: *POST
       op: create: transform: res: *("`body.data`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/data/v1/annotations/{ANNOTATION_ID}": {
       rename: param: "ANNOTATION_ID": *"id"
@@ -26,6 +28,7 @@ guide: {
   entity: ask_question: {
     path: "/robots/v0/jobs/ask-questions": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/ask-questions/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -38,6 +41,8 @@ guide: {
     path: "/video/v1/assets": {
       op: create: method: *POST
       op: create: transform: res: *("`body.data`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/video/v1/assets/{ASSET_ID}": {
       rename: param: "ASSET_ID": *"id"
@@ -149,10 +154,16 @@ guide: {
       action: "run": {}
       rename: param: "DIRECTIVE_ID": *"directive_id"
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
   }
 
   entity: directive_run_detail: {
+    path: "/robots/v0/directives/{DIRECTIVE_ID}/runs": {
+      rename: param: "DIRECTIVE_ID": *"directive_id"
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
     path: "/robots/v0/directives/{DIRECTIVE_ID}/runs/{RUN_ID}": {
       rename: param: "DIRECTIVE_ID": *"directive_id"
       rename: param: "RUN_ID": *"run_id"
@@ -161,15 +172,11 @@ guide: {
     }
   }
 
-  entity: directive_run_list: {
-    path: "/robots/v0/directives/{DIRECTIVE_ID}/runs": {
-      rename: param: "DIRECTIVE_ID": *"directive_id"
+  entity: drm_configuration: {
+    path: "/video/v1/drm-configurations": {
       op: list: method: *GET
       op: list: transform: res: *("`body.data`")|top
     }
-  }
-
-  entity: drm_configuration: {
     path: "/video/v1/drm-configurations/{DRM_CONFIGURATION_ID}": {
       rename: param: "DRM_CONFIGURATION_ID": *"id"
       op: load: method: *GET
@@ -180,6 +187,7 @@ guide: {
   entity: edit_caption: {
     path: "/robots/v0/jobs/edit-captions": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/edit-captions/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -221,6 +229,7 @@ guide: {
   entity: find_best_thumbnail: {
     path: "/robots/v0/jobs/find-best-thumbnails": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/find-best-thumbnails/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -232,6 +241,7 @@ guide: {
   entity: find_key_moment: {
     path: "/robots/v0/jobs/find-key-moments": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/find-key-moments/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -243,6 +253,7 @@ guide: {
   entity: find_scene: {
     path: "/robots/v0/jobs/find-scenes": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/find-scenes/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -262,6 +273,7 @@ guide: {
   entity: generate_chapter: {
     path: "/robots/v0/jobs/generate-chapters": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/generate-chapters/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -273,6 +285,7 @@ guide: {
   entity: generate_engagement_insight: {
     path: "/robots/v0/jobs/generate-engagement-insights": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/generate-engagement-insights/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -284,6 +297,7 @@ guide: {
   entity: generate_premium_caption: {
     path: "/robots/v0/jobs/generate-premium-captions": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/generate-premium-captions/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -301,6 +315,10 @@ guide: {
   }
 
   entity: incident: {
+    path: "/data/v1/incidents": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
     path: "/data/v1/incidents/{INCIDENT_ID}": {
       rename: param: "INCIDENT_ID": *"id"
       op: load: method: *GET
@@ -316,6 +334,10 @@ guide: {
   }
 
   entity: job_summary: {
+    path: "/robots/v0/jobs": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
     path: "/robots/v0/jobs/{JOB_ID}/cancel": {
       rename: param: "JOB_ID": *"job_id"
       op: create: method: *POST
@@ -326,18 +348,6 @@ guide: {
   entity: list_all_metric_value: {
     path: "/data/v1/metrics/comparison": {
       op: list: method: *GET
-    }
-  }
-
-  entity: list_annotation: {
-    path: "/data/v1/annotations": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: list_asset: {
-    path: "/video/v1/assets": {
-      op: list: method: *GET
       op: list: transform: res: *("`body.data`")|top
     }
   }
@@ -346,34 +356,27 @@ guide: {
     path: "/data/v1/metrics/{METRIC_ID}/breakdown": {
       rename: param: "METRIC_ID": *"metric_id"
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
   entity: list_delivery_usage: {
     path: "/video/v1/delivery-usage": {
       op: list: method: *GET
-    }
-  }
-
-  entity: list_dimension: {
-    path: "/data/v1/dimensions": {
-      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
   entity: list_dimension_value: {
+    path: "/data/v1/dimensions": {
+      op: list: method: *GET
+    }
     path: "/data/v1/dimensions/{DIMENSION_ID}": {
       rename: param: "DIMENSION_ID": *"dimension_id"
       op: load: method: *GET
     }
     path: "/data/v1/dimensions/{DIMENSION_ID}/elements": {
       rename: param: "DIMENSION_ID": *"dimension_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: list_drm_configuration: {
-    path: "/video/v1/drm-configurations": {
       op: list: method: *GET
       op: list: transform: res: *("`body.data`")|top
     }
@@ -382,6 +385,7 @@ guide: {
   entity: list_error: {
     path: "/data/v1/errors": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -391,41 +395,19 @@ guide: {
     }
   }
 
-  entity: list_filter: {
+  entity: list_filter_value: {
     path: "/data/v1/filters": {
       op: list: method: *GET
     }
-  }
-
-  entity: list_filter_value: {
     path: "/data/v1/filters/{FILTER_ID}": {
       rename: param: "FILTER_ID": *"filter_id"
       op: load: method: *GET
     }
   }
 
-  entity: list_incident: {
-    path: "/data/v1/incidents": {
-      op: list: method: *GET
-    }
-  }
-
   entity: list_insight: {
     path: "/data/v1/metrics/{METRIC_ID}/insights": {
       rename: param: "METRIC_ID": *"metric_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: list_job: {
-    path: "/robots/v0/jobs": {
-      op: list: method: *GET
-      op: list: transform: res: *("`body.data`")|top
-    }
-  }
-
-  entity: list_live_stream: {
-    path: "/video/v1/live-streams": {
       op: list: method: *GET
       op: list: transform: res: *("`body.data`")|top
     }
@@ -434,17 +416,12 @@ guide: {
   entity: list_monitoring_dimension: {
     path: "/data/v1/monitoring/dimensions": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
   entity: list_monitoring_metric: {
     path: "/data/v1/monitoring/metrics": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: list_playback_restriction: {
-    path: "/video/v1/playback-restrictions": {
       op: list: method: *GET
       op: list: transform: res: *("`body.data`")|top
     }
@@ -453,28 +430,20 @@ guide: {
   entity: list_real_time_dimension: {
     path: "/data/v1/realtime/dimensions": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
   entity: list_real_time_metric: {
     path: "/data/v1/realtime/metrics": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
   entity: list_related_incident: {
     path: "/data/v1/incidents/{INCIDENT_ID}/related": {
       rename: param: "INCIDENT_ID": *"incident_id"
-      op: list: method: *GET
-    }
-  }
-
-  entity: list_signing_key: {
-    path: "/system/v1/signing-keys": {
-      op: list: method: *GET
-      op: list: transform: res: *("`body.data`")|top
-    }
-    path: "/video/v1/signing-keys": {
       op: list: method: *GET
       op: list: transform: res: *("`body.data`")|top
     }
@@ -485,6 +454,7 @@ guide: {
       rename: param: "METRIC_ID": *"subview_metric_id"
       rename: param: "SUBVIEW_TYPE": *"subview_type"
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -493,6 +463,7 @@ guide: {
       rename: param: "METRIC_ID": *"subview_metric_id"
       rename: param: "SUBVIEW_TYPE": *"subview_type"
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -500,7 +471,6 @@ guide: {
     path: "/data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions": {
       rename: param: "SUBVIEW_TYPE": *"subview_type"
       op: load: method: *GET
-      op: load: transform: res: *("`body.data`")|top
     }
   }
 
@@ -512,40 +482,8 @@ guide: {
     }
   }
 
-  entity: list_transcription_vocabulary: {
-    path: "/video/v1/transcription-vocabularies": {
-      op: list: method: *GET
-      op: list: transform: res: *("`body.data`")|top
-    }
-  }
-
-  entity: list_upload: {
-    path: "/video/v1/uploads": {
-      op: list: method: *GET
-      op: list: transform: res: *("`body.data`")|top
-    }
-  }
-
-  entity: list_usage_export: {
-    path: "/system/v1/usage/exports": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: list_video_view: {
-    path: "/data/v1/video-views": {
-      op: list: method: *GET
-    }
-  }
-
   entity: list_video_view_export: {
     path: "/data/v1/exports/views": {
-      op: list: method: *GET
-    }
-  }
-
-  entity: list_webhook: {
-    path: "/system/v1/webhooks": {
       op: list: method: *GET
       op: list: transform: res: *("`body.data`")|top
     }
@@ -555,6 +493,8 @@ guide: {
     path: "/video/v1/live-streams": {
       op: create: method: *POST
       op: create: transform: res: *("`body.data`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/video/v1/live-streams/{LIVE_STREAM_ID}": {
       rename: param: "LIVE_STREAM_ID": *"id"
@@ -632,6 +572,7 @@ guide: {
   entity: moderate: {
     path: "/robots/v0/jobs/moderate": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/moderate/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -644,6 +585,7 @@ guide: {
     path: "/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown": {
       rename: param: "MONITORING_METRIC_ID": *"monitoring_metric_id"
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -651,6 +593,7 @@ guide: {
     path: "/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/breakdown-timeseries": {
       rename: param: "MONITORING_METRIC_ID": *"monitoring_metric_id"
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -658,6 +601,7 @@ guide: {
     path: "/data/v1/monitoring/metrics/{MONITORING_HISTOGRAM_METRIC_ID}/histogram-timeseries": {
       rename: param: "MONITORING_HISTOGRAM_METRIC_ID": *"monitoring_histogram_metric_id"
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -665,6 +609,7 @@ guide: {
     path: "/data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries": {
       rename: param: "MONITORING_METRIC_ID": *"monitoring_metric_id"
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -679,6 +624,8 @@ guide: {
     path: "/video/v1/playback-restrictions": {
       op: create: method: *POST
       op: create: transform: res: *("`body.data`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}": {
       rename: param: "PLAYBACK_RESTRICTION_ID": *"id"
@@ -704,6 +651,7 @@ guide: {
     path: "/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/breakdown": {
       rename: param: "REALTIME_METRIC_ID": *"realtime_metric_id"
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -711,6 +659,7 @@ guide: {
     path: "/data/v1/realtime/metrics/{REALTIME_HISTOGRAM_METRIC_ID}/histogram-timeseries": {
       rename: param: "REALTIME_HISTOGRAM_METRIC_ID": *"realtime_histogram_metric_id"
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -718,6 +667,7 @@ guide: {
     path: "/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries": {
       rename: param: "REALTIME_METRIC_ID": *"realtime_metric_id"
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -733,6 +683,8 @@ guide: {
     path: "/system/v1/signing-keys": {
       op: create: method: *POST
       op: create: transform: res: *("`body.data`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/system/v1/signing-keys/{SIGNING_KEY_ID}": {
       rename: param: "SIGNING_KEY_ID": *"id"
@@ -743,6 +695,8 @@ guide: {
     path: "/video/v1/signing-keys": {
       op: create: method: *POST
       op: create: transform: res: *("`body.data`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/video/v1/signing-keys/{SIGNING_KEY_ID}": {
       rename: param: "SIGNING_KEY_ID": *"id"
@@ -778,6 +732,7 @@ guide: {
       rename: param: "METRIC_ID": *"subview_metric_id"
       rename: param: "SUBVIEW_TYPE": *"subview_type"
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 
@@ -792,6 +747,7 @@ guide: {
   entity: summarize: {
     path: "/robots/v0/jobs/summarize": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/summarize/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -804,6 +760,8 @@ guide: {
     path: "/video/v1/transcription-vocabularies": {
       op: create: method: *POST
       op: create: transform: res: *("`body.data`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}": {
       rename: param: "TRANSCRIPTION_VOCABULARY_ID": *"id"
@@ -818,6 +776,7 @@ guide: {
   entity: translate_audio: {
     path: "/robots/v0/jobs/translate-audio": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/translate-audio/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -829,6 +788,7 @@ guide: {
   entity: translate_caption: {
     path: "/robots/v0/jobs/translate-captions": {
       op: create: method: *POST
+      op: create: transform: res: *("`body.data`")|top
     }
     path: "/robots/v0/jobs/translate-captions/{JOB_ID}": {
       rename: param: "JOB_ID": *"id"
@@ -850,6 +810,8 @@ guide: {
     path: "/video/v1/uploads": {
       op: create: method: *POST
       op: create: transform: res: *("`body.data`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/video/v1/uploads/{UPLOAD_ID}": {
       rename: param: "UPLOAD_ID": *"id"
@@ -871,7 +833,18 @@ guide: {
     }
   }
 
+  entity: usage_export: {
+    path: "/system/v1/usage/exports": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+  }
+
   entity: video_view: {
+    path: "/data/v1/video-views": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
     path: "/data/v1/video-views/{VIDEO_VIEW_ID}": {
       rename: param: "VIDEO_VIEW_ID": *"id"
       op: load: method: *GET
@@ -882,6 +855,8 @@ guide: {
     path: "/system/v1/webhooks": {
       op: create: method: *POST
       op: create: transform: res: *("`body.data`")|top
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
     path: "/system/v1/webhooks/{WEBHOOK_ID}": {
       rename: param: "WEBHOOK_ID": *"id"

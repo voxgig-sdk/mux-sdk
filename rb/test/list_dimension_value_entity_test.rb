@@ -77,9 +77,7 @@ class ListDimensionValueEntityTest < Minitest::Test
 
     # LIST
     list_dimension_value_ref01_ent = client.ListDimensionValue(nil)
-    list_dimension_value_ref01_match = {
-      "dimension_id" => setup[:idmap]["dimension01"],
-    }
+    list_dimension_value_ref01_match = {}
 
     list_dimension_value_ref01_list_result = list_dimension_value_ref01_ent.list(list_dimension_value_ref01_match, nil)
     assert list_dimension_value_ref01_list_result.is_a?(Array)
@@ -106,7 +104,7 @@ def list_dimension_value_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["list_dimension_value01", "list_dimension_value02", "list_dimension_value03", "dimension01"],
+    ["list_dimension_value01", "list_dimension_value02", "list_dimension_value03"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

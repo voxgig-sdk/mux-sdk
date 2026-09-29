@@ -2,17 +2,14 @@
   "existing": {
     "signal_live_stream_complete": {
       "SIGNAL_LIVE_STREAM_COMPLETE00": {
-        "data": {},
         "live_stream_id": "LIVE_STREAM01",
         "id": "SIGNAL_LIVE_STREAM_COMPLETE00"
       },
       "SIGNAL_LIVE_STREAM_COMPLETE01": {
-        "data": {},
         "live_stream_id": "LIVE_STREAM01",
         "id": "SIGNAL_LIVE_STREAM_COMPLETE01"
       },
       "SIGNAL_LIVE_STREAM_COMPLETE02": {
-        "data": {},
         "live_stream_id": "LIVE_STREAM01",
         "id": "SIGNAL_LIVE_STREAM_COMPLETE02"
       }
@@ -20,9 +17,7 @@
   },
   "new": {
     "signal_live_stream_complete": {
-      "signal_live_stream_complete_ref01": {
-        "data": {}
-      }
+      "signal_live_stream_complete_ref01": {}
     }
   },
   "requests": {

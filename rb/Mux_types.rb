@@ -38,6 +38,27 @@ AnnotationLoadMatch = Struct.new(
   keyword_init: true
 )
 
+# Request payload for Annotation#list.
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] order_direction
+#   @return [String, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] timeframe
+#   @return [Array, nil]
+AnnotationListMatch = Struct.new(
+  :limit,
+  :order_direction,
+  :page,
+  :timeframe,
+  keyword_init: true
+)
+
 # Request payload for Annotation#create.
 #
 # @!attribute [rw] date
@@ -355,6 +376,31 @@ Asset = Struct.new(
 #   @return [String]
 AssetLoadMatch = Struct.new(
   :id,
+  keyword_init: true
+)
+
+# Request payload for Asset#list.
+#
+# @!attribute [rw] cursor
+#   @return [String, nil]
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] live_stream_id
+#   @return [String, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] upload_id
+#   @return [String, nil]
+AssetListMatch = Struct.new(
+  :cursor,
+  :limit,
+  :live_stream_id,
+  :page,
+  :upload_id,
   keyword_init: true
 )
 
@@ -978,36 +1024,7 @@ DirectiveRunDetailLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# DirectiveRunList entity data model.
-#
-# @!attribute [rw] completed_at
-#   @return [Object]
-#
-# @!attribute [rw] node_states
-#   @return [Array]
-#
-# @!attribute [rw] run_id
-#   @return [String]
-#
-# @!attribute [rw] started_at
-#   @return [Integer]
-#
-# @!attribute [rw] status
-#   @return [String]
-#
-# @!attribute [rw] subject_id
-#   @return [String]
-DirectiveRunList = Struct.new(
-  :completed_at,
-  :node_states,
-  :run_id,
-  :started_at,
-  :status,
-  :subject_id,
-  keyword_init: true
-)
-
-# Request payload for DirectiveRunList#list.
+# Request payload for DirectiveRunDetail#list.
 #
 # @!attribute [rw] directive_id
 #   @return [String]
@@ -1017,7 +1034,7 @@ DirectiveRunList = Struct.new(
 #
 # @!attribute [rw] page
 #   @return [Integer, nil]
-DirectiveRunListListMatch = Struct.new(
+DirectiveRunDetailListMatch = Struct.new(
   :directive_id,
   :limit,
   :page,
@@ -1039,6 +1056,19 @@ DrmConfiguration = Struct.new(
 #   @return [String]
 DrmConfigurationLoadMatch = Struct.new(
   :id,
+  keyword_init: true
+)
+
+# Request payload for DrmConfiguration#list.
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+DrmConfigurationListMatch = Struct.new(
+  :limit,
+  :page,
   keyword_init: true
 )
 
@@ -1965,11 +1995,71 @@ GenerateTrackSubtitleCreateData = Struct.new(
 
 # Incident entity data model.
 #
+# @!attribute [rw] affected_views
+#   @return [Integer]
+#
+# @!attribute [rw] affected_views_per_hour
+#   @return [Integer]
+#
+# @!attribute [rw] affected_views_per_hour_on_open
+#   @return [Integer]
+#
+# @!attribute [rw] breakdowns
+#   @return [Array]
+#
 # @!attribute [rw] data
 #   @return [Hash]
 #
+# @!attribute [rw] description
+#   @return [String]
+#
+# @!attribute [rw] error_description
+#   @return [String]
+#
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
+#
+# @!attribute [rw] impact
+#   @return [String]
+#
+# @!attribute [rw] incident_key
+#   @return [String]
+#
+# @!attribute [rw] measured_value
+#   @return [Float]
+#
+# @!attribute [rw] measured_value_on_close
+#   @return [Float]
+#
+# @!attribute [rw] measurement
+#   @return [String]
+#
+# @!attribute [rw] notification_rules
+#   @return [Array]
+#
+# @!attribute [rw] notifications
+#   @return [Array]
+#
+# @!attribute [rw] resolved_at
+#   @return [String]
+#
+# @!attribute [rw] sample_size
+#   @return [Integer]
+#
+# @!attribute [rw] sample_size_unit
+#   @return [String]
+#
+# @!attribute [rw] severity
+#   @return [String]
+#
+# @!attribute [rw] started_at
+#   @return [String]
+#
+# @!attribute [rw] status
+#   @return [String]
+#
+# @!attribute [rw] threshold
+#   @return [Float]
 #
 # @!attribute [rw] timeframe
 #   @return [Array]
@@ -1977,8 +2067,28 @@ GenerateTrackSubtitleCreateData = Struct.new(
 # @!attribute [rw] total_row_count
 #   @return [Integer]
 Incident = Struct.new(
+  :affected_views,
+  :affected_views_per_hour,
+  :affected_views_per_hour_on_open,
+  :breakdowns,
   :data,
+  :description,
+  :error_description,
   :id,
+  :impact,
+  :incident_key,
+  :measured_value,
+  :measured_value_on_close,
+  :measurement,
+  :notification_rules,
+  :notifications,
+  :resolved_at,
+  :sample_size,
+  :sample_size_unit,
+  :severity,
+  :started_at,
+  :status,
+  :threshold,
   :timeframe,
   :total_row_count,
   keyword_init: true
@@ -1990,6 +2100,35 @@ Incident = Struct.new(
 #   @return [String]
 IncidentLoadMatch = Struct.new(
   :id,
+  keyword_init: true
+)
+
+# Request payload for Incident#list.
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] order_by
+#   @return [String, nil]
+#
+# @!attribute [rw] order_direction
+#   @return [String, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] severity
+#   @return [String, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+IncidentListMatch = Struct.new(
+  :limit,
+  :order_by,
+  :order_direction,
+  :page,
+  :severity,
+  :status,
   keyword_init: true
 )
 
@@ -2040,6 +2179,31 @@ JobSummary = Struct.new(
   :links,
   :status,
   :updated_at,
+  :workflow,
+  keyword_init: true
+)
+
+# Request payload for JobSummary#list.
+#
+# @!attribute [rw] asset_id
+#   @return [String, nil]
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] status
+#   @return [Object, nil]
+#
+# @!attribute [rw] workflow
+#   @return [String, nil]
+JobSummaryListMatch = Struct.new(
+  :asset_id,
+  :limit,
+  :page,
+  :status,
   :workflow,
   keyword_init: true
 )
@@ -2148,214 +2312,6 @@ ListAllMetricValueListMatch = Struct.new(
   :metric_filter,
   :timeframe,
   :value,
-  keyword_init: true
-)
-
-# ListAnnotation entity data model.
-#
-# @!attribute [rw] date
-#   @return [String]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] note
-#   @return [String]
-#
-# @!attribute [rw] sub_property_id
-#   @return [String, nil]
-ListAnnotation = Struct.new(
-  :date,
-  :id,
-  :note,
-  :sub_property_id,
-  keyword_init: true
-)
-
-# Request payload for ListAnnotation#list.
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] order_direction
-#   @return [String, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-#
-# @!attribute [rw] timeframe
-#   @return [Array, nil]
-ListAnnotationListMatch = Struct.new(
-  :limit,
-  :order_direction,
-  :page,
-  :timeframe,
-  keyword_init: true
-)
-
-# ListAsset entity data model.
-#
-# @!attribute [rw] aspect_ratio
-#   @return [String, nil]
-#
-# @!attribute [rw] created_at
-#   @return [String]
-#
-# @!attribute [rw] directives
-#   @return [Array, nil]
-#
-# @!attribute [rw] duration
-#   @return [Float, nil]
-#
-# @!attribute [rw] encoding_tier
-#   @return [String]
-#
-# @!attribute [rw] errors
-#   @return [Hash, nil]
-#
-# @!attribute [rw] generate_shots
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] ingest_type
-#   @return [String, nil]
-#
-# @!attribute [rw] is_live
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] live_stream_id
-#   @return [String, nil]
-#
-# @!attribute [rw] master
-#   @return [Hash, nil]
-#
-# @!attribute [rw] master_access
-#   @return [String]
-#
-# @!attribute [rw] max_resolution_tier
-#   @return [String]
-#
-# @!attribute [rw] max_stored_frame_rate
-#   @return [Float, nil]
-#
-# @!attribute [rw] max_stored_resolution
-#   @return [String, nil]
-#
-# @!attribute [rw] meta
-#   @return [Hash, nil]
-#
-# @!attribute [rw] mp4_support
-#   @return [String, nil]
-#
-# @!attribute [rw] non_standard_input_reasons
-#   @return [Hash, nil]
-#
-# @!attribute [rw] normalize_audio
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] passthrough
-#   @return [String, nil]
-#
-# @!attribute [rw] playback_ids
-#   @return [Array, nil]
-#
-# @!attribute [rw] progress
-#   @return [Hash]
-#
-# @!attribute [rw] recording_times
-#   @return [Array, nil]
-#
-# @!attribute [rw] resolution_tier
-#   @return [String, nil]
-#
-# @!attribute [rw] shots
-#   @return [Hash]
-#
-# @!attribute [rw] source_asset_id
-#   @return [String, nil]
-#
-# @!attribute [rw] static_renditions
-#   @return [Hash, nil]
-#
-# @!attribute [rw] status
-#   @return [String]
-#
-# @!attribute [rw] test
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] thumbnail_time
-#   @return [Float, nil]
-#
-# @!attribute [rw] tracks
-#   @return [Array, nil]
-#
-# @!attribute [rw] upload_id
-#   @return [String, nil]
-#
-# @!attribute [rw] video_quality
-#   @return [String, nil]
-ListAsset = Struct.new(
-  :aspect_ratio,
-  :created_at,
-  :directives,
-  :duration,
-  :encoding_tier,
-  :errors,
-  :generate_shots,
-  :id,
-  :ingest_type,
-  :is_live,
-  :live_stream_id,
-  :master,
-  :master_access,
-  :max_resolution_tier,
-  :max_stored_frame_rate,
-  :max_stored_resolution,
-  :meta,
-  :mp4_support,
-  :non_standard_input_reasons,
-  :normalize_audio,
-  :passthrough,
-  :playback_ids,
-  :progress,
-  :recording_times,
-  :resolution_tier,
-  :shots,
-  :source_asset_id,
-  :static_renditions,
-  :status,
-  :test,
-  :thumbnail_time,
-  :tracks,
-  :upload_id,
-  :video_quality,
-  keyword_init: true
-)
-
-# Request payload for ListAsset#list.
-#
-# @!attribute [rw] cursor
-#   @return [String, nil]
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] live_stream_id
-#   @return [String, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-#
-# @!attribute [rw] upload_id
-#   @return [String, nil]
-ListAssetListMatch = Struct.new(
-  :cursor,
-  :limit,
-  :live_stream_id,
-  :page,
-  :upload_id,
   keyword_init: true
 )
 
@@ -2511,40 +2467,6 @@ ListDeliveryUsageListMatch = Struct.new(
   keyword_init: true
 )
 
-# ListDimension entity data model.
-#
-# @!attribute [rw] data
-#   @return [Hash]
-#
-# @!attribute [rw] timeframe
-#   @return [Array]
-#
-# @!attribute [rw] total_row_count
-#   @return [Integer]
-ListDimension = Struct.new(
-  :data,
-  :timeframe,
-  :total_row_count,
-  keyword_init: true
-)
-
-# Request payload for ListDimension#list.
-#
-# @!attribute [rw] data
-#   @return [Hash, nil]
-#
-# @!attribute [rw] timeframe
-#   @return [Array, nil]
-#
-# @!attribute [rw] total_row_count
-#   @return [Integer, nil]
-ListDimensionListMatch = Struct.new(
-  :data,
-  :timeframe,
-  :total_row_count,
-  keyword_init: true
-)
-
 # ListDimensionValue entity data model.
 #
 # @!attribute [rw] data
@@ -2601,60 +2523,26 @@ ListDimensionValueLoadMatch = Struct.new(
 
 # Request payload for ListDimensionValue#list.
 #
-# @!attribute [rw] dimension_id
-#   @return [String]
-#
-# @!attribute [rw] filter
+# @!attribute [rw] data
 #   @return [Array, nil]
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] metric_filter
-#   @return [Array, nil]
-#
-# @!attribute [rw] order_by
-#   @return [String, nil]
-#
-# @!attribute [rw] order_direction
-#   @return [String, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
 #
 # @!attribute [rw] timeframe
 #   @return [Array, nil]
+#
+# @!attribute [rw] total_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] total_row_count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] value
+#   @return [String, nil]
 ListDimensionValueListMatch = Struct.new(
-  :dimension_id,
-  :filter,
-  :limit,
-  :metric_filter,
-  :order_by,
-  :order_direction,
-  :page,
+  :data,
   :timeframe,
-  keyword_init: true
-)
-
-# ListDrmConfiguration entity data model.
-#
-# @!attribute [rw] id
-#   @return [String]
-ListDrmConfiguration = Struct.new(
-  :id,
-  keyword_init: true
-)
-
-# Request payload for ListDrmConfiguration#list.
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-ListDrmConfigurationListMatch = Struct.new(
-  :limit,
-  :page,
+  :total_count,
+  :total_row_count,
+  :value,
   keyword_init: true
 )
 
@@ -2750,40 +2638,6 @@ ListExportListMatch = Struct.new(
   keyword_init: true
 )
 
-# ListFilter entity data model.
-#
-# @!attribute [rw] data
-#   @return [Hash]
-#
-# @!attribute [rw] timeframe
-#   @return [Array]
-#
-# @!attribute [rw] total_row_count
-#   @return [Integer]
-ListFilter = Struct.new(
-  :data,
-  :timeframe,
-  :total_row_count,
-  keyword_init: true
-)
-
-# Request payload for ListFilter#list.
-#
-# @!attribute [rw] data
-#   @return [Hash, nil]
-#
-# @!attribute [rw] timeframe
-#   @return [Array, nil]
-#
-# @!attribute [rw] total_row_count
-#   @return [Integer, nil]
-ListFilterListMatch = Struct.new(
-  :data,
-  :timeframe,
-  :total_row_count,
-  keyword_init: true
-)
-
 # ListFilterValue entity data model.
 #
 # @!attribute [rw] data
@@ -2826,121 +2680,20 @@ ListFilterValueLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# ListIncident entity data model.
+# Request payload for ListFilterValue#list.
 #
-# @!attribute [rw] affected_views
-#   @return [Integer]
+# @!attribute [rw] data
+#   @return [Array, nil]
 #
-# @!attribute [rw] affected_views_per_hour
-#   @return [Integer]
+# @!attribute [rw] timeframe
+#   @return [Array, nil]
 #
-# @!attribute [rw] affected_views_per_hour_on_open
-#   @return [Integer]
-#
-# @!attribute [rw] breakdowns
-#   @return [Array]
-#
-# @!attribute [rw] description
-#   @return [String]
-#
-# @!attribute [rw] error_description
-#   @return [String]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] impact
-#   @return [String]
-#
-# @!attribute [rw] incident_key
-#   @return [String]
-#
-# @!attribute [rw] measured_value
-#   @return [Float]
-#
-# @!attribute [rw] measured_value_on_close
-#   @return [Float]
-#
-# @!attribute [rw] measurement
-#   @return [String]
-#
-# @!attribute [rw] notification_rules
-#   @return [Array]
-#
-# @!attribute [rw] notifications
-#   @return [Array]
-#
-# @!attribute [rw] resolved_at
-#   @return [String]
-#
-# @!attribute [rw] sample_size
-#   @return [Integer]
-#
-# @!attribute [rw] sample_size_unit
-#   @return [String]
-#
-# @!attribute [rw] severity
-#   @return [String]
-#
-# @!attribute [rw] started_at
-#   @return [String]
-#
-# @!attribute [rw] status
-#   @return [String]
-#
-# @!attribute [rw] threshold
-#   @return [Float]
-ListIncident = Struct.new(
-  :affected_views,
-  :affected_views_per_hour,
-  :affected_views_per_hour_on_open,
-  :breakdowns,
-  :description,
-  :error_description,
-  :id,
-  :impact,
-  :incident_key,
-  :measured_value,
-  :measured_value_on_close,
-  :measurement,
-  :notification_rules,
-  :notifications,
-  :resolved_at,
-  :sample_size,
-  :sample_size_unit,
-  :severity,
-  :started_at,
-  :status,
-  :threshold,
-  keyword_init: true
-)
-
-# Request payload for ListIncident#list.
-#
-# @!attribute [rw] limit
+# @!attribute [rw] total_row_count
 #   @return [Integer, nil]
-#
-# @!attribute [rw] order_by
-#   @return [String, nil]
-#
-# @!attribute [rw] order_direction
-#   @return [String, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-#
-# @!attribute [rw] severity
-#   @return [String, nil]
-#
-# @!attribute [rw] status
-#   @return [String, nil]
-ListIncidentListMatch = Struct.new(
-  :limit,
-  :order_by,
-  :order_direction,
-  :page,
-  :severity,
-  :status,
+ListFilterValueListMatch = Struct.new(
+  :data,
+  :timeframe,
+  :total_row_count,
   keyword_init: true
 )
 
@@ -3006,182 +2759,6 @@ ListInsightListMatch = Struct.new(
   keyword_init: true
 )
 
-# ListJob entity data model.
-#
-# @!attribute [rw] created_at
-#   @return [Integer]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] links
-#   @return [Hash]
-#
-# @!attribute [rw] status
-#   @return [String]
-#
-# @!attribute [rw] updated_at
-#   @return [Integer]
-#
-# @!attribute [rw] workflow
-#   @return [String]
-ListJob = Struct.new(
-  :created_at,
-  :id,
-  :links,
-  :status,
-  :updated_at,
-  :workflow,
-  keyword_init: true
-)
-
-# Request payload for ListJob#list.
-#
-# @!attribute [rw] asset_id
-#   @return [String, nil]
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-#
-# @!attribute [rw] status
-#   @return [Object, nil]
-#
-# @!attribute [rw] workflow
-#   @return [String, nil]
-ListJobListMatch = Struct.new(
-  :asset_id,
-  :limit,
-  :page,
-  :status,
-  :workflow,
-  keyword_init: true
-)
-
-# ListLiveStream entity data model.
-#
-# @!attribute [rw] active_asset_id
-#   @return [String, nil]
-#
-# @!attribute [rw] active_ingest_protocol
-#   @return [String, nil]
-#
-# @!attribute [rw] audio_only
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] created_at
-#   @return [String]
-#
-# @!attribute [rw] embedded_subtitles
-#   @return [Array, nil]
-#
-# @!attribute [rw] generated_subtitles
-#   @return [Array, nil]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] latency_mode
-#   @return [String]
-#
-# @!attribute [rw] low_latency
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] max_continuous_duration
-#   @return [Integer]
-#
-# @!attribute [rw] meta
-#   @return [Hash, nil]
-#
-# @!attribute [rw] new_asset_settings
-#   @return [Hash, nil]
-#
-# @!attribute [rw] passthrough
-#   @return [String, nil]
-#
-# @!attribute [rw] playback_ids
-#   @return [Array, nil]
-#
-# @!attribute [rw] recent_asset_ids
-#   @return [Array, nil]
-#
-# @!attribute [rw] reconnect_slate_url
-#   @return [String, nil]
-#
-# @!attribute [rw] reconnect_window
-#   @return [Float, nil]
-#
-# @!attribute [rw] reduced_latency
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] simulcast_targets
-#   @return [Array, nil]
-#
-# @!attribute [rw] srt_passphrase
-#   @return [String, nil]
-#
-# @!attribute [rw] status
-#   @return [String]
-#
-# @!attribute [rw] stream_key
-#   @return [String]
-#
-# @!attribute [rw] test
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] use_slate_for_standard_latency
-#   @return [Boolean, nil]
-ListLiveStream = Struct.new(
-  :active_asset_id,
-  :active_ingest_protocol,
-  :audio_only,
-  :created_at,
-  :embedded_subtitles,
-  :generated_subtitles,
-  :id,
-  :latency_mode,
-  :low_latency,
-  :max_continuous_duration,
-  :meta,
-  :new_asset_settings,
-  :passthrough,
-  :playback_ids,
-  :recent_asset_ids,
-  :reconnect_slate_url,
-  :reconnect_window,
-  :reduced_latency,
-  :simulcast_targets,
-  :srt_passphrase,
-  :status,
-  :stream_key,
-  :test,
-  :use_slate_for_standard_latency,
-  keyword_init: true
-)
-
-# Request payload for ListLiveStream#list.
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-#
-# @!attribute [rw] status
-#   @return [String, nil]
-#
-# @!attribute [rw] stream_key
-#   @return [String, nil]
-ListLiveStreamListMatch = Struct.new(
-  :limit,
-  :page,
-  :status,
-  :stream_key,
-  keyword_init: true
-)
-
 # ListMonitoringDimension entity data model.
 #
 # @!attribute [rw] display_name
@@ -3231,44 +2808,6 @@ ListMonitoringMetric = Struct.new(
 ListMonitoringMetricListMatch = Struct.new(
   :display_name,
   :name,
-  keyword_init: true
-)
-
-# ListPlaybackRestriction entity data model.
-#
-# @!attribute [rw] created_at
-#   @return [String]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] referrer
-#   @return [Hash]
-#
-# @!attribute [rw] updated_at
-#   @return [String]
-#
-# @!attribute [rw] user_agent
-#   @return [Hash]
-ListPlaybackRestriction = Struct.new(
-  :created_at,
-  :id,
-  :referrer,
-  :updated_at,
-  :user_agent,
-  keyword_init: true
-)
-
-# Request payload for ListPlaybackRestriction#list.
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-ListPlaybackRestrictionListMatch = Struct.new(
-  :limit,
-  :page,
   keyword_init: true
 )
 
@@ -3438,36 +2977,6 @@ ListRelatedIncidentListMatch = Struct.new(
   keyword_init: true
 )
 
-# ListSigningKey entity data model.
-#
-# @!attribute [rw] created_at
-#   @return [String]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] private_key
-#   @return [String, nil]
-ListSigningKey = Struct.new(
-  :created_at,
-  :id,
-  :private_key,
-  keyword_init: true
-)
-
-# Request payload for ListSigningKey#list.
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-ListSigningKeyListMatch = Struct.new(
-  :limit,
-  :page,
-  keyword_init: true
-)
-
 # ListSubviewBreakdownValue entity data model.
 #
 # @!attribute [rw] breakdown_value
@@ -3566,14 +3075,14 @@ ListSubviewComparisonValueListMatch = Struct.new(
 
 # ListSubviewDimension entity data model.
 #
-# @!attribute [rw] subview
-#   @return [Array]
+# @!attribute [rw] data
+#   @return [Hash]
 #
-# @!attribute [rw] view
-#   @return [Array]
+# @!attribute [rw] total_row_count
+#   @return [Integer]
 ListSubviewDimension = Struct.new(
-  :subview,
-  :view,
+  :data,
+  :total_row_count,
   keyword_init: true
 )
 
@@ -3648,242 +3157,6 @@ ListSubviewDimensionValueLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# ListTranscriptionVocabulary entity data model.
-#
-# @!attribute [rw] created_at
-#   @return [String]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] passthrough
-#   @return [String, nil]
-#
-# @!attribute [rw] phrases
-#   @return [Array, nil]
-#
-# @!attribute [rw] updated_at
-#   @return [String]
-ListTranscriptionVocabulary = Struct.new(
-  :created_at,
-  :id,
-  :name,
-  :passthrough,
-  :phrases,
-  :updated_at,
-  keyword_init: true
-)
-
-# Request payload for ListTranscriptionVocabulary#list.
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-ListTranscriptionVocabularyListMatch = Struct.new(
-  :limit,
-  :page,
-  keyword_init: true
-)
-
-# ListUpload entity data model.
-#
-# @!attribute [rw] asset_id
-#   @return [String, nil]
-#
-# @!attribute [rw] cors_origin
-#   @return [String]
-#
-# @!attribute [rw] error
-#   @return [Hash, nil]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] new_asset_settings
-#   @return [Hash, nil]
-#
-# @!attribute [rw] status
-#   @return [String]
-#
-# @!attribute [rw] test
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] timeout
-#   @return [Integer]
-#
-# @!attribute [rw] url
-#   @return [String, nil]
-ListUpload = Struct.new(
-  :asset_id,
-  :cors_origin,
-  :error,
-  :id,
-  :new_asset_settings,
-  :status,
-  :test,
-  :timeout,
-  :url,
-  keyword_init: true
-)
-
-# Request payload for ListUpload#list.
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-ListUploadListMatch = Struct.new(
-  :limit,
-  :page,
-  keyword_init: true
-)
-
-# ListUsageExport entity data model.
-#
-# @!attribute [rw] date
-#   @return [String]
-#
-# @!attribute [rw] download_url
-#   @return [String]
-#
-# @!attribute [rw] download_url_expires_at
-#   @return [Integer]
-#
-# @!attribute [rw] file_size
-#   @return [Integer]
-ListUsageExport = Struct.new(
-  :date,
-  :download_url,
-  :download_url_expires_at,
-  :file_size,
-  keyword_init: true
-)
-
-# Request payload for ListUsageExport#list.
-#
-# @!attribute [rw] download_url_ttl
-#   @return [Integer, nil]
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-#
-# @!attribute [rw] timeframe
-#   @return [Array, nil]
-ListUsageExportListMatch = Struct.new(
-  :download_url_ttl,
-  :limit,
-  :page,
-  :timeframe,
-  keyword_init: true
-)
-
-# ListVideoView entity data model.
-#
-# @!attribute [rw] country_code
-#   @return [String]
-#
-# @!attribute [rw] error_type_id
-#   @return [Integer]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] playback_failure
-#   @return [Boolean]
-#
-# @!attribute [rw] player_error_code
-#   @return [String]
-#
-# @!attribute [rw] player_error_message
-#   @return [String]
-#
-# @!attribute [rw] total_row_count
-#   @return [Integer]
-#
-# @!attribute [rw] video_title
-#   @return [String]
-#
-# @!attribute [rw] view_end
-#   @return [String]
-#
-# @!attribute [rw] view_start
-#   @return [String]
-#
-# @!attribute [rw] viewer_application_name
-#   @return [String]
-#
-# @!attribute [rw] viewer_experience_score
-#   @return [Float]
-#
-# @!attribute [rw] viewer_os_family
-#   @return [String]
-#
-# @!attribute [rw] watch_time
-#   @return [Integer]
-ListVideoView = Struct.new(
-  :country_code,
-  :error_type_id,
-  :id,
-  :playback_failure,
-  :player_error_code,
-  :player_error_message,
-  :total_row_count,
-  :video_title,
-  :view_end,
-  :view_start,
-  :viewer_application_name,
-  :viewer_experience_score,
-  :viewer_os_family,
-  :watch_time,
-  keyword_init: true
-)
-
-# Request payload for ListVideoView#list.
-#
-# @!attribute [rw] error_id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] filter
-#   @return [Array, nil]
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] metric_filter
-#   @return [Array, nil]
-#
-# @!attribute [rw] order_direction
-#   @return [String, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-#
-# @!attribute [rw] timeframe
-#   @return [Array, nil]
-#
-# @!attribute [rw] viewer_id
-#   @return [String, nil]
-ListVideoViewListMatch = Struct.new(
-  :error_id,
-  :filter,
-  :limit,
-  :metric_filter,
-  :order_direction,
-  :page,
-  :timeframe,
-  :viewer_id,
-  keyword_init: true
-)
-
 # ListVideoViewExport entity data model.
 #
 # @!attribute [rw] export_date
@@ -3907,44 +3180,6 @@ ListVideoViewExport = Struct.new(
 ListVideoViewExportListMatch = Struct.new(
   :export_date,
   :files,
-  keyword_init: true
-)
-
-# ListWebhook entity data model.
-#
-# @!attribute [rw] address
-#   @return [String]
-#
-# @!attribute [rw] created_at
-#   @return [String]
-#
-# @!attribute [rw] enabled
-#   @return [Boolean]
-#
-# @!attribute [rw] id
-#   @return [String]
-#
-# @!attribute [rw] signing_secret
-#   @return [String, nil]
-ListWebhook = Struct.new(
-  :address,
-  :created_at,
-  :enabled,
-  :id,
-  :signing_secret,
-  keyword_init: true
-)
-
-# Request payload for ListWebhook#list.
-#
-# @!attribute [rw] limit
-#   @return [Integer, nil]
-#
-# @!attribute [rw] page
-#   @return [Integer, nil]
-ListWebhookListMatch = Struct.new(
-  :limit,
-  :page,
   keyword_init: true
 )
 
@@ -4067,6 +3302,27 @@ LiveStream = Struct.new(
 #   @return [String]
 LiveStreamLoadMatch = Struct.new(
   :id,
+  keyword_init: true
+)
+
+# Request payload for LiveStream#list.
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] status
+#   @return [String, nil]
+#
+# @!attribute [rw] stream_key
+#   @return [String, nil]
+LiveStreamListMatch = Struct.new(
+  :limit,
+  :page,
+  :status,
+  :stream_key,
   keyword_init: true
 )
 
@@ -4768,6 +4024,19 @@ PlaybackRestrictionLoadMatch = Struct.new(
   keyword_init: true
 )
 
+# Request payload for PlaybackRestriction#list.
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+PlaybackRestrictionListMatch = Struct.new(
+  :limit,
+  :page,
+  keyword_init: true
+)
+
 # Request payload for PlaybackRestriction#create.
 #
 # @!attribute [rw] created_at
@@ -4970,24 +4239,15 @@ RealTimeTimeseriesListMatch = Struct.new(
 )
 
 # SignalLiveStreamComplete entity data model.
-#
-# @!attribute [rw] data
-#   @return [Hash, nil]
-SignalLiveStreamComplete = Struct.new(
-  :data,
-  keyword_init: true
-)
+class SignalLiveStreamComplete
+end
 
 # Request payload for SignalLiveStreamComplete#update.
 #
 # @!attribute [rw] live_stream_id
 #   @return [String]
-#
-# @!attribute [rw] data
-#   @return [Hash, nil]
 SignalLiveStreamCompleteUpdateData = Struct.new(
   :live_stream_id,
-  :data,
   keyword_init: true
 )
 
@@ -5018,6 +4278,19 @@ SigningKey = Struct.new(
 #   @return [String]
 SigningKeyLoadMatch = Struct.new(
   :id,
+  keyword_init: true
+)
+
+# Request payload for SigningKey#list.
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+SigningKeyListMatch = Struct.new(
+  :limit,
+  :page,
   keyword_init: true
 )
 
@@ -5398,6 +4671,19 @@ TranscriptionVocabulary = Struct.new(
 #   @return [String]
 TranscriptionVocabularyLoadMatch = Struct.new(
   :id,
+  keyword_init: true
+)
+
+# Request payload for TranscriptionVocabulary#list.
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+TranscriptionVocabularyListMatch = Struct.new(
+  :limit,
+  :page,
   keyword_init: true
 )
 
@@ -5890,6 +5176,19 @@ UploadLoadMatch = Struct.new(
   keyword_init: true
 )
 
+# Request payload for Upload#list.
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+UploadListMatch = Struct.new(
+  :limit,
+  :page,
+  keyword_init: true
+)
+
 # Request payload for Upload#create.
 #
 # @!attribute [rw] asset_id
@@ -5994,24 +5293,114 @@ UrlSigningKeyRemoveMatch = Struct.new(
   keyword_init: true
 )
 
+# UsageExport entity data model.
+#
+# @!attribute [rw] date
+#   @return [String]
+#
+# @!attribute [rw] download_url
+#   @return [String]
+#
+# @!attribute [rw] download_url_expires_at
+#   @return [Integer]
+#
+# @!attribute [rw] file_size
+#   @return [Integer]
+UsageExport = Struct.new(
+  :date,
+  :download_url,
+  :download_url_expires_at,
+  :file_size,
+  keyword_init: true
+)
+
+# Request payload for UsageExport#list.
+#
+# @!attribute [rw] download_url_ttl
+#   @return [Integer, nil]
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] timeframe
+#   @return [Array, nil]
+UsageExportListMatch = Struct.new(
+  :download_url_ttl,
+  :limit,
+  :page,
+  :timeframe,
+  keyword_init: true
+)
+
 # VideoView entity data model.
+#
+# @!attribute [rw] country_code
+#   @return [String]
 #
 # @!attribute [rw] data
 #   @return [Hash]
 #
+# @!attribute [rw] error_type_id
+#   @return [Integer]
+#
 # @!attribute [rw] id
-#   @return [String, nil]
+#   @return [String]
+#
+# @!attribute [rw] playback_failure
+#   @return [Boolean]
+#
+# @!attribute [rw] player_error_code
+#   @return [String]
+#
+# @!attribute [rw] player_error_message
+#   @return [String]
 #
 # @!attribute [rw] timeframe
 #   @return [Array]
 #
 # @!attribute [rw] total_row_count
 #   @return [Integer]
+#
+# @!attribute [rw] video_title
+#   @return [String]
+#
+# @!attribute [rw] view_end
+#   @return [String]
+#
+# @!attribute [rw] view_start
+#   @return [String]
+#
+# @!attribute [rw] viewer_application_name
+#   @return [String]
+#
+# @!attribute [rw] viewer_experience_score
+#   @return [Float]
+#
+# @!attribute [rw] viewer_os_family
+#   @return [String]
+#
+# @!attribute [rw] watch_time
+#   @return [Integer]
 VideoView = Struct.new(
+  :country_code,
   :data,
+  :error_type_id,
   :id,
+  :playback_failure,
+  :player_error_code,
+  :player_error_message,
   :timeframe,
   :total_row_count,
+  :video_title,
+  :view_end,
+  :view_start,
+  :viewer_application_name,
+  :viewer_experience_score,
+  :viewer_os_family,
+  :watch_time,
   keyword_init: true
 )
 
@@ -6021,6 +5410,43 @@ VideoView = Struct.new(
 #   @return [String]
 VideoViewLoadMatch = Struct.new(
   :id,
+  keyword_init: true
+)
+
+# Request payload for VideoView#list.
+#
+# @!attribute [rw] error_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] filter
+#   @return [Array, nil]
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] metric_filter
+#   @return [Array, nil]
+#
+# @!attribute [rw] order_direction
+#   @return [String, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+#
+# @!attribute [rw] timeframe
+#   @return [Array, nil]
+#
+# @!attribute [rw] viewer_id
+#   @return [String, nil]
+VideoViewListMatch = Struct.new(
+  :error_id,
+  :filter,
+  :limit,
+  :metric_filter,
+  :order_direction,
+  :page,
+  :timeframe,
+  :viewer_id,
   keyword_init: true
 )
 
@@ -6055,6 +5481,19 @@ Webhook = Struct.new(
 #   @return [String]
 WebhookLoadMatch = Struct.new(
   :id,
+  keyword_init: true
+)
+
+# Request payload for Webhook#list.
+#
+# @!attribute [rw] limit
+#   @return [Integer, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
+WebhookListMatch = Struct.new(
+  :limit,
+  :page,
   keyword_init: true
 )
 

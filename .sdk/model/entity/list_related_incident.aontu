@@ -162,7 +162,7 @@ main: kit: entity: list_related_incident: {
                 ex: "abcd1234"
                 k: "param"
                 n: "incident_id"
-                or: "incident_id"
+                or: "INCIDENT_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -235,7 +235,7 @@ main: kit: entity: list_related_incident: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

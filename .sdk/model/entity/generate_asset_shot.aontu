@@ -29,7 +29,7 @@ main: kit: entity: generate_asset_shot: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }

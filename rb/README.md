@@ -12,9 +12,18 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`):
+GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/mux-sdk/releases)), or
+from a clone:
 
-- Releases: [https://github.com/voxgig-sdk/mux-sdk/releases](https://github.com/voxgig-sdk/mux-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/mux-sdk
+```
+
+Then add it to your `Gemfile` by path, and run `bundle install`:
+
+```ruby
+gem "voxgig-sdk-mux-sdk", path: "./mux-sdk/rb"
+```
 
 
 ## Tutorial: your first API call
@@ -30,6 +39,20 @@ require_relative "Mux_sdk"
 client = MuxSDK.new({
   "apikey" => ENV["MUX_APIKEY"],
 })
+```
+
+### 2. List annotation records
+
+```ruby
+begin
+  # list returns an Array of Annotation records — iterate directly.
+  annotations = client.Annotation.list
+  annotations.each do |item|
+    puts "#{item["id"]} #{item["date"]}"
+  end
+rescue => err
+  warn "list failed: #{err}"
+end
 ```
 
 ### 3. Load an assetplaybackid
@@ -66,7 +89,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  listdimensionvalues = client.ListDimensionValue.list()
+  realtimebreakdowns = client.RealTimeBreakdown.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -136,8 +159,8 @@ client = MuxSDK.test
 
 # Entity ops return the ENTITY (raises on error);
 # call data_get for the mock record.
-listdimensionvalue = client.ListDimensionValue.list()
-puts listdimensionvalue
+realtimebreakdown = client.RealTimeBreakdown.list()
+puts realtimebreakdown
 ```
 
 ### Use a custom fetch function
@@ -225,7 +248,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `CreateTrack` | `(data) -> CreateTrackEntity` | Create a CreateTrack entity instance. |
 | `Directive` | `(data) -> DirectiveEntity` | Create a Directive entity instance. |
 | `DirectiveRunDetail` | `(data) -> DirectiveRunDetailEntity` | Create a DirectiveRunDetail entity instance. |
-| `DirectiveRunList` | `(data) -> DirectiveRunListEntity` | Create a DirectiveRunList entity instance. |
 | `DrmConfiguration` | `(data) -> DrmConfigurationEntity` | Create a DrmConfiguration entity instance. |
 | `EditCaption` | `(data) -> EditCaptionEntity` | Create an EditCaption entity instance. |
 | `EngagementHeatmap` | `(data) -> EngagementHeatmapEntity` | Create an EngagementHeatmap entity instance. |
@@ -242,38 +264,23 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `InputInfo` | `(data) -> InputInfoEntity` | Create an InputInfo entity instance. |
 | `JobSummary` | `(data) -> JobSummaryEntity` | Create a JobSummary entity instance. |
 | `ListAllMetricValue` | `(data) -> ListAllMetricValueEntity` | Create a ListAllMetricValue entity instance. |
-| `ListAnnotation` | `(data) -> ListAnnotationEntity` | Create a ListAnnotation entity instance. |
-| `ListAsset` | `(data) -> ListAssetEntity` | Create a ListAsset entity instance. |
 | `ListBreakdownValue` | `(data) -> ListBreakdownValueEntity` | Create a ListBreakdownValue entity instance. |
 | `ListDeliveryUsage` | `(data) -> ListDeliveryUsageEntity` | Create a ListDeliveryUsage entity instance. |
-| `ListDimension` | `(data) -> ListDimensionEntity` | Create a ListDimension entity instance. |
 | `ListDimensionValue` | `(data) -> ListDimensionValueEntity` | Create a ListDimensionValue entity instance. |
-| `ListDrmConfiguration` | `(data) -> ListDrmConfigurationEntity` | Create a ListDrmConfiguration entity instance. |
 | `ListError` | `(data) -> ListErrorEntity` | Create a ListError entity instance. |
 | `ListExport` | `(data) -> ListExportEntity` | Create a ListExport entity instance. |
-| `ListFilter` | `(data) -> ListFilterEntity` | Create a ListFilter entity instance. |
 | `ListFilterValue` | `(data) -> ListFilterValueEntity` | Create a ListFilterValue entity instance. |
-| `ListIncident` | `(data) -> ListIncidentEntity` | Create a ListIncident entity instance. |
 | `ListInsight` | `(data) -> ListInsightEntity` | Create a ListInsight entity instance. |
-| `ListJob` | `(data) -> ListJobEntity` | Create a ListJob entity instance. |
-| `ListLiveStream` | `(data) -> ListLiveStreamEntity` | Create a ListLiveStream entity instance. |
 | `ListMonitoringDimension` | `(data) -> ListMonitoringDimensionEntity` | Create a ListMonitoringDimension entity instance. |
 | `ListMonitoringMetric` | `(data) -> ListMonitoringMetricEntity` | Create a ListMonitoringMetric entity instance. |
-| `ListPlaybackRestriction` | `(data) -> ListPlaybackRestrictionEntity` | Create a ListPlaybackRestriction entity instance. |
 | `ListRealTimeDimension` | `(data) -> ListRealTimeDimensionEntity` | Create a ListRealTimeDimension entity instance. |
 | `ListRealTimeMetric` | `(data) -> ListRealTimeMetricEntity` | Create a ListRealTimeMetric entity instance. |
 | `ListRelatedIncident` | `(data) -> ListRelatedIncidentEntity` | Create a ListRelatedIncident entity instance. |
-| `ListSigningKey` | `(data) -> ListSigningKeyEntity` | Create a ListSigningKey entity instance. |
 | `ListSubviewBreakdownValue` | `(data) -> ListSubviewBreakdownValueEntity` | Create a ListSubviewBreakdownValue entity instance. |
 | `ListSubviewComparisonValue` | `(data) -> ListSubviewComparisonValueEntity` | Create a ListSubviewComparisonValue entity instance. |
 | `ListSubviewDimension` | `(data) -> ListSubviewDimensionEntity` | Create a ListSubviewDimension entity instance. |
 | `ListSubviewDimensionValue` | `(data) -> ListSubviewDimensionValueEntity` | Create a ListSubviewDimensionValue entity instance. |
-| `ListTranscriptionVocabulary` | `(data) -> ListTranscriptionVocabularyEntity` | Create a ListTranscriptionVocabulary entity instance. |
-| `ListUpload` | `(data) -> ListUploadEntity` | Create a ListUpload entity instance. |
-| `ListUsageExport` | `(data) -> ListUsageExportEntity` | Create a ListUsageExport entity instance. |
-| `ListVideoView` | `(data) -> ListVideoViewEntity` | Create a ListVideoView entity instance. |
 | `ListVideoViewExport` | `(data) -> ListVideoViewExportEntity` | Create a ListVideoViewExport entity instance. |
-| `ListWebhook` | `(data) -> ListWebhookEntity` | Create a ListWebhook entity instance. |
 | `LiveStream` | `(data) -> LiveStreamEntity` | Create a LiveStream entity instance. |
 | `LiveStreamPlaybackId` | `(data) -> LiveStreamPlaybackIdEntity` | Create a LiveStreamPlaybackId entity instance. |
 | `MetricTimeseriesData` | `(data) -> MetricTimeseriesDataEntity` | Create a MetricTimeseriesData entity instance. |
@@ -300,6 +307,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `UpdateAssetTrack` | `(data) -> UpdateAssetTrackEntity` | Create an UpdateAssetTrack entity instance. |
 | `Upload` | `(data) -> UploadEntity` | Create an Upload entity instance. |
 | `UrlSigningKey` | `(data) -> UrlSigningKeyEntity` | Create an UrlSigningKey entity instance. |
+| `UsageExport` | `(data) -> UsageExportEntity` | Create an UsageExport entity instance. |
 | `VideoView` | `(data) -> VideoViewEntity` | Create a VideoView entity instance. |
 | `Webhook` | `(data) -> WebhookEntity` | Create a Webhook entity instance. |
 | `WhoAmI` | `(data) -> WhoAmIEntity` | Create a WhoAmI entity instance. |
@@ -350,7 +358,7 @@ returns a result `Hash` with these keys:
 | `note` | The annotation note content |
 | `sub_property_id` | Customer-defined sub-property identifier |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/data/v1/annotations`
 
@@ -415,7 +423,7 @@ API path: `/robots/v0/jobs/ask-questions`
 | `upload_id` | Unique identifier for the Direct Upload. |
 | `video_quality` | The video quality controls the cost, quality, and available platform features for the asset. |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/video/v1/assets`
 
@@ -509,22 +517,7 @@ API path: `/robots/v0/directives/{DIRECTIVE_ID}/runs`
 | `status` | Current run status. |
 | `subject_id` | The bare Mux asset ID this run targeted. |
 
-Operations: Load.
-
-API path: `/robots/v0/directives/{DIRECTIVE_ID}/runs/{RUN_ID}`
-
-#### DirectiveRunList
-
-| Field | Description |
-| --- | --- |
-| `completed_at` | Unix timestamp (seconds) when the run reached terminal state. |
-| `node_states` | Per-binding status entries, one per binding, in the order the bindings appear in `directive.workflows[]`. |
-| `run_id` | Unique run identifier (drvrun_...). |
-| `started_at` | Unix timestamp (seconds) when the run started. |
-| `status` | Current run status. |
-| `subject_id` | The bare Mux asset ID this run targeted. |
-
-Operations: List.
+Operations: List, Load.
 
 API path: `/robots/v0/directives/{DIRECTIVE_ID}/runs`
 
@@ -534,9 +527,9 @@ API path: `/robots/v0/directives/{DIRECTIVE_ID}/runs`
 | --- | --- |
 | `id` | Unique identifier for the DRM Configuration. |
 
-Operations: Load.
+Operations: List, Load.
 
-API path: `/video/v1/drm-configurations/{DRM_CONFIGURATION_ID}`
+API path: `/video/v1/drm-configurations`
 
 #### EditCaption
 
@@ -733,14 +726,34 @@ API path: `/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles`
 
 | Field | Description |
 | --- | --- |
+| `affected_views` |  |
+| `affected_views_per_hour` |  |
+| `affected_views_per_hour_on_open` |  |
+| `breakdowns` |  |
 | `data` |  |
+| `description` |  |
+| `error_description` |  |
 | `id` |  |
+| `impact` |  |
+| `incident_key` |  |
+| `measured_value` |  |
+| `measured_value_on_close` |  |
+| `measurement` |  |
+| `notification_rules` |  |
+| `notifications` |  |
+| `resolved_at` |  |
+| `sample_size` |  |
+| `sample_size_unit` |  |
+| `severity` |  |
+| `started_at` |  |
+| `status` |  |
+| `threshold` |  |
 | `timeframe` |  |
 | `total_row_count` |  |
 
-Operations: Load.
+Operations: List, Load.
 
-API path: `/data/v1/incidents/{INCIDENT_ID}`
+API path: `/data/v1/incidents`
 
 #### InputInfo
 
@@ -764,7 +777,7 @@ API path: `/video/v1/assets/{ASSET_ID}/input-info`
 | `updated_at` | Unix timestamp (seconds) of the job's last state transition (e.g. |
 | `workflow` | Workflow type that created this job. |
 
-Operations: Create.
+Operations: Create, List.
 
 API path: `/robots/v0/jobs/{JOB_ID}/cancel`
 
@@ -787,62 +800,6 @@ API path: `/robots/v0/jobs/{JOB_ID}/cancel`
 Operations: List.
 
 API path: `/data/v1/metrics/comparison`
-
-#### ListAnnotation
-
-| Field | Description |
-| --- | --- |
-| `date` | Datetime when the annotation applies |
-| `id` | Unique identifier for the annotation |
-| `note` | The annotation note content |
-| `sub_property_id` | Customer-defined sub-property identifier |
-
-Operations: List.
-
-API path: `/data/v1/annotations`
-
-#### ListAsset
-
-| Field | Description |
-| --- | --- |
-| `aspect_ratio` | The aspect ratio of the asset in the form of `width:height`, for example `16:9`. |
-| `created_at` | Time the Asset was created, defined as a Unix timestamp (seconds since epoch). |
-| `directives` | The Mux Robots directives applied to the asset. |
-| `duration` | The duration of the asset in seconds (max duration for a single asset is 12 hours). |
-| `encoding_tier` | This field is deprecated. |
-| `errors` | Object that describes any errors that happened when processing this asset. |
-| `generate_shots` | Whether to perform shot detection on this asset. |
-| `id` | Unique identifier for the Asset. |
-| `ingest_type` | The type of ingest used to create the asset. |
-| `is_live` | Indicates whether the live stream that created this asset is currently `active` and not in `idle` state. |
-| `live_stream_id` | Unique identifier for the live stream. |
-| `master` | An object containing the current status of Master Access and the link to the Master MP4 file when ready. |
-| `master_access` |  |
-| `max_resolution_tier` | Max resolution tier can be used to control the maximum `resolution_tier` your asset is encoded, stored, and streamed at. |
-| `max_stored_frame_rate` | The maximum frame rate that has been stored for the asset. |
-| `max_stored_resolution` | This field is deprecated. |
-| `meta` | Customer provided metadata about this asset. |
-| `mp4_support` | Deprecated. |
-| `non_standard_input_reasons` | An object containing one or more reasons the input file is non-standard. |
-| `normalize_audio` | Normalize the audio track loudness level. |
-| `passthrough` | You can set this field to anything you want. |
-| `playback_ids` | An array of Playback ID objects. |
-| `progress` | Detailed state information about the asset ingest process. |
-| `recording_times` | An array of individual live stream recording sessions. |
-| `resolution_tier` | The resolution tier that the asset was ingested at, affecting billing for ingest & storage. |
-| `shots` | The results of generating shots on the video |
-| `source_asset_id` | Asset Identifier of the video used as the source for creating the clip. |
-| `static_renditions` | An object containing the current status of any static renditions (MP4s) for this asset. |
-| `status` | The status of the asset. |
-| `test` | True means this live stream is a test asset. |
-| `thumbnail_time` | The media time within the asset used when a thumbnail without an explicit time is requested. |
-| `tracks` | The individual media tracks that make up an asset. |
-| `upload_id` | Unique identifier for the Direct Upload. |
-| `video_quality` | The video quality controls the cost, quality, and available platform features for the asset. |
-
-Operations: List.
-
-API path: `/video/v1/assets`
 
 #### ListBreakdownValue
 
@@ -880,18 +837,6 @@ Operations: List.
 
 API path: `/video/v1/delivery-usage`
 
-#### ListDimension
-
-| Field | Description |
-| --- | --- |
-| `data` |  |
-| `timeframe` |  |
-| `total_row_count` |  |
-
-Operations: List.
-
-API path: `/data/v1/dimensions`
-
 #### ListDimensionValue
 
 | Field | Description |
@@ -905,16 +850,6 @@ API path: `/data/v1/dimensions`
 Operations: List, Load.
 
 API path: `/data/v1/dimensions/{DIMENSION_ID}/elements`
-
-#### ListDrmConfiguration
-
-| Field | Description |
-| --- | --- |
-| `id` | Unique identifier for the DRM Configuration. |
-
-Operations: List.
-
-API path: `/video/v1/drm-configurations`
 
 #### ListError
 
@@ -946,18 +881,6 @@ Operations: List.
 
 API path: `/data/v1/exports`
 
-#### ListFilter
-
-| Field | Description |
-| --- | --- |
-| `data` |  |
-| `timeframe` |  |
-| `total_row_count` |  |
-
-Operations: List.
-
-API path: `/data/v1/filters`
-
 #### ListFilterValue
 
 | Field | Description |
@@ -966,39 +889,9 @@ API path: `/data/v1/filters`
 | `timeframe` |  |
 | `total_row_count` |  |
 
-Operations: Load.
+Operations: List, Load.
 
-API path: `/data/v1/filters/{FILTER_ID}`
-
-#### ListIncident
-
-| Field | Description |
-| --- | --- |
-| `affected_views` |  |
-| `affected_views_per_hour` |  |
-| `affected_views_per_hour_on_open` |  |
-| `breakdowns` |  |
-| `description` |  |
-| `error_description` |  |
-| `id` |  |
-| `impact` |  |
-| `incident_key` |  |
-| `measured_value` |  |
-| `measured_value_on_close` |  |
-| `measurement` |  |
-| `notification_rules` |  |
-| `notifications` |  |
-| `resolved_at` |  |
-| `sample_size` |  |
-| `sample_size_unit` |  |
-| `severity` |  |
-| `started_at` |  |
-| `status` |  |
-| `threshold` |  |
-
-Operations: List.
-
-API path: `/data/v1/incidents`
+API path: `/data/v1/filters`
 
 #### ListInsight
 
@@ -1015,54 +908,6 @@ API path: `/data/v1/incidents`
 Operations: List.
 
 API path: `/data/v1/metrics/{METRIC_ID}/insights`
-
-#### ListJob
-
-| Field | Description |
-| --- | --- |
-| `created_at` | Unix timestamp (seconds) when the job was created. |
-| `id` | Unique job identifier. |
-| `links` | Hypermedia links for this job. |
-| `status` | Current job status. |
-| `updated_at` | Unix timestamp (seconds) of the job's last state transition (e.g. |
-| `workflow` | Workflow type that created this job. |
-
-Operations: List.
-
-API path: `/robots/v0/jobs`
-
-#### ListLiveStream
-
-| Field | Description |
-| --- | --- |
-| `active_asset_id` | The Asset that is currently being created if there is an active broadcast. |
-| `active_ingest_protocol` | The protocol used for the active ingest stream. |
-| `audio_only` | The live stream only processes the audio track if the value is set to true. |
-| `created_at` | Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch). |
-| `embedded_subtitles` | Describes the embedded closed caption configuration of the incoming live stream. |
-| `generated_subtitles` | Configure the incoming live stream to include subtitles created with automatic speech recognition. |
-| `id` | Unique identifier for the Live Stream. |
-| `latency_mode` | Latency is the time from when the streamer transmits a frame of video to when you see it in the player. |
-| `low_latency` | This field is deprecated. |
-| `max_continuous_duration` | The time in seconds a live stream may be continuously active before being disconnected. |
-| `meta` | Customer provided metadata about this live stream. |
-| `new_asset_settings` |  |
-| `passthrough` | Arbitrary user-supplied metadata set for the asset. |
-| `playback_ids` | An array of Playback ID objects. |
-| `recent_asset_ids` | An array of strings with the most recent Asset IDs that were created from this Live Stream. |
-| `reconnect_slate_url` | The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. |
-| `reconnect_window` | When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live s… |
-| `reduced_latency` | This field is deprecated. |
-| `simulcast_targets` | Each Simulcast Target contains configuration details to broadcast (or "restream") a live stream to a third-party streaming service. |
-| `srt_passphrase` | Unique key used for encrypting a stream to a Mux SRT endpoint. |
-| `status` | `idle` indicates that there is no active broadcast. |
-| `stream_key` | Unique key used for streaming to a Mux RTMP endpoint. |
-| `test` | True means this live stream is a test live stream. |
-| `use_slate_for_standard_latency` | By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. |
-
-Operations: List.
-
-API path: `/video/v1/live-streams`
 
 #### ListMonitoringDimension
 
@@ -1085,20 +930,6 @@ API path: `/data/v1/monitoring/dimensions`
 Operations: List.
 
 API path: `/data/v1/monitoring/metrics`
-
-#### ListPlaybackRestriction
-
-| Field | Description |
-| --- | --- |
-| `created_at` | Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | Unique identifier for the Playback Restriction. |
-| `referrer` | A list of domains allowed to play your videos. |
-| `updated_at` | Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch). |
-| `user_agent` | Rules that control what user agents are allowed to play your videos. |
-
-Operations: List.
-
-API path: `/video/v1/playback-restrictions`
 
 #### ListRealTimeDimension
 
@@ -1152,18 +983,6 @@ Operations: List.
 
 API path: `/data/v1/incidents/{INCIDENT_ID}/related`
 
-#### ListSigningKey
-
-| Field | Description |
-| --- | --- |
-| `created_at` | Time at which the object was created. |
-| `id` | Unique identifier for the Signing Key. |
-| `private_key` | A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). |
-
-Operations: List.
-
-API path: `/system/v1/signing-keys`
-
 #### ListSubviewBreakdownValue
 
 | Field | Description |
@@ -1190,8 +1009,8 @@ API path: `/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/comparison`
 
 | Field | Description |
 | --- | --- |
-| `subview` |  |
-| `view` |  |
+| `data` |  |
+| `total_row_count` | Always `null` for this endpoint, matching `GET /data/v1/dimensions`, which also never computes a row count. |
 
 Operations: Load.
 
@@ -1210,75 +1029,6 @@ Operations: Load.
 
 API path: `/data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions/{DIMENSION_NAME}`
 
-#### ListTranscriptionVocabulary
-
-| Field | Description |
-| --- | --- |
-| `created_at` | Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | Unique identifier for the Transcription Vocabulary |
-| `name` | The user-supplied name of the Transcription Vocabulary. |
-| `passthrough` | Arbitrary user-supplied metadata set for the Transcription Vocabulary. |
-| `phrases` | Phrases, individual words, or proper names to include in the Transcription Vocabulary. |
-| `updated_at` | Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch). |
-
-Operations: List.
-
-API path: `/video/v1/transcription-vocabularies`
-
-#### ListUpload
-
-| Field | Description |
-| --- | --- |
-| `asset_id` | Only set once the upload is in the `asset_created` state. |
-| `cors_origin` | If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers. |
-| `error` | Only set if an error occurred during asset creation. |
-| `id` | Unique identifier for the Direct Upload. |
-| `new_asset_settings` |  |
-| `status` |  |
-| `test` | Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset. |
-| `timeout` | Max time in seconds for the signed upload URL to be valid. |
-| `url` | The URL to upload the associated source media to. |
-
-Operations: List.
-
-API path: `/video/v1/uploads`
-
-#### ListUsageExport
-
-| Field | Description |
-| --- | --- |
-| `date` | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
-| `download_url` | A pre-signed URL to download the CSV. |
-| `download_url_expires_at` | Unix timestamp (seconds since epoch) at which `download_url` expires. |
-| `file_size` | Uncompressed size of the CSV file in bytes. |
-
-Operations: List.
-
-API path: `/system/v1/usage/exports`
-
-#### ListVideoView
-
-| Field | Description |
-| --- | --- |
-| `country_code` |  |
-| `error_type_id` |  |
-| `id` |  |
-| `playback_failure` |  |
-| `player_error_code` |  |
-| `player_error_message` |  |
-| `total_row_count` |  |
-| `video_title` |  |
-| `view_end` |  |
-| `view_start` |  |
-| `viewer_application_name` |  |
-| `viewer_experience_score` |  |
-| `viewer_os_family` |  |
-| `watch_time` |  |
-
-Operations: List.
-
-API path: `/data/v1/video-views`
-
 #### ListVideoViewExport
 
 | Field | Description |
@@ -1289,20 +1039,6 @@ API path: `/data/v1/video-views`
 Operations: List.
 
 API path: `/data/v1/exports/views`
-
-#### ListWebhook
-
-| Field | Description |
-| --- | --- |
-| `address` | The URL where Mux sends webhook notifications. |
-| `created_at` | Time at which the webhook was created, as an ISO 8601 UTC datetime. |
-| `enabled` | Whether Mux attempts to deliver notifications to this webhook. |
-| `id` | Unique identifier for the webhook. |
-| `signing_secret` | Secret used to verify that webhook payloads were sent by Mux. |
-
-Operations: List.
-
-API path: `/system/v1/webhooks`
 
 #### LiveStream
 
@@ -1336,7 +1072,7 @@ API path: `/system/v1/webhooks`
 | `test` | True means this live stream is a test live stream. |
 | `use_slate_for_standard_latency` | By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/video/v1/live-streams/{LIVE_STREAM_ID}/reset-stream-key`
 
@@ -1463,7 +1199,7 @@ API path: `/data/v1/metrics/{METRIC_ID}/overall`
 | `updated_at` | Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch). |
 | `user_agent` | Rules that control what user agents are allowed to play your videos. |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/video/v1/playback-restrictions`
 
@@ -1514,7 +1250,6 @@ API path: `/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
 
 Operations: Update.
 
@@ -1529,7 +1264,7 @@ API path: `/video/v1/live-streams/{LIVE_STREAM_ID}/complete`
 | `id` | Unique identifier for the Signing Key. |
 | `private_key` | A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). |
 
-Operations: Create, Load, Remove.
+Operations: Create, List, Load, Remove.
 
 API path: `/system/v1/signing-keys`
 
@@ -1616,7 +1351,7 @@ API path: `/robots/v0/jobs/summarize`
 | `phrases` | Phrases, individual words, or proper names to include in the Transcription Vocabulary. |
 | `updated_at` | Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch). |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/video/v1/transcription-vocabularies`
 
@@ -1701,7 +1436,7 @@ API path: `/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}`
 | `timeout` | Max time in seconds for the signed upload URL to be valid. |
 | `url` | The URL to upload the associated source media to. |
 
-Operations: Create, Load, Update.
+Operations: Create, List, Load, Update.
 
 API path: `/video/v1/uploads`
 
@@ -1715,18 +1450,43 @@ Operations: Remove.
 
 API path: `/video/v1/signing-keys/{SIGNING_KEY_ID}`
 
+#### UsageExport
+
+| Field | Description |
+| --- | --- |
+| `date` | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
+| `download_url` | A pre-signed URL to download the CSV. |
+| `download_url_expires_at` | Unix timestamp (seconds since epoch) at which `download_url` expires. |
+| `file_size` | Uncompressed size of the CSV file in bytes. |
+
+Operations: List.
+
+API path: `/system/v1/usage/exports`
+
 #### VideoView
 
 | Field | Description |
 | --- | --- |
+| `country_code` |  |
 | `data` |  |
+| `error_type_id` |  |
 | `id` |  |
+| `playback_failure` |  |
+| `player_error_code` |  |
+| `player_error_message` |  |
 | `timeframe` |  |
 | `total_row_count` |  |
+| `video_title` |  |
+| `view_end` |  |
+| `view_start` |  |
+| `viewer_application_name` |  |
+| `viewer_experience_score` |  |
+| `viewer_os_family` |  |
+| `watch_time` |  |
 
-Operations: Load.
+Operations: List, Load.
 
-API path: `/data/v1/video-views/{VIDEO_VIEW_ID}`
+API path: `/data/v1/video-views`
 
 #### Webhook
 
@@ -1738,7 +1498,7 @@ API path: `/data/v1/video-views/{VIDEO_VIEW_ID}`
 | `id` | Unique identifier for the webhook. |
 | `signing_secret` | Secret used to verify that webhook payloads were sent by Mux. |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/system/v1/webhooks`
 
@@ -1772,6 +1532,7 @@ Create an instance: `annotation = client.Annotation`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -1790,6 +1551,13 @@ Create an instance: `annotation = client.Annotation`
 ```ruby
 # load returns the ENTITY — call data_get for the Annotation record (raises on error).
 annotation = client.Annotation.load({ "id" => "annotation_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of Annotation records (raises on error).
+annotations = client.Annotation.list
 ```
 
 #### Example: Create
@@ -1865,6 +1633,7 @@ Create an instance: `asset = client.Asset`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -1914,6 +1683,13 @@ Create an instance: `asset = client.Asset`
 ```ruby
 # load returns the ENTITY — call data_get for the Asset record (raises on error).
 asset = client.Asset.load({ "id" => "asset_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of Asset records (raises on error).
+assets = client.Asset.list
 ```
 
 #### Example: Create
@@ -2132,6 +1908,7 @@ Create an instance: `directive_run_detail = client.DirectiveRunDetail`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -2152,33 +1929,11 @@ Create an instance: `directive_run_detail = client.DirectiveRunDetail`
 directive_run_detail = client.DirectiveRunDetail.load({ "directive_id" => "directive_id", "run_id" => "run_id" })
 ```
 
-
-### DirectiveRunList
-
-Create an instance: `directive_run_list = client.DirectiveRunList`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `completed_at` | `Object` | Unix timestamp (seconds) when the run reached terminal state. |
-| `node_states` | `Array` | Per-binding status entries, one per binding, in the order the bindings appear in `directive.workflows[]`. |
-| `run_id` | `String` | Unique run identifier (drvrun_...). |
-| `started_at` | `Integer` | Unix timestamp (seconds) when the run started. |
-| `status` | `String` | Current run status. |
-| `subject_id` | `String` | The bare Mux asset ID this run targeted. |
-
 #### Example: List
 
 ```ruby
-# list returns an Array of DirectiveRunList records (raises on error).
-directive_run_lists = client.DirectiveRunList.list
+# list returns an Array of DirectiveRunDetail records (raises on error).
+directive_run_details = client.DirectiveRunDetail.list
 ```
 
 
@@ -2190,6 +1945,7 @@ Create an instance: `drm_configuration = client.DrmConfiguration`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -2203,6 +1959,13 @@ Create an instance: `drm_configuration = client.DrmConfiguration`
 ```ruby
 # load returns the ENTITY — call data_get for the DrmConfiguration record (raises on error).
 drm_configuration = client.DrmConfiguration.load({ "id" => "drm_configuration_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of DrmConfiguration records (raises on error).
+drm_configurations = client.DrmConfiguration.list
 ```
 
 
@@ -2689,14 +2452,35 @@ Create an instance: `incident = client.Incident`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `affected_views` | `Integer` |  |
+| `affected_views_per_hour` | `Integer` |  |
+| `affected_views_per_hour_on_open` | `Integer` |  |
+| `breakdowns` | `Array` |  |
 | `data` | `Hash` |  |
+| `description` | `String` |  |
+| `error_description` | `String` |  |
 | `id` | `String` |  |
+| `impact` | `String` |  |
+| `incident_key` | `String` |  |
+| `measured_value` | `Float` |  |
+| `measured_value_on_close` | `Float` |  |
+| `measurement` | `String` |  |
+| `notification_rules` | `Array` |  |
+| `notifications` | `Array` |  |
+| `resolved_at` | `String` |  |
+| `sample_size` | `Integer` |  |
+| `sample_size_unit` | `String` |  |
+| `severity` | `String` |  |
+| `started_at` | `String` |  |
+| `status` | `String` |  |
+| `threshold` | `Float` |  |
 | `timeframe` | `Array` |  |
 | `total_row_count` | `Integer` |  |
 
@@ -2705,6 +2489,13 @@ Create an instance: `incident = client.Incident`
 ```ruby
 # load returns the ENTITY — call data_get for the Incident record (raises on error).
 incident = client.Incident.load({ "id" => "incident_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of Incident records (raises on error).
+incidents = client.Incident.list
 ```
 
 
@@ -2742,6 +2533,7 @@ Create an instance: `job_summary = client.JobSummary`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 
 #### Fields
 
@@ -2753,6 +2545,13 @@ Create an instance: `job_summary = client.JobSummary`
 | `status` | `String` | Current job status. |
 | `updated_at` | `Integer` | Unix timestamp (seconds) of the job's last state transition (e.g. |
 | `workflow` | `String` | Workflow type that created this job. |
+
+#### Example: List
+
+```ruby
+# list returns an Array of JobSummary records (raises on error).
+job_summarys = client.JobSummary.list
+```
 
 #### Example: Create
 
@@ -2800,90 +2599,6 @@ Create an instance: `list_all_metric_value = client.ListAllMetricValue`
 ```ruby
 # list returns an Array of ListAllMetricValue records (raises on error).
 list_all_metric_values = client.ListAllMetricValue.list
-```
-
-
-### ListAnnotation
-
-Create an instance: `list_annotation = client.ListAnnotation`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `date` | `String` | Datetime when the annotation applies |
-| `id` | `String` | Unique identifier for the annotation |
-| `note` | `String` | The annotation note content |
-| `sub_property_id` | `String` | Customer-defined sub-property identifier |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListAnnotation records (raises on error).
-list_annotations = client.ListAnnotation.list
-```
-
-
-### ListAsset
-
-Create an instance: `list_asset = client.ListAsset`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `aspect_ratio` | `String` | The aspect ratio of the asset in the form of `width:height`, for example `16:9`. |
-| `created_at` | `String` | Time the Asset was created, defined as a Unix timestamp (seconds since epoch). |
-| `directives` | `Array` | The Mux Robots directives applied to the asset. |
-| `duration` | `Float` | The duration of the asset in seconds (max duration for a single asset is 12 hours). |
-| `encoding_tier` | `String` | This field is deprecated. |
-| `errors` | `Hash` | Object that describes any errors that happened when processing this asset. |
-| `generate_shots` | `Boolean` | Whether to perform shot detection on this asset. |
-| `id` | `String` | Unique identifier for the Asset. |
-| `ingest_type` | `String` | The type of ingest used to create the asset. |
-| `is_live` | `Boolean` | Indicates whether the live stream that created this asset is currently `active` and not in `idle` state. |
-| `live_stream_id` | `String` | Unique identifier for the live stream. |
-| `master` | `Hash` | An object containing the current status of Master Access and the link to the Master MP4 file when ready. |
-| `master_access` | `String` |  |
-| `max_resolution_tier` | `String` | Max resolution tier can be used to control the maximum `resolution_tier` your asset is encoded, stored, and streamed at. |
-| `max_stored_frame_rate` | `Float` | The maximum frame rate that has been stored for the asset. |
-| `max_stored_resolution` | `String` | This field is deprecated. |
-| `meta` | `Hash` | Customer provided metadata about this asset. |
-| `mp4_support` | `String` | Deprecated. |
-| `non_standard_input_reasons` | `Hash` | An object containing one or more reasons the input file is non-standard. |
-| `normalize_audio` | `Boolean` | Normalize the audio track loudness level. |
-| `passthrough` | `String` | You can set this field to anything you want. |
-| `playback_ids` | `Array` | An array of Playback ID objects. |
-| `progress` | `Hash` | Detailed state information about the asset ingest process. |
-| `recording_times` | `Array` | An array of individual live stream recording sessions. |
-| `resolution_tier` | `String` | The resolution tier that the asset was ingested at, affecting billing for ingest & storage. |
-| `shots` | `Hash` | The results of generating shots on the video |
-| `source_asset_id` | `String` | Asset Identifier of the video used as the source for creating the clip. |
-| `static_renditions` | `Hash` | An object containing the current status of any static renditions (MP4s) for this asset. |
-| `status` | `String` | The status of the asset. |
-| `test` | `Boolean` | True means this live stream is a test asset. |
-| `thumbnail_time` | `Float` | The media time within the asset used when a thumbnail without an explicit time is requested. |
-| `tracks` | `Array` | The individual media tracks that make up an asset. |
-| `upload_id` | `String` | Unique identifier for the Direct Upload. |
-| `video_quality` | `String` | The video quality controls the cost, quality, and available platform features for the asset. |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListAsset records (raises on error).
-list_assets = client.ListAsset.list
 ```
 
 
@@ -2951,32 +2666,6 @@ list_delivery_usages = client.ListDeliveryUsage.list
 ```
 
 
-### ListDimension
-
-Create an instance: `list_dimension = client.ListDimension`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `Hash` |  |
-| `timeframe` | `Array` |  |
-| `total_row_count` | `Integer` |  |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListDimension records (raises on error).
-list_dimensions = client.ListDimension.list
-```
-
-
 ### ListDimensionValue
 
 Create an instance: `list_dimension_value = client.ListDimensionValue`
@@ -3010,30 +2699,6 @@ list_dimension_value = client.ListDimensionValue.load({ "dimension_id" => "dimen
 ```ruby
 # list returns an Array of ListDimensionValue records (raises on error).
 list_dimension_values = client.ListDimensionValue.list
-```
-
-
-### ListDrmConfiguration
-
-Create an instance: `list_drm_configuration = client.ListDrmConfiguration`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `id` | `String` | Unique identifier for the DRM Configuration. |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListDrmConfiguration records (raises on error).
-list_drm_configurations = client.ListDrmConfiguration.list
 ```
 
 
@@ -3095,32 +2760,6 @@ list_exports = client.ListExport.list
 ```
 
 
-### ListFilter
-
-Create an instance: `list_filter = client.ListFilter`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `Hash` |  |
-| `timeframe` | `Array` |  |
-| `total_row_count` | `Integer` |  |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListFilter records (raises on error).
-list_filters = client.ListFilter.list
-```
-
-
 ### ListFilterValue
 
 Create an instance: `list_filter_value = client.ListFilterValue`
@@ -3129,6 +2768,7 @@ Create an instance: `list_filter_value = client.ListFilterValue`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -3146,48 +2786,11 @@ Create an instance: `list_filter_value = client.ListFilterValue`
 list_filter_value = client.ListFilterValue.load({ "filter_id" => "filter_id" })
 ```
 
-
-### ListIncident
-
-Create an instance: `list_incident = client.ListIncident`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `affected_views` | `Integer` |  |
-| `affected_views_per_hour` | `Integer` |  |
-| `affected_views_per_hour_on_open` | `Integer` |  |
-| `breakdowns` | `Array` |  |
-| `description` | `String` |  |
-| `error_description` | `String` |  |
-| `id` | `String` |  |
-| `impact` | `String` |  |
-| `incident_key` | `String` |  |
-| `measured_value` | `Float` |  |
-| `measured_value_on_close` | `Float` |  |
-| `measurement` | `String` |  |
-| `notification_rules` | `Array` |  |
-| `notifications` | `Array` |  |
-| `resolved_at` | `String` |  |
-| `sample_size` | `Integer` |  |
-| `sample_size_unit` | `String` |  |
-| `severity` | `String` |  |
-| `started_at` | `String` |  |
-| `status` | `String` |  |
-| `threshold` | `Float` |  |
-
 #### Example: List
 
 ```ruby
-# list returns an Array of ListIncident records (raises on error).
-list_incidents = client.ListIncident.list
+# list returns an Array of ListFilterValue records (raises on error).
+list_filter_values = client.ListFilterValue.list
 ```
 
 
@@ -3218,82 +2821,6 @@ Create an instance: `list_insight = client.ListInsight`
 ```ruby
 # list returns an Array of ListInsight records (raises on error).
 list_insights = client.ListInsight.list
-```
-
-
-### ListJob
-
-Create an instance: `list_job = client.ListJob`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `Integer` | Unix timestamp (seconds) when the job was created. |
-| `id` | `String` | Unique job identifier. |
-| `links` | `Hash` | Hypermedia links for this job. |
-| `status` | `String` | Current job status. |
-| `updated_at` | `Integer` | Unix timestamp (seconds) of the job's last state transition (e.g. |
-| `workflow` | `String` | Workflow type that created this job. |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListJob records (raises on error).
-list_jobs = client.ListJob.list
-```
-
-
-### ListLiveStream
-
-Create an instance: `list_live_stream = client.ListLiveStream`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `active_asset_id` | `String` | The Asset that is currently being created if there is an active broadcast. |
-| `active_ingest_protocol` | `String` | The protocol used for the active ingest stream. |
-| `audio_only` | `Boolean` | The live stream only processes the audio track if the value is set to true. |
-| `created_at` | `String` | Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch). |
-| `embedded_subtitles` | `Array` | Describes the embedded closed caption configuration of the incoming live stream. |
-| `generated_subtitles` | `Array` | Configure the incoming live stream to include subtitles created with automatic speech recognition. |
-| `id` | `String` | Unique identifier for the Live Stream. |
-| `latency_mode` | `String` | Latency is the time from when the streamer transmits a frame of video to when you see it in the player. |
-| `low_latency` | `Boolean` | This field is deprecated. |
-| `max_continuous_duration` | `Integer` | The time in seconds a live stream may be continuously active before being disconnected. |
-| `meta` | `Hash` | Customer provided metadata about this live stream. |
-| `new_asset_settings` | `Hash` |  |
-| `passthrough` | `String` | Arbitrary user-supplied metadata set for the asset. |
-| `playback_ids` | `Array` | An array of Playback ID objects. |
-| `recent_asset_ids` | `Array` | An array of strings with the most recent Asset IDs that were created from this Live Stream. |
-| `reconnect_slate_url` | `String` | The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. |
-| `reconnect_window` | `Float` | When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live s… |
-| `reduced_latency` | `Boolean` | This field is deprecated. |
-| `simulcast_targets` | `Array` | Each Simulcast Target contains configuration details to broadcast (or "restream") a live stream to a third-party streaming service. |
-| `srt_passphrase` | `String` | Unique key used for encrypting a stream to a Mux SRT endpoint. |
-| `status` | `String` | `idle` indicates that there is no active broadcast. |
-| `stream_key` | `String` | Unique key used for streaming to a Mux RTMP endpoint. |
-| `test` | `Boolean` | True means this live stream is a test live stream. |
-| `use_slate_for_standard_latency` | `Boolean` | By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListLiveStream records (raises on error).
-list_live_streams = client.ListLiveStream.list
 ```
 
 
@@ -3344,34 +2871,6 @@ Create an instance: `list_monitoring_metric = client.ListMonitoringMetric`
 ```ruby
 # list returns an Array of ListMonitoringMetric records (raises on error).
 list_monitoring_metrics = client.ListMonitoringMetric.list
-```
-
-
-### ListPlaybackRestriction
-
-Create an instance: `list_playback_restriction = client.ListPlaybackRestriction`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `String` | Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `String` | Unique identifier for the Playback Restriction. |
-| `referrer` | `Hash` | A list of domains allowed to play your videos. |
-| `updated_at` | `String` | Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch). |
-| `user_agent` | `Hash` | Rules that control what user agents are allowed to play your videos. |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListPlaybackRestriction records (raises on error).
-list_playback_restrictions = client.ListPlaybackRestriction.list
 ```
 
 
@@ -3469,32 +2968,6 @@ list_related_incidents = client.ListRelatedIncident.list
 ```
 
 
-### ListSigningKey
-
-Create an instance: `list_signing_key = client.ListSigningKey`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `String` | Time at which the object was created. |
-| `id` | `String` | Unique identifier for the Signing Key. |
-| `private_key` | `String` | A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListSigningKey records (raises on error).
-list_signing_keys = client.ListSigningKey.list
-```
-
-
 ### ListSubviewBreakdownValue
 
 Create an instance: `list_subview_breakdown_value = client.ListSubviewBreakdownValue`
@@ -3559,8 +3032,8 @@ Create an instance: `list_subview_dimension = client.ListSubviewDimension`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `subview` | `Array` |  |
-| `view` | `Array` |  |
+| `data` | `Hash` |  |
+| `total_row_count` | `Integer` | Always `null` for this endpoint, matching `GET /data/v1/dimensions`, which also never computes a row count. |
 
 #### Example: Load
 
@@ -3597,131 +3070,6 @@ list_subview_dimension_value = client.ListSubviewDimensionValue.load({ "dimensio
 ```
 
 
-### ListTranscriptionVocabulary
-
-Create an instance: `list_transcription_vocabulary = client.ListTranscriptionVocabulary`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `String` | Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `String` | Unique identifier for the Transcription Vocabulary |
-| `name` | `String` | The user-supplied name of the Transcription Vocabulary. |
-| `passthrough` | `String` | Arbitrary user-supplied metadata set for the Transcription Vocabulary. |
-| `phrases` | `Array` | Phrases, individual words, or proper names to include in the Transcription Vocabulary. |
-| `updated_at` | `String` | Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch). |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListTranscriptionVocabulary records (raises on error).
-list_transcription_vocabularys = client.ListTranscriptionVocabulary.list
-```
-
-
-### ListUpload
-
-Create an instance: `list_upload = client.ListUpload`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `asset_id` | `String` | Only set once the upload is in the `asset_created` state. |
-| `cors_origin` | `String` | If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers. |
-| `error` | `Hash` | Only set if an error occurred during asset creation. |
-| `id` | `String` | Unique identifier for the Direct Upload. |
-| `new_asset_settings` | `Hash` |  |
-| `status` | `String` |  |
-| `test` | `Boolean` | Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset. |
-| `timeout` | `Integer` | Max time in seconds for the signed upload URL to be valid. |
-| `url` | `String` | The URL to upload the associated source media to. |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListUpload records (raises on error).
-list_uploads = client.ListUpload.list
-```
-
-
-### ListUsageExport
-
-Create an instance: `list_usage_export = client.ListUsageExport`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `date` | `String` | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
-| `download_url` | `String` | A pre-signed URL to download the CSV. |
-| `download_url_expires_at` | `Integer` | Unix timestamp (seconds since epoch) at which `download_url` expires. |
-| `file_size` | `Integer` | Uncompressed size of the CSV file in bytes. |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListUsageExport records (raises on error).
-list_usage_exports = client.ListUsageExport.list
-```
-
-
-### ListVideoView
-
-Create an instance: `list_video_view = client.ListVideoView`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `country_code` | `String` |  |
-| `error_type_id` | `Integer` |  |
-| `id` | `String` |  |
-| `playback_failure` | `Boolean` |  |
-| `player_error_code` | `String` |  |
-| `player_error_message` | `String` |  |
-| `total_row_count` | `Integer` |  |
-| `video_title` | `String` |  |
-| `view_end` | `String` |  |
-| `view_start` | `String` |  |
-| `viewer_application_name` | `String` |  |
-| `viewer_experience_score` | `Float` |  |
-| `viewer_os_family` | `String` |  |
-| `watch_time` | `Integer` |  |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListVideoView records (raises on error).
-list_video_views = client.ListVideoView.list
-```
-
-
 ### ListVideoViewExport
 
 Create an instance: `list_video_view_export = client.ListVideoViewExport`
@@ -3747,34 +3095,6 @@ list_video_view_exports = client.ListVideoViewExport.list
 ```
 
 
-### ListWebhook
-
-Create an instance: `list_webhook = client.ListWebhook`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `address` | `String` | The URL where Mux sends webhook notifications. |
-| `created_at` | `String` | Time at which the webhook was created, as an ISO 8601 UTC datetime. |
-| `enabled` | `Boolean` | Whether Mux attempts to deliver notifications to this webhook. |
-| `id` | `String` | Unique identifier for the webhook. |
-| `signing_secret` | `String` | Secret used to verify that webhook payloads were sent by Mux. |
-
-#### Example: List
-
-```ruby
-# list returns an Array of ListWebhook records (raises on error).
-list_webhooks = client.ListWebhook.list
-```
-
-
 ### LiveStream
 
 Create an instance: `live_stream = client.LiveStream`
@@ -3784,6 +3104,7 @@ Create an instance: `live_stream = client.LiveStream`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -3825,6 +3146,13 @@ Create an instance: `live_stream = client.LiveStream`
 ```ruby
 # load returns the ENTITY — call data_get for the LiveStream record (raises on error).
 live_stream = client.LiveStream.load({ "id" => "live_stream_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of LiveStream records (raises on error).
+live_streams = client.LiveStream.list
 ```
 
 #### Example: Create
@@ -4093,6 +3421,7 @@ Create an instance: `playback_restriction = client.PlaybackRestriction`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -4112,6 +3441,13 @@ Create an instance: `playback_restriction = client.PlaybackRestriction`
 ```ruby
 # load returns the ENTITY — call data_get for the PlaybackRestriction record (raises on error).
 playback_restriction = client.PlaybackRestriction.load({ "id" => "playback_restriction_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of PlaybackRestriction records (raises on error).
+playback_restrictions = client.PlaybackRestriction.list
 ```
 
 #### Example: Create
@@ -4222,12 +3558,6 @@ Create an instance: `signal_live_stream_complete = client.SignalLiveStreamComple
 | --- | --- |
 | `update(data)` | Update an existing entity. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `Hash` |  |
-
 
 ### SigningKey
 
@@ -4238,6 +3568,7 @@ Create an instance: `signing_key = client.SigningKey`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 
@@ -4255,6 +3586,13 @@ Create an instance: `signing_key = client.SigningKey`
 ```ruby
 # load returns the ENTITY — call data_get for the SigningKey record (raises on error).
 signing_key = client.SigningKey.load({ "id" => "signing_key_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of SigningKey records (raises on error).
+signing_keys = client.SigningKey.list
 ```
 
 #### Example: Create
@@ -4450,6 +3788,7 @@ Create an instance: `transcription_vocabulary = client.TranscriptionVocabulary`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -4470,6 +3809,13 @@ Create an instance: `transcription_vocabulary = client.TranscriptionVocabulary`
 ```ruby
 # load returns the ENTITY — call data_get for the TranscriptionVocabulary record (raises on error).
 transcription_vocabulary = client.TranscriptionVocabulary.load({ "id" => "transcription_vocabulary_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of TranscriptionVocabulary records (raises on error).
+transcription_vocabularys = client.TranscriptionVocabulary.list
 ```
 
 #### Example: Create
@@ -4628,6 +3974,7 @@ Create an instance: `upload = client.Upload`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `update(data)` | Update an existing entity. |
 
@@ -4650,6 +3997,13 @@ Create an instance: `upload = client.Upload`
 ```ruby
 # load returns the ENTITY — call data_get for the Upload record (raises on error).
 upload = client.Upload.load({ "id" => "upload_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of Upload records (raises on error).
+uploads = client.Upload.list
 ```
 
 #### Example: Create
@@ -4681,6 +4035,33 @@ Create an instance: `url_signing_key = client.UrlSigningKey`
 | `id` | `String` |  |
 
 
+### UsageExport
+
+Create an instance: `usage_export = client.UsageExport`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `date` | `String` | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
+| `download_url` | `String` | A pre-signed URL to download the CSV. |
+| `download_url_expires_at` | `Integer` | Unix timestamp (seconds since epoch) at which `download_url` expires. |
+| `file_size` | `Integer` | Uncompressed size of the CSV file in bytes. |
+
+#### Example: List
+
+```ruby
+# list returns an Array of UsageExport records (raises on error).
+usage_exports = client.UsageExport.list
+```
+
+
 ### VideoView
 
 Create an instance: `video_view = client.VideoView`
@@ -4689,22 +4070,42 @@ Create an instance: `video_view = client.VideoView`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `country_code` | `String` |  |
 | `data` | `Hash` |  |
+| `error_type_id` | `Integer` |  |
 | `id` | `String` |  |
+| `playback_failure` | `Boolean` |  |
+| `player_error_code` | `String` |  |
+| `player_error_message` | `String` |  |
 | `timeframe` | `Array` |  |
 | `total_row_count` | `Integer` |  |
+| `video_title` | `String` |  |
+| `view_end` | `String` |  |
+| `view_start` | `String` |  |
+| `viewer_application_name` | `String` |  |
+| `viewer_experience_score` | `Float` |  |
+| `viewer_os_family` | `String` |  |
+| `watch_time` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
 # load returns the ENTITY — call data_get for the VideoView record (raises on error).
 video_view = client.VideoView.load({ "id" => "video_view_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of VideoView records (raises on error).
+video_views = client.VideoView.list
 ```
 
 
@@ -4717,6 +4118,7 @@ Create an instance: `webhook = client.Webhook`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -4736,6 +4138,13 @@ Create an instance: `webhook = client.Webhook`
 ```ruby
 # load returns the ENTITY — call data_get for the Webhook record (raises on error).
 webhook = client.Webhook.load({ "id" => "webhook_id" })
+```
+
+#### Example: List
+
+```ruby
+# list returns an Array of Webhook records (raises on error).
+webhooks = client.Webhook.list
 ```
 
 #### Example: Create
@@ -5018,11 +4427,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-listdimensionvalue = client.ListDimensionValue
-listdimensionvalue.list()
+realtimebreakdown = client.RealTimeBreakdown
+realtimebreakdown.list()
 
-# listdimensionvalue.data_get now returns the listdimensionvalue data from the last list
-# listdimensionvalue.match_get returns the last match criteria
+# realtimebreakdown.data_get now returns the realtimebreakdown data from the last list
+# realtimebreakdown.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

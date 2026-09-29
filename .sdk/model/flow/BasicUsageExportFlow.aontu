@@ -1,0 +1,22 @@
+# BasicUsageExportFlow
+
+main: kit: flow: BasicUsageExportFlow:
+{
+  entity: "usage_export",
+  kind: "basic",
+  name: "BasicUsageExportFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "usage_export_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUsageExportFlow"
+}

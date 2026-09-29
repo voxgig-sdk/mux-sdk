@@ -24,6 +24,54 @@ func TestListFilterValueEntity(t *testing.T) {
 		}
 	})
 
+	// Feature #4: the entity Stream(action, ...) method runs the op pipeline and
+	// returns a channel over result items. With the streaming feature active it
+	// yields the feature's incremental output; otherwise it falls back to the
+	// materialised list so Stream always yields.
+	t.Run("stream", func(t *testing.T) {
+		seed := map[string]any{
+			"entity": map[string]any{
+				"list_filter_value": map[string]any{
+					"s1": map[string]any{"id": "s1"},
+					"s2": map[string]any{"id": "s2"},
+					"s3": map[string]any{"id": "s3"},
+				},
+			},
+		}
+
+		// Fallback: streaming inactive -> yields the materialised list items.
+		base := sdk.TestSDK(seed, nil)
+		var seen []any
+		for item := range base.ListFilterValue(nil).Stream("list", nil, nil) {
+			seen = append(seen, item)
+		}
+		if len(seen) != 3 {
+			t.Fatalf("expected 3 streamed items, got %d", len(seen))
+		}
+
+		// Inbound: streaming active -> yields each item from the feature iterator.
+		hasStreaming := false
+		if fm, ok := core.SharedConfig()["feature"].(map[string]any); ok {
+			_, hasStreaming = fm["streaming"]
+		}
+		if hasStreaming {
+			streamSdk := sdk.TestSDK(seed, map[string]any{
+				"feature": map[string]any{"streaming": map[string]any{"active": true}},
+			})
+			var got []any
+			for item := range streamSdk.ListFilterValue(nil).Stream("list", nil, nil) {
+				if sub, ok := item.([]any); ok {
+					got = append(got, sub...)
+				} else {
+					got = append(got, item)
+				}
+			}
+			if len(got) != 3 {
+				t.Fatalf("expected 3 items via streaming feature, got %d", len(got))
+			}
+		}
+	})
+
 	t.Run("basic", func(t *testing.T) {
 		setup := list_filter_valueBasicSetup(nil)
 		// Per-op sdk-test-control.json skip — basic test exercises a flow
@@ -32,7 +80,7 @@ func TestListFilterValueEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"load"} {
+		for _, _op := range []string{"list", "load"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "list_filter_value." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -59,8 +107,20 @@ func TestListFilterValueEntity(t *testing.T) {
 		// happen not to consume the bootstrap data (e.g. list-only flows).
 		_ = listFilterValueRef01Data
 
-		// LOAD
+		// LIST
 		listFilterValueRef01Ent := client.ListFilterValue(nil)
+		listFilterValueRef01Match := map[string]any{}
+
+		listFilterValueRef01ListResult, err := listFilterValueRef01Ent.List(listFilterValueRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		_, listFilterValueRef01ListOk := listFilterValueRef01ListResult.([]any)
+		if !listFilterValueRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", listFilterValueRef01ListResult)
+		}
+
+		// LOAD
 		listFilterValueRef01MatchDt0 := map[string]any{}
 		listFilterValueRef01DataDt0Loaded, err := listFilterValueRef01Ent.Load(listFilterValueRef01MatchDt0, nil)
 		if err != nil {

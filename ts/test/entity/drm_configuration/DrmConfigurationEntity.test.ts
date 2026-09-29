@@ -44,14 +44,14 @@ describe('DrmConfigurationEntity', async () => {
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.MUX_TEST_LIVE
-    for (const op of ['load']) {
+    for (const op of ['list', 'load']) {
       if (!live && maybeSkipControl(t, 'entityOp', 'drm_configuration.' + op, live)) return
     }
 
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":true,"sh":"Unique identifier for the DRM Configuration.","t":"`$STRING`","key$":"id","index$":0}},"id":{"field":"id","name":"id"},"name":"drm_configuration","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /video/v1/drm-configurations/{DRM_CONFIGURATION_ID}","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"drm_configuration_id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/video/v1/drm-configurations/{DRM_CONFIGURATION_ID}","q":{"exist":["id"]},"r":{"param":{"DRM_CONFIGURATION_ID":"id"}},"s":[{"lit":"video"},{"lit":"v1"},{"lit":"drm-configurations"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body.data`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"drm_configuration","name__orig":"drm_configuration","Name":"DrmConfiguration","name_":"drm_configuration","name-":"drm-configuration","NAME":"DRM_CONFIGURATION","index$":11}, {"active":true,"entity":"drm_configuration","key$":"BasicDrmConfigurationFlow","kind":"basic","name":"BasicDrmConfigurationFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"drm_configuration_ref01","srcdatavar":"drm_configuration_ref01_data","suffix":"_dt0"},"m":{"id":"drm_configuration01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-drm_configuration_ref01"}}],"index$":0}]}, 'DrmConfiguration', {"GET /video/v1/drm-configurations/{DRM_CONFIGURATION_ID}":{"protocol":"http","parameters":[{"name":"DRM_CONFIGURATION_ID","in":"path","description":"The DRM Configuration ID.","required":true,"schema":{"type":"string"},"x-ref":"#/components/parameters/drm_configuration_id","index$":0}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":true,"sh":"Unique identifier for the DRM Configuration.","t":"`$STRING`","key$":"id","index$":0}},"id":{"field":"id","name":"id"},"name":"drm_configuration","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /video/v1/drm-configurations","source":"openapi3","version":2},"g":{"query":[{"a":true,"ex":25,"k":"query","n":"limit","or":"limit","r":false,"t":"`$INTEGER`","index$":0},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":1}]},"k":"http","m":"GET","o":"/video/v1/drm-configurations","q":{"exist":["limit","page"]},"r":{},"s":[{"lit":"video"},{"lit":"v1"},{"lit":"drm-configurations"}],"t":{"req":"`reqdata`","res":"`body.data`"},"index$":0}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /video/v1/drm-configurations/{DRM_CONFIGURATION_ID}","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"DRM_CONFIGURATION_ID","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/video/v1/drm-configurations/{DRM_CONFIGURATION_ID}","q":{"exist":["id"]},"r":{"param":{"DRM_CONFIGURATION_ID":"id"}},"s":[{"lit":"video"},{"lit":"v1"},{"lit":"drm-configurations"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body.data`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"drm_configuration","name__orig":"drm_configuration","Name":"DrmConfiguration","name_":"drm_configuration","name-":"drm-configuration","NAME":"DRM_CONFIGURATION","index$":10}, {"active":true,"entity":"drm_configuration","key$":"BasicDrmConfigurationFlow","kind":"basic","name":"BasicDrmConfigurationFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"drm_configuration_ref01"}}],"index$":0},{"a":true,"d":{},"i":{"ref":"drm_configuration_ref01","srcdatavar":"drm_configuration_ref01_data","suffix":"_dt0"},"m":{"id":"drm_configuration01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-drm_configuration_ref01"}}],"index$":1}]}, 'DrmConfiguration', {"GET /video/v1/drm-configurations":{"protocol":"http","parameters":[{"name":"page","in":"query","description":"Offset by this many pages, of the size of `limit`","required":false,"schema":{"type":"integer","format":"int32","default":1},"x-ref":"#/components/parameters/page","index$":0},{"name":"limit","in":"query","description":"Number of items to include in the response","required":false,"schema":{"type":"integer","format":"int32","default":25},"x-ref":"#/components/parameters/limit","index$":1}]},"GET /video/v1/drm-configurations/{DRM_CONFIGURATION_ID}":{"protocol":"http","parameters":[{"name":"DRM_CONFIGURATION_ID","in":"path","description":"The DRM Configuration ID.","required":true,"schema":{"type":"string"},"x-ref":"#/components/parameters/drm_configuration_id","index$":0}]}})
     }
     const client = setup.client
     const struct = setup.struct
@@ -61,8 +61,14 @@ describe('DrmConfigurationEntity', async () => {
 
     let drm_configuration_ref01_data = Object.values(setup.data.existing.drm_configuration)[0] as any
 
-    // LOAD
+    // LIST
     const drm_configuration_ref01_ent = client.DrmConfiguration()
+    const drm_configuration_ref01_match: any = {}
+
+    const drm_configuration_ref01_list = (await drm_configuration_ref01_ent.list(drm_configuration_ref01_match)).map((e: any) => e.data())
+
+
+    // LOAD
     const drm_configuration_ref01_match_dt0: any = {}
     drm_configuration_ref01_match_dt0.id = drm_configuration_ref01_data.id
     const drm_configuration_ref01_data_dt0 = (await drm_configuration_ref01_ent.load(drm_configuration_ref01_match_dt0)).data()

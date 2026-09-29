@@ -521,24 +521,6 @@ class MuxSDK
     }
 
 
-    private $_directive_run_list = null;
-
-    // Canonical facade: $client->DirectiveRunList()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->directive_run_list()
-    // resolves here too.
-    public function DirectiveRunList($data = null)
-    {
-        require_once __DIR__ . '/entity/directive_run_list_entity.php';
-        if ($data === null) {
-            if ($this->_directive_run_list === null) {
-                $this->_directive_run_list = new DirectiveRunListEntity($this, null);
-            }
-            return $this->_directive_run_list;
-        }
-        return new DirectiveRunListEntity($this, $data);
-    }
-
-
     private $_drm_configuration = null;
 
     // Canonical facade: $client->DrmConfiguration()->list() / ->load(["id" => ...]).
@@ -827,42 +809,6 @@ class MuxSDK
     }
 
 
-    private $_list_annotation = null;
-
-    // Canonical facade: $client->ListAnnotation()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_annotation()
-    // resolves here too.
-    public function ListAnnotation($data = null)
-    {
-        require_once __DIR__ . '/entity/list_annotation_entity.php';
-        if ($data === null) {
-            if ($this->_list_annotation === null) {
-                $this->_list_annotation = new ListAnnotationEntity($this, null);
-            }
-            return $this->_list_annotation;
-        }
-        return new ListAnnotationEntity($this, $data);
-    }
-
-
-    private $_list_asset = null;
-
-    // Canonical facade: $client->ListAsset()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_asset()
-    // resolves here too.
-    public function ListAsset($data = null)
-    {
-        require_once __DIR__ . '/entity/list_asset_entity.php';
-        if ($data === null) {
-            if ($this->_list_asset === null) {
-                $this->_list_asset = new ListAssetEntity($this, null);
-            }
-            return $this->_list_asset;
-        }
-        return new ListAssetEntity($this, $data);
-    }
-
-
     private $_list_breakdown_value = null;
 
     // Canonical facade: $client->ListBreakdownValue()->list() / ->load(["id" => ...]).
@@ -899,24 +845,6 @@ class MuxSDK
     }
 
 
-    private $_list_dimension = null;
-
-    // Canonical facade: $client->ListDimension()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_dimension()
-    // resolves here too.
-    public function ListDimension($data = null)
-    {
-        require_once __DIR__ . '/entity/list_dimension_entity.php';
-        if ($data === null) {
-            if ($this->_list_dimension === null) {
-                $this->_list_dimension = new ListDimensionEntity($this, null);
-            }
-            return $this->_list_dimension;
-        }
-        return new ListDimensionEntity($this, $data);
-    }
-
-
     private $_list_dimension_value = null;
 
     // Canonical facade: $client->ListDimensionValue()->list() / ->load(["id" => ...]).
@@ -932,24 +860,6 @@ class MuxSDK
             return $this->_list_dimension_value;
         }
         return new ListDimensionValueEntity($this, $data);
-    }
-
-
-    private $_list_drm_configuration = null;
-
-    // Canonical facade: $client->ListDrmConfiguration()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_drm_configuration()
-    // resolves here too.
-    public function ListDrmConfiguration($data = null)
-    {
-        require_once __DIR__ . '/entity/list_drm_configuration_entity.php';
-        if ($data === null) {
-            if ($this->_list_drm_configuration === null) {
-                $this->_list_drm_configuration = new ListDrmConfigurationEntity($this, null);
-            }
-            return $this->_list_drm_configuration;
-        }
-        return new ListDrmConfigurationEntity($this, $data);
     }
 
 
@@ -989,24 +899,6 @@ class MuxSDK
     }
 
 
-    private $_list_filter = null;
-
-    // Canonical facade: $client->ListFilter()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_filter()
-    // resolves here too.
-    public function ListFilter($data = null)
-    {
-        require_once __DIR__ . '/entity/list_filter_entity.php';
-        if ($data === null) {
-            if ($this->_list_filter === null) {
-                $this->_list_filter = new ListFilterEntity($this, null);
-            }
-            return $this->_list_filter;
-        }
-        return new ListFilterEntity($this, $data);
-    }
-
-
     private $_list_filter_value = null;
 
     // Canonical facade: $client->ListFilterValue()->list() / ->load(["id" => ...]).
@@ -1025,24 +917,6 @@ class MuxSDK
     }
 
 
-    private $_list_incident = null;
-
-    // Canonical facade: $client->ListIncident()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_incident()
-    // resolves here too.
-    public function ListIncident($data = null)
-    {
-        require_once __DIR__ . '/entity/list_incident_entity.php';
-        if ($data === null) {
-            if ($this->_list_incident === null) {
-                $this->_list_incident = new ListIncidentEntity($this, null);
-            }
-            return $this->_list_incident;
-        }
-        return new ListIncidentEntity($this, $data);
-    }
-
-
     private $_list_insight = null;
 
     // Canonical facade: $client->ListInsight()->list() / ->load(["id" => ...]).
@@ -1058,42 +932,6 @@ class MuxSDK
             return $this->_list_insight;
         }
         return new ListInsightEntity($this, $data);
-    }
-
-
-    private $_list_job = null;
-
-    // Canonical facade: $client->ListJob()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_job()
-    // resolves here too.
-    public function ListJob($data = null)
-    {
-        require_once __DIR__ . '/entity/list_job_entity.php';
-        if ($data === null) {
-            if ($this->_list_job === null) {
-                $this->_list_job = new ListJobEntity($this, null);
-            }
-            return $this->_list_job;
-        }
-        return new ListJobEntity($this, $data);
-    }
-
-
-    private $_list_live_stream = null;
-
-    // Canonical facade: $client->ListLiveStream()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_live_stream()
-    // resolves here too.
-    public function ListLiveStream($data = null)
-    {
-        require_once __DIR__ . '/entity/list_live_stream_entity.php';
-        if ($data === null) {
-            if ($this->_list_live_stream === null) {
-                $this->_list_live_stream = new ListLiveStreamEntity($this, null);
-            }
-            return $this->_list_live_stream;
-        }
-        return new ListLiveStreamEntity($this, $data);
     }
 
 
@@ -1130,24 +968,6 @@ class MuxSDK
             return $this->_list_monitoring_metric;
         }
         return new ListMonitoringMetricEntity($this, $data);
-    }
-
-
-    private $_list_playback_restriction = null;
-
-    // Canonical facade: $client->ListPlaybackRestriction()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_playback_restriction()
-    // resolves here too.
-    public function ListPlaybackRestriction($data = null)
-    {
-        require_once __DIR__ . '/entity/list_playback_restriction_entity.php';
-        if ($data === null) {
-            if ($this->_list_playback_restriction === null) {
-                $this->_list_playback_restriction = new ListPlaybackRestrictionEntity($this, null);
-            }
-            return $this->_list_playback_restriction;
-        }
-        return new ListPlaybackRestrictionEntity($this, $data);
     }
 
 
@@ -1202,24 +1022,6 @@ class MuxSDK
             return $this->_list_related_incident;
         }
         return new ListRelatedIncidentEntity($this, $data);
-    }
-
-
-    private $_list_signing_key = null;
-
-    // Canonical facade: $client->ListSigningKey()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_signing_key()
-    // resolves here too.
-    public function ListSigningKey($data = null)
-    {
-        require_once __DIR__ . '/entity/list_signing_key_entity.php';
-        if ($data === null) {
-            if ($this->_list_signing_key === null) {
-                $this->_list_signing_key = new ListSigningKeyEntity($this, null);
-            }
-            return $this->_list_signing_key;
-        }
-        return new ListSigningKeyEntity($this, $data);
     }
 
 
@@ -1295,78 +1097,6 @@ class MuxSDK
     }
 
 
-    private $_list_transcription_vocabulary = null;
-
-    // Canonical facade: $client->ListTranscriptionVocabulary()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_transcription_vocabulary()
-    // resolves here too.
-    public function ListTranscriptionVocabulary($data = null)
-    {
-        require_once __DIR__ . '/entity/list_transcription_vocabulary_entity.php';
-        if ($data === null) {
-            if ($this->_list_transcription_vocabulary === null) {
-                $this->_list_transcription_vocabulary = new ListTranscriptionVocabularyEntity($this, null);
-            }
-            return $this->_list_transcription_vocabulary;
-        }
-        return new ListTranscriptionVocabularyEntity($this, $data);
-    }
-
-
-    private $_list_upload = null;
-
-    // Canonical facade: $client->ListUpload()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_upload()
-    // resolves here too.
-    public function ListUpload($data = null)
-    {
-        require_once __DIR__ . '/entity/list_upload_entity.php';
-        if ($data === null) {
-            if ($this->_list_upload === null) {
-                $this->_list_upload = new ListUploadEntity($this, null);
-            }
-            return $this->_list_upload;
-        }
-        return new ListUploadEntity($this, $data);
-    }
-
-
-    private $_list_usage_export = null;
-
-    // Canonical facade: $client->ListUsageExport()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_usage_export()
-    // resolves here too.
-    public function ListUsageExport($data = null)
-    {
-        require_once __DIR__ . '/entity/list_usage_export_entity.php';
-        if ($data === null) {
-            if ($this->_list_usage_export === null) {
-                $this->_list_usage_export = new ListUsageExportEntity($this, null);
-            }
-            return $this->_list_usage_export;
-        }
-        return new ListUsageExportEntity($this, $data);
-    }
-
-
-    private $_list_video_view = null;
-
-    // Canonical facade: $client->ListVideoView()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_video_view()
-    // resolves here too.
-    public function ListVideoView($data = null)
-    {
-        require_once __DIR__ . '/entity/list_video_view_entity.php';
-        if ($data === null) {
-            if ($this->_list_video_view === null) {
-                $this->_list_video_view = new ListVideoViewEntity($this, null);
-            }
-            return $this->_list_video_view;
-        }
-        return new ListVideoViewEntity($this, $data);
-    }
-
-
     private $_list_video_view_export = null;
 
     // Canonical facade: $client->ListVideoViewExport()->list() / ->load(["id" => ...]).
@@ -1382,24 +1112,6 @@ class MuxSDK
             return $this->_list_video_view_export;
         }
         return new ListVideoViewExportEntity($this, $data);
-    }
-
-
-    private $_list_webhook = null;
-
-    // Canonical facade: $client->ListWebhook()->list() / ->load(["id" => ...]).
-    // PHP method names are case-insensitive, so lowercase $client->list_webhook()
-    // resolves here too.
-    public function ListWebhook($data = null)
-    {
-        require_once __DIR__ . '/entity/list_webhook_entity.php';
-        if ($data === null) {
-            if ($this->_list_webhook === null) {
-                $this->_list_webhook = new ListWebhookEntity($this, null);
-            }
-            return $this->_list_webhook;
-        }
-        return new ListWebhookEntity($this, $data);
     }
 
 
@@ -1868,6 +1580,24 @@ class MuxSDK
             return $this->_url_signing_key;
         }
         return new UrlSigningKeyEntity($this, $data);
+    }
+
+
+    private $_usage_export = null;
+
+    // Canonical facade: $client->UsageExport()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->usage_export()
+    // resolves here too.
+    public function UsageExport($data = null)
+    {
+        require_once __DIR__ . '/entity/usage_export_entity.php';
+        if ($data === null) {
+            if ($this->_usage_export === null) {
+                $this->_usage_export = new UsageExportEntity($this, null);
+            }
+            return $this->_usage_export;
+        }
+        return new UsageExportEntity($this, $data);
     }
 
 

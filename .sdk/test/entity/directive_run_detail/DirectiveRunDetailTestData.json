@@ -46,6 +46,11 @@
     }
   },
   "requests": {
+    "GET /robots/v0/directives/{DIRECTIVE_ID}/runs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /robots/v0/directives/{DIRECTIVE_ID}/runs/{RUN_ID}": {
       "provenance": "operation-contract",
       "version": 2,

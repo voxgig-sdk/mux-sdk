@@ -44,6 +44,11 @@
       "version": 2,
       "source": "openapi3"
     },
+    "GET /video/v1/transcription-vocabularies": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}": {
       "provenance": "operation-contract",
       "version": 2,

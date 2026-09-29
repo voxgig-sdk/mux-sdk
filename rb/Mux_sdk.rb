@@ -359,13 +359,6 @@ class MuxSDK
   end
 
 
-  # Canonical facade: client.DirectiveRunList.list / client.DirectiveRunList.load({ "id" => ... })
-  def DirectiveRunList(data = nil)
-    require_relative 'entity/directive_run_list_entity'
-    DirectiveRunListEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.DrmConfiguration.list / client.DrmConfiguration.load({ "id" => ... })
   def DrmConfiguration(data = nil)
     require_relative 'entity/drm_configuration_entity'
@@ -478,20 +471,6 @@ class MuxSDK
   end
 
 
-  # Canonical facade: client.ListAnnotation.list / client.ListAnnotation.load({ "id" => ... })
-  def ListAnnotation(data = nil)
-    require_relative 'entity/list_annotation_entity'
-    ListAnnotationEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.ListAsset.list / client.ListAsset.load({ "id" => ... })
-  def ListAsset(data = nil)
-    require_relative 'entity/list_asset_entity'
-    ListAssetEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.ListBreakdownValue.list / client.ListBreakdownValue.load({ "id" => ... })
   def ListBreakdownValue(data = nil)
     require_relative 'entity/list_breakdown_value_entity'
@@ -506,24 +485,10 @@ class MuxSDK
   end
 
 
-  # Canonical facade: client.ListDimension.list / client.ListDimension.load({ "id" => ... })
-  def ListDimension(data = nil)
-    require_relative 'entity/list_dimension_entity'
-    ListDimensionEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.ListDimensionValue.list / client.ListDimensionValue.load({ "id" => ... })
   def ListDimensionValue(data = nil)
     require_relative 'entity/list_dimension_value_entity'
     ListDimensionValueEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.ListDrmConfiguration.list / client.ListDrmConfiguration.load({ "id" => ... })
-  def ListDrmConfiguration(data = nil)
-    require_relative 'entity/list_drm_configuration_entity'
-    ListDrmConfigurationEntity.new(self, data)
   end
 
 
@@ -541,13 +506,6 @@ class MuxSDK
   end
 
 
-  # Canonical facade: client.ListFilter.list / client.ListFilter.load({ "id" => ... })
-  def ListFilter(data = nil)
-    require_relative 'entity/list_filter_entity'
-    ListFilterEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.ListFilterValue.list / client.ListFilterValue.load({ "id" => ... })
   def ListFilterValue(data = nil)
     require_relative 'entity/list_filter_value_entity'
@@ -555,31 +513,10 @@ class MuxSDK
   end
 
 
-  # Canonical facade: client.ListIncident.list / client.ListIncident.load({ "id" => ... })
-  def ListIncident(data = nil)
-    require_relative 'entity/list_incident_entity'
-    ListIncidentEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.ListInsight.list / client.ListInsight.load({ "id" => ... })
   def ListInsight(data = nil)
     require_relative 'entity/list_insight_entity'
     ListInsightEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.ListJob.list / client.ListJob.load({ "id" => ... })
-  def ListJob(data = nil)
-    require_relative 'entity/list_job_entity'
-    ListJobEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.ListLiveStream.list / client.ListLiveStream.load({ "id" => ... })
-  def ListLiveStream(data = nil)
-    require_relative 'entity/list_live_stream_entity'
-    ListLiveStreamEntity.new(self, data)
   end
 
 
@@ -594,13 +531,6 @@ class MuxSDK
   def ListMonitoringMetric(data = nil)
     require_relative 'entity/list_monitoring_metric_entity'
     ListMonitoringMetricEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.ListPlaybackRestriction.list / client.ListPlaybackRestriction.load({ "id" => ... })
-  def ListPlaybackRestriction(data = nil)
-    require_relative 'entity/list_playback_restriction_entity'
-    ListPlaybackRestrictionEntity.new(self, data)
   end
 
 
@@ -622,13 +552,6 @@ class MuxSDK
   def ListRelatedIncident(data = nil)
     require_relative 'entity/list_related_incident_entity'
     ListRelatedIncidentEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.ListSigningKey.list / client.ListSigningKey.load({ "id" => ... })
-  def ListSigningKey(data = nil)
-    require_relative 'entity/list_signing_key_entity'
-    ListSigningKeyEntity.new(self, data)
   end
 
 
@@ -660,45 +583,10 @@ class MuxSDK
   end
 
 
-  # Canonical facade: client.ListTranscriptionVocabulary.list / client.ListTranscriptionVocabulary.load({ "id" => ... })
-  def ListTranscriptionVocabulary(data = nil)
-    require_relative 'entity/list_transcription_vocabulary_entity'
-    ListTranscriptionVocabularyEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.ListUpload.list / client.ListUpload.load({ "id" => ... })
-  def ListUpload(data = nil)
-    require_relative 'entity/list_upload_entity'
-    ListUploadEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.ListUsageExport.list / client.ListUsageExport.load({ "id" => ... })
-  def ListUsageExport(data = nil)
-    require_relative 'entity/list_usage_export_entity'
-    ListUsageExportEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.ListVideoView.list / client.ListVideoView.load({ "id" => ... })
-  def ListVideoView(data = nil)
-    require_relative 'entity/list_video_view_entity'
-    ListVideoViewEntity.new(self, data)
-  end
-
-
   # Canonical facade: client.ListVideoViewExport.list / client.ListVideoViewExport.load({ "id" => ... })
   def ListVideoViewExport(data = nil)
     require_relative 'entity/list_video_view_export_entity'
     ListVideoViewExportEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.ListWebhook.list / client.ListWebhook.load({ "id" => ... })
-  def ListWebhook(data = nil)
-    require_relative 'entity/list_webhook_entity'
-    ListWebhookEntity.new(self, data)
   end
 
 
@@ -881,6 +769,13 @@ class MuxSDK
   def UrlSigningKey(data = nil)
     require_relative 'entity/url_signing_key_entity'
     UrlSigningKeyEntity.new(self, data)
+  end
+
+
+  # Canonical facade: client.UsageExport.list / client.UsageExport.load({ "id" => ... })
+  def UsageExport(data = nil)
+    require_relative 'entity/usage_export_entity'
+    UsageExportEntity.new(self, data)
   end
 
 

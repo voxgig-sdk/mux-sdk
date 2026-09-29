@@ -6,7 +6,7 @@ Mux is how developers build online video. This API encompasses both Mux Video an
 
 This guide introduces the API, the client libraries, and the companion tools in this repository. Start with the API capabilities, choose a client for your application, and use the linked reference when you need exact request and response details.
 
-The selected API surface contains 88 entities and 153 HTTP routes. There are 6 SDK targets and 2 companion tools.
+The selected API surface contains 73 entities and 153 HTTP routes. There are 6 SDK targets and 2 companion tools.
 
 An entity groups related API operations. An operation can have several routes with different inputs or authentication requirements. The SDK exposes the entity and its operations using the conventions of the selected language.
 
@@ -16,7 +16,7 @@ An entity groups related API operations. An operation can have several routes wi
 
 Results: Created; OK; No Content.
 
-SDK operations: `create`, `load`, `remove`, `update`.
+SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
@@ -43,7 +43,7 @@ Key fields to recognise:
 
 Results: Asset Created; OK; No Content.
 
-SDK operations: `create`, `load`, `remove`, `update`.
+SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
@@ -130,23 +130,9 @@ Key fields to recognise:
 
 ### DirectiveRunDetail
 
-Results: Directive run.
+Results: List of directive runs; Directive run.
 
-SDK operations: `load`.
-
-Key fields to recognise:
-
-- `completed_at`: Unix timestamp (seconds) when the run reached terminal state. Null if still in progress.
-- `node_states`: Per-binding status entries, one per binding, in the order the bindings appear in `directive.workflows[]`.
-- `run_id`: Unique run identifier (drvrun_...).
-- `started_at`: Unix timestamp (seconds) when the run started.
-- `status`: Current run status.
-
-### DirectiveRunList
-
-Results: List of directive runs.
-
-SDK operations: `list`.
+SDK operations: `list`, `load`.
 
 Key fields to recognise:
 
@@ -160,7 +146,7 @@ Key fields to recognise:
 
 Results: OK.
 
-SDK operations: `load`.
+SDK operations: `list`, `load`.
 
 Key fields to recognise:
 
@@ -300,7 +286,7 @@ Key fields to recognise:
 
 Results: OK.
 
-SDK operations: `load`.
+SDK operations: `list`, `load`.
 
 ### InputInfo
 
@@ -314,9 +300,9 @@ Key fields to recognise:
 
 ### JobSummary
 
-Results: Job cancelled successfully.
+Results: Job cancelled successfully; List of jobs.
 
-SDK operations: `create`.
+SDK operations: `create`, `list`.
 
 Key fields to recognise:
 
@@ -331,33 +317,6 @@ Key fields to recognise:
 Results: OK.
 
 SDK operations: `list`.
-
-### ListAnnotation
-
-Results: OK.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `date`: Datetime when the annotation applies
-- `id`: Unique identifier for the annotation
-- `note`: The annotation note content
-- `sub_property_id`: Customer-defined sub-property identifier
-
-### ListAsset
-
-Results: OK.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `aspect_ratio`: The aspect ratio of the asset in the form of `width:height`, for example `16:9`.
-- `created_at`: Time the Asset was created, defined as a Unix timestamp (seconds since epoch).
-- `directives`: The Mux Robots directives applied to the asset.
-- `duration`: The duration of the asset in seconds (max duration for a single asset is 12 hours).
-- `encoding_tier`: This field is deprecated. Please use `video_quality` instead. The encoding tier informs the cost, quality, and available platform features for the asset. The default encoding tier for an account can be set in the Mux Dashboard. [See the video quality guide for more details.](https://docs.mux.com/guides/use-video-quality-levels)
 
 ### ListBreakdownValue
 
@@ -379,27 +338,11 @@ Key fields to recognise:
 - `asset_resolution_tier`: The resolution tier that the asset was ingested at, affecting billing for ingest &amp; storage
 - `asset_state`: The state of the asset.
 
-### ListDimension
-
-Results: OK.
-
-SDK operations: `list`.
-
 ### ListDimensionValue
 
 Results: OK.
 
 SDK operations: `list`, `load`.
-
-### ListDrmConfiguration
-
-Results: OK.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `id`: Unique identifier for the DRM Configuration. Max 255 characters.
 
 ### ListError
 
@@ -421,57 +364,17 @@ Results: OK.
 
 SDK operations: `list`.
 
-### ListFilter
-
-Results: OK.
-
-SDK operations: `list`.
-
 ### ListFilterValue
 
 Results: OK.
 
-SDK operations: `load`.
-
-### ListIncident
-
-Results: OK.
-
-SDK operations: `list`.
+SDK operations: `list`, `load`.
 
 ### ListInsight
 
 Results: OK.
 
 SDK operations: `list`.
-
-### ListJob
-
-Results: List of jobs.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `created_at`: Unix timestamp (seconds) when the job was created.
-- `id`: Unique job identifier.
-- `links`: Hypermedia links for this job.
-- `status`: Current job status.
-- `updated_at`: Unix timestamp (seconds) of the job&#39;s last state transition (for example when it started processing or reached a terminal state).
-
-### ListLiveStream
-
-Results: OK.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `active_asset_id`: The Asset that is currently being created if there is an active broadcast.
-- `active_ingest_protocol`: The protocol used for the active ingest stream. This is only set when the live stream is active.
-- `audio_only`: The live stream only processes the audio track if the value is set to true. Mux drops the video track if broadcasted.
-- `created_at`: Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch).
-- `embedded_subtitles`: Describes the embedded closed caption configuration of the incoming live stream.
 
 ### ListMonitoringDimension
 
@@ -484,20 +387,6 @@ SDK operations: `list`.
 Results: OK.
 
 SDK operations: `list`.
-
-### ListPlaybackRestriction
-
-Results: OK.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `created_at`: Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch).
-- `id`: Unique identifier for the Playback Restriction. Max 255 characters.
-- `referrer`: A list of domains allowed to play your videos.
-- `updated_at`: Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch).
-- `user_agent`: Rules that control what user agents are allowed to play your videos. Please see [Using User-Agent HTTP header for validation](https://docs.mux.com/guides/secure-video-playback#using-user-agent-http-header-for-validation) for more details on this feature.
 
 ### ListRealTimeDimension
 
@@ -517,18 +406,6 @@ Results: OK.
 
 SDK operations: `list`.
 
-### ListSigningKey
-
-Results: OK.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `created_at`: Time at which the object was created. Measured in seconds since the Unix epoch.
-- `id`: Unique identifier for the Signing Key.
-- `private_key`: A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). **Note that this value is only returned once when creating a URL signing key.**
-
 ### ListSubviewBreakdownValue
 
 Results: OK.
@@ -547,58 +424,15 @@ Results: OK.
 
 SDK operations: `load`.
 
+Key fields to recognise:
+
+- `total_row_count`: Always `null` for this endpoint, matching `GET /data/v1/dimensions`, which also never computes a row count.
+
 ### ListSubviewDimensionValue
 
 Results: OK.
 
 SDK operations: `load`.
-
-### ListTranscriptionVocabulary
-
-Results: OK.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `created_at`: Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch).
-- `id`: Unique identifier for the Transcription Vocabulary
-- `name`: The user-supplied name of the Transcription Vocabulary.
-- `passthrough`: Arbitrary user-supplied metadata set for the Transcription Vocabulary. Max 255 characters.
-- `phrases`: Phrases, individual words, or proper names to include in the Transcription Vocabulary. When the Transcription Vocabulary is attached to a live stream&#39;s `generated_subtitles` configuration, the probability of successful speech recognition for these words or phrases is boosted.
-
-### ListUpload
-
-Results: OK.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `asset_id`: Only set once the upload is in the `asset_created` state.
-- `cors_origin`: If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers.
-- `error`: Only set if an error occurred during asset creation.
-- `id`: Unique identifier for the Direct Upload.
-- `test`: Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset.
-
-### ListUsageExport
-
-Results: OK.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `date`: The calendar date this CSV covers, in `YYYY-MM-DD` format.
-- `download_url`: A pre-signed URL to download the CSV. Valid until `download_url_expires_at`.
-- `download_url_expires_at`: Unix timestamp (seconds since epoch) at which `download_url` expires.
-- `file_size`: Uncompressed size of the CSV file in bytes. May be `null` if the size is unavailable.
-
-### ListVideoView
-
-Results: OK.
-
-SDK operations: `list`.
 
 ### ListVideoViewExport
 
@@ -606,25 +440,11 @@ Results: OK.
 
 SDK operations: `list`.
 
-### ListWebhook
-
-Results: OK.
-
-SDK operations: `list`.
-
-Key fields to recognise:
-
-- `address`: The URL where Mux sends webhook notifications.
-- `created_at`: Time at which the webhook was created, as an ISO 8601 UTC datetime.
-- `enabled`: Whether Mux attempts to deliver notifications to this webhook.
-- `id`: Unique identifier for the webhook.
-- `signing_secret`: Secret used to verify that webhook payloads were sent by Mux. **Note that this value is only returned once when creating a webhook.**
-
 ### LiveStream
 
 Results: OK; Created; No Content.
 
-SDK operations: `create`, `load`, `remove`, `update`.
+SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
@@ -700,7 +520,7 @@ SDK operations: `list`.
 
 Results: Created; OK; No Content.
 
-SDK operations: `create`, `load`, `remove`, `update`.
+SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
@@ -738,7 +558,7 @@ SDK operations: `update`.
 
 Results: Created; OK; No Content.
 
-SDK operations: `create`, `load`, `remove`.
+SDK operations: `create`, `list`, `load`, `remove`.
 
 Key fields to recognise:
 
@@ -805,7 +625,7 @@ Key fields to recognise:
 
 Results: Transcription Vocabulary Created; OK; No Content.
 
-SDK operations: `create`, `load`, `remove`, `update`.
+SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
@@ -861,7 +681,7 @@ Key fields to recognise:
 
 Results: Created; OK.
 
-SDK operations: `create`, `load`, `update`.
+SDK operations: `create`, `list`, `load`, `update`.
 
 Key fields to recognise:
 
@@ -877,17 +697,30 @@ Results: No Content.
 
 SDK operations: `remove`.
 
+### UsageExport
+
+Results: OK.
+
+SDK operations: `list`.
+
+Key fields to recognise:
+
+- `date`: The calendar date this CSV covers, in `YYYY-MM-DD` format.
+- `download_url`: A pre-signed URL to download the CSV. Valid until `download_url_expires_at`.
+- `download_url_expires_at`: Unix timestamp (seconds since epoch) at which `download_url` expires.
+- `file_size`: Uncompressed size of the CSV file in bytes. May be `null` if the size is unavailable.
+
 ### VideoView
 
 Results: OK.
 
-SDK operations: `load`.
+SDK operations: `list`, `load`.
 
 ### Webhook
 
 Results: Created; OK; No Content.
 
-SDK operations: `create`, `load`, `remove`, `update`.
+SDK operations: `create`, `list`, `load`, `remove`, `update`.
 
 Key fields to recognise:
 
@@ -910,12 +743,14 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | Entity | SDK operation | HTTP route | Authentication |
 | --- | --- | --- | --- |
 | Annotation | `create` | `POST /data/v1/annotations` | Required |
+| Annotation | `list` | `GET /data/v1/annotations` | Required |
 | Annotation | `load` | `GET /data/v1/annotations/{ANNOTATION_ID}` | Required |
 | Annotation | `remove` | `DELETE /data/v1/annotations/{ANNOTATION_ID}` | Required |
 | Annotation | `update` | `PATCH /data/v1/annotations/{ANNOTATION_ID}` | Required |
 | AskQuestion | `create` | `POST /robots/v0/jobs/ask-questions` | Required |
 | AskQuestion | `load` | `GET /robots/v0/jobs/ask-questions/{JOB_ID}` | Required |
 | Asset | `create` | `POST /video/v1/assets` | Required |
+| Asset | `list` | `GET /video/v1/assets` | Required |
 | Asset | `load` | `GET /video/v1/assets/{ASSET_ID}` | Required |
 | Asset | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/playback-ids/{PLAYBACK_ID}` | Required |
 | Asset | `remove` | `DELETE /video/v1/assets/{ASSET_ID}/static-renditions/{STATIC_RENDITION_ID}` | Required |
@@ -937,8 +772,9 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | Directive | `list` | `GET /robots/v0/directives` | Required |
 | Directive | `load` | `GET /robots/v0/directives/{DIRECTIVE_ID}` | Required |
 | Directive | `remove` | `DELETE /robots/v0/directives/{DIRECTIVE_ID}` | Required |
+| DirectiveRunDetail | `list` | `GET /robots/v0/directives/{DIRECTIVE_ID}/runs` | Required |
 | DirectiveRunDetail | `load` | `GET /robots/v0/directives/{DIRECTIVE_ID}/runs/{RUN_ID}` | Required |
-| DirectiveRunList | `list` | `GET /robots/v0/directives/{DIRECTIVE_ID}/runs` | Required |
+| DrmConfiguration | `list` | `GET /video/v1/drm-configurations` | Required |
 | DrmConfiguration | `load` | `GET /video/v1/drm-configurations/{DRM_CONFIGURATION_ID}` | Required |
 | EditCaption | `create` | `POST /robots/v0/jobs/edit-captions` | Required |
 | EditCaption | `load` | `GET /robots/v0/jobs/edit-captions/{JOB_ID}` | Required |
@@ -962,46 +798,35 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | GeneratePremiumCaption | `create` | `POST /robots/v0/jobs/generate-premium-captions` | Required |
 | GeneratePremiumCaption | `load` | `GET /robots/v0/jobs/generate-premium-captions/{JOB_ID}` | Required |
 | GenerateTrackSubtitle | `create` | `POST /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles` | Required |
+| Incident | `list` | `GET /data/v1/incidents` | Required |
 | Incident | `load` | `GET /data/v1/incidents/{INCIDENT_ID}` | Required |
 | InputInfo | `list` | `GET /video/v1/assets/{ASSET_ID}/input-info` | Required |
 | JobSummary | `create` | `POST /robots/v0/jobs/{JOB_ID}/cancel` | Required |
+| JobSummary | `list` | `GET /robots/v0/jobs` | Required |
 | ListAllMetricValue | `list` | `GET /data/v1/metrics/comparison` | Required |
-| ListAnnotation | `list` | `GET /data/v1/annotations` | Required |
-| ListAsset | `list` | `GET /video/v1/assets` | Required |
 | ListBreakdownValue | `list` | `GET /data/v1/metrics/{METRIC_ID}/breakdown` | Required |
 | ListDeliveryUsage | `list` | `GET /video/v1/delivery-usage` | Required |
-| ListDimension | `list` | `GET /data/v1/dimensions` | Required |
 | ListDimensionValue | `list` | `GET /data/v1/dimensions/{DIMENSION_ID}/elements` | Required |
+| ListDimensionValue | `list` | `GET /data/v1/dimensions` | Required |
 | ListDimensionValue | `load` | `GET /data/v1/dimensions/{DIMENSION_ID}` | Required |
-| ListDrmConfiguration | `list` | `GET /video/v1/drm-configurations` | Required |
 | ListError | `list` | `GET /data/v1/errors` | Required |
 | ListExport | `list` | `GET /data/v1/exports` | Required |
-| ListFilter | `list` | `GET /data/v1/filters` | Required |
+| ListFilterValue | `list` | `GET /data/v1/filters` | Required |
 | ListFilterValue | `load` | `GET /data/v1/filters/{FILTER_ID}` | Required |
-| ListIncident | `list` | `GET /data/v1/incidents` | Required |
 | ListInsight | `list` | `GET /data/v1/metrics/{METRIC_ID}/insights` | Required |
-| ListJob | `list` | `GET /robots/v0/jobs` | Required |
-| ListLiveStream | `list` | `GET /video/v1/live-streams` | Required |
 | ListMonitoringDimension | `list` | `GET /data/v1/monitoring/dimensions` | Required |
 | ListMonitoringMetric | `list` | `GET /data/v1/monitoring/metrics` | Required |
-| ListPlaybackRestriction | `list` | `GET /video/v1/playback-restrictions` | Required |
 | ListRealTimeDimension | `list` | `GET /data/v1/realtime/dimensions` | Required |
 | ListRealTimeMetric | `list` | `GET /data/v1/realtime/metrics` | Required |
 | ListRelatedIncident | `list` | `GET /data/v1/incidents/{INCIDENT_ID}/related` | Required |
-| ListSigningKey | `list` | `GET /system/v1/signing-keys` | Required |
-| ListSigningKey | `list` | `GET /video/v1/signing-keys` | Required |
 | ListSubviewBreakdownValue | `list` | `GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/breakdown` | Required |
 | ListSubviewComparisonValue | `list` | `GET /data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/comparison` | Required |
 | ListSubviewDimension | `load` | `GET /data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions` | Required |
 | ListSubviewDimensionValue | `load` | `GET /data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions/{DIMENSION_NAME}` | Required |
-| ListTranscriptionVocabulary | `list` | `GET /video/v1/transcription-vocabularies` | Required |
-| ListUpload | `list` | `GET /video/v1/uploads` | Required |
-| ListUsageExport | `list` | `GET /system/v1/usage/exports` | Required |
-| ListVideoView | `list` | `GET /data/v1/video-views` | Required |
 | ListVideoViewExport | `list` | `GET /data/v1/exports/views` | Required |
-| ListWebhook | `list` | `GET /system/v1/webhooks` | Required |
 | LiveStream | `create` | `POST /video/v1/live-streams/{LIVE_STREAM_ID}/reset-stream-key` | Required |
 | LiveStream | `create` | `POST /video/v1/live-streams` | Required |
+| LiveStream | `list` | `GET /video/v1/live-streams` | Required |
 | LiveStream | `load` | `GET /video/v1/live-streams/{LIVE_STREAM_ID}` | Required |
 | LiveStream | `remove` | `DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/playback-ids/{PLAYBACK_ID}` | Required |
 | LiveStream | `remove` | `DELETE /video/v1/live-streams/{LIVE_STREAM_ID}/simulcast-targets/{SIMULCAST_TARGET_ID}` | Required |
@@ -1023,6 +848,7 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | MonitoringTimeseries | `list` | `GET /data/v1/monitoring/metrics/{MONITORING_METRIC_ID}/timeseries` | Required |
 | Overall | `list` | `GET /data/v1/metrics/{METRIC_ID}/overall` | Required |
 | PlaybackRestriction | `create` | `POST /video/v1/playback-restrictions` | Required |
+| PlaybackRestriction | `list` | `GET /video/v1/playback-restrictions` | Required |
 | PlaybackRestriction | `load` | `GET /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}` | Required |
 | PlaybackRestriction | `remove` | `DELETE /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}` | Required |
 | PlaybackRestriction | `update` | `PUT /video/v1/playback-restrictions/{PLAYBACK_RESTRICTION_ID}/referrer` | Required |
@@ -1033,6 +859,8 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | SignalLiveStreamComplete | `update` | `PUT /video/v1/live-streams/{LIVE_STREAM_ID}/complete` | Required |
 | SigningKey | `create` | `POST /system/v1/signing-keys` | Required |
 | SigningKey | `create` | `POST /video/v1/signing-keys` | Required |
+| SigningKey | `list` | `GET /system/v1/signing-keys` | Required |
+| SigningKey | `list` | `GET /video/v1/signing-keys` | Required |
 | SigningKey | `load` | `GET /system/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
 | SigningKey | `load` | `GET /video/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
 | SigningKey | `remove` | `DELETE /system/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
@@ -1044,6 +872,7 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | Summarize | `create` | `POST /robots/v0/jobs/summarize` | Required |
 | Summarize | `load` | `GET /robots/v0/jobs/summarize/{JOB_ID}` | Required |
 | TranscriptionVocabulary | `create` | `POST /video/v1/transcription-vocabularies` | Required |
+| TranscriptionVocabulary | `list` | `GET /video/v1/transcription-vocabularies` | Required |
 | TranscriptionVocabulary | `load` | `GET /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}` | Required |
 | TranscriptionVocabulary | `remove` | `DELETE /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}` | Required |
 | TranscriptionVocabulary | `update` | `PUT /video/v1/transcription-vocabularies/{TRANSCRIPTION_VOCABULARY_ID}` | Required |
@@ -1053,11 +882,15 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | TranslateCaption | `load` | `GET /robots/v0/jobs/translate-captions/{JOB_ID}` | Required |
 | UpdateAssetTrack | `update` | `PATCH /video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}` | Required |
 | Upload | `create` | `POST /video/v1/uploads` | Required |
+| Upload | `list` | `GET /video/v1/uploads` | Required |
 | Upload | `load` | `GET /video/v1/uploads/{UPLOAD_ID}` | Required |
 | Upload | `update` | `PUT /video/v1/uploads/{UPLOAD_ID}/cancel` | Required |
 | UrlSigningKey | `remove` | `DELETE /video/v1/signing-keys/{SIGNING_KEY_ID}` | Required |
+| UsageExport | `list` | `GET /system/v1/usage/exports` | Required |
+| VideoView | `list` | `GET /data/v1/video-views` | Required |
 | VideoView | `load` | `GET /data/v1/video-views/{VIDEO_VIEW_ID}` | Required |
 | Webhook | `create` | `POST /system/v1/webhooks` | Required |
+| Webhook | `list` | `GET /system/v1/webhooks` | Required |
 | Webhook | `load` | `GET /system/v1/webhooks/{WEBHOOK_ID}` | Required |
 | Webhook | `remove` | `DELETE /system/v1/webhooks/{WEBHOOK_ID}` | Required |
 | Webhook | `update` | `PATCH /system/v1/webhooks/{WEBHOOK_ID}` | Required |
@@ -1115,7 +948,7 @@ Use the MCP server to expose supported API operations to an MCP client.
 
 Repository directory: `go-mcp/`. Not published. Build from the go-mcp directory.
 
-- `mux_list`: List records for an entity. Supported entities: `directive`, `directive_run_list`, `engagement_heatmap`, `engagement_hotspot`, `input_info`, `list_all_metric_value`, `list_annotation`, `list_asset`, `list_breakdown_value`, `list_delivery_usage`, `list_dimension`, `list_dimension_value`, `list_drm_configuration`, `list_error`, `list_export`, `list_filter`, `list_incident`, `list_insight`, `list_job`, `list_live_stream`, `list_monitoring_dimension`, `list_monitoring_metric`, `list_playback_restriction`, `list_real_time_dimension`, `list_real_time_metric`, `list_related_incident`, `list_signing_key`, `list_subview_breakdown_value`, `list_subview_comparison_value`, `list_transcription_vocabulary`, `list_upload`, `list_usage_export`, `list_video_view`, `list_video_view_export`, `list_webhook`, `metric_timeseries_data`, `monitoring_breakdown`, `monitoring_breakdown_timeseries`, `monitoring_histogram_timeseries`, `monitoring_timeseries`, `overall`, `real_time_breakdown`, `real_time_histogram_timeseries`, `real_time_timeseries`, `subview_breakdown_timeseries`, `subview_overall_value`.
+- `mux_list`: List records for an entity. Supported entities: `annotation`, `asset`, `directive`, `directive_run_detail`, `drm_configuration`, `engagement_heatmap`, `engagement_hotspot`, `incident`, `input_info`, `job_summary`, `list_all_metric_value`, `list_breakdown_value`, `list_delivery_usage`, `list_dimension_value`, `list_error`, `list_export`, `list_filter_value`, `list_insight`, `list_monitoring_dimension`, `list_monitoring_metric`, `list_real_time_dimension`, `list_real_time_metric`, `list_related_incident`, `list_subview_breakdown_value`, `list_subview_comparison_value`, `list_video_view_export`, `live_stream`, `metric_timeseries_data`, `monitoring_breakdown`, `monitoring_breakdown_timeseries`, `monitoring_histogram_timeseries`, `monitoring_timeseries`, `overall`, `playback_restriction`, `real_time_breakdown`, `real_time_histogram_timeseries`, `real_time_timeseries`, `signing_key`, `subview_breakdown_timeseries`, `subview_overall_value`, `transcription_vocabulary`, `upload`, `usage_export`, `video_view`, `webhook`.
 - `mux_load`: Load one record for an entity. Supported entities: `annotation`, `ask_question`, `asset`, `asset_or_live_stream_id`, `asset_playback_id`, `asset_shot`, `directive`, `directive_run_detail`, `drm_configuration`, `edit_caption`, `find_best_thumbnail`, `find_key_moment`, `find_scene`, `generate_chapter`, `generate_engagement_insight`, `generate_premium_caption`, `incident`, `list_dimension_value`, `list_filter_value`, `list_subview_dimension`, `list_subview_dimension_value`, `live_stream`, `live_stream_playback_id`, `moderate`, `playback_restriction`, `signing_key`, `simulcast_target`, `summarize`, `transcription_vocabulary`, `translate_audio`, `translate_caption`, `upload`, `video_view`, `webhook`, `who_am_i`.
 
 ## Operational features

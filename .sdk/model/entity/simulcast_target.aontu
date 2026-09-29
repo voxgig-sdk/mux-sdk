@@ -70,7 +70,7 @@ main: kit: entity: simulcast_target: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -126,14 +126,14 @@ main: kit: entity: simulcast_target: {
               {
                 k: "param"
                 n: "id"
-                or: "simulcast_target_id"
+                or: "SIMULCAST_TARGET_ID"
                 r: true
                 t: "`$STRING`"
               }
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }

@@ -57,6 +57,82 @@ main: kit: entity: directive_run_detail: {
 
   name: "directive_run_detail"
   op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /robots/v0/directives/{DIRECTIVE_ID}/runs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "directive_id"
+                or: "DIRECTIVE_ID"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/robots/v0/directives/{DIRECTIVE_ID}/runs"
+          q: {
+            exist: [
+              "directive_id"
+              "limit"
+              "page"
+            ]
+          }
+          r: {
+            param: {
+              DIRECTIVE_ID: "directive_id"
+            }
+          }
+          s: [
+            {
+              lit: "robots"
+            }
+            {
+              lit: "v0"
+            }
+            {
+              lit: "directives"
+            }
+            {
+              var: "directive_id"
+            }
+            {
+              lit: "runs"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
     load: {
       name: "load"
       points: [
@@ -71,14 +147,14 @@ main: kit: entity: directive_run_detail: {
               {
                 k: "param"
                 n: "directive_id"
-                or: "directive_id"
+                or: "DIRECTIVE_ID"
                 r: true
                 t: "`$STRING`"
               }
               {
                 k: "param"
                 n: "run_id"
-                or: "run_id"
+                or: "RUN_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -129,6 +205,7 @@ main: kit: entity: directive_run_detail: {
 
 
   relations: ancestors: [
+    [path("$.main.kit.entity.directive")]
     [path("$.main.kit.entity.directive")]
   ]
 

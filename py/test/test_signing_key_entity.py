@@ -21,13 +21,47 @@ class TestSigningKeyEntity:
         ent = testsdk.SigningKey(None)
         assert ent is not None
 
+    def test_should_stream(self):
+        # Feature #4: the entity stream(action, ...) method runs the op
+        # pipeline and yields result items. With the streaming feature active
+        # it yields the feature's incremental output; otherwise it falls back
+        # to the materialised list so stream always yields.
+        seed = {
+            "entity": {
+                "signing_key": {
+                    "s1": {"id": "s1"},
+                    "s2": {"id": "s2"},
+                    "s3": {"id": "s3"},
+                }
+            }
+        }
+
+        # Fallback: streaming inactive -> yields the materialised list items.
+        base = MuxSDK.test(seed, None)
+        seen = list(base.SigningKey(None).stream("list", None, None))
+        assert len(seen) == 3
+
+        # Inbound: streaming active -> yields each item from the feature.
+        from mux_sdk.config import shared_config
+        cfg = shared_config()
+        if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
+            sdk = MuxSDK.test(
+                seed, {"feature": {"streaming": {"active": True}}})
+            got = []
+            for item in sdk.SigningKey(None).stream("list", None, None):
+                if isinstance(item, list):
+                    got.extend(item)
+                else:
+                    got.append(item)
+            assert len(got) == 3
+
     def test_should_run_basic_flow(self):
         setup = _signing_key_basic_setup(None)
         # Per-op sdk-test-control.json skip — basic test exercises a flow with
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["create", "load", "remove"]:
+        for _op in ["create", "list", "load", "remove"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "signing_key." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -48,6 +82,17 @@ class TestSigningKeyEntity:
         assert signing_key_ref01_data is not None
         assert signing_key_ref01_data["id"] is not None
 
+        # LIST
+        signing_key_ref01_match = {}
+
+        signing_key_ref01_list_result = signing_key_ref01_ent.list(signing_key_ref01_match, None)
+        assert isinstance(signing_key_ref01_list_result, list)
+
+        found_item = vs.select(
+            runner.entity_list_to_data(signing_key_ref01_list_result),
+            {"id": signing_key_ref01_data["id"]})
+        assert not vs.isempty(found_item)
+
         # LOAD
         signing_key_ref01_match_dt0 = {
             "id": signing_key_ref01_data["id"],
@@ -62,6 +107,17 @@ class TestSigningKeyEntity:
             "id": signing_key_ref01_data["id"],
         }
         signing_key_ref01_ent.remove(signing_key_ref01_match_rm0, None)
+
+        # LIST
+        signing_key_ref01_match_rt0 = {}
+
+        signing_key_ref01_list_rt0_result = signing_key_ref01_ent.list(signing_key_ref01_match_rt0, None)
+        assert isinstance(signing_key_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(signing_key_ref01_list_rt0_result),
+            {"id": signing_key_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 

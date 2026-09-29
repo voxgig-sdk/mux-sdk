@@ -15,11 +15,52 @@ describe("SigningKeyEntity", function()
     assert.is_not_nil(ent)
   end)
 
+  -- Feature #4: the entity stream(action, ...) method runs the op pipeline and
+  -- returns an iterator over result items. With the streaming feature active it
+  -- yields the feature's incremental output; otherwise it falls back to the
+  -- materialised list so stream always yields.
+  it("should stream", function()
+    local seed = {
+      entity = {
+        ["signing_key"] = {
+          s1 = { id = "s1" },
+          s2 = { id = "s2" },
+          s3 = { id = "s3" },
+        },
+      },
+    }
+
+    -- Fallback: streaming inactive -> yields the materialised list items.
+    local base = sdk.test(seed, nil)
+    local seen = {}
+    for item in base:SigningKey(nil):stream("list", nil, nil) do
+      table.insert(seen, item)
+    end
+    assert.are.equal(3, #seen)
+
+    -- Inbound: streaming active -> yields each item from the feature.
+    local config = require("config_shared")()
+    if type(config.feature) == "table" and config.feature.streaming ~= nil then
+      local streamsdk = sdk.test(seed, { feature = { streaming = { active = true } } })
+      local got = {}
+      for item in streamsdk:SigningKey(nil):stream("list", nil, nil) do
+        if vs.islist(item) then
+          for _, sub in ipairs(item) do
+            table.insert(got, sub)
+          end
+        else
+          table.insert(got, item)
+        end
+      end
+      assert.are.equal(3, #got)
+    end
+  end)
+
   it("should run basic flow", function()
     local setup = signing_key_basic_setup(nil)
     -- Per-op sdk-test-control.json skip.
     local _live = setup.live or false
-    for _, _op in ipairs({"create", "load", "remove"}) do
+    for _, _op in ipairs({"create", "list", "load", "remove"}) do
       local _should_skip, _reason = runner.is_control_skipped("entityOp", "signing_key." .. _op, _live and "live" or "unit")
       if _should_skip then
         pending(_reason or "skipped via sdk-test-control.json")
@@ -45,6 +86,18 @@ describe("SigningKeyEntity", function()
     assert.is_not_nil(signing_key_ref01_data)
     assert.is_not_nil(signing_key_ref01_data["id"])
 
+    -- LIST
+    local signing_key_ref01_match = {}
+
+    local signing_key_ref01_list_result, err = signing_key_ref01_ent:list(signing_key_ref01_match, nil)
+    assert.is_nil(err)
+    assert.is_table(signing_key_ref01_list_result)
+
+    local found_item = vs.select(
+      runner.entity_list_to_data(signing_key_ref01_list_result),
+      { id = signing_key_ref01_data["id"] })
+    assert.is_false(vs.isempty(found_item))
+
     -- LOAD
     local signing_key_ref01_match_dt0 = {
       id = signing_key_ref01_data["id"],
@@ -61,6 +114,18 @@ describe("SigningKeyEntity", function()
     }
     local _, err = signing_key_ref01_ent:remove(signing_key_ref01_match_rm0, nil)
     assert.is_nil(err)
+
+    -- LIST
+    local signing_key_ref01_match_rt0 = {}
+
+    local signing_key_ref01_list_rt0_result, err = signing_key_ref01_ent:list(signing_key_ref01_match_rt0, nil)
+    assert.is_nil(err)
+    assert.is_table(signing_key_ref01_list_rt0_result)
+
+    local not_found_item = vs.select(
+      runner.entity_list_to_data(signing_key_ref01_list_rt0_result),
+      { id = signing_key_ref01_data["id"] })
+    assert.is_true(vs.isempty(not_found_item))
 
   end)
 end)

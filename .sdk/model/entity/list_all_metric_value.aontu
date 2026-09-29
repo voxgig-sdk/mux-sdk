@@ -103,21 +103,21 @@ main: kit: entity: list_all_metric_value: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
               {
                 k: "query"
                 n: "metric_filter"
-                or: "metric_filter"
+                or: "metric_filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -157,7 +157,7 @@ main: kit: entity: list_all_metric_value: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

@@ -19,16 +19,18 @@ make build
 export MUX_APIKEY=sk_live_xxx
 
 # 4. Each command line is ONE boru expression, run against the API:
+./mux-cli list annotation
 ./mux-cli load 1 annotation            # {id:1} shorthand
 ./mux-cli load '{id:1}' annotation       # explicit match map
 ./mux-cli update '{name:"x"}' annotation
+./mux-cli list ask_question
 
 # 5. Override the API base URL for a single call
-MUX_BASE=https://api.example.com ./mux-cli load 1 annotation
+MUX_BASE=https://api.example.com ./mux-cli list annotation
 
 # 6. No arguments -> interactive REPL
 ./mux-cli
-mux> load 1 annotation
+mux> list annotation
 mux> /quit
 ```
 
@@ -54,7 +56,7 @@ mux> /quit
    arguments to open the REPL):
 
    ```sh
-   ./dist/*/mux-cli load 1 annotation
+   ./dist/*/mux-cli list annotation
    ```
 
 4. **Go interactive.** Run the binary with no arguments to open the REPL, then
@@ -63,6 +65,15 @@ mux> /quit
 That is the whole loop: *build → set key → evaluate boru expressions*.
 
 ## How-to guides
+
+### List the records of an entity
+
+```sh
+./mux-cli list annotation
+```
+
+`list <entity>` returns the first page of records. `<entity>` is a bareword —
+it is auto-quoted as an boru atom, so no quotes are needed.
 
 ### Load a single record
 
@@ -90,7 +101,7 @@ Configuration is read from the environment — nothing is written to disk:
 ```sh
 export MUX_APIKEY=sk_live_xxx            # API key
 export MUX_BASE=https://api.example.com  # optional: override the API base URL
-./mux-cli load 1 annotation
+./mux-cli list annotation
 ```
 
 Both are injectable by a secrets vault, so the key never has to be typed inline.
@@ -102,7 +113,7 @@ evaluated as its own boru expression:
 
 ```text
 $ ./mux-cli
-mux> load 1 annotation
+mux> list annotation
 mux> /help
 mux> /quit
 ```
@@ -117,7 +128,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 ### Discover the available entities
 
 `/help` in the REPL prints the full entity list, or see [Entities](#entities)
-below — this SDK exposes 88 entities.
+below — this SDK exposes 73 entities.
 
 ## Reference
 
@@ -172,9 +183,9 @@ Meta-commands use the `/` prefix (everything else on a line is evaluated as boru
 
 ### Entities
 
-The 88 entities this SDK exposes (any is valid as `<entity>`):
+The 73 entities this SDK exposes (any is valid as `<entity>`):
 
-annotation ask_question asset asset_or_live_stream_id asset_playback_id asset_shot create_playback_id create_track directive directive_run_detail directive_run_list drm_configuration edit_caption engagement_heatmap engagement_hotspot find_best_thumbnail find_key_moment find_scene generate_asset_shot generate_chapter generate_engagement_insight generate_premium_caption generate_track_subtitle incident input_info job_summary list_all_metric_value list_annotation list_asset list_breakdown_value list_delivery_usage list_dimension list_dimension_value list_drm_configuration list_error list_export list_filter list_filter_value list_incident list_insight list_job list_live_stream list_monitoring_dimension list_monitoring_metric list_playback_restriction list_real_time_dimension list_real_time_metric list_related_incident list_signing_key list_subview_breakdown_value list_subview_comparison_value list_subview_dimension list_subview_dimension_value list_transcription_vocabulary list_upload list_usage_export list_video_view list_video_view_export list_webhook live_stream live_stream_playback_id metric_timeseries_data moderate monitoring_breakdown monitoring_breakdown_timeseries monitoring_histogram_timeseries monitoring_timeseries overall playback_restriction real_time_breakdown real_time_histogram_timeseries real_time_timeseries signal_live_stream_complete signing_key simulcast_target static_rendition subview_breakdown_timeseries subview_overall_value summarize transcription_vocabulary translate_audio translate_caption update_asset_track upload url_signing_key video_view webhook who_am_i
+annotation ask_question asset asset_or_live_stream_id asset_playback_id asset_shot create_playback_id create_track directive directive_run_detail drm_configuration edit_caption engagement_heatmap engagement_hotspot find_best_thumbnail find_key_moment find_scene generate_asset_shot generate_chapter generate_engagement_insight generate_premium_caption generate_track_subtitle incident input_info job_summary list_all_metric_value list_breakdown_value list_delivery_usage list_dimension_value list_error list_export list_filter_value list_insight list_monitoring_dimension list_monitoring_metric list_real_time_dimension list_real_time_metric list_related_incident list_subview_breakdown_value list_subview_comparison_value list_subview_dimension list_subview_dimension_value list_video_view_export live_stream live_stream_playback_id metric_timeseries_data moderate monitoring_breakdown monitoring_breakdown_timeseries monitoring_histogram_timeseries monitoring_timeseries overall playback_restriction real_time_breakdown real_time_histogram_timeseries real_time_timeseries signal_live_stream_complete signing_key simulcast_target static_rendition subview_breakdown_timeseries subview_overall_value summarize transcription_vocabulary translate_audio translate_caption update_asset_track upload url_signing_key usage_export video_view webhook who_am_i
 
 ## Explanation
 

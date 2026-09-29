@@ -7,10 +7,6 @@ main: kit: flow: BasicListDimensionValueFlow:
   name: "BasicListDimensionValueFlow",
   step: [
     {
-      m: {
-        dimension_id: "dimension01"
-      }
-
       o: "list",
       v: [
         {

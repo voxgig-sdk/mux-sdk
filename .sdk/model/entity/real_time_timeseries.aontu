@@ -44,7 +44,7 @@ main: kit: entity: real_time_timeseries: {
                 ex: "current-concurrent-viewers"
                 k: "param"
                 n: "realtime_metric_id"
-                or: "realtime_metric_id"
+                or: "REALTIME_METRIC_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -53,7 +53,7 @@ main: kit: entity: real_time_timeseries: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -102,7 +102,7 @@ main: kit: entity: real_time_timeseries: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

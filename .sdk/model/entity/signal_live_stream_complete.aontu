@@ -4,15 +4,6 @@ main: kit: entity: signal_live_stream_complete: {
 
   alias: field: {}
 
-  fields: {
-    data: {
-      h: "Data"
-      n: "data"
-      r: false
-      t: "`$OBJECT`"
-    }
-  }
-
   name: "signal_live_stream_complete"
   op: {
     update: {
@@ -29,7 +20,7 @@ main: kit: entity: signal_live_stream_complete: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -71,6 +62,9 @@ main: kit: entity: signal_live_stream_complete: {
         }
       ]
     }
+  }
+
+  fields: {
   }
 
 

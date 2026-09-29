@@ -64,7 +64,7 @@ main: kit: entity: monitoring_breakdown: {
                 ex: "current-concurrent-viewers"
                 k: "param"
                 n: "monitoring_metric_id"
-                or: "monitoring_metric_id"
+                or: "MONITORING_METRIC_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -80,7 +80,7 @@ main: kit: entity: monitoring_breakdown: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -146,7 +146,7 @@ main: kit: entity: monitoring_breakdown: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

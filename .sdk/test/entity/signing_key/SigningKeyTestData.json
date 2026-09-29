@@ -41,6 +41,16 @@
       "version": 2,
       "source": "openapi3"
     },
+    "GET /system/v1/signing-keys": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /video/v1/signing-keys": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /system/v1/signing-keys/{SIGNING_KEY_ID}": {
       "provenance": "operation-contract",
       "version": 2,

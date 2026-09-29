@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/mux-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/mux-sdk/releases](https://github.com/voxgig-sdk/mux-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/mux-sdk
+composer config repositories.mux-sdk path ./mux-sdk/php
+composer require voxgig-sdk/mux-sdk:@dev
+```
 
 
 ## Tutorial: your first API call
@@ -31,6 +36,21 @@ require_once 'mux_sdk.php';
 $client = new MuxSDK([
     "apikey" => getenv("MUX_APIKEY"),
 ]);
+```
+
+### 2. List annotation records
+
+```php
+try {
+    // list() returns entity instances; data_get() reads each record.
+    $annotations = $client->Annotation()->list();
+    foreach ($annotations as $record) {
+        $item = $record->data_get();
+        echo $item["id"] . " " . $item["date"] . "\n";
+    }
+} catch (\Throwable $err) {
+    echo "Error: " . $err->getMessage();
+}
 ```
 
 ### 3. Load an assetplaybackid
@@ -68,7 +88,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $listdimensionvalues = $client->ListDimensionValue()->list();
+    $realtimebreakdowns = $client->RealTimeBreakdown()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -237,7 +257,6 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `CreateTrack` | `($data): CreateTrackEntity` | Create a CreateTrack entity instance. |
 | `Directive` | `($data): DirectiveEntity` | Create a Directive entity instance. |
 | `DirectiveRunDetail` | `($data): DirectiveRunDetailEntity` | Create a DirectiveRunDetail entity instance. |
-| `DirectiveRunList` | `($data): DirectiveRunListEntity` | Create a DirectiveRunList entity instance. |
 | `DrmConfiguration` | `($data): DrmConfigurationEntity` | Create a DrmConfiguration entity instance. |
 | `EditCaption` | `($data): EditCaptionEntity` | Create an EditCaption entity instance. |
 | `EngagementHeatmap` | `($data): EngagementHeatmapEntity` | Create an EngagementHeatmap entity instance. |
@@ -254,38 +273,23 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `InputInfo` | `($data): InputInfoEntity` | Create an InputInfo entity instance. |
 | `JobSummary` | `($data): JobSummaryEntity` | Create a JobSummary entity instance. |
 | `ListAllMetricValue` | `($data): ListAllMetricValueEntity` | Create a ListAllMetricValue entity instance. |
-| `ListAnnotation` | `($data): ListAnnotationEntity` | Create a ListAnnotation entity instance. |
-| `ListAsset` | `($data): ListAssetEntity` | Create a ListAsset entity instance. |
 | `ListBreakdownValue` | `($data): ListBreakdownValueEntity` | Create a ListBreakdownValue entity instance. |
 | `ListDeliveryUsage` | `($data): ListDeliveryUsageEntity` | Create a ListDeliveryUsage entity instance. |
-| `ListDimension` | `($data): ListDimensionEntity` | Create a ListDimension entity instance. |
 | `ListDimensionValue` | `($data): ListDimensionValueEntity` | Create a ListDimensionValue entity instance. |
-| `ListDrmConfiguration` | `($data): ListDrmConfigurationEntity` | Create a ListDrmConfiguration entity instance. |
 | `ListError` | `($data): ListErrorEntity` | Create a ListError entity instance. |
 | `ListExport` | `($data): ListExportEntity` | Create a ListExport entity instance. |
-| `ListFilter` | `($data): ListFilterEntity` | Create a ListFilter entity instance. |
 | `ListFilterValue` | `($data): ListFilterValueEntity` | Create a ListFilterValue entity instance. |
-| `ListIncident` | `($data): ListIncidentEntity` | Create a ListIncident entity instance. |
 | `ListInsight` | `($data): ListInsightEntity` | Create a ListInsight entity instance. |
-| `ListJob` | `($data): ListJobEntity` | Create a ListJob entity instance. |
-| `ListLiveStream` | `($data): ListLiveStreamEntity` | Create a ListLiveStream entity instance. |
 | `ListMonitoringDimension` | `($data): ListMonitoringDimensionEntity` | Create a ListMonitoringDimension entity instance. |
 | `ListMonitoringMetric` | `($data): ListMonitoringMetricEntity` | Create a ListMonitoringMetric entity instance. |
-| `ListPlaybackRestriction` | `($data): ListPlaybackRestrictionEntity` | Create a ListPlaybackRestriction entity instance. |
 | `ListRealTimeDimension` | `($data): ListRealTimeDimensionEntity` | Create a ListRealTimeDimension entity instance. |
 | `ListRealTimeMetric` | `($data): ListRealTimeMetricEntity` | Create a ListRealTimeMetric entity instance. |
 | `ListRelatedIncident` | `($data): ListRelatedIncidentEntity` | Create a ListRelatedIncident entity instance. |
-| `ListSigningKey` | `($data): ListSigningKeyEntity` | Create a ListSigningKey entity instance. |
 | `ListSubviewBreakdownValue` | `($data): ListSubviewBreakdownValueEntity` | Create a ListSubviewBreakdownValue entity instance. |
 | `ListSubviewComparisonValue` | `($data): ListSubviewComparisonValueEntity` | Create a ListSubviewComparisonValue entity instance. |
 | `ListSubviewDimension` | `($data): ListSubviewDimensionEntity` | Create a ListSubviewDimension entity instance. |
 | `ListSubviewDimensionValue` | `($data): ListSubviewDimensionValueEntity` | Create a ListSubviewDimensionValue entity instance. |
-| `ListTranscriptionVocabulary` | `($data): ListTranscriptionVocabularyEntity` | Create a ListTranscriptionVocabulary entity instance. |
-| `ListUpload` | `($data): ListUploadEntity` | Create a ListUpload entity instance. |
-| `ListUsageExport` | `($data): ListUsageExportEntity` | Create a ListUsageExport entity instance. |
-| `ListVideoView` | `($data): ListVideoViewEntity` | Create a ListVideoView entity instance. |
 | `ListVideoViewExport` | `($data): ListVideoViewExportEntity` | Create a ListVideoViewExport entity instance. |
-| `ListWebhook` | `($data): ListWebhookEntity` | Create a ListWebhook entity instance. |
 | `LiveStream` | `($data): LiveStreamEntity` | Create a LiveStream entity instance. |
 | `LiveStreamPlaybackId` | `($data): LiveStreamPlaybackIdEntity` | Create a LiveStreamPlaybackId entity instance. |
 | `MetricTimeseriesData` | `($data): MetricTimeseriesDataEntity` | Create a MetricTimeseriesData entity instance. |
@@ -312,6 +316,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `UpdateAssetTrack` | `($data): UpdateAssetTrackEntity` | Create an UpdateAssetTrack entity instance. |
 | `Upload` | `($data): UploadEntity` | Create an Upload entity instance. |
 | `UrlSigningKey` | `($data): UrlSigningKeyEntity` | Create an UrlSigningKey entity instance. |
+| `UsageExport` | `($data): UsageExportEntity` | Create an UsageExport entity instance. |
 | `VideoView` | `($data): VideoViewEntity` | Create a VideoView entity instance. |
 | `Webhook` | `($data): WebhookEntity` | Create a Webhook entity instance. |
 | `WhoAmI` | `($data): WhoAmIEntity` | Create a WhoAmI entity instance. |
@@ -363,7 +368,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `note` | The annotation note content |
 | `sub_property_id` | Customer-defined sub-property identifier |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/data/v1/annotations`
 
@@ -428,7 +433,7 @@ API path: `/robots/v0/jobs/ask-questions`
 | `upload_id` | Unique identifier for the Direct Upload. |
 | `video_quality` | The video quality controls the cost, quality, and available platform features for the asset. |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/video/v1/assets`
 
@@ -522,22 +527,7 @@ API path: `/robots/v0/directives/{DIRECTIVE_ID}/runs`
 | `status` | Current run status. |
 | `subject_id` | The bare Mux asset ID this run targeted. |
 
-Operations: Load.
-
-API path: `/robots/v0/directives/{DIRECTIVE_ID}/runs/{RUN_ID}`
-
-#### DirectiveRunList
-
-| Field | Description |
-| --- | --- |
-| `completed_at` | Unix timestamp (seconds) when the run reached terminal state. |
-| `node_states` | Per-binding status entries, one per binding, in the order the bindings appear in `directive.workflows[]`. |
-| `run_id` | Unique run identifier (drvrun_...). |
-| `started_at` | Unix timestamp (seconds) when the run started. |
-| `status` | Current run status. |
-| `subject_id` | The bare Mux asset ID this run targeted. |
-
-Operations: List.
+Operations: List, Load.
 
 API path: `/robots/v0/directives/{DIRECTIVE_ID}/runs`
 
@@ -547,9 +537,9 @@ API path: `/robots/v0/directives/{DIRECTIVE_ID}/runs`
 | --- | --- |
 | `id` | Unique identifier for the DRM Configuration. |
 
-Operations: Load.
+Operations: List, Load.
 
-API path: `/video/v1/drm-configurations/{DRM_CONFIGURATION_ID}`
+API path: `/video/v1/drm-configurations`
 
 #### EditCaption
 
@@ -746,14 +736,34 @@ API path: `/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}/generate-subtitles`
 
 | Field | Description |
 | --- | --- |
+| `affected_views` |  |
+| `affected_views_per_hour` |  |
+| `affected_views_per_hour_on_open` |  |
+| `breakdowns` |  |
 | `data` |  |
+| `description` |  |
+| `error_description` |  |
 | `id` |  |
+| `impact` |  |
+| `incident_key` |  |
+| `measured_value` |  |
+| `measured_value_on_close` |  |
+| `measurement` |  |
+| `notification_rules` |  |
+| `notifications` |  |
+| `resolved_at` |  |
+| `sample_size` |  |
+| `sample_size_unit` |  |
+| `severity` |  |
+| `started_at` |  |
+| `status` |  |
+| `threshold` |  |
 | `timeframe` |  |
 | `total_row_count` |  |
 
-Operations: Load.
+Operations: List, Load.
 
-API path: `/data/v1/incidents/{INCIDENT_ID}`
+API path: `/data/v1/incidents`
 
 #### InputInfo
 
@@ -777,7 +787,7 @@ API path: `/video/v1/assets/{ASSET_ID}/input-info`
 | `updated_at` | Unix timestamp (seconds) of the job's last state transition (e.g. |
 | `workflow` | Workflow type that created this job. |
 
-Operations: Create.
+Operations: Create, List.
 
 API path: `/robots/v0/jobs/{JOB_ID}/cancel`
 
@@ -800,62 +810,6 @@ API path: `/robots/v0/jobs/{JOB_ID}/cancel`
 Operations: List.
 
 API path: `/data/v1/metrics/comparison`
-
-#### ListAnnotation
-
-| Field | Description |
-| --- | --- |
-| `date` | Datetime when the annotation applies |
-| `id` | Unique identifier for the annotation |
-| `note` | The annotation note content |
-| `sub_property_id` | Customer-defined sub-property identifier |
-
-Operations: List.
-
-API path: `/data/v1/annotations`
-
-#### ListAsset
-
-| Field | Description |
-| --- | --- |
-| `aspect_ratio` | The aspect ratio of the asset in the form of `width:height`, for example `16:9`. |
-| `created_at` | Time the Asset was created, defined as a Unix timestamp (seconds since epoch). |
-| `directives` | The Mux Robots directives applied to the asset. |
-| `duration` | The duration of the asset in seconds (max duration for a single asset is 12 hours). |
-| `encoding_tier` | This field is deprecated. |
-| `errors` | Object that describes any errors that happened when processing this asset. |
-| `generate_shots` | Whether to perform shot detection on this asset. |
-| `id` | Unique identifier for the Asset. |
-| `ingest_type` | The type of ingest used to create the asset. |
-| `is_live` | Indicates whether the live stream that created this asset is currently `active` and not in `idle` state. |
-| `live_stream_id` | Unique identifier for the live stream. |
-| `master` | An object containing the current status of Master Access and the link to the Master MP4 file when ready. |
-| `master_access` |  |
-| `max_resolution_tier` | Max resolution tier can be used to control the maximum `resolution_tier` your asset is encoded, stored, and streamed at. |
-| `max_stored_frame_rate` | The maximum frame rate that has been stored for the asset. |
-| `max_stored_resolution` | This field is deprecated. |
-| `meta` | Customer provided metadata about this asset. |
-| `mp4_support` | Deprecated. |
-| `non_standard_input_reasons` | An object containing one or more reasons the input file is non-standard. |
-| `normalize_audio` | Normalize the audio track loudness level. |
-| `passthrough` | You can set this field to anything you want. |
-| `playback_ids` | An array of Playback ID objects. |
-| `progress` | Detailed state information about the asset ingest process. |
-| `recording_times` | An array of individual live stream recording sessions. |
-| `resolution_tier` | The resolution tier that the asset was ingested at, affecting billing for ingest & storage. |
-| `shots` | The results of generating shots on the video |
-| `source_asset_id` | Asset Identifier of the video used as the source for creating the clip. |
-| `static_renditions` | An object containing the current status of any static renditions (MP4s) for this asset. |
-| `status` | The status of the asset. |
-| `test` | True means this live stream is a test asset. |
-| `thumbnail_time` | The media time within the asset used when a thumbnail without an explicit time is requested. |
-| `tracks` | The individual media tracks that make up an asset. |
-| `upload_id` | Unique identifier for the Direct Upload. |
-| `video_quality` | The video quality controls the cost, quality, and available platform features for the asset. |
-
-Operations: List.
-
-API path: `/video/v1/assets`
 
 #### ListBreakdownValue
 
@@ -893,18 +847,6 @@ Operations: List.
 
 API path: `/video/v1/delivery-usage`
 
-#### ListDimension
-
-| Field | Description |
-| --- | --- |
-| `data` |  |
-| `timeframe` |  |
-| `total_row_count` |  |
-
-Operations: List.
-
-API path: `/data/v1/dimensions`
-
 #### ListDimensionValue
 
 | Field | Description |
@@ -918,16 +860,6 @@ API path: `/data/v1/dimensions`
 Operations: List, Load.
 
 API path: `/data/v1/dimensions/{DIMENSION_ID}/elements`
-
-#### ListDrmConfiguration
-
-| Field | Description |
-| --- | --- |
-| `id` | Unique identifier for the DRM Configuration. |
-
-Operations: List.
-
-API path: `/video/v1/drm-configurations`
 
 #### ListError
 
@@ -959,18 +891,6 @@ Operations: List.
 
 API path: `/data/v1/exports`
 
-#### ListFilter
-
-| Field | Description |
-| --- | --- |
-| `data` |  |
-| `timeframe` |  |
-| `total_row_count` |  |
-
-Operations: List.
-
-API path: `/data/v1/filters`
-
 #### ListFilterValue
 
 | Field | Description |
@@ -979,39 +899,9 @@ API path: `/data/v1/filters`
 | `timeframe` |  |
 | `total_row_count` |  |
 
-Operations: Load.
+Operations: List, Load.
 
-API path: `/data/v1/filters/{FILTER_ID}`
-
-#### ListIncident
-
-| Field | Description |
-| --- | --- |
-| `affected_views` |  |
-| `affected_views_per_hour` |  |
-| `affected_views_per_hour_on_open` |  |
-| `breakdowns` |  |
-| `description` |  |
-| `error_description` |  |
-| `id` |  |
-| `impact` |  |
-| `incident_key` |  |
-| `measured_value` |  |
-| `measured_value_on_close` |  |
-| `measurement` |  |
-| `notification_rules` |  |
-| `notifications` |  |
-| `resolved_at` |  |
-| `sample_size` |  |
-| `sample_size_unit` |  |
-| `severity` |  |
-| `started_at` |  |
-| `status` |  |
-| `threshold` |  |
-
-Operations: List.
-
-API path: `/data/v1/incidents`
+API path: `/data/v1/filters`
 
 #### ListInsight
 
@@ -1028,54 +918,6 @@ API path: `/data/v1/incidents`
 Operations: List.
 
 API path: `/data/v1/metrics/{METRIC_ID}/insights`
-
-#### ListJob
-
-| Field | Description |
-| --- | --- |
-| `created_at` | Unix timestamp (seconds) when the job was created. |
-| `id` | Unique job identifier. |
-| `links` | Hypermedia links for this job. |
-| `status` | Current job status. |
-| `updated_at` | Unix timestamp (seconds) of the job's last state transition (e.g. |
-| `workflow` | Workflow type that created this job. |
-
-Operations: List.
-
-API path: `/robots/v0/jobs`
-
-#### ListLiveStream
-
-| Field | Description |
-| --- | --- |
-| `active_asset_id` | The Asset that is currently being created if there is an active broadcast. |
-| `active_ingest_protocol` | The protocol used for the active ingest stream. |
-| `audio_only` | The live stream only processes the audio track if the value is set to true. |
-| `created_at` | Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch). |
-| `embedded_subtitles` | Describes the embedded closed caption configuration of the incoming live stream. |
-| `generated_subtitles` | Configure the incoming live stream to include subtitles created with automatic speech recognition. |
-| `id` | Unique identifier for the Live Stream. |
-| `latency_mode` | Latency is the time from when the streamer transmits a frame of video to when you see it in the player. |
-| `low_latency` | This field is deprecated. |
-| `max_continuous_duration` | The time in seconds a live stream may be continuously active before being disconnected. |
-| `meta` | Customer provided metadata about this live stream. |
-| `new_asset_settings` |  |
-| `passthrough` | Arbitrary user-supplied metadata set for the asset. |
-| `playback_ids` | An array of Playback ID objects. |
-| `recent_asset_ids` | An array of strings with the most recent Asset IDs that were created from this Live Stream. |
-| `reconnect_slate_url` | The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. |
-| `reconnect_window` | When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live s… |
-| `reduced_latency` | This field is deprecated. |
-| `simulcast_targets` | Each Simulcast Target contains configuration details to broadcast (or "restream") a live stream to a third-party streaming service. |
-| `srt_passphrase` | Unique key used for encrypting a stream to a Mux SRT endpoint. |
-| `status` | `idle` indicates that there is no active broadcast. |
-| `stream_key` | Unique key used for streaming to a Mux RTMP endpoint. |
-| `test` | True means this live stream is a test live stream. |
-| `use_slate_for_standard_latency` | By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. |
-
-Operations: List.
-
-API path: `/video/v1/live-streams`
 
 #### ListMonitoringDimension
 
@@ -1098,20 +940,6 @@ API path: `/data/v1/monitoring/dimensions`
 Operations: List.
 
 API path: `/data/v1/monitoring/metrics`
-
-#### ListPlaybackRestriction
-
-| Field | Description |
-| --- | --- |
-| `created_at` | Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | Unique identifier for the Playback Restriction. |
-| `referrer` | A list of domains allowed to play your videos. |
-| `updated_at` | Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch). |
-| `user_agent` | Rules that control what user agents are allowed to play your videos. |
-
-Operations: List.
-
-API path: `/video/v1/playback-restrictions`
 
 #### ListRealTimeDimension
 
@@ -1165,18 +993,6 @@ Operations: List.
 
 API path: `/data/v1/incidents/{INCIDENT_ID}/related`
 
-#### ListSigningKey
-
-| Field | Description |
-| --- | --- |
-| `created_at` | Time at which the object was created. |
-| `id` | Unique identifier for the Signing Key. |
-| `private_key` | A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). |
-
-Operations: List.
-
-API path: `/system/v1/signing-keys`
-
 #### ListSubviewBreakdownValue
 
 | Field | Description |
@@ -1203,8 +1019,8 @@ API path: `/data/v1/subview-metrics/{METRIC_ID}/{SUBVIEW_TYPE}/comparison`
 
 | Field | Description |
 | --- | --- |
-| `subview` |  |
-| `view` |  |
+| `data` |  |
+| `total_row_count` | Always `null` for this endpoint, matching `GET /data/v1/dimensions`, which also never computes a row count. |
 
 Operations: Load.
 
@@ -1223,75 +1039,6 @@ Operations: Load.
 
 API path: `/data/v1/subview-metrics/{SUBVIEW_TYPE}/dimensions/{DIMENSION_NAME}`
 
-#### ListTranscriptionVocabulary
-
-| Field | Description |
-| --- | --- |
-| `created_at` | Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | Unique identifier for the Transcription Vocabulary |
-| `name` | The user-supplied name of the Transcription Vocabulary. |
-| `passthrough` | Arbitrary user-supplied metadata set for the Transcription Vocabulary. |
-| `phrases` | Phrases, individual words, or proper names to include in the Transcription Vocabulary. |
-| `updated_at` | Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch). |
-
-Operations: List.
-
-API path: `/video/v1/transcription-vocabularies`
-
-#### ListUpload
-
-| Field | Description |
-| --- | --- |
-| `asset_id` | Only set once the upload is in the `asset_created` state. |
-| `cors_origin` | If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers. |
-| `error` | Only set if an error occurred during asset creation. |
-| `id` | Unique identifier for the Direct Upload. |
-| `new_asset_settings` |  |
-| `status` |  |
-| `test` | Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset. |
-| `timeout` | Max time in seconds for the signed upload URL to be valid. |
-| `url` | The URL to upload the associated source media to. |
-
-Operations: List.
-
-API path: `/video/v1/uploads`
-
-#### ListUsageExport
-
-| Field | Description |
-| --- | --- |
-| `date` | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
-| `download_url` | A pre-signed URL to download the CSV. |
-| `download_url_expires_at` | Unix timestamp (seconds since epoch) at which `download_url` expires. |
-| `file_size` | Uncompressed size of the CSV file in bytes. |
-
-Operations: List.
-
-API path: `/system/v1/usage/exports`
-
-#### ListVideoView
-
-| Field | Description |
-| --- | --- |
-| `country_code` |  |
-| `error_type_id` |  |
-| `id` |  |
-| `playback_failure` |  |
-| `player_error_code` |  |
-| `player_error_message` |  |
-| `total_row_count` |  |
-| `video_title` |  |
-| `view_end` |  |
-| `view_start` |  |
-| `viewer_application_name` |  |
-| `viewer_experience_score` |  |
-| `viewer_os_family` |  |
-| `watch_time` |  |
-
-Operations: List.
-
-API path: `/data/v1/video-views`
-
 #### ListVideoViewExport
 
 | Field | Description |
@@ -1302,20 +1049,6 @@ API path: `/data/v1/video-views`
 Operations: List.
 
 API path: `/data/v1/exports/views`
-
-#### ListWebhook
-
-| Field | Description |
-| --- | --- |
-| `address` | The URL where Mux sends webhook notifications. |
-| `created_at` | Time at which the webhook was created, as an ISO 8601 UTC datetime. |
-| `enabled` | Whether Mux attempts to deliver notifications to this webhook. |
-| `id` | Unique identifier for the webhook. |
-| `signing_secret` | Secret used to verify that webhook payloads were sent by Mux. |
-
-Operations: List.
-
-API path: `/system/v1/webhooks`
 
 #### LiveStream
 
@@ -1349,7 +1082,7 @@ API path: `/system/v1/webhooks`
 | `test` | True means this live stream is a test live stream. |
 | `use_slate_for_standard_latency` | By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/video/v1/live-streams/{LIVE_STREAM_ID}/reset-stream-key`
 
@@ -1476,7 +1209,7 @@ API path: `/data/v1/metrics/{METRIC_ID}/overall`
 | `updated_at` | Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch). |
 | `user_agent` | Rules that control what user agents are allowed to play your videos. |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/video/v1/playback-restrictions`
 
@@ -1527,7 +1260,6 @@ API path: `/data/v1/realtime/metrics/{REALTIME_METRIC_ID}/timeseries`
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
 
 Operations: Update.
 
@@ -1542,7 +1274,7 @@ API path: `/video/v1/live-streams/{LIVE_STREAM_ID}/complete`
 | `id` | Unique identifier for the Signing Key. |
 | `private_key` | A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). |
 
-Operations: Create, Load, Remove.
+Operations: Create, List, Load, Remove.
 
 API path: `/system/v1/signing-keys`
 
@@ -1629,7 +1361,7 @@ API path: `/robots/v0/jobs/summarize`
 | `phrases` | Phrases, individual words, or proper names to include in the Transcription Vocabulary. |
 | `updated_at` | Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch). |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/video/v1/transcription-vocabularies`
 
@@ -1714,7 +1446,7 @@ API path: `/video/v1/assets/{ASSET_ID}/tracks/{TRACK_ID}`
 | `timeout` | Max time in seconds for the signed upload URL to be valid. |
 | `url` | The URL to upload the associated source media to. |
 
-Operations: Create, Load, Update.
+Operations: Create, List, Load, Update.
 
 API path: `/video/v1/uploads`
 
@@ -1728,18 +1460,43 @@ Operations: Remove.
 
 API path: `/video/v1/signing-keys/{SIGNING_KEY_ID}`
 
+#### UsageExport
+
+| Field | Description |
+| --- | --- |
+| `date` | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
+| `download_url` | A pre-signed URL to download the CSV. |
+| `download_url_expires_at` | Unix timestamp (seconds since epoch) at which `download_url` expires. |
+| `file_size` | Uncompressed size of the CSV file in bytes. |
+
+Operations: List.
+
+API path: `/system/v1/usage/exports`
+
 #### VideoView
 
 | Field | Description |
 | --- | --- |
+| `country_code` |  |
 | `data` |  |
+| `error_type_id` |  |
 | `id` |  |
+| `playback_failure` |  |
+| `player_error_code` |  |
+| `player_error_message` |  |
 | `timeframe` |  |
 | `total_row_count` |  |
+| `video_title` |  |
+| `view_end` |  |
+| `view_start` |  |
+| `viewer_application_name` |  |
+| `viewer_experience_score` |  |
+| `viewer_os_family` |  |
+| `watch_time` |  |
 
-Operations: Load.
+Operations: List, Load.
 
-API path: `/data/v1/video-views/{VIDEO_VIEW_ID}`
+API path: `/data/v1/video-views`
 
 #### Webhook
 
@@ -1751,7 +1508,7 @@ API path: `/data/v1/video-views/{VIDEO_VIEW_ID}`
 | `id` | Unique identifier for the webhook. |
 | `signing_secret` | Secret used to verify that webhook payloads were sent by Mux. |
 
-Operations: Create, Load, Remove, Update.
+Operations: Create, List, Load, Remove, Update.
 
 API path: `/system/v1/webhooks`
 
@@ -1785,6 +1542,7 @@ Create an instance: `$annotation = $client->Annotation();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -1803,6 +1561,13 @@ Create an instance: `$annotation = $client->Annotation();`
 ```php
 // load() returns the ENTITY — call data_get() for the Annotation record (throws on error).
 $annotation = $client->Annotation()->load(["id" => "annotation_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of Annotation records (throws on error).
+$annotations = $client->Annotation()->list();
 ```
 
 #### Example: Create
@@ -1878,6 +1643,7 @@ Create an instance: `$asset = $client->Asset();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -1927,6 +1693,13 @@ Create an instance: `$asset = $client->Asset();`
 ```php
 // load() returns the ENTITY — call data_get() for the Asset record (throws on error).
 $asset = $client->Asset()->load(["id" => "asset_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of Asset records (throws on error).
+$assets = $client->Asset()->list();
 ```
 
 #### Example: Create
@@ -2145,6 +1918,7 @@ Create an instance: `$directive_run_detail = $client->DirectiveRunDetail();`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -2165,33 +1939,11 @@ Create an instance: `$directive_run_detail = $client->DirectiveRunDetail();`
 $directive_run_detail = $client->DirectiveRunDetail()->load(["directive_id" => "directive_id", "run_id" => "run_id"]);
 ```
 
-
-### DirectiveRunList
-
-Create an instance: `$directive_run_list = $client->DirectiveRunList();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `completed_at` | `mixed` | Unix timestamp (seconds) when the run reached terminal state. |
-| `node_states` | `array` | Per-binding status entries, one per binding, in the order the bindings appear in `directive.workflows[]`. |
-| `run_id` | `string` | Unique run identifier (drvrun_...). |
-| `started_at` | `int` | Unix timestamp (seconds) when the run started. |
-| `status` | `string` | Current run status. |
-| `subject_id` | `string` | The bare Mux asset ID this run targeted. |
-
 #### Example: List
 
 ```php
-// list() returns an array of DirectiveRunList records (throws on error).
-$directive_run_lists = $client->DirectiveRunList()->list();
+// list() returns an array of DirectiveRunDetail records (throws on error).
+$directive_run_details = $client->DirectiveRunDetail()->list();
 ```
 
 
@@ -2203,6 +1955,7 @@ Create an instance: `$drm_configuration = $client->DrmConfiguration();`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -2216,6 +1969,13 @@ Create an instance: `$drm_configuration = $client->DrmConfiguration();`
 ```php
 // load() returns the ENTITY — call data_get() for the DrmConfiguration record (throws on error).
 $drm_configuration = $client->DrmConfiguration()->load(["id" => "drm_configuration_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of DrmConfiguration records (throws on error).
+$drm_configurations = $client->DrmConfiguration()->list();
 ```
 
 
@@ -2702,14 +2462,35 @@ Create an instance: `$incident = $client->Incident();`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `affected_views` | `int` |  |
+| `affected_views_per_hour` | `int` |  |
+| `affected_views_per_hour_on_open` | `int` |  |
+| `breakdowns` | `array` |  |
 | `data` | `array` |  |
+| `description` | `string` |  |
+| `error_description` | `string` |  |
 | `id` | `string` |  |
+| `impact` | `string` |  |
+| `incident_key` | `string` |  |
+| `measured_value` | `float` |  |
+| `measured_value_on_close` | `float` |  |
+| `measurement` | `string` |  |
+| `notification_rules` | `array` |  |
+| `notifications` | `array` |  |
+| `resolved_at` | `string` |  |
+| `sample_size` | `int` |  |
+| `sample_size_unit` | `string` |  |
+| `severity` | `string` |  |
+| `started_at` | `string` |  |
+| `status` | `string` |  |
+| `threshold` | `float` |  |
 | `timeframe` | `array` |  |
 | `total_row_count` | `int` |  |
 
@@ -2718,6 +2499,13 @@ Create an instance: `$incident = $client->Incident();`
 ```php
 // load() returns the ENTITY — call data_get() for the Incident record (throws on error).
 $incident = $client->Incident()->load(["id" => "incident_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of Incident records (throws on error).
+$incidents = $client->Incident()->list();
 ```
 
 
@@ -2755,6 +2543,7 @@ Create an instance: `$job_summary = $client->JobSummary();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 
 #### Fields
 
@@ -2766,6 +2555,13 @@ Create an instance: `$job_summary = $client->JobSummary();`
 | `status` | `string` | Current job status. |
 | `updated_at` | `int` | Unix timestamp (seconds) of the job's last state transition (e.g. |
 | `workflow` | `string` | Workflow type that created this job. |
+
+#### Example: List
+
+```php
+// list() returns an array of JobSummary records (throws on error).
+$job_summarys = $client->JobSummary()->list();
+```
 
 #### Example: Create
 
@@ -2813,90 +2609,6 @@ Create an instance: `$list_all_metric_value = $client->ListAllMetricValue();`
 ```php
 // list() returns an array of ListAllMetricValue records (throws on error).
 $list_all_metric_values = $client->ListAllMetricValue()->list();
-```
-
-
-### ListAnnotation
-
-Create an instance: `$list_annotation = $client->ListAnnotation();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `date` | `string` | Datetime when the annotation applies |
-| `id` | `string` | Unique identifier for the annotation |
-| `note` | `string` | The annotation note content |
-| `sub_property_id` | `string` | Customer-defined sub-property identifier |
-
-#### Example: List
-
-```php
-// list() returns an array of ListAnnotation records (throws on error).
-$list_annotations = $client->ListAnnotation()->list();
-```
-
-
-### ListAsset
-
-Create an instance: `$list_asset = $client->ListAsset();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `aspect_ratio` | `string` | The aspect ratio of the asset in the form of `width:height`, for example `16:9`. |
-| `created_at` | `string` | Time the Asset was created, defined as a Unix timestamp (seconds since epoch). |
-| `directives` | `array` | The Mux Robots directives applied to the asset. |
-| `duration` | `float` | The duration of the asset in seconds (max duration for a single asset is 12 hours). |
-| `encoding_tier` | `string` | This field is deprecated. |
-| `errors` | `array` | Object that describes any errors that happened when processing this asset. |
-| `generate_shots` | `bool` | Whether to perform shot detection on this asset. |
-| `id` | `string` | Unique identifier for the Asset. |
-| `ingest_type` | `string` | The type of ingest used to create the asset. |
-| `is_live` | `bool` | Indicates whether the live stream that created this asset is currently `active` and not in `idle` state. |
-| `live_stream_id` | `string` | Unique identifier for the live stream. |
-| `master` | `array` | An object containing the current status of Master Access and the link to the Master MP4 file when ready. |
-| `master_access` | `string` |  |
-| `max_resolution_tier` | `string` | Max resolution tier can be used to control the maximum `resolution_tier` your asset is encoded, stored, and streamed at. |
-| `max_stored_frame_rate` | `float` | The maximum frame rate that has been stored for the asset. |
-| `max_stored_resolution` | `string` | This field is deprecated. |
-| `meta` | `array` | Customer provided metadata about this asset. |
-| `mp4_support` | `string` | Deprecated. |
-| `non_standard_input_reasons` | `array` | An object containing one or more reasons the input file is non-standard. |
-| `normalize_audio` | `bool` | Normalize the audio track loudness level. |
-| `passthrough` | `string` | You can set this field to anything you want. |
-| `playback_ids` | `array` | An array of Playback ID objects. |
-| `progress` | `array` | Detailed state information about the asset ingest process. |
-| `recording_times` | `array` | An array of individual live stream recording sessions. |
-| `resolution_tier` | `string` | The resolution tier that the asset was ingested at, affecting billing for ingest & storage. |
-| `shots` | `array` | The results of generating shots on the video |
-| `source_asset_id` | `string` | Asset Identifier of the video used as the source for creating the clip. |
-| `static_renditions` | `array` | An object containing the current status of any static renditions (MP4s) for this asset. |
-| `status` | `string` | The status of the asset. |
-| `test` | `bool` | True means this live stream is a test asset. |
-| `thumbnail_time` | `float` | The media time within the asset used when a thumbnail without an explicit time is requested. |
-| `tracks` | `array` | The individual media tracks that make up an asset. |
-| `upload_id` | `string` | Unique identifier for the Direct Upload. |
-| `video_quality` | `string` | The video quality controls the cost, quality, and available platform features for the asset. |
-
-#### Example: List
-
-```php
-// list() returns an array of ListAsset records (throws on error).
-$list_assets = $client->ListAsset()->list();
 ```
 
 
@@ -2964,32 +2676,6 @@ $list_delivery_usages = $client->ListDeliveryUsage()->list();
 ```
 
 
-### ListDimension
-
-Create an instance: `$list_dimension = $client->ListDimension();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `array` |  |
-| `timeframe` | `array` |  |
-| `total_row_count` | `int` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of ListDimension records (throws on error).
-$list_dimensions = $client->ListDimension()->list();
-```
-
-
 ### ListDimensionValue
 
 Create an instance: `$list_dimension_value = $client->ListDimensionValue();`
@@ -3023,30 +2709,6 @@ $list_dimension_value = $client->ListDimensionValue()->load(["dimension_id" => "
 ```php
 // list() returns an array of ListDimensionValue records (throws on error).
 $list_dimension_values = $client->ListDimensionValue()->list();
-```
-
-
-### ListDrmConfiguration
-
-Create an instance: `$list_drm_configuration = $client->ListDrmConfiguration();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `id` | `string` | Unique identifier for the DRM Configuration. |
-
-#### Example: List
-
-```php
-// list() returns an array of ListDrmConfiguration records (throws on error).
-$list_drm_configurations = $client->ListDrmConfiguration()->list();
 ```
 
 
@@ -3108,32 +2770,6 @@ $list_exports = $client->ListExport()->list();
 ```
 
 
-### ListFilter
-
-Create an instance: `$list_filter = $client->ListFilter();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `array` |  |
-| `timeframe` | `array` |  |
-| `total_row_count` | `int` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of ListFilter records (throws on error).
-$list_filters = $client->ListFilter()->list();
-```
-
-
 ### ListFilterValue
 
 Create an instance: `$list_filter_value = $client->ListFilterValue();`
@@ -3142,6 +2778,7 @@ Create an instance: `$list_filter_value = $client->ListFilterValue();`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -3159,48 +2796,11 @@ Create an instance: `$list_filter_value = $client->ListFilterValue();`
 $list_filter_value = $client->ListFilterValue()->load(["filter_id" => "filter_id"]);
 ```
 
-
-### ListIncident
-
-Create an instance: `$list_incident = $client->ListIncident();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `affected_views` | `int` |  |
-| `affected_views_per_hour` | `int` |  |
-| `affected_views_per_hour_on_open` | `int` |  |
-| `breakdowns` | `array` |  |
-| `description` | `string` |  |
-| `error_description` | `string` |  |
-| `id` | `string` |  |
-| `impact` | `string` |  |
-| `incident_key` | `string` |  |
-| `measured_value` | `float` |  |
-| `measured_value_on_close` | `float` |  |
-| `measurement` | `string` |  |
-| `notification_rules` | `array` |  |
-| `notifications` | `array` |  |
-| `resolved_at` | `string` |  |
-| `sample_size` | `int` |  |
-| `sample_size_unit` | `string` |  |
-| `severity` | `string` |  |
-| `started_at` | `string` |  |
-| `status` | `string` |  |
-| `threshold` | `float` |  |
-
 #### Example: List
 
 ```php
-// list() returns an array of ListIncident records (throws on error).
-$list_incidents = $client->ListIncident()->list();
+// list() returns an array of ListFilterValue records (throws on error).
+$list_filter_values = $client->ListFilterValue()->list();
 ```
 
 
@@ -3231,82 +2831,6 @@ Create an instance: `$list_insight = $client->ListInsight();`
 ```php
 // list() returns an array of ListInsight records (throws on error).
 $list_insights = $client->ListInsight()->list();
-```
-
-
-### ListJob
-
-Create an instance: `$list_job = $client->ListJob();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `int` | Unix timestamp (seconds) when the job was created. |
-| `id` | `string` | Unique job identifier. |
-| `links` | `array` | Hypermedia links for this job. |
-| `status` | `string` | Current job status. |
-| `updated_at` | `int` | Unix timestamp (seconds) of the job's last state transition (e.g. |
-| `workflow` | `string` | Workflow type that created this job. |
-
-#### Example: List
-
-```php
-// list() returns an array of ListJob records (throws on error).
-$list_jobs = $client->ListJob()->list();
-```
-
-
-### ListLiveStream
-
-Create an instance: `$list_live_stream = $client->ListLiveStream();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `active_asset_id` | `string` | The Asset that is currently being created if there is an active broadcast. |
-| `active_ingest_protocol` | `string` | The protocol used for the active ingest stream. |
-| `audio_only` | `bool` | The live stream only processes the audio track if the value is set to true. |
-| `created_at` | `string` | Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch). |
-| `embedded_subtitles` | `array` | Describes the embedded closed caption configuration of the incoming live stream. |
-| `generated_subtitles` | `array` | Configure the incoming live stream to include subtitles created with automatic speech recognition. |
-| `id` | `string` | Unique identifier for the Live Stream. |
-| `latency_mode` | `string` | Latency is the time from when the streamer transmits a frame of video to when you see it in the player. |
-| `low_latency` | `bool` | This field is deprecated. |
-| `max_continuous_duration` | `int` | The time in seconds a live stream may be continuously active before being disconnected. |
-| `meta` | `array` | Customer provided metadata about this live stream. |
-| `new_asset_settings` | `array` |  |
-| `passthrough` | `string` | Arbitrary user-supplied metadata set for the asset. |
-| `playback_ids` | `array` | An array of Playback ID objects. |
-| `recent_asset_ids` | `array` | An array of strings with the most recent Asset IDs that were created from this Live Stream. |
-| `reconnect_slate_url` | `string` | The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. |
-| `reconnect_window` | `float` | When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live s… |
-| `reduced_latency` | `bool` | This field is deprecated. |
-| `simulcast_targets` | `array` | Each Simulcast Target contains configuration details to broadcast (or "restream") a live stream to a third-party streaming service. |
-| `srt_passphrase` | `string` | Unique key used for encrypting a stream to a Mux SRT endpoint. |
-| `status` | `string` | `idle` indicates that there is no active broadcast. |
-| `stream_key` | `string` | Unique key used for streaming to a Mux RTMP endpoint. |
-| `test` | `bool` | True means this live stream is a test live stream. |
-| `use_slate_for_standard_latency` | `bool` | By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. |
-
-#### Example: List
-
-```php
-// list() returns an array of ListLiveStream records (throws on error).
-$list_live_streams = $client->ListLiveStream()->list();
 ```
 
 
@@ -3357,34 +2881,6 @@ Create an instance: `$list_monitoring_metric = $client->ListMonitoringMetric();`
 ```php
 // list() returns an array of ListMonitoringMetric records (throws on error).
 $list_monitoring_metrics = $client->ListMonitoringMetric()->list();
-```
-
-
-### ListPlaybackRestriction
-
-Create an instance: `$list_playback_restriction = $client->ListPlaybackRestriction();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` | Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `string` | Unique identifier for the Playback Restriction. |
-| `referrer` | `array` | A list of domains allowed to play your videos. |
-| `updated_at` | `string` | Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch). |
-| `user_agent` | `array` | Rules that control what user agents are allowed to play your videos. |
-
-#### Example: List
-
-```php
-// list() returns an array of ListPlaybackRestriction records (throws on error).
-$list_playback_restrictions = $client->ListPlaybackRestriction()->list();
 ```
 
 
@@ -3482,32 +2978,6 @@ $list_related_incidents = $client->ListRelatedIncident()->list();
 ```
 
 
-### ListSigningKey
-
-Create an instance: `$list_signing_key = $client->ListSigningKey();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` | Time at which the object was created. |
-| `id` | `string` | Unique identifier for the Signing Key. |
-| `private_key` | `string` | A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). |
-
-#### Example: List
-
-```php
-// list() returns an array of ListSigningKey records (throws on error).
-$list_signing_keys = $client->ListSigningKey()->list();
-```
-
-
 ### ListSubviewBreakdownValue
 
 Create an instance: `$list_subview_breakdown_value = $client->ListSubviewBreakdownValue();`
@@ -3572,8 +3042,8 @@ Create an instance: `$list_subview_dimension = $client->ListSubviewDimension();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `subview` | `array` |  |
-| `view` | `array` |  |
+| `data` | `array` |  |
+| `total_row_count` | `int` | Always `null` for this endpoint, matching `GET /data/v1/dimensions`, which also never computes a row count. |
 
 #### Example: Load
 
@@ -3610,131 +3080,6 @@ $list_subview_dimension_value = $client->ListSubviewDimensionValue()->load(["dim
 ```
 
 
-### ListTranscriptionVocabulary
-
-Create an instance: `$list_transcription_vocabulary = $client->ListTranscriptionVocabulary();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `created_at` | `string` | Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `string` | Unique identifier for the Transcription Vocabulary |
-| `name` | `string` | The user-supplied name of the Transcription Vocabulary. |
-| `passthrough` | `string` | Arbitrary user-supplied metadata set for the Transcription Vocabulary. |
-| `phrases` | `array` | Phrases, individual words, or proper names to include in the Transcription Vocabulary. |
-| `updated_at` | `string` | Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch). |
-
-#### Example: List
-
-```php
-// list() returns an array of ListTranscriptionVocabulary records (throws on error).
-$list_transcription_vocabularys = $client->ListTranscriptionVocabulary()->list();
-```
-
-
-### ListUpload
-
-Create an instance: `$list_upload = $client->ListUpload();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `asset_id` | `string` | Only set once the upload is in the `asset_created` state. |
-| `cors_origin` | `string` | If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers. |
-| `error` | `array` | Only set if an error occurred during asset creation. |
-| `id` | `string` | Unique identifier for the Direct Upload. |
-| `new_asset_settings` | `array` |  |
-| `status` | `string` |  |
-| `test` | `bool` | Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset. |
-| `timeout` | `int` | Max time in seconds for the signed upload URL to be valid. |
-| `url` | `string` | The URL to upload the associated source media to. |
-
-#### Example: List
-
-```php
-// list() returns an array of ListUpload records (throws on error).
-$list_uploads = $client->ListUpload()->list();
-```
-
-
-### ListUsageExport
-
-Create an instance: `$list_usage_export = $client->ListUsageExport();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `date` | `string` | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
-| `download_url` | `string` | A pre-signed URL to download the CSV. |
-| `download_url_expires_at` | `int` | Unix timestamp (seconds since epoch) at which `download_url` expires. |
-| `file_size` | `int` | Uncompressed size of the CSV file in bytes. |
-
-#### Example: List
-
-```php
-// list() returns an array of ListUsageExport records (throws on error).
-$list_usage_exports = $client->ListUsageExport()->list();
-```
-
-
-### ListVideoView
-
-Create an instance: `$list_video_view = $client->ListVideoView();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `country_code` | `string` |  |
-| `error_type_id` | `int` |  |
-| `id` | `string` |  |
-| `playback_failure` | `bool` |  |
-| `player_error_code` | `string` |  |
-| `player_error_message` | `string` |  |
-| `total_row_count` | `int` |  |
-| `video_title` | `string` |  |
-| `view_end` | `string` |  |
-| `view_start` | `string` |  |
-| `viewer_application_name` | `string` |  |
-| `viewer_experience_score` | `float` |  |
-| `viewer_os_family` | `string` |  |
-| `watch_time` | `int` |  |
-
-#### Example: List
-
-```php
-// list() returns an array of ListVideoView records (throws on error).
-$list_video_views = $client->ListVideoView()->list();
-```
-
-
 ### ListVideoViewExport
 
 Create an instance: `$list_video_view_export = $client->ListVideoViewExport();`
@@ -3760,34 +3105,6 @@ $list_video_view_exports = $client->ListVideoViewExport()->list();
 ```
 
 
-### ListWebhook
-
-Create an instance: `$list_webhook = $client->ListWebhook();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `list(match)` | List entities matching the criteria. |
-
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `address` | `string` | The URL where Mux sends webhook notifications. |
-| `created_at` | `string` | Time at which the webhook was created, as an ISO 8601 UTC datetime. |
-| `enabled` | `bool` | Whether Mux attempts to deliver notifications to this webhook. |
-| `id` | `string` | Unique identifier for the webhook. |
-| `signing_secret` | `string` | Secret used to verify that webhook payloads were sent by Mux. |
-
-#### Example: List
-
-```php
-// list() returns an array of ListWebhook records (throws on error).
-$list_webhooks = $client->ListWebhook()->list();
-```
-
-
 ### LiveStream
 
 Create an instance: `$live_stream = $client->LiveStream();`
@@ -3797,6 +3114,7 @@ Create an instance: `$live_stream = $client->LiveStream();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -3838,6 +3156,13 @@ Create an instance: `$live_stream = $client->LiveStream();`
 ```php
 // load() returns the ENTITY — call data_get() for the LiveStream record (throws on error).
 $live_stream = $client->LiveStream()->load(["id" => "live_stream_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of LiveStream records (throws on error).
+$live_streams = $client->LiveStream()->list();
 ```
 
 #### Example: Create
@@ -4106,6 +3431,7 @@ Create an instance: `$playback_restriction = $client->PlaybackRestriction();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -4125,6 +3451,13 @@ Create an instance: `$playback_restriction = $client->PlaybackRestriction();`
 ```php
 // load() returns the ENTITY — call data_get() for the PlaybackRestriction record (throws on error).
 $playback_restriction = $client->PlaybackRestriction()->load(["id" => "playback_restriction_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of PlaybackRestriction records (throws on error).
+$playback_restrictions = $client->PlaybackRestriction()->list();
 ```
 
 #### Example: Create
@@ -4235,12 +3568,6 @@ Create an instance: `$signal_live_stream_complete = $client->SignalLiveStreamCom
 | --- | --- |
 | `update(data)` | Update an existing entity. |
 
-#### Fields
-
-| Field | Type | Description |
-| --- | --- | --- |
-| `data` | `array` |  |
-
 
 ### SigningKey
 
@@ -4251,6 +3578,7 @@ Create an instance: `$signing_key = $client->SigningKey();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 
@@ -4268,6 +3596,13 @@ Create an instance: `$signing_key = $client->SigningKey();`
 ```php
 // load() returns the ENTITY — call data_get() for the SigningKey record (throws on error).
 $signing_key = $client->SigningKey()->load(["id" => "signing_key_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of SigningKey records (throws on error).
+$signing_keys = $client->SigningKey()->list();
 ```
 
 #### Example: Create
@@ -4463,6 +3798,7 @@ Create an instance: `$transcription_vocabulary = $client->TranscriptionVocabular
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -4483,6 +3819,13 @@ Create an instance: `$transcription_vocabulary = $client->TranscriptionVocabular
 ```php
 // load() returns the ENTITY — call data_get() for the TranscriptionVocabulary record (throws on error).
 $transcription_vocabulary = $client->TranscriptionVocabulary()->load(["id" => "transcription_vocabulary_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of TranscriptionVocabulary records (throws on error).
+$transcription_vocabularys = $client->TranscriptionVocabulary()->list();
 ```
 
 #### Example: Create
@@ -4641,6 +3984,7 @@ Create an instance: `$upload = $client->Upload();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `update(data)` | Update an existing entity. |
 
@@ -4663,6 +4007,13 @@ Create an instance: `$upload = $client->Upload();`
 ```php
 // load() returns the ENTITY — call data_get() for the Upload record (throws on error).
 $upload = $client->Upload()->load(["id" => "upload_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of Upload records (throws on error).
+$uploads = $client->Upload()->list();
 ```
 
 #### Example: Create
@@ -4694,6 +4045,33 @@ Create an instance: `$url_signing_key = $client->UrlSigningKey();`
 | `id` | `string` |  |
 
 
+### UsageExport
+
+Create an instance: `$usage_export = $client->UsageExport();`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `date` | `string` | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
+| `download_url` | `string` | A pre-signed URL to download the CSV. |
+| `download_url_expires_at` | `int` | Unix timestamp (seconds since epoch) at which `download_url` expires. |
+| `file_size` | `int` | Uncompressed size of the CSV file in bytes. |
+
+#### Example: List
+
+```php
+// list() returns an array of UsageExport records (throws on error).
+$usage_exports = $client->UsageExport()->list();
+```
+
+
 ### VideoView
 
 Create an instance: `$video_view = $client->VideoView();`
@@ -4702,22 +4080,42 @@ Create an instance: `$video_view = $client->VideoView();`
 
 | Method | Description |
 | --- | --- |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `country_code` | `string` |  |
 | `data` | `array` |  |
+| `error_type_id` | `int` |  |
 | `id` | `string` |  |
+| `playback_failure` | `bool` |  |
+| `player_error_code` | `string` |  |
+| `player_error_message` | `string` |  |
 | `timeframe` | `array` |  |
 | `total_row_count` | `int` |  |
+| `video_title` | `string` |  |
+| `view_end` | `string` |  |
+| `view_start` | `string` |  |
+| `viewer_application_name` | `string` |  |
+| `viewer_experience_score` | `float` |  |
+| `viewer_os_family` | `string` |  |
+| `watch_time` | `int` |  |
 
 #### Example: Load
 
 ```php
 // load() returns the ENTITY — call data_get() for the VideoView record (throws on error).
 $video_view = $client->VideoView()->load(["id" => "video_view_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of VideoView records (throws on error).
+$video_views = $client->VideoView()->list();
 ```
 
 
@@ -4730,6 +4128,7 @@ Create an instance: `$webhook = $client->Webhook();`
 | Method | Description |
 | --- | --- |
 | `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 | `remove(match)` | Remove the matching entity. |
 | `update(data)` | Update an existing entity. |
@@ -4749,6 +4148,13 @@ Create an instance: `$webhook = $client->Webhook();`
 ```php
 // load() returns the ENTITY — call data_get() for the Webhook record (throws on error).
 $webhook = $client->Webhook()->load(["id" => "webhook_id"]);
+```
+
+#### Example: List
+
+```php
+// list() returns an array of Webhook records (throws on error).
+$webhooks = $client->Webhook()->list();
 ```
 
 #### Example: Create
@@ -5031,11 +4437,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$listdimensionvalue = $client->ListDimensionValue();
-$listdimensionvalue->list();
+$realtimebreakdown = $client->RealTimeBreakdown();
+$realtimebreakdown->list();
 
-// $listdimensionvalue->data_get() now returns the listdimensionvalue data from the last list
-// $listdimensionvalue->match_get() returns the last match criteria
+// $realtimebreakdown->data_get() now returns the realtimebreakdown data from the last list
+// $realtimebreakdown->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -27,6 +27,15 @@ class AnnotationLoadMatch
     public string $id;
 }
 
+/** Request payload for Annotation#list. */
+class AnnotationListMatch
+{
+    public ?int $limit = null;
+    public ?string $order_direction = null;
+    public ?int $page = null;
+    public ?array $timeframe = null;
+}
+
 /** Request payload for Annotation#create. */
 class AnnotationCreateData
 {
@@ -135,6 +144,16 @@ class Asset
 class AssetLoadMatch
 {
     public string $id;
+}
+
+/** Request payload for Asset#list. */
+class AssetListMatch
+{
+    public ?string $cursor = null;
+    public ?int $limit = null;
+    public ?string $live_stream_id = null;
+    public ?int $page = null;
+    public ?string $upload_id = null;
 }
 
 /** Request payload for Asset#create. */
@@ -367,19 +386,8 @@ class DirectiveRunDetailLoadMatch
     public string $run_id;
 }
 
-/** DirectiveRunList entity data model. */
-class DirectiveRunList
-{
-    public mixed $completed_at;
-    public array $node_states;
-    public string $run_id;
-    public int $started_at;
-    public string $status;
-    public string $subject_id;
-}
-
-/** Request payload for DirectiveRunList#list. */
-class DirectiveRunListListMatch
+/** Request payload for DirectiveRunDetail#list. */
+class DirectiveRunDetailListMatch
 {
     public string $directive_id;
     public ?int $limit = null;
@@ -396,6 +404,13 @@ class DrmConfiguration
 class DrmConfigurationLoadMatch
 {
     public string $id;
+}
+
+/** Request payload for DrmConfiguration#list. */
+class DrmConfigurationListMatch
+{
+    public ?int $limit = null;
+    public ?int $page = null;
 }
 
 /** EditCaption entity data model. */
@@ -740,8 +755,28 @@ class GenerateTrackSubtitleCreateData
 /** Incident entity data model. */
 class Incident
 {
+    public int $affected_views;
+    public int $affected_views_per_hour;
+    public int $affected_views_per_hour_on_open;
+    public array $breakdowns;
     public array $data;
-    public ?string $id = null;
+    public string $description;
+    public string $error_description;
+    public string $id;
+    public string $impact;
+    public string $incident_key;
+    public float $measured_value;
+    public float $measured_value_on_close;
+    public string $measurement;
+    public array $notification_rules;
+    public array $notifications;
+    public string $resolved_at;
+    public int $sample_size;
+    public string $sample_size_unit;
+    public string $severity;
+    public string $started_at;
+    public string $status;
+    public float $threshold;
     public array $timeframe;
     public int $total_row_count;
 }
@@ -750,6 +785,17 @@ class Incident
 class IncidentLoadMatch
 {
     public string $id;
+}
+
+/** Request payload for Incident#list. */
+class IncidentListMatch
+{
+    public ?int $limit = null;
+    public ?string $order_by = null;
+    public ?string $order_direction = null;
+    public ?int $page = null;
+    public ?string $severity = null;
+    public ?string $status = null;
 }
 
 /** InputInfo entity data model. */
@@ -774,6 +820,16 @@ class JobSummary
     public string $status;
     public int $updated_at;
     public string $workflow;
+}
+
+/** Request payload for JobSummary#list. */
+class JobSummaryListMatch
+{
+    public ?string $asset_id = null;
+    public ?int $limit = null;
+    public ?int $page = null;
+    public mixed $status = null;
+    public ?string $workflow = null;
 }
 
 /** Request payload for JobSummary#create. */
@@ -812,73 +868,6 @@ class ListAllMetricValueListMatch
     public ?array $metric_filter = null;
     public ?array $timeframe = null;
     public ?string $value = null;
-}
-
-/** ListAnnotation entity data model. */
-class ListAnnotation
-{
-    public string $date;
-    public string $id;
-    public string $note;
-    public ?string $sub_property_id = null;
-}
-
-/** Request payload for ListAnnotation#list. */
-class ListAnnotationListMatch
-{
-    public ?int $limit = null;
-    public ?string $order_direction = null;
-    public ?int $page = null;
-    public ?array $timeframe = null;
-}
-
-/** ListAsset entity data model. */
-class ListAsset
-{
-    public ?string $aspect_ratio = null;
-    public string $created_at;
-    public ?array $directives = null;
-    public ?float $duration = null;
-    public string $encoding_tier;
-    public ?array $errors = null;
-    public ?bool $generate_shots = null;
-    public string $id;
-    public ?string $ingest_type = null;
-    public ?bool $is_live = null;
-    public ?string $live_stream_id = null;
-    public ?array $master = null;
-    public string $master_access;
-    public string $max_resolution_tier;
-    public ?float $max_stored_frame_rate = null;
-    public ?string $max_stored_resolution = null;
-    public ?array $meta = null;
-    public ?string $mp4_support = null;
-    public ?array $non_standard_input_reasons = null;
-    public ?bool $normalize_audio = null;
-    public ?string $passthrough = null;
-    public ?array $playback_ids = null;
-    public array $progress;
-    public ?array $recording_times = null;
-    public ?string $resolution_tier = null;
-    public array $shots;
-    public ?string $source_asset_id = null;
-    public ?array $static_renditions = null;
-    public string $status;
-    public ?bool $test = null;
-    public ?float $thumbnail_time = null;
-    public ?array $tracks = null;
-    public ?string $upload_id = null;
-    public ?string $video_quality = null;
-}
-
-/** Request payload for ListAsset#list. */
-class ListAssetListMatch
-{
-    public ?string $cursor = null;
-    public ?int $limit = null;
-    public ?string $live_stream_id = null;
-    public ?int $page = null;
-    public ?string $upload_id = null;
 }
 
 /** ListBreakdownValue entity data model. */
@@ -934,22 +923,6 @@ class ListDeliveryUsageListMatch
     public ?array $timeframe = null;
 }
 
-/** ListDimension entity data model. */
-class ListDimension
-{
-    public array $data;
-    public array $timeframe;
-    public int $total_row_count;
-}
-
-/** Request payload for ListDimension#list. */
-class ListDimensionListMatch
-{
-    public ?array $data = null;
-    public ?array $timeframe = null;
-    public ?int $total_row_count = null;
-}
-
 /** ListDimensionValue entity data model. */
 class ListDimensionValue
 {
@@ -974,27 +947,11 @@ class ListDimensionValueLoadMatch
 /** Request payload for ListDimensionValue#list. */
 class ListDimensionValueListMatch
 {
-    public string $dimension_id;
-    public ?array $filter = null;
-    public ?int $limit = null;
-    public ?array $metric_filter = null;
-    public ?string $order_by = null;
-    public ?string $order_direction = null;
-    public ?int $page = null;
+    public ?array $data = null;
     public ?array $timeframe = null;
-}
-
-/** ListDrmConfiguration entity data model. */
-class ListDrmConfiguration
-{
-    public string $id;
-}
-
-/** Request payload for ListDrmConfiguration#list. */
-class ListDrmConfigurationListMatch
-{
-    public ?int $limit = null;
-    public ?int $page = null;
+    public ?int $total_count = null;
+    public ?int $total_row_count = null;
+    public ?string $value = null;
 }
 
 /** ListError entity data model. */
@@ -1035,22 +992,6 @@ class ListExportListMatch
     public ?int $total_row_count = null;
 }
 
-/** ListFilter entity data model. */
-class ListFilter
-{
-    public array $data;
-    public array $timeframe;
-    public int $total_row_count;
-}
-
-/** Request payload for ListFilter#list. */
-class ListFilterListMatch
-{
-    public ?array $data = null;
-    public ?array $timeframe = null;
-    public ?int $total_row_count = null;
-}
-
 /** ListFilterValue entity data model. */
 class ListFilterValue
 {
@@ -1069,41 +1010,12 @@ class ListFilterValueLoadMatch
     public ?array $timeframe = null;
 }
 
-/** ListIncident entity data model. */
-class ListIncident
+/** Request payload for ListFilterValue#list. */
+class ListFilterValueListMatch
 {
-    public int $affected_views;
-    public int $affected_views_per_hour;
-    public int $affected_views_per_hour_on_open;
-    public array $breakdowns;
-    public string $description;
-    public string $error_description;
-    public string $id;
-    public string $impact;
-    public string $incident_key;
-    public float $measured_value;
-    public float $measured_value_on_close;
-    public string $measurement;
-    public array $notification_rules;
-    public array $notifications;
-    public string $resolved_at;
-    public int $sample_size;
-    public string $sample_size_unit;
-    public string $severity;
-    public string $started_at;
-    public string $status;
-    public float $threshold;
-}
-
-/** Request payload for ListIncident#list. */
-class ListIncidentListMatch
-{
-    public ?int $limit = null;
-    public ?string $order_by = null;
-    public ?string $order_direction = null;
-    public ?int $page = null;
-    public ?string $severity = null;
-    public ?string $status = null;
+    public ?array $data = null;
+    public ?array $timeframe = null;
+    public ?int $total_row_count = null;
 }
 
 /** ListInsight entity data model. */
@@ -1127,65 +1039,6 @@ class ListInsightListMatch
     public ?array $metric_filter = null;
     public ?string $order_direction = null;
     public ?array $timeframe = null;
-}
-
-/** ListJob entity data model. */
-class ListJob
-{
-    public int $created_at;
-    public string $id;
-    public array $links;
-    public string $status;
-    public int $updated_at;
-    public string $workflow;
-}
-
-/** Request payload for ListJob#list. */
-class ListJobListMatch
-{
-    public ?string $asset_id = null;
-    public ?int $limit = null;
-    public ?int $page = null;
-    public mixed $status = null;
-    public ?string $workflow = null;
-}
-
-/** ListLiveStream entity data model. */
-class ListLiveStream
-{
-    public ?string $active_asset_id = null;
-    public ?string $active_ingest_protocol = null;
-    public ?bool $audio_only = null;
-    public string $created_at;
-    public ?array $embedded_subtitles = null;
-    public ?array $generated_subtitles = null;
-    public string $id;
-    public string $latency_mode;
-    public ?bool $low_latency = null;
-    public int $max_continuous_duration;
-    public ?array $meta = null;
-    public ?array $new_asset_settings = null;
-    public ?string $passthrough = null;
-    public ?array $playback_ids = null;
-    public ?array $recent_asset_ids = null;
-    public ?string $reconnect_slate_url = null;
-    public ?float $reconnect_window = null;
-    public ?bool $reduced_latency = null;
-    public ?array $simulcast_targets = null;
-    public ?string $srt_passphrase = null;
-    public string $status;
-    public string $stream_key;
-    public ?bool $test = null;
-    public ?bool $use_slate_for_standard_latency = null;
-}
-
-/** Request payload for ListLiveStream#list. */
-class ListLiveStreamListMatch
-{
-    public ?int $limit = null;
-    public ?int $page = null;
-    public ?string $status = null;
-    public ?string $stream_key = null;
 }
 
 /** ListMonitoringDimension entity data model. */
@@ -1214,23 +1067,6 @@ class ListMonitoringMetricListMatch
 {
     public ?string $display_name = null;
     public ?string $name = null;
-}
-
-/** ListPlaybackRestriction entity data model. */
-class ListPlaybackRestriction
-{
-    public string $created_at;
-    public string $id;
-    public array $referrer;
-    public string $updated_at;
-    public array $user_agent;
-}
-
-/** Request payload for ListPlaybackRestriction#list. */
-class ListPlaybackRestrictionListMatch
-{
-    public ?int $limit = null;
-    public ?int $page = null;
 }
 
 /** ListRealTimeDimension entity data model. */
@@ -1297,21 +1133,6 @@ class ListRelatedIncidentListMatch
     public ?int $page = null;
 }
 
-/** ListSigningKey entity data model. */
-class ListSigningKey
-{
-    public string $created_at;
-    public string $id;
-    public ?string $private_key = null;
-}
-
-/** Request payload for ListSigningKey#list. */
-class ListSigningKeyListMatch
-{
-    public ?int $limit = null;
-    public ?int $page = null;
-}
-
 /** ListSubviewBreakdownValue entity data model. */
 class ListSubviewBreakdownValue
 {
@@ -1354,8 +1175,8 @@ class ListSubviewComparisonValueListMatch
 /** ListSubviewDimension entity data model. */
 class ListSubviewDimension
 {
-    public array $subview;
-    public array $view;
+    public array $data;
+    public int $total_row_count;
 }
 
 /** Request payload for ListSubviewDimension#load. */
@@ -1387,95 +1208,6 @@ class ListSubviewDimensionValueLoadMatch
     public ?array $timeframe = null;
 }
 
-/** ListTranscriptionVocabulary entity data model. */
-class ListTranscriptionVocabulary
-{
-    public string $created_at;
-    public string $id;
-    public ?string $name = null;
-    public ?string $passthrough = null;
-    public ?array $phrases = null;
-    public string $updated_at;
-}
-
-/** Request payload for ListTranscriptionVocabulary#list. */
-class ListTranscriptionVocabularyListMatch
-{
-    public ?int $limit = null;
-    public ?int $page = null;
-}
-
-/** ListUpload entity data model. */
-class ListUpload
-{
-    public ?string $asset_id = null;
-    public string $cors_origin;
-    public ?array $error = null;
-    public string $id;
-    public ?array $new_asset_settings = null;
-    public string $status;
-    public ?bool $test = null;
-    public int $timeout;
-    public ?string $url = null;
-}
-
-/** Request payload for ListUpload#list. */
-class ListUploadListMatch
-{
-    public ?int $limit = null;
-    public ?int $page = null;
-}
-
-/** ListUsageExport entity data model. */
-class ListUsageExport
-{
-    public string $date;
-    public string $download_url;
-    public int $download_url_expires_at;
-    public int $file_size;
-}
-
-/** Request payload for ListUsageExport#list. */
-class ListUsageExportListMatch
-{
-    public ?int $download_url_ttl = null;
-    public ?int $limit = null;
-    public ?int $page = null;
-    public ?array $timeframe = null;
-}
-
-/** ListVideoView entity data model. */
-class ListVideoView
-{
-    public string $country_code;
-    public int $error_type_id;
-    public string $id;
-    public bool $playback_failure;
-    public string $player_error_code;
-    public string $player_error_message;
-    public int $total_row_count;
-    public string $video_title;
-    public string $view_end;
-    public string $view_start;
-    public string $viewer_application_name;
-    public float $viewer_experience_score;
-    public string $viewer_os_family;
-    public int $watch_time;
-}
-
-/** Request payload for ListVideoView#list. */
-class ListVideoViewListMatch
-{
-    public ?int $error_id = null;
-    public ?array $filter = null;
-    public ?int $limit = null;
-    public ?array $metric_filter = null;
-    public ?string $order_direction = null;
-    public ?int $page = null;
-    public ?array $timeframe = null;
-    public ?string $viewer_id = null;
-}
-
 /** ListVideoViewExport entity data model. */
 class ListVideoViewExport
 {
@@ -1488,23 +1220,6 @@ class ListVideoViewExportListMatch
 {
     public ?string $export_date = null;
     public ?array $files = null;
-}
-
-/** ListWebhook entity data model. */
-class ListWebhook
-{
-    public string $address;
-    public string $created_at;
-    public bool $enabled;
-    public string $id;
-    public ?string $signing_secret = null;
-}
-
-/** Request payload for ListWebhook#list. */
-class ListWebhookListMatch
-{
-    public ?int $limit = null;
-    public ?int $page = null;
 }
 
 /** LiveStream entity data model. */
@@ -1543,6 +1258,15 @@ class LiveStream
 class LiveStreamLoadMatch
 {
     public string $id;
+}
+
+/** Request payload for LiveStream#list. */
+class LiveStreamListMatch
+{
+    public ?int $limit = null;
+    public ?int $page = null;
+    public ?string $status = null;
+    public ?string $stream_key = null;
 }
 
 /** Request payload for LiveStream#create. */
@@ -1802,6 +1526,13 @@ class PlaybackRestrictionLoadMatch
     public string $id;
 }
 
+/** Request payload for PlaybackRestriction#list. */
+class PlaybackRestrictionListMatch
+{
+    public ?int $limit = null;
+    public ?int $page = null;
+}
+
 /** Request payload for PlaybackRestriction#create. */
 class PlaybackRestrictionCreateData
 {
@@ -1889,14 +1620,12 @@ class RealTimeTimeseriesListMatch
 /** SignalLiveStreamComplete entity data model. */
 class SignalLiveStreamComplete
 {
-    public ?array $data = null;
 }
 
 /** Request payload for SignalLiveStreamComplete#update. */
 class SignalLiveStreamCompleteUpdateData
 {
     public string $live_stream_id;
-    public ?array $data = null;
 }
 
 /** SigningKey entity data model. */
@@ -1912,6 +1641,13 @@ class SigningKey
 class SigningKeyLoadMatch
 {
     public string $id;
+}
+
+/** Request payload for SigningKey#list. */
+class SigningKeyListMatch
+{
+    public ?int $limit = null;
+    public ?int $page = null;
 }
 
 /** Request payload for SigningKey#create. */
@@ -2067,6 +1803,13 @@ class TranscriptionVocabulary
 class TranscriptionVocabularyLoadMatch
 {
     public string $id;
+}
+
+/** Request payload for TranscriptionVocabulary#list. */
+class TranscriptionVocabularyListMatch
+{
+    public ?int $limit = null;
+    public ?int $page = null;
 }
 
 /** Request payload for TranscriptionVocabulary#create. */
@@ -2240,6 +1983,13 @@ class UploadLoadMatch
     public string $id;
 }
 
+/** Request payload for Upload#list. */
+class UploadListMatch
+{
+    public ?int $limit = null;
+    public ?int $page = null;
+}
+
 /** Request payload for Upload#create. */
 class UploadCreateData
 {
@@ -2281,19 +2031,62 @@ class UrlSigningKeyRemoveMatch
     public string $id;
 }
 
+/** UsageExport entity data model. */
+class UsageExport
+{
+    public string $date;
+    public string $download_url;
+    public int $download_url_expires_at;
+    public int $file_size;
+}
+
+/** Request payload for UsageExport#list. */
+class UsageExportListMatch
+{
+    public ?int $download_url_ttl = null;
+    public ?int $limit = null;
+    public ?int $page = null;
+    public ?array $timeframe = null;
+}
+
 /** VideoView entity data model. */
 class VideoView
 {
+    public string $country_code;
     public array $data;
-    public ?string $id = null;
+    public int $error_type_id;
+    public string $id;
+    public bool $playback_failure;
+    public string $player_error_code;
+    public string $player_error_message;
     public array $timeframe;
     public int $total_row_count;
+    public string $video_title;
+    public string $view_end;
+    public string $view_start;
+    public string $viewer_application_name;
+    public float $viewer_experience_score;
+    public string $viewer_os_family;
+    public int $watch_time;
 }
 
 /** Request payload for VideoView#load. */
 class VideoViewLoadMatch
 {
     public string $id;
+}
+
+/** Request payload for VideoView#list. */
+class VideoViewListMatch
+{
+    public ?int $error_id = null;
+    public ?array $filter = null;
+    public ?int $limit = null;
+    public ?array $metric_filter = null;
+    public ?string $order_direction = null;
+    public ?int $page = null;
+    public ?array $timeframe = null;
+    public ?string $viewer_id = null;
 }
 
 /** Webhook entity data model. */
@@ -2310,6 +2103,13 @@ class Webhook
 class WebhookLoadMatch
 {
     public string $id;
+}
+
+/** Request payload for Webhook#list. */
+class WebhookListMatch
+{
+    public ?int $limit = null;
+    public ?int $page = null;
 }
 
 /** Request payload for Webhook#create. */

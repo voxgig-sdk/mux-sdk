@@ -43,7 +43,7 @@ main: kit: entity: subview_breakdown_timeseries: {
                 ex: "playing_time"
                 k: "param"
                 n: "subview_metric_id"
-                or: "metric_id"
+                or: "METRIC_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -51,7 +51,7 @@ main: kit: entity: subview_breakdown_timeseries: {
                 ex: "rendition"
                 k: "param"
                 n: "subview_type"
-                or: "subview_type"
+                or: "SUBVIEW_TYPE"
                 r: true
                 t: "`$STRING`"
               }
@@ -68,14 +68,14 @@ main: kit: entity: subview_breakdown_timeseries: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
               {
                 k: "query"
                 n: "group_by"
-                or: "group_by"
+                or: "group_by[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -90,7 +90,7 @@ main: kit: entity: subview_breakdown_timeseries: {
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -137,7 +137,7 @@ main: kit: entity: subview_breakdown_timeseries: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

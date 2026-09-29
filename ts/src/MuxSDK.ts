@@ -10,7 +10,6 @@ import { CreatePlaybackIdEntity } from './entity/CreatePlaybackIdEntity'
 import { CreateTrackEntity } from './entity/CreateTrackEntity'
 import { DirectiveEntity } from './entity/DirectiveEntity'
 import { DirectiveRunDetailEntity } from './entity/DirectiveRunDetailEntity'
-import { DirectiveRunListEntity } from './entity/DirectiveRunListEntity'
 import { DrmConfigurationEntity } from './entity/DrmConfigurationEntity'
 import { EditCaptionEntity } from './entity/EditCaptionEntity'
 import { EngagementHeatmapEntity } from './entity/EngagementHeatmapEntity'
@@ -27,38 +26,23 @@ import { IncidentEntity } from './entity/IncidentEntity'
 import { InputInfoEntity } from './entity/InputInfoEntity'
 import { JobSummaryEntity } from './entity/JobSummaryEntity'
 import { ListAllMetricValueEntity } from './entity/ListAllMetricValueEntity'
-import { ListAnnotationEntity } from './entity/ListAnnotationEntity'
-import { ListAssetEntity } from './entity/ListAssetEntity'
 import { ListBreakdownValueEntity } from './entity/ListBreakdownValueEntity'
 import { ListDeliveryUsageEntity } from './entity/ListDeliveryUsageEntity'
-import { ListDimensionEntity } from './entity/ListDimensionEntity'
 import { ListDimensionValueEntity } from './entity/ListDimensionValueEntity'
-import { ListDrmConfigurationEntity } from './entity/ListDrmConfigurationEntity'
 import { ListErrorEntity } from './entity/ListErrorEntity'
 import { ListExportEntity } from './entity/ListExportEntity'
-import { ListFilterEntity } from './entity/ListFilterEntity'
 import { ListFilterValueEntity } from './entity/ListFilterValueEntity'
-import { ListIncidentEntity } from './entity/ListIncidentEntity'
 import { ListInsightEntity } from './entity/ListInsightEntity'
-import { ListJobEntity } from './entity/ListJobEntity'
-import { ListLiveStreamEntity } from './entity/ListLiveStreamEntity'
 import { ListMonitoringDimensionEntity } from './entity/ListMonitoringDimensionEntity'
 import { ListMonitoringMetricEntity } from './entity/ListMonitoringMetricEntity'
-import { ListPlaybackRestrictionEntity } from './entity/ListPlaybackRestrictionEntity'
 import { ListRealTimeDimensionEntity } from './entity/ListRealTimeDimensionEntity'
 import { ListRealTimeMetricEntity } from './entity/ListRealTimeMetricEntity'
 import { ListRelatedIncidentEntity } from './entity/ListRelatedIncidentEntity'
-import { ListSigningKeyEntity } from './entity/ListSigningKeyEntity'
 import { ListSubviewBreakdownValueEntity } from './entity/ListSubviewBreakdownValueEntity'
 import { ListSubviewComparisonValueEntity } from './entity/ListSubviewComparisonValueEntity'
 import { ListSubviewDimensionEntity } from './entity/ListSubviewDimensionEntity'
 import { ListSubviewDimensionValueEntity } from './entity/ListSubviewDimensionValueEntity'
-import { ListTranscriptionVocabularyEntity } from './entity/ListTranscriptionVocabularyEntity'
-import { ListUploadEntity } from './entity/ListUploadEntity'
-import { ListUsageExportEntity } from './entity/ListUsageExportEntity'
-import { ListVideoViewEntity } from './entity/ListVideoViewEntity'
 import { ListVideoViewExportEntity } from './entity/ListVideoViewExportEntity'
-import { ListWebhookEntity } from './entity/ListWebhookEntity'
 import { LiveStreamEntity } from './entity/LiveStreamEntity'
 import { LiveStreamPlaybackIdEntity } from './entity/LiveStreamPlaybackIdEntity'
 import { MetricTimeseriesDataEntity } from './entity/MetricTimeseriesDataEntity'
@@ -85,6 +69,7 @@ import { TranslateCaptionEntity } from './entity/TranslateCaptionEntity'
 import { UpdateAssetTrackEntity } from './entity/UpdateAssetTrackEntity'
 import { UploadEntity } from './entity/UploadEntity'
 import { UrlSigningKeyEntity } from './entity/UrlSigningKeyEntity'
+import { UsageExportEntity } from './entity/UsageExportEntity'
 import { VideoViewEntity } from './entity/VideoViewEntity'
 import { WebhookEntity } from './entity/WebhookEntity'
 import { WhoAmIEntity } from './entity/WhoAmIEntity'
@@ -459,15 +444,6 @@ class MuxSDK {
   }
 
 
-  // Entity access: `client.DirectiveRunList().list()` / `client.DirectiveRunList().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  DirectiveRunList(entopts?: Record<string, any>) {
-    const self = this
-    return new DirectiveRunListEntity(self, entopts)
-  }
-
-
   // Entity access: `client.DrmConfiguration().list()` / `client.DrmConfiguration().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
@@ -612,24 +588,6 @@ class MuxSDK {
   }
 
 
-  // Entity access: `client.ListAnnotation().list()` / `client.ListAnnotation().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListAnnotation(entopts?: Record<string, any>) {
-    const self = this
-    return new ListAnnotationEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.ListAsset().list()` / `client.ListAsset().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListAsset(entopts?: Record<string, any>) {
-    const self = this
-    return new ListAssetEntity(self, entopts)
-  }
-
-
   // Entity access: `client.ListBreakdownValue().list()` / `client.ListBreakdownValue().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
@@ -648,30 +606,12 @@ class MuxSDK {
   }
 
 
-  // Entity access: `client.ListDimension().list()` / `client.ListDimension().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListDimension(entopts?: Record<string, any>) {
-    const self = this
-    return new ListDimensionEntity(self, entopts)
-  }
-
-
   // Entity access: `client.ListDimensionValue().list()` / `client.ListDimensionValue().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   ListDimensionValue(entopts?: Record<string, any>) {
     const self = this
     return new ListDimensionValueEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.ListDrmConfiguration().list()` / `client.ListDrmConfiguration().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListDrmConfiguration(entopts?: Record<string, any>) {
-    const self = this
-    return new ListDrmConfigurationEntity(self, entopts)
   }
 
 
@@ -693,15 +633,6 @@ class MuxSDK {
   }
 
 
-  // Entity access: `client.ListFilter().list()` / `client.ListFilter().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListFilter(entopts?: Record<string, any>) {
-    const self = this
-    return new ListFilterEntity(self, entopts)
-  }
-
-
   // Entity access: `client.ListFilterValue().list()` / `client.ListFilterValue().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
@@ -711,39 +642,12 @@ class MuxSDK {
   }
 
 
-  // Entity access: `client.ListIncident().list()` / `client.ListIncident().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListIncident(entopts?: Record<string, any>) {
-    const self = this
-    return new ListIncidentEntity(self, entopts)
-  }
-
-
   // Entity access: `client.ListInsight().list()` / `client.ListInsight().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   ListInsight(entopts?: Record<string, any>) {
     const self = this
     return new ListInsightEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.ListJob().list()` / `client.ListJob().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListJob(entopts?: Record<string, any>) {
-    const self = this
-    return new ListJobEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.ListLiveStream().list()` / `client.ListLiveStream().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListLiveStream(entopts?: Record<string, any>) {
-    const self = this
-    return new ListLiveStreamEntity(self, entopts)
   }
 
 
@@ -762,15 +666,6 @@ class MuxSDK {
   ListMonitoringMetric(entopts?: Record<string, any>) {
     const self = this
     return new ListMonitoringMetricEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.ListPlaybackRestriction().list()` / `client.ListPlaybackRestriction().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListPlaybackRestriction(entopts?: Record<string, any>) {
-    const self = this
-    return new ListPlaybackRestrictionEntity(self, entopts)
   }
 
 
@@ -798,15 +693,6 @@ class MuxSDK {
   ListRelatedIncident(entopts?: Record<string, any>) {
     const self = this
     return new ListRelatedIncidentEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.ListSigningKey().list()` / `client.ListSigningKey().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListSigningKey(entopts?: Record<string, any>) {
-    const self = this
-    return new ListSigningKeyEntity(self, entopts)
   }
 
 
@@ -846,57 +732,12 @@ class MuxSDK {
   }
 
 
-  // Entity access: `client.ListTranscriptionVocabulary().list()` / `client.ListTranscriptionVocabulary().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListTranscriptionVocabulary(entopts?: Record<string, any>) {
-    const self = this
-    return new ListTranscriptionVocabularyEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.ListUpload().list()` / `client.ListUpload().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListUpload(entopts?: Record<string, any>) {
-    const self = this
-    return new ListUploadEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.ListUsageExport().list()` / `client.ListUsageExport().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListUsageExport(entopts?: Record<string, any>) {
-    const self = this
-    return new ListUsageExportEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.ListVideoView().list()` / `client.ListVideoView().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListVideoView(entopts?: Record<string, any>) {
-    const self = this
-    return new ListVideoViewEntity(self, entopts)
-  }
-
-
   // Entity access: `client.ListVideoViewExport().list()` / `client.ListVideoViewExport().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
   ListVideoViewExport(entopts?: Record<string, any>) {
     const self = this
     return new ListVideoViewExportEntity(self, entopts)
-  }
-
-
-  // Entity access: `client.ListWebhook().list()` / `client.ListWebhook().load({ id })`.
-  // The argument is the entity OPTIONS object (passed to the entity
-  // constructor as entopts), not initial entity data.
-  ListWebhook(entopts?: Record<string, any>) {
-    const self = this
-    return new ListWebhookEntity(self, entopts)
   }
 
 
@@ -1131,6 +972,15 @@ class MuxSDK {
   UrlSigningKey(entopts?: Record<string, any>) {
     const self = this
     return new UrlSigningKeyEntity(self, entopts)
+  }
+
+
+  // Entity access: `client.UsageExport().list()` / `client.UsageExport().load({ id })`.
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  UsageExport(entopts?: Record<string, any>) {
+    const self = this
+    return new UsageExportEntity(self, entopts)
   }
 
 

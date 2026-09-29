@@ -24,6 +24,54 @@ func TestDirectiveRunDetailEntity(t *testing.T) {
 		}
 	})
 
+	// Feature #4: the entity Stream(action, ...) method runs the op pipeline and
+	// returns a channel over result items. With the streaming feature active it
+	// yields the feature's incremental output; otherwise it falls back to the
+	// materialised list so Stream always yields.
+	t.Run("stream", func(t *testing.T) {
+		seed := map[string]any{
+			"entity": map[string]any{
+				"directive_run_detail": map[string]any{
+					"s1": map[string]any{"id": "s1"},
+					"s2": map[string]any{"id": "s2"},
+					"s3": map[string]any{"id": "s3"},
+				},
+			},
+		}
+
+		// Fallback: streaming inactive -> yields the materialised list items.
+		base := sdk.TestSDK(seed, nil)
+		var seen []any
+		for item := range base.DirectiveRunDetail(nil).Stream("list", nil, nil) {
+			seen = append(seen, item)
+		}
+		if len(seen) != 3 {
+			t.Fatalf("expected 3 streamed items, got %d", len(seen))
+		}
+
+		// Inbound: streaming active -> yields each item from the feature iterator.
+		hasStreaming := false
+		if fm, ok := core.SharedConfig()["feature"].(map[string]any); ok {
+			_, hasStreaming = fm["streaming"]
+		}
+		if hasStreaming {
+			streamSdk := sdk.TestSDK(seed, map[string]any{
+				"feature": map[string]any{"streaming": map[string]any{"active": true}},
+			})
+			var got []any
+			for item := range streamSdk.DirectiveRunDetail(nil).Stream("list", nil, nil) {
+				if sub, ok := item.([]any); ok {
+					got = append(got, sub...)
+				} else {
+					got = append(got, item)
+				}
+			}
+			if len(got) != 3 {
+				t.Fatalf("expected 3 items via streaming feature, got %d", len(got))
+			}
+		}
+	})
+
 	t.Run("basic", func(t *testing.T) {
 		setup := directive_run_detailBasicSetup(nil)
 		// Per-op sdk-test-control.json skip — basic test exercises a flow
@@ -32,7 +80,7 @@ func TestDirectiveRunDetailEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"load"} {
+		for _, _op := range []string{"list", "load"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "directive_run_detail." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -59,8 +107,22 @@ func TestDirectiveRunDetailEntity(t *testing.T) {
 		// happen not to consume the bootstrap data (e.g. list-only flows).
 		_ = directiveRunDetailRef01Data
 
-		// LOAD
+		// LIST
 		directiveRunDetailRef01Ent := client.DirectiveRunDetail(nil)
+		directiveRunDetailRef01Match := map[string]any{
+			"directive_id": setup.idmap["directive01"],
+		}
+
+		directiveRunDetailRef01ListResult, err := directiveRunDetailRef01Ent.List(directiveRunDetailRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		_, directiveRunDetailRef01ListOk := directiveRunDetailRef01ListResult.([]any)
+		if !directiveRunDetailRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", directiveRunDetailRef01ListResult)
+		}
+
+		// LOAD
 		directiveRunDetailRef01MatchDt0 := map[string]any{}
 		directiveRunDetailRef01DataDt0Loaded, err := directiveRunDetailRef01Ent.Load(directiveRunDetailRef01MatchDt0, nil)
 		if err != nil {

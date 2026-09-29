@@ -112,6 +112,61 @@ main: kit: entity: upload: {
         }
       ]
     }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/uploads"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/uploads"
+          q: {
+            exist: [
+              "limit"
+              "page"
+            ]
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "uploads"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
     load: {
       name: "load"
       points: [
@@ -127,7 +182,7 @@ main: kit: entity: upload: {
                 ex: "abcd1234"
                 k: "param"
                 n: "id"
-                or: "upload_id"
+                or: "UPLOAD_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -181,7 +236,7 @@ main: kit: entity: upload: {
                 ex: "abcd1234"
                 k: "param"
                 n: "upload_id"
-                or: "upload_id"
+                or: "UPLOAD_ID"
                 r: true
                 t: "`$STRING`"
               }

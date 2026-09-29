@@ -73,6 +73,77 @@ main: kit: entity: annotation: {
         }
       ]
     }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /data/v1/annotations"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "order_direction"
+                or: "order_direction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "timeframe"
+                or: "timeframe[]"
+                r: false
+                t: "`$ARRAY`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/data/v1/annotations"
+          q: {
+            exist: [
+              "limit"
+              "order_direction"
+              "page"
+              "timeframe"
+            ]
+          }
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "annotations"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
     load: {
       name: "load"
       points: [
@@ -87,7 +158,7 @@ main: kit: entity: annotation: {
               {
                 k: "param"
                 n: "id"
-                or: "annotation_id"
+                or: "ANNOTATION_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -140,7 +211,7 @@ main: kit: entity: annotation: {
               {
                 k: "param"
                 n: "id"
-                or: "annotation_id"
+                or: "ANNOTATION_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -193,7 +264,7 @@ main: kit: entity: annotation: {
               {
                 k: "param"
                 n: "id"
-                or: "annotation_id"
+                or: "ANNOTATION_ID"
                 r: true
                 t: "`$STRING`"
               }

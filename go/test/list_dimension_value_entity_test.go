@@ -109,9 +109,7 @@ func TestListDimensionValueEntity(t *testing.T) {
 
 		// LIST
 		listDimensionValueRef01Ent := client.ListDimensionValue(nil)
-		listDimensionValueRef01Match := map[string]any{
-			"dimension_id": setup.idmap["dimension01"],
-		}
+		listDimensionValueRef01Match := map[string]any{}
 
 		listDimensionValueRef01ListResult, err := listDimensionValueRef01Ent.List(listDimensionValueRef01Match, nil)
 		if err != nil {
@@ -160,7 +158,7 @@ func list_dimension_valueBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"list_dimension_value01", "list_dimension_value02", "list_dimension_value03", "dimension01"},
+		[]any{"list_dimension_value01", "list_dimension_value02", "list_dimension_value03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

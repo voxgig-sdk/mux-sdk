@@ -50,7 +50,7 @@ main: kit: entity: subview_overall_value: {
                 ex: "playing_time"
                 k: "param"
                 n: "subview_metric_id"
-                or: "metric_id"
+                or: "METRIC_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -58,7 +58,7 @@ main: kit: entity: subview_overall_value: {
                 ex: "rendition"
                 k: "param"
                 n: "subview_type"
-                or: "subview_type"
+                or: "SUBVIEW_TYPE"
                 r: true
                 t: "`$STRING`"
               }
@@ -67,14 +67,14 @@ main: kit: entity: subview_overall_value: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }

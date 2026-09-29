@@ -21,6 +21,61 @@ main: kit: entity: drm_configuration: {
 
   name: "drm_configuration"
   op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/drm-configurations"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/drm-configurations"
+          q: {
+            exist: [
+              "limit"
+              "page"
+            ]
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "drm-configurations"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
     load: {
       name: "load"
       points: [
@@ -35,7 +90,7 @@ main: kit: entity: drm_configuration: {
               {
                 k: "param"
                 n: "id"
-                or: "drm_configuration_id"
+                or: "DRM_CONFIGURATION_ID"
                 r: true
                 t: "`$STRING`"
               }

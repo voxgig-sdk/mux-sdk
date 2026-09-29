@@ -82,7 +82,7 @@ main: kit: entity: directive: {
               {
                 k: "param"
                 n: "directive_id"
-                or: "directive_id"
+                or: "DIRECTIVE_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -120,7 +120,7 @@ main: kit: entity: directive: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
         {
@@ -218,7 +218,7 @@ main: kit: entity: directive: {
               {
                 k: "param"
                 n: "id"
-                or: "directive_id"
+                or: "DIRECTIVE_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -271,7 +271,7 @@ main: kit: entity: directive: {
               {
                 k: "param"
                 n: "id"
-                or: "directive_id"
+                or: "DIRECTIVE_ID"
                 r: true
                 t: "`$STRING`"
               }

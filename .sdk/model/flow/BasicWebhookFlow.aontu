@@ -15,6 +15,18 @@ main: kit: flow: BasicWebhookFlow:
     }
 
     {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "webhook_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       i: {
         ref: "webhook_ref01",
         srcdatavar: "webhook_ref01_data",
@@ -66,6 +78,22 @@ main: kit: flow: BasicWebhookFlow:
       }
 
       o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "webhook_ref01"
+          }
+        }
+      ]
     }
   ],
   "key$": "BasicWebhookFlow"

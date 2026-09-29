@@ -30,6 +30,13 @@ class AnnotationLoadMatch(TypedDict):
     id: str
 
 
+class AnnotationListMatch(TypedDict, total=False):
+    limit: int
+    order_direction: str
+    page: int
+    timeframe: list
+
+
 class AnnotationCreateDataRequired(TypedDict):
     date: str
     id: str
@@ -137,6 +144,14 @@ class Asset(AssetRequired, total=False):
 
 class AssetLoadMatch(TypedDict):
     id: str
+
+
+class AssetListMatch(TypedDict, total=False):
+    cursor: str
+    limit: int
+    live_stream_id: str
+    page: int
+    upload_id: str
 
 
 class AssetCreateDataRequired(TypedDict):
@@ -350,20 +365,11 @@ class DirectiveRunDetailLoadMatch(TypedDict):
     run_id: str
 
 
-class DirectiveRunList(TypedDict):
-    completed_at: int | None
-    node_states: list
-    run_id: str
-    started_at: int
-    status: str
-    subject_id: str
-
-
-class DirectiveRunListListMatchRequired(TypedDict):
+class DirectiveRunDetailListMatchRequired(TypedDict):
     directive_id: str
 
 
-class DirectiveRunListListMatch(DirectiveRunListListMatchRequired, total=False):
+class DirectiveRunDetailListMatch(DirectiveRunDetailListMatchRequired, total=False):
     limit: int
     page: int
 
@@ -374,6 +380,11 @@ class DrmConfiguration(TypedDict):
 
 class DrmConfigurationLoadMatch(TypedDict):
     id: str
+
+
+class DrmConfigurationListMatch(TypedDict, total=False):
+    limit: int
+    page: int
 
 
 class EditCaptionRequired(TypedDict):
@@ -708,18 +719,44 @@ class GenerateTrackSubtitleCreateData(TypedDict):
     generated_subtitles: list
 
 
-class IncidentRequired(TypedDict):
+class Incident(TypedDict):
+    affected_views: int
+    affected_views_per_hour: int
+    affected_views_per_hour_on_open: int
+    breakdowns: list
     data: dict
+    description: str
+    error_description: str
+    id: str
+    impact: str
+    incident_key: str
+    measured_value: float
+    measured_value_on_close: float
+    measurement: str
+    notification_rules: list
+    notifications: list
+    resolved_at: str
+    sample_size: int
+    sample_size_unit: str
+    severity: str
+    started_at: str
+    status: str
+    threshold: float
     timeframe: list
     total_row_count: int
 
 
-class Incident(IncidentRequired, total=False):
-    id: str
-
-
 class IncidentLoadMatch(TypedDict):
     id: str
+
+
+class IncidentListMatch(TypedDict, total=False):
+    limit: int
+    order_by: str
+    order_direction: str
+    page: int
+    severity: str
+    status: str
 
 
 class InputInfo(TypedDict, total=False):
@@ -737,6 +774,14 @@ class JobSummary(TypedDict):
     links: dict
     status: str
     updated_at: int
+    workflow: str
+
+
+class JobSummaryListMatch(TypedDict, total=False):
+    asset_id: str
+    limit: int
+    page: int
+    status: Any
     workflow: str
 
 
@@ -773,71 +818,6 @@ class ListAllMetricValueListMatch(TypedDict, total=False):
     metric_filter: list
     timeframe: list
     value: str
-
-
-class ListAnnotationRequired(TypedDict):
-    date: str
-    id: str
-    note: str
-
-
-class ListAnnotation(ListAnnotationRequired, total=False):
-    sub_property_id: str
-
-
-class ListAnnotationListMatch(TypedDict, total=False):
-    limit: int
-    order_direction: str
-    page: int
-    timeframe: list
-
-
-class ListAssetRequired(TypedDict):
-    created_at: str
-    encoding_tier: str
-    id: str
-    master_access: str
-    max_resolution_tier: str
-    progress: dict
-    shots: dict
-    status: str
-
-
-class ListAsset(ListAssetRequired, total=False):
-    aspect_ratio: str
-    directives: list
-    duration: float
-    errors: dict
-    generate_shots: bool
-    ingest_type: str
-    is_live: bool
-    live_stream_id: str
-    master: dict
-    max_stored_frame_rate: float
-    max_stored_resolution: str
-    meta: dict
-    mp4_support: str
-    non_standard_input_reasons: dict
-    normalize_audio: bool
-    passthrough: str
-    playback_ids: list
-    recording_times: list
-    resolution_tier: str
-    source_asset_id: str
-    static_renditions: dict
-    test: bool
-    thumbnail_time: float
-    tracks: list
-    upload_id: str
-    video_quality: str
-
-
-class ListAssetListMatch(TypedDict, total=False):
-    cursor: str
-    limit: int
-    live_stream_id: str
-    page: int
-    upload_id: str
 
 
 class ListBreakdownValue(TypedDict):
@@ -891,18 +871,6 @@ class ListDeliveryUsageListMatch(TypedDict, total=False):
     timeframe: list
 
 
-class ListDimension(TypedDict):
-    data: dict
-    timeframe: list
-    total_row_count: int
-
-
-class ListDimensionListMatch(TypedDict, total=False):
-    data: dict
-    timeframe: list
-    total_row_count: int
-
-
 class ListDimensionValue(TypedDict):
     data: list
     timeframe: list
@@ -923,27 +891,12 @@ class ListDimensionValueLoadMatch(ListDimensionValueLoadMatchRequired, total=Fal
     timeframe: list
 
 
-class ListDimensionValueListMatchRequired(TypedDict):
-    dimension_id: str
-
-
-class ListDimensionValueListMatch(ListDimensionValueListMatchRequired, total=False):
-    filter: list
-    limit: int
-    metric_filter: list
-    order_by: str
-    order_direction: str
-    page: int
+class ListDimensionValueListMatch(TypedDict, total=False):
+    data: list
     timeframe: list
-
-
-class ListDrmConfiguration(TypedDict):
-    id: str
-
-
-class ListDrmConfigurationListMatch(TypedDict, total=False):
-    limit: int
-    page: int
+    total_count: int
+    total_row_count: int
+    value: str
 
 
 class ListError(TypedDict):
@@ -976,18 +929,6 @@ class ListExportListMatch(TypedDict, total=False):
     total_row_count: int
 
 
-class ListFilter(TypedDict):
-    data: dict
-    timeframe: list
-    total_row_count: int
-
-
-class ListFilterListMatch(TypedDict, total=False):
-    data: dict
-    timeframe: list
-    total_row_count: int
-
-
 class ListFilterValue(TypedDict):
     data: list
     timeframe: list
@@ -1005,37 +946,10 @@ class ListFilterValueLoadMatch(ListFilterValueLoadMatchRequired, total=False):
     timeframe: list
 
 
-class ListIncident(TypedDict):
-    affected_views: int
-    affected_views_per_hour: int
-    affected_views_per_hour_on_open: int
-    breakdowns: list
-    description: str
-    error_description: str
-    id: str
-    impact: str
-    incident_key: str
-    measured_value: float
-    measured_value_on_close: float
-    measurement: str
-    notification_rules: list
-    notifications: list
-    resolved_at: str
-    sample_size: int
-    sample_size_unit: str
-    severity: str
-    started_at: str
-    status: str
-    threshold: float
-
-
-class ListIncidentListMatch(TypedDict, total=False):
-    limit: int
-    order_by: str
-    order_direction: str
-    page: int
-    severity: str
-    status: str
+class ListFilterValueListMatch(TypedDict, total=False):
+    data: list
+    timeframe: list
+    total_row_count: int
 
 
 class ListInsight(TypedDict):
@@ -1060,60 +974,6 @@ class ListInsightListMatch(ListInsightListMatchRequired, total=False):
     timeframe: list
 
 
-class ListJob(TypedDict):
-    created_at: int
-    id: str
-    links: dict
-    status: str
-    updated_at: int
-    workflow: str
-
-
-class ListJobListMatch(TypedDict, total=False):
-    asset_id: str
-    limit: int
-    page: int
-    status: Any
-    workflow: str
-
-
-class ListLiveStreamRequired(TypedDict):
-    created_at: str
-    id: str
-    latency_mode: str
-    max_continuous_duration: int
-    status: str
-    stream_key: str
-
-
-class ListLiveStream(ListLiveStreamRequired, total=False):
-    active_asset_id: str
-    active_ingest_protocol: str
-    audio_only: bool
-    embedded_subtitles: list
-    generated_subtitles: list
-    low_latency: bool
-    meta: dict
-    new_asset_settings: dict
-    passthrough: str
-    playback_ids: list
-    recent_asset_ids: list
-    reconnect_slate_url: str
-    reconnect_window: float
-    reduced_latency: bool
-    simulcast_targets: list
-    srt_passphrase: str
-    test: bool
-    use_slate_for_standard_latency: bool
-
-
-class ListLiveStreamListMatch(TypedDict, total=False):
-    limit: int
-    page: int
-    status: str
-    stream_key: str
-
-
 class ListMonitoringDimension(TypedDict):
     display_name: str
     name: str
@@ -1132,19 +992,6 @@ class ListMonitoringMetric(TypedDict):
 class ListMonitoringMetricListMatch(TypedDict, total=False):
     display_name: str
     name: str
-
-
-class ListPlaybackRestriction(TypedDict):
-    created_at: str
-    id: str
-    referrer: dict
-    updated_at: str
-    user_agent: dict
-
-
-class ListPlaybackRestrictionListMatch(TypedDict, total=False):
-    limit: int
-    page: int
 
 
 class ListRealTimeDimension(TypedDict):
@@ -1202,20 +1049,6 @@ class ListRelatedIncidentListMatch(ListRelatedIncidentListMatchRequired, total=F
     page: int
 
 
-class ListSigningKeyRequired(TypedDict):
-    created_at: str
-    id: str
-
-
-class ListSigningKey(ListSigningKeyRequired, total=False):
-    private_key: str
-
-
-class ListSigningKeyListMatch(TypedDict, total=False):
-    limit: int
-    page: int
-
-
 class ListSubviewBreakdownValue(TypedDict):
     breakdown_value: str
     metric_value: float
@@ -1254,8 +1087,8 @@ class ListSubviewComparisonValueListMatch(ListSubviewComparisonValueListMatchReq
 
 
 class ListSubviewDimension(TypedDict):
-    subview: list
-    view: list
+    data: dict
+    total_row_count: int
 
 
 class ListSubviewDimensionLoadMatch(TypedDict):
@@ -1284,85 +1117,6 @@ class ListSubviewDimensionValueLoadMatch(ListSubviewDimensionValueLoadMatchRequi
     timeframe: list
 
 
-class ListTranscriptionVocabularyRequired(TypedDict):
-    created_at: str
-    id: str
-    updated_at: str
-
-
-class ListTranscriptionVocabulary(ListTranscriptionVocabularyRequired, total=False):
-    name: str
-    passthrough: str
-    phrases: list
-
-
-class ListTranscriptionVocabularyListMatch(TypedDict, total=False):
-    limit: int
-    page: int
-
-
-class ListUploadRequired(TypedDict):
-    cors_origin: str
-    id: str
-    status: str
-    timeout: int
-
-
-class ListUpload(ListUploadRequired, total=False):
-    asset_id: str
-    error: dict
-    new_asset_settings: dict
-    test: bool
-    url: str
-
-
-class ListUploadListMatch(TypedDict, total=False):
-    limit: int
-    page: int
-
-
-class ListUsageExport(TypedDict):
-    date: str
-    download_url: str
-    download_url_expires_at: int
-    file_size: int
-
-
-class ListUsageExportListMatch(TypedDict, total=False):
-    download_url_ttl: int
-    limit: int
-    page: int
-    timeframe: list
-
-
-class ListVideoView(TypedDict):
-    country_code: str
-    error_type_id: int
-    id: str
-    playback_failure: bool
-    player_error_code: str
-    player_error_message: str
-    total_row_count: int
-    video_title: str
-    view_end: str
-    view_start: str
-    viewer_application_name: str
-    viewer_experience_score: float
-    viewer_os_family: str
-    watch_time: int
-
-
-class ListVideoViewListMatch(TypedDict, total=False):
-    error_id: int
-    filter: list
-    limit: int
-    metric_filter: list
-    order_direction: str
-    page: int
-    timeframe: list
-    viewer_id: str
-
-
 class ListVideoViewExport(TypedDict):
     export_date: str
     files: list
@@ -1371,22 +1125,6 @@ class ListVideoViewExport(TypedDict):
 class ListVideoViewExportListMatch(TypedDict, total=False):
     export_date: str
     files: list
-
-
-class ListWebhookRequired(TypedDict):
-    address: str
-    created_at: str
-    enabled: bool
-    id: str
-
-
-class ListWebhook(ListWebhookRequired, total=False):
-    signing_secret: str
-
-
-class ListWebhookListMatch(TypedDict, total=False):
-    limit: int
-    page: int
 
 
 class LiveStreamRequired(TypedDict):
@@ -1424,6 +1162,13 @@ class LiveStream(LiveStreamRequired, total=False):
 
 class LiveStreamLoadMatch(TypedDict):
     id: str
+
+
+class LiveStreamListMatch(TypedDict, total=False):
+    limit: int
+    page: int
+    status: str
+    stream_key: str
 
 
 class LiveStreamCreateDataRequired(TypedDict):
@@ -1675,6 +1420,11 @@ class PlaybackRestrictionLoadMatch(TypedDict):
     id: str
 
 
+class PlaybackRestrictionListMatch(TypedDict, total=False):
+    limit: int
+    page: int
+
+
 class PlaybackRestrictionCreateData(TypedDict):
     created_at: str
     id: str
@@ -1756,16 +1506,12 @@ class RealTimeTimeseriesListMatch(RealTimeTimeseriesListMatchRequired, total=Fal
     timestamp: int
 
 
-class SignalLiveStreamComplete(TypedDict, total=False):
-    data: dict
+class SignalLiveStreamComplete(TypedDict):
+    pass
 
 
-class SignalLiveStreamCompleteUpdateDataRequired(TypedDict):
+class SignalLiveStreamCompleteUpdateData(TypedDict):
     live_stream_id: str
-
-
-class SignalLiveStreamCompleteUpdateData(SignalLiveStreamCompleteUpdateDataRequired, total=False):
-    data: dict
 
 
 class SigningKeyRequired(TypedDict):
@@ -1780,6 +1526,11 @@ class SigningKey(SigningKeyRequired, total=False):
 
 class SigningKeyLoadMatch(TypedDict):
     id: str
+
+
+class SigningKeyListMatch(TypedDict, total=False):
+    limit: int
+    page: int
 
 
 class SigningKeyCreateDataRequired(TypedDict):
@@ -1933,6 +1684,11 @@ class TranscriptionVocabulary(TranscriptionVocabularyRequired, total=False):
 
 class TranscriptionVocabularyLoadMatch(TypedDict):
     id: str
+
+
+class TranscriptionVocabularyListMatch(TypedDict, total=False):
+    limit: int
+    page: int
 
 
 class TranscriptionVocabularyCreateDataRequired(TypedDict):
@@ -2104,6 +1860,11 @@ class UploadLoadMatch(TypedDict):
     id: str
 
 
+class UploadListMatch(TypedDict, total=False):
+    limit: int
+    page: int
+
+
 class UploadCreateDataRequired(TypedDict):
     cors_origin: str
     id: str
@@ -2143,18 +1904,52 @@ class UrlSigningKeyRemoveMatch(TypedDict):
     id: str
 
 
-class VideoViewRequired(TypedDict):
+class UsageExport(TypedDict):
+    date: str
+    download_url: str
+    download_url_expires_at: int
+    file_size: int
+
+
+class UsageExportListMatch(TypedDict, total=False):
+    download_url_ttl: int
+    limit: int
+    page: int
+    timeframe: list
+
+
+class VideoView(TypedDict):
+    country_code: str
     data: dict
+    error_type_id: int
+    id: str
+    playback_failure: bool
+    player_error_code: str
+    player_error_message: str
     timeframe: list
     total_row_count: int
-
-
-class VideoView(VideoViewRequired, total=False):
-    id: str
+    video_title: str
+    view_end: str
+    view_start: str
+    viewer_application_name: str
+    viewer_experience_score: float
+    viewer_os_family: str
+    watch_time: int
 
 
 class VideoViewLoadMatch(TypedDict):
     id: str
+
+
+class VideoViewListMatch(TypedDict, total=False):
+    error_id: int
+    filter: list
+    limit: int
+    metric_filter: list
+    order_direction: str
+    page: int
+    timeframe: list
+    viewer_id: str
 
 
 class WebhookRequired(TypedDict):
@@ -2170,6 +1965,11 @@ class Webhook(WebhookRequired, total=False):
 
 class WebhookLoadMatch(TypedDict):
     id: str
+
+
+class WebhookListMatch(TypedDict, total=False):
+    limit: int
+    page: int
 
 
 class WebhookCreateDataRequired(TypedDict):

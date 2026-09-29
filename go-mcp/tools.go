@@ -15,7 +15,7 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"annotation | ask_question | asset | asset_or_live_stream_id | asset_playback_id | asset_shot | create_playback_id | create_track | directive | directive_run_detail | directive_run_list | drm_configuration | edit_caption | engagement_heatmap | engagement_hotspot | find_best_thumbnail | find_key_moment | find_scene | generate_asset_shot | generate_chapter | generate_engagement_insight | generate_premium_caption | generate_track_subtitle | incident | input_info | job_summary | list_all_metric_value | list_annotation | list_asset | list_breakdown_value | list_delivery_usage | list_dimension | list_dimension_value | list_drm_configuration | list_error | list_export | list_filter | list_filter_value | list_incident | list_insight | list_job | list_live_stream | list_monitoring_dimension | list_monitoring_metric | list_playback_restriction | list_real_time_dimension | list_real_time_metric | list_related_incident | list_signing_key | list_subview_breakdown_value | list_subview_comparison_value | list_subview_dimension | list_subview_dimension_value | list_transcription_vocabulary | list_upload | list_usage_export | list_video_view | list_video_view_export | list_webhook | live_stream | live_stream_playback_id | metric_timeseries_data | moderate | monitoring_breakdown | monitoring_breakdown_timeseries | monitoring_histogram_timeseries | monitoring_timeseries | overall | playback_restriction | real_time_breakdown | real_time_histogram_timeseries | real_time_timeseries | signal_live_stream_complete | signing_key | simulcast_target | static_rendition | subview_breakdown_timeseries | subview_overall_value | summarize | transcription_vocabulary | translate_audio | translate_caption | update_asset_track | upload | url_signing_key | video_view | webhook | who_am_i"`
+	Entity string         `json:"entity" jsonschema:"annotation | ask_question | asset | asset_or_live_stream_id | asset_playback_id | asset_shot | create_playback_id | create_track | directive | directive_run_detail | drm_configuration | edit_caption | engagement_heatmap | engagement_hotspot | find_best_thumbnail | find_key_moment | find_scene | generate_asset_shot | generate_chapter | generate_engagement_insight | generate_premium_caption | generate_track_subtitle | incident | input_info | job_summary | list_all_metric_value | list_breakdown_value | list_delivery_usage | list_dimension_value | list_error | list_export | list_filter_value | list_insight | list_monitoring_dimension | list_monitoring_metric | list_real_time_dimension | list_real_time_metric | list_related_incident | list_subview_breakdown_value | list_subview_comparison_value | list_subview_dimension | list_subview_dimension_value | list_video_view_export | live_stream | live_stream_playback_id | metric_timeseries_data | moderate | monitoring_breakdown | monitoring_breakdown_timeseries | monitoring_histogram_timeseries | monitoring_timeseries | overall | playback_restriction | real_time_breakdown | real_time_histogram_timeseries | real_time_timeseries | signal_live_stream_complete | signing_key | simulcast_target | static_rendition | subview_breakdown_timeseries | subview_overall_value | summarize | transcription_vocabulary | translate_audio | translate_caption | update_asset_track | upload | url_signing_key | usage_export | video_view | webhook | who_am_i"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
@@ -96,8 +96,6 @@ func entityFor(client *sdk.MuxSDK, name string) (sdk.MuxEntity, error) {
 		return client.Directive(nil), nil
 	case "directive_run_detail":
 		return client.DirectiveRunDetail(nil), nil
-	case "directive_run_list":
-		return client.DirectiveRunList(nil), nil
 	case "drm_configuration":
 		return client.DrmConfiguration(nil), nil
 	case "edit_caption":
@@ -130,50 +128,30 @@ func entityFor(client *sdk.MuxSDK, name string) (sdk.MuxEntity, error) {
 		return client.JobSummary(nil), nil
 	case "list_all_metric_value":
 		return client.ListAllMetricValue(nil), nil
-	case "list_annotation":
-		return client.ListAnnotation(nil), nil
-	case "list_asset":
-		return client.ListAsset(nil), nil
 	case "list_breakdown_value":
 		return client.ListBreakdownValue(nil), nil
 	case "list_delivery_usage":
 		return client.ListDeliveryUsage(nil), nil
-	case "list_dimension":
-		return client.ListDimension(nil), nil
 	case "list_dimension_value":
 		return client.ListDimensionValue(nil), nil
-	case "list_drm_configuration":
-		return client.ListDrmConfiguration(nil), nil
 	case "list_error":
 		return client.ListError(nil), nil
 	case "list_export":
 		return client.ListExport(nil), nil
-	case "list_filter":
-		return client.ListFilter(nil), nil
 	case "list_filter_value":
 		return client.ListFilterValue(nil), nil
-	case "list_incident":
-		return client.ListIncident(nil), nil
 	case "list_insight":
 		return client.ListInsight(nil), nil
-	case "list_job":
-		return client.ListJob(nil), nil
-	case "list_live_stream":
-		return client.ListLiveStream(nil), nil
 	case "list_monitoring_dimension":
 		return client.ListMonitoringDimension(nil), nil
 	case "list_monitoring_metric":
 		return client.ListMonitoringMetric(nil), nil
-	case "list_playback_restriction":
-		return client.ListPlaybackRestriction(nil), nil
 	case "list_real_time_dimension":
 		return client.ListRealTimeDimension(nil), nil
 	case "list_real_time_metric":
 		return client.ListRealTimeMetric(nil), nil
 	case "list_related_incident":
 		return client.ListRelatedIncident(nil), nil
-	case "list_signing_key":
-		return client.ListSigningKey(nil), nil
 	case "list_subview_breakdown_value":
 		return client.ListSubviewBreakdownValue(nil), nil
 	case "list_subview_comparison_value":
@@ -182,18 +160,8 @@ func entityFor(client *sdk.MuxSDK, name string) (sdk.MuxEntity, error) {
 		return client.ListSubviewDimension(nil), nil
 	case "list_subview_dimension_value":
 		return client.ListSubviewDimensionValue(nil), nil
-	case "list_transcription_vocabulary":
-		return client.ListTranscriptionVocabulary(nil), nil
-	case "list_upload":
-		return client.ListUpload(nil), nil
-	case "list_usage_export":
-		return client.ListUsageExport(nil), nil
-	case "list_video_view":
-		return client.ListVideoView(nil), nil
 	case "list_video_view_export":
 		return client.ListVideoViewExport(nil), nil
-	case "list_webhook":
-		return client.ListWebhook(nil), nil
 	case "live_stream":
 		return client.LiveStream(nil), nil
 	case "live_stream_playback_id":
@@ -246,6 +214,8 @@ func entityFor(client *sdk.MuxSDK, name string) (sdk.MuxEntity, error) {
 		return client.Upload(nil), nil
 	case "url_signing_key":
 		return client.UrlSigningKey(nil), nil
+	case "usage_export":
+		return client.UsageExport(nil), nil
 	case "video_view":
 		return client.VideoView(nil), nil
 	case "webhook":

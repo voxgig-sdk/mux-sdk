@@ -40,6 +40,11 @@
       "version": 2,
       "source": "openapi3"
     },
+    "GET /system/v1/webhooks": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /system/v1/webhooks/{WEBHOOK_ID}": {
       "provenance": "operation-contract",
       "version": 2,

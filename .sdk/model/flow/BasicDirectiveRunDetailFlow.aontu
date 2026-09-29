@@ -7,6 +7,22 @@ main: kit: flow: BasicDirectiveRunDetailFlow:
   name: "BasicDirectiveRunDetailFlow",
   step: [
     {
+      m: {
+        directive_id: "directive01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "directive_run_detail_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       i: {
         ref: "directive_run_detail_ref01",
         srcdatavar: "directive_run_detail_ref01_data",

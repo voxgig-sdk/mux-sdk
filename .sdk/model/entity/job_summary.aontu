@@ -70,7 +70,7 @@ main: kit: entity: job_summary: {
               {
                 k: "param"
                 n: "job_id"
-                or: "job_id"
+                or: "JOB_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -103,6 +103,85 @@ main: kit: entity: job_summary: {
             }
             {
               lit: "cancel"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /robots/v0/jobs"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "asset_id"
+                or: "asset_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$ANY`"
+              }
+              {
+                k: "query"
+                n: "workflow"
+                or: "workflow"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/robots/v0/jobs"
+          q: {
+            exist: [
+              "asset_id"
+              "limit"
+              "page"
+              "status"
+              "workflow"
+            ]
+          }
+          s: [
+            {
+              lit: "robots"
+            }
+            {
+              lit: "v0"
+            }
+            {
+              lit: "jobs"
             }
           ]
           t: {

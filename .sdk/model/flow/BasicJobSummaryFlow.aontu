@@ -17,6 +17,18 @@ main: kit: flow: BasicJobSummaryFlow:
 
       o: "create"
     }
+
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "job_summary_ref01"
+          }
+        }
+      ]
+    }
   ],
   "key$": "BasicJobSummaryFlow"
 }

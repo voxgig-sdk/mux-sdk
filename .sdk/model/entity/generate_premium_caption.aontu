@@ -123,7 +123,7 @@ main: kit: entity: generate_premium_caption: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]
@@ -142,7 +142,7 @@ main: kit: entity: generate_premium_caption: {
               {
                 k: "param"
                 n: "id"
-                or: "job_id"
+                or: "JOB_ID"
                 r: true
                 t: "`$STRING`"
               }

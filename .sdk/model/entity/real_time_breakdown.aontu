@@ -64,7 +64,7 @@ main: kit: entity: real_time_breakdown: {
                 ex: "current-concurrent-viewers"
                 k: "param"
                 n: "realtime_metric_id"
-                or: "realtime_metric_id"
+                or: "REALTIME_METRIC_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -80,7 +80,7 @@ main: kit: entity: real_time_breakdown: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -146,7 +146,7 @@ main: kit: entity: real_time_breakdown: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

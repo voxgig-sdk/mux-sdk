@@ -21,13 +21,47 @@ class TestAssetEntity:
         ent = testsdk.Asset(None)
         assert ent is not None
 
+    def test_should_stream(self):
+        # Feature #4: the entity stream(action, ...) method runs the op
+        # pipeline and yields result items. With the streaming feature active
+        # it yields the feature's incremental output; otherwise it falls back
+        # to the materialised list so stream always yields.
+        seed = {
+            "entity": {
+                "asset": {
+                    "s1": {"id": "s1"},
+                    "s2": {"id": "s2"},
+                    "s3": {"id": "s3"},
+                }
+            }
+        }
+
+        # Fallback: streaming inactive -> yields the materialised list items.
+        base = MuxSDK.test(seed, None)
+        seen = list(base.Asset(None).stream("list", None, None))
+        assert len(seen) == 3
+
+        # Inbound: streaming active -> yields each item from the feature.
+        from mux_sdk.config import shared_config
+        cfg = shared_config()
+        if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
+            sdk = MuxSDK.test(
+                seed, {"feature": {"streaming": {"active": True}}})
+            got = []
+            for item in sdk.Asset(None).stream("list", None, None):
+                if isinstance(item, list):
+                    got.extend(item)
+                else:
+                    got.append(item)
+            assert len(got) == 3
+
     def test_should_run_basic_flow(self):
         setup = _asset_basic_setup(None)
         # Per-op sdk-test-control.json skip — basic test exercises a flow with
         # multiple ops; skipping any one skips the whole flow (steps depend
         # on each other).
         _live = setup.get("live", False)
-        for _op in ["create", "update", "load", "remove"]:
+        for _op in ["create", "list", "update", "load", "remove"]:
             _skip, _reason = runner.is_control_skipped("entityOp", "asset." + _op, "live" if _live else "unit")
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
@@ -48,6 +82,17 @@ class TestAssetEntity:
         asset_ref01_data = helpers.to_map(runner.entity_data(asset_ref01_ent.create(asset_ref01_data, None)))
         assert asset_ref01_data is not None
         assert asset_ref01_data["id"] is not None
+
+        # LIST
+        asset_ref01_match = {}
+
+        asset_ref01_list_result = asset_ref01_ent.list(asset_ref01_match, None)
+        assert isinstance(asset_ref01_list_result, list)
+
+        found_item = vs.select(
+            runner.entity_list_to_data(asset_ref01_list_result),
+            {"id": asset_ref01_data["id"]})
+        assert not vs.isempty(found_item)
 
         # UPDATE
         asset_ref01_data_up0_up = {
@@ -77,6 +122,17 @@ class TestAssetEntity:
             "id": asset_ref01_data["id"],
         }
         asset_ref01_ent.remove(asset_ref01_match_rm0, None)
+
+        # LIST
+        asset_ref01_match_rt0 = {}
+
+        asset_ref01_list_rt0_result = asset_ref01_ent.list(asset_ref01_match_rt0, None)
+        assert isinstance(asset_ref01_list_rt0_result, list)
+
+        not_found_item = vs.select(
+            runner.entity_list_to_data(asset_ref01_list_rt0_result),
+            {"id": asset_ref01_data["id"]})
+        assert vs.isempty(not_found_item)
 
 
 

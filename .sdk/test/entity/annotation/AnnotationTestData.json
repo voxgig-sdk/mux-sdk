@@ -36,6 +36,11 @@
       "version": 2,
       "source": "openapi3"
     },
+    "GET /data/v1/annotations": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /data/v1/annotations/{ANNOTATION_ID}": {
       "provenance": "operation-contract",
       "version": 2,

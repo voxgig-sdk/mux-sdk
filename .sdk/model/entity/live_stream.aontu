@@ -247,7 +247,7 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -314,6 +314,77 @@ main: kit: entity: live_stream: {
         }
       ]
     }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/live-streams"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "stream_key"
+                or: "stream_key"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/live-streams"
+          q: {
+            exist: [
+              "limit"
+              "page"
+              "status"
+              "stream_key"
+            ]
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "live-streams"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
     load: {
       name: "load"
       points: [
@@ -328,7 +399,7 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -381,14 +452,14 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
               {
                 k: "param"
                 n: "playback_id"
-                or: "playback_id"
+                or: "PLAYBACK_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -444,14 +515,14 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
               {
                 k: "param"
                 n: "simulcast_target_id"
-                or: "simulcast_target_id"
+                or: "SIMULCAST_TARGET_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -507,7 +578,7 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -555,7 +626,7 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -615,7 +686,7 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -663,7 +734,7 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -715,7 +786,7 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -767,7 +838,7 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -819,7 +890,7 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -871,7 +942,7 @@ main: kit: entity: live_stream: {
               {
                 k: "param"
                 n: "live_stream_id"
-                or: "live_stream_id"
+                or: "LIVE_STREAM_ID"
                 r: true
                 t: "`$STRING`"
               }

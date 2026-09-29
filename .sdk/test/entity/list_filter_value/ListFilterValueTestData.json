@@ -34,6 +34,11 @@
     }
   },
   "requests": {
+    "GET /data/v1/filters": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /data/v1/filters/{FILTER_ID}": {
       "provenance": "operation-contract",
       "version": 2,

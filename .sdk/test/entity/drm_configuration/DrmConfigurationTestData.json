@@ -18,6 +18,11 @@
     }
   },
   "requests": {
+    "GET /video/v1/drm-configurations": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /video/v1/drm-configurations/{DRM_CONFIGURATION_ID}": {
       "provenance": "operation-contract",
       "version": 2,

@@ -7,6 +7,18 @@ main: kit: flow: BasicIncidentFlow:
   name: "BasicIncidentFlow",
   step: [
     {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "incident_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       i: {
         ref: "incident_ref01",
         srcdatavar: "incident_ref01_data",

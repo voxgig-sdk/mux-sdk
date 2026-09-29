@@ -82,10 +82,6 @@ Create a new `DirectiveEntity` instance. Pass `None` for no initial data.
 
 Create a new `DirectiveRunDetailEntity` instance. Pass `None` for no initial data.
 
-#### `DirectiveRunList(data=None)`
-
-Create a new `DirectiveRunListEntity` instance. Pass `None` for no initial data.
-
 #### `DrmConfiguration(data=None)`
 
 Create a new `DrmConfigurationEntity` instance. Pass `None` for no initial data.
@@ -150,14 +146,6 @@ Create a new `JobSummaryEntity` instance. Pass `None` for no initial data.
 
 Create a new `ListAllMetricValueEntity` instance. Pass `None` for no initial data.
 
-#### `ListAnnotation(data=None)`
-
-Create a new `ListAnnotationEntity` instance. Pass `None` for no initial data.
-
-#### `ListAsset(data=None)`
-
-Create a new `ListAssetEntity` instance. Pass `None` for no initial data.
-
 #### `ListBreakdownValue(data=None)`
 
 Create a new `ListBreakdownValueEntity` instance. Pass `None` for no initial data.
@@ -166,17 +154,9 @@ Create a new `ListBreakdownValueEntity` instance. Pass `None` for no initial dat
 
 Create a new `ListDeliveryUsageEntity` instance. Pass `None` for no initial data.
 
-#### `ListDimension(data=None)`
-
-Create a new `ListDimensionEntity` instance. Pass `None` for no initial data.
-
 #### `ListDimensionValue(data=None)`
 
 Create a new `ListDimensionValueEntity` instance. Pass `None` for no initial data.
-
-#### `ListDrmConfiguration(data=None)`
-
-Create a new `ListDrmConfigurationEntity` instance. Pass `None` for no initial data.
 
 #### `ListError(data=None)`
 
@@ -186,29 +166,13 @@ Create a new `ListErrorEntity` instance. Pass `None` for no initial data.
 
 Create a new `ListExportEntity` instance. Pass `None` for no initial data.
 
-#### `ListFilter(data=None)`
-
-Create a new `ListFilterEntity` instance. Pass `None` for no initial data.
-
 #### `ListFilterValue(data=None)`
 
 Create a new `ListFilterValueEntity` instance. Pass `None` for no initial data.
 
-#### `ListIncident(data=None)`
-
-Create a new `ListIncidentEntity` instance. Pass `None` for no initial data.
-
 #### `ListInsight(data=None)`
 
 Create a new `ListInsightEntity` instance. Pass `None` for no initial data.
-
-#### `ListJob(data=None)`
-
-Create a new `ListJobEntity` instance. Pass `None` for no initial data.
-
-#### `ListLiveStream(data=None)`
-
-Create a new `ListLiveStreamEntity` instance. Pass `None` for no initial data.
 
 #### `ListMonitoringDimension(data=None)`
 
@@ -217,10 +181,6 @@ Create a new `ListMonitoringDimensionEntity` instance. Pass `None` for no initia
 #### `ListMonitoringMetric(data=None)`
 
 Create a new `ListMonitoringMetricEntity` instance. Pass `None` for no initial data.
-
-#### `ListPlaybackRestriction(data=None)`
-
-Create a new `ListPlaybackRestrictionEntity` instance. Pass `None` for no initial data.
 
 #### `ListRealTimeDimension(data=None)`
 
@@ -233,10 +193,6 @@ Create a new `ListRealTimeMetricEntity` instance. Pass `None` for no initial dat
 #### `ListRelatedIncident(data=None)`
 
 Create a new `ListRelatedIncidentEntity` instance. Pass `None` for no initial data.
-
-#### `ListSigningKey(data=None)`
-
-Create a new `ListSigningKeyEntity` instance. Pass `None` for no initial data.
 
 #### `ListSubviewBreakdownValue(data=None)`
 
@@ -254,29 +210,9 @@ Create a new `ListSubviewDimensionEntity` instance. Pass `None` for no initial d
 
 Create a new `ListSubviewDimensionValueEntity` instance. Pass `None` for no initial data.
 
-#### `ListTranscriptionVocabulary(data=None)`
-
-Create a new `ListTranscriptionVocabularyEntity` instance. Pass `None` for no initial data.
-
-#### `ListUpload(data=None)`
-
-Create a new `ListUploadEntity` instance. Pass `None` for no initial data.
-
-#### `ListUsageExport(data=None)`
-
-Create a new `ListUsageExportEntity` instance. Pass `None` for no initial data.
-
-#### `ListVideoView(data=None)`
-
-Create a new `ListVideoViewEntity` instance. Pass `None` for no initial data.
-
 #### `ListVideoViewExport(data=None)`
 
 Create a new `ListVideoViewExportEntity` instance. Pass `None` for no initial data.
-
-#### `ListWebhook(data=None)`
-
-Create a new `ListWebhookEntity` instance. Pass `None` for no initial data.
 
 #### `LiveStream(data=None)`
 
@@ -382,6 +318,10 @@ Create a new `UploadEntity` instance. Pass `None` for no initial data.
 
 Create a new `UrlSigningKeyEntity` instance. Pass `None` for no initial data.
 
+#### `UsageExport(data=None)`
+
+Create a new `UsageExportEntity` instance. Pass `None` for no initial data.
+
 #### `VideoView(data=None)`
 
 Create a new `VideoViewEntity` instance. Pass `None` for no initial data.
@@ -453,6 +393,16 @@ result = client.Annotation().create({
     "id": "example_id",  # str
     "note": "example_note",  # str
 })
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.Annotation().list()
+for annotation in results:
+    print(annotation)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -655,6 +605,16 @@ result = client.Asset().create({
     "shots": {},  # dict
     "status": "example_status",  # str
 })
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.Asset().list()
+for asset in results:
+    print(asset)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -1110,6 +1070,16 @@ directive_run_detail = client.DirectiveRunDetail()
 
 ### Operations
 
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.DirectiveRunDetail().list({"directive_id": "example"})
+for directive_run_detail in results:
+    print(directive_run_detail)
+```
+
 #### `load(reqmatch, ctrl=None) -> dict`
 
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
@@ -1147,64 +1117,6 @@ Return the entity name.
 
 ---
 
-## DirectiveRunListEntity
-
-```python
-directive_run_list = client.DirectiveRunList()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `completed_at` | `int | None` | Yes | Unix timestamp (seconds) when the run reached terminal state. |
-| `node_states` | `list` | Yes | Per-binding status entries, one per binding, in the order the bindings appear in `directive.workflows[]`. |
-| `run_id` | `str` | Yes | Unique run identifier (drvrun_...). |
-| `started_at` | `int` | Yes | Unix timestamp (seconds) when the run started. |
-| `status` | `str` | Yes | Current run status. |
-| `subject_id` | `str` | Yes | The bare Mux asset ID this run targeted. |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.DirectiveRunList().list({"directive_id": "example"})
-for directive_run_list in results:
-    print(directive_run_list)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `DirectiveRunListEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## DrmConfigurationEntity
 
 ```python
@@ -1218,6 +1130,16 @@ drm_configuration = client.DrmConfiguration()
 | `id` | `str` | Yes | Unique identifier for the DRM Configuration. |
 
 ### Operations
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.DrmConfiguration().list()
+for drm_configuration in results:
+    print(drm_configuration)
+```
 
 #### `load(reqmatch, ctrl=None) -> dict`
 
@@ -2051,12 +1973,42 @@ incident = client.Incident()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `affected_views` | `int` | Yes |  |
+| `affected_views_per_hour` | `int` | Yes |  |
+| `affected_views_per_hour_on_open` | `int` | Yes |  |
+| `breakdowns` | `list` | Yes |  |
 | `data` | `dict` | Yes |  |
-| `id` | `str` | No |  |
+| `description` | `str` | Yes |  |
+| `error_description` | `str` | Yes |  |
+| `id` | `str` | Yes |  |
+| `impact` | `str` | Yes |  |
+| `incident_key` | `str` | Yes |  |
+| `measured_value` | `float` | Yes |  |
+| `measured_value_on_close` | `float` | Yes |  |
+| `measurement` | `str` | Yes |  |
+| `notification_rules` | `list` | Yes |  |
+| `notifications` | `list` | Yes |  |
+| `resolved_at` | `str` | Yes |  |
+| `sample_size` | `int` | Yes |  |
+| `sample_size_unit` | `str` | Yes |  |
+| `severity` | `str` | Yes |  |
+| `started_at` | `str` | Yes |  |
+| `status` | `str` | Yes |  |
+| `threshold` | `float` | Yes |  |
 | `timeframe` | `list` | Yes |  |
 | `total_row_count` | `int` | Yes |  |
 
 ### Operations
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.Incident().list()
+for incident in results:
+    print(incident)
+```
 
 #### `load(reqmatch, ctrl=None) -> dict`
 
@@ -2184,6 +2136,16 @@ result = client.JobSummary().create({
 })
 ```
 
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.JobSummary().list()
+for job_summary in results:
+    print(job_summary)
+```
+
 ### Common Methods
 
 #### `data_get() -> dict`
@@ -2268,148 +2230,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ListAllMetricValueEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ListAnnotationEntity
-
-```python
-list_annotation = client.ListAnnotation()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `date` | `str` | Yes | Datetime when the annotation applies |
-| `id` | `str` | Yes | Unique identifier for the annotation |
-| `note` | `str` | Yes | The annotation note content |
-| `sub_property_id` | `str` | No | Customer-defined sub-property identifier |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListAnnotation().list()
-for list_annotation in results:
-    print(list_annotation)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListAnnotationEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ListAssetEntity
-
-```python
-list_asset = client.ListAsset()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `aspect_ratio` | `str` | No | The aspect ratio of the asset in the form of `width:height`, for example `16:9`. |
-| `created_at` | `str` | Yes | Time the Asset was created, defined as a Unix timestamp (seconds since epoch). |
-| `directives` | `list` | No | The Mux Robots directives applied to the asset. |
-| `duration` | `float` | No | The duration of the asset in seconds (max duration for a single asset is 12 hours). |
-| `encoding_tier` | `str` | Yes | This field is deprecated. |
-| `errors` | `dict` | No | Object that describes any errors that happened when processing this asset. |
-| `generate_shots` | `bool` | No | Whether to perform shot detection on this asset. |
-| `id` | `str` | Yes | Unique identifier for the Asset. |
-| `ingest_type` | `str` | No | The type of ingest used to create the asset. |
-| `is_live` | `bool` | No | Indicates whether the live stream that created this asset is currently `active` and not in `idle` state. |
-| `live_stream_id` | `str` | No | Unique identifier for the live stream. |
-| `master` | `dict` | No | An object containing the current status of Master Access and the link to the Master MP4 file when ready. |
-| `master_access` | `str` | Yes |  |
-| `max_resolution_tier` | `str` | Yes | Max resolution tier can be used to control the maximum `resolution_tier` your asset is encoded, stored, and streamed at. |
-| `max_stored_frame_rate` | `float` | No | The maximum frame rate that has been stored for the asset. |
-| `max_stored_resolution` | `str` | No | This field is deprecated. |
-| `meta` | `dict` | No | Customer provided metadata about this asset. |
-| `mp4_support` | `str` | No | Deprecated. |
-| `non_standard_input_reasons` | `dict` | No | An object containing one or more reasons the input file is non-standard. |
-| `normalize_audio` | `bool` | No | Normalize the audio track loudness level. |
-| `passthrough` | `str` | No | You can set this field to anything you want. |
-| `playback_ids` | `list` | No | An array of Playback ID objects. |
-| `progress` | `dict` | Yes | Detailed state information about the asset ingest process. |
-| `recording_times` | `list` | No | An array of individual live stream recording sessions. |
-| `resolution_tier` | `str` | No | The resolution tier that the asset was ingested at, affecting billing for ingest & storage. |
-| `shots` | `dict` | Yes | The results of generating shots on the video |
-| `source_asset_id` | `str` | No | Asset Identifier of the video used as the source for creating the clip. |
-| `static_renditions` | `dict` | No | An object containing the current status of any static renditions (MP4s) for this asset. |
-| `status` | `str` | Yes | The status of the asset. |
-| `test` | `bool` | No | True means this live stream is a test asset. |
-| `thumbnail_time` | `float` | No | The media time within the asset used when a thumbnail without an explicit time is requested. |
-| `tracks` | `list` | No | The individual media tracks that make up an asset. |
-| `upload_id` | `str` | No | Unique identifier for the Direct Upload. |
-| `video_quality` | `str` | No | The video quality controls the cost, quality, and available platform features for the asset. |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListAsset().list()
-for list_asset in results:
-    print(list_asset)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListAssetEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -2540,61 +2360,6 @@ Return the entity name.
 
 ---
 
-## ListDimensionEntity
-
-```python
-list_dimension = client.ListDimension()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `dict` | Yes |  |
-| `timeframe` | `list` | Yes |  |
-| `total_row_count` | `int` | Yes |  |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListDimension().list()
-for list_dimension in results:
-    print(list_dimension)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListDimensionEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## ListDimensionValueEntity
 
 ```python
@@ -2618,7 +2383,7 @@ list_dimension_value = client.ListDimensionValue()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.ListDimensionValue().list({"dimension_id": "example"})
+results = client.ListDimensionValue().list()
 for list_dimension_value in results:
     print(list_dimension_value)
 ```
@@ -2652,59 +2417,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ListDimensionValueEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ListDrmConfigurationEntity
-
-```python
-list_drm_configuration = client.ListDrmConfiguration()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | `str` | Yes | Unique identifier for the DRM Configuration. |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListDrmConfiguration().list()
-for list_drm_configuration in results:
-    print(list_drm_configuration)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListDrmConfigurationEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -2829,61 +2541,6 @@ Return the entity name.
 
 ---
 
-## ListFilterEntity
-
-```python
-list_filter = client.ListFilter()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `dict` | Yes |  |
-| `timeframe` | `list` | Yes |  |
-| `total_row_count` | `int` | Yes |  |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListFilter().list()
-for list_filter in results:
-    print(list_filter)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListFilterEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## ListFilterValueEntity
 
 ```python
@@ -2899,6 +2556,16 @@ list_filter_value = client.ListFilterValue()
 | `total_row_count` | `int` | Yes |  |
 
 ### Operations
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.ListFilterValue().list()
+for list_filter_value in results:
+    print(list_filter_value)
+```
 
 #### `load(reqmatch, ctrl=None) -> dict`
 
@@ -2929,79 +2596,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ListFilterValueEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ListIncidentEntity
-
-```python
-list_incident = client.ListIncident()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `affected_views` | `int` | Yes |  |
-| `affected_views_per_hour` | `int` | Yes |  |
-| `affected_views_per_hour_on_open` | `int` | Yes |  |
-| `breakdowns` | `list` | Yes |  |
-| `description` | `str` | Yes |  |
-| `error_description` | `str` | Yes |  |
-| `id` | `str` | Yes |  |
-| `impact` | `str` | Yes |  |
-| `incident_key` | `str` | Yes |  |
-| `measured_value` | `float` | Yes |  |
-| `measured_value_on_close` | `float` | Yes |  |
-| `measurement` | `str` | Yes |  |
-| `notification_rules` | `list` | Yes |  |
-| `notifications` | `list` | Yes |  |
-| `resolved_at` | `str` | Yes |  |
-| `sample_size` | `int` | Yes |  |
-| `sample_size_unit` | `str` | Yes |  |
-| `severity` | `str` | Yes |  |
-| `started_at` | `str` | Yes |  |
-| `status` | `str` | Yes |  |
-| `threshold` | `float` | Yes |  |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListIncident().list()
-for list_incident in results:
-    print(list_incident)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListIncidentEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -3061,140 +2655,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ListInsightEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ListJobEntity
-
-```python
-list_job = client.ListJob()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `int` | Yes | Unix timestamp (seconds) when the job was created. |
-| `id` | `str` | Yes | Unique job identifier. |
-| `links` | `dict` | Yes | Hypermedia links for this job. |
-| `status` | `str` | Yes | Current job status. |
-| `updated_at` | `int` | Yes | Unix timestamp (seconds) of the job's last state transition (e.g. |
-| `workflow` | `str` | Yes | Workflow type that created this job. |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListJob().list()
-for list_job in results:
-    print(list_job)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListJobEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ListLiveStreamEntity
-
-```python
-list_live_stream = client.ListLiveStream()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `active_asset_id` | `str` | No | The Asset that is currently being created if there is an active broadcast. |
-| `active_ingest_protocol` | `str` | No | The protocol used for the active ingest stream. |
-| `audio_only` | `bool` | No | The live stream only processes the audio track if the value is set to true. |
-| `created_at` | `str` | Yes | Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch). |
-| `embedded_subtitles` | `list` | No | Describes the embedded closed caption configuration of the incoming live stream. |
-| `generated_subtitles` | `list` | No | Configure the incoming live stream to include subtitles created with automatic speech recognition. |
-| `id` | `str` | Yes | Unique identifier for the Live Stream. |
-| `latency_mode` | `str` | Yes | Latency is the time from when the streamer transmits a frame of video to when you see it in the player. |
-| `low_latency` | `bool` | No | This field is deprecated. |
-| `max_continuous_duration` | `int` | Yes | The time in seconds a live stream may be continuously active before being disconnected. |
-| `meta` | `dict` | No | Customer provided metadata about this live stream. |
-| `new_asset_settings` | `dict` | No |  |
-| `passthrough` | `str` | No | Arbitrary user-supplied metadata set for the asset. |
-| `playback_ids` | `list` | No | An array of Playback ID objects. |
-| `recent_asset_ids` | `list` | No | An array of strings with the most recent Asset IDs that were created from this Live Stream. |
-| `reconnect_slate_url` | `str` | No | The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. |
-| `reconnect_window` | `float` | No | When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live s… |
-| `reduced_latency` | `bool` | No | This field is deprecated. |
-| `simulcast_targets` | `list` | No | Each Simulcast Target contains configuration details to broadcast (or "restream") a live stream to a third-party streaming service. |
-| `srt_passphrase` | `str` | No | Unique key used for encrypting a stream to a Mux SRT endpoint. |
-| `status` | `str` | Yes | `idle` indicates that there is no active broadcast. |
-| `stream_key` | `str` | Yes | Unique key used for streaming to a Mux RTMP endpoint. |
-| `test` | `bool` | No | True means this live stream is a test live stream. |
-| `use_slate_for_standard_latency` | `bool` | No | By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListLiveStream().list()
-for list_live_stream in results:
-    print(list_live_stream)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListLiveStreamEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -3303,63 +2763,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ListMonitoringMetricEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ListPlaybackRestrictionEntity
-
-```python
-list_playback_restriction = client.ListPlaybackRestriction()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `str` | Yes | Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `str` | Yes | Unique identifier for the Playback Restriction. |
-| `referrer` | `dict` | Yes | A list of domains allowed to play your videos. |
-| `updated_at` | `str` | Yes | Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch). |
-| `user_agent` | `dict` | Yes | Rules that control what user agents are allowed to play your videos. |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListPlaybackRestriction().list()
-for list_playback_restriction in results:
-    print(list_playback_restriction)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListPlaybackRestrictionEntity` instance with the same options.
 
 #### `get_name() -> str`
 
@@ -3549,61 +2952,6 @@ Return the entity name.
 
 ---
 
-## ListSigningKeyEntity
-
-```python
-list_signing_key = client.ListSigningKey()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `str` | Yes | Time at which the object was created. |
-| `id` | `str` | Yes | Unique identifier for the Signing Key. |
-| `private_key` | `str` | No | A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListSigningKey().list()
-for list_signing_key in results:
-    print(list_signing_key)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListSigningKeyEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## ListSubviewBreakdownValueEntity
 
 ```python
@@ -3722,8 +3070,8 @@ list_subview_dimension = client.ListSubviewDimension()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `subview` | `list` | Yes |  |
-| `view` | `list` | Yes |  |
+| `data` | `dict` | Yes |  |
+| `total_row_count` | `int` | Yes | Always `null` for this endpoint, matching `GET /data/v1/dimensions`, which also never computes a row count. |
 
 ### Operations
 
@@ -3818,247 +3166,6 @@ Return the entity name.
 
 ---
 
-## ListTranscriptionVocabularyEntity
-
-```python
-list_transcription_vocabulary = client.ListTranscriptionVocabulary()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `str` | Yes | Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `str` | Yes | Unique identifier for the Transcription Vocabulary |
-| `name` | `str` | No | The user-supplied name of the Transcription Vocabulary. |
-| `passthrough` | `str` | No | Arbitrary user-supplied metadata set for the Transcription Vocabulary. |
-| `phrases` | `list` | No | Phrases, individual words, or proper names to include in the Transcription Vocabulary. |
-| `updated_at` | `str` | Yes | Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch). |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListTranscriptionVocabulary().list()
-for list_transcription_vocabulary in results:
-    print(list_transcription_vocabulary)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListTranscriptionVocabularyEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ListUploadEntity
-
-```python
-list_upload = client.ListUpload()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `asset_id` | `str` | No | Only set once the upload is in the `asset_created` state. |
-| `cors_origin` | `str` | Yes | If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers. |
-| `error` | `dict` | No | Only set if an error occurred during asset creation. |
-| `id` | `str` | Yes | Unique identifier for the Direct Upload. |
-| `new_asset_settings` | `dict` | No |  |
-| `status` | `str` | Yes |  |
-| `test` | `bool` | No | Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset. |
-| `timeout` | `int` | Yes | Max time in seconds for the signed upload URL to be valid. |
-| `url` | `str` | No | The URL to upload the associated source media to. |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListUpload().list()
-for list_upload in results:
-    print(list_upload)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListUploadEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ListUsageExportEntity
-
-```python
-list_usage_export = client.ListUsageExport()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `date` | `str` | Yes | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
-| `download_url` | `str` | Yes | A pre-signed URL to download the CSV. |
-| `download_url_expires_at` | `int` | Yes | Unix timestamp (seconds since epoch) at which `download_url` expires. |
-| `file_size` | `int` | Yes | Uncompressed size of the CSV file in bytes. |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListUsageExport().list()
-for list_usage_export in results:
-    print(list_usage_export)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListUsageExportEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## ListVideoViewEntity
-
-```python
-list_video_view = client.ListVideoView()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `country_code` | `str` | Yes |  |
-| `error_type_id` | `int` | Yes |  |
-| `id` | `str` | Yes |  |
-| `playback_failure` | `bool` | Yes |  |
-| `player_error_code` | `str` | Yes |  |
-| `player_error_message` | `str` | Yes |  |
-| `total_row_count` | `int` | Yes |  |
-| `video_title` | `str` | Yes |  |
-| `view_end` | `str` | Yes |  |
-| `view_start` | `str` | Yes |  |
-| `viewer_application_name` | `str` | Yes |  |
-| `viewer_experience_score` | `float` | Yes |  |
-| `viewer_os_family` | `str` | Yes |  |
-| `watch_time` | `int` | Yes |  |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListVideoView().list()
-for list_video_view in results:
-    print(list_video_view)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListVideoViewEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## ListVideoViewExportEntity
 
 ```python
@@ -4113,63 +3220,6 @@ Return the entity name.
 
 ---
 
-## ListWebhookEntity
-
-```python
-list_webhook = client.ListWebhook()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `address` | `str` | Yes | The URL where Mux sends webhook notifications. |
-| `created_at` | `str` | Yes | Time at which the webhook was created, as an ISO 8601 UTC datetime. |
-| `enabled` | `bool` | Yes | Whether Mux attempts to deliver notifications to this webhook. |
-| `id` | `str` | Yes | Unique identifier for the webhook. |
-| `signing_secret` | `str` | No | Secret used to verify that webhook payloads were sent by Mux. |
-
-### Operations
-
-#### `list(reqmatch=None, ctrl=None) -> list`
-
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
-
-```python
-results = client.ListWebhook().list()
-for list_webhook in results:
-    print(list_webhook)
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListWebhookEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
 ## LiveStreamEntity
 
 ```python
@@ -4210,35 +3260,35 @@ live_stream = client.LiveStream()
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `active_asset_id` | - | - | - | - |
-| `active_ingest_protocol` | - | - | - | - |
-| `advanced_playback_policies` | - | - | - | - |
-| `audio_only` | - | - | - | - |
-| `created_at` | - | - | - | - |
-| `embedded_subtitles` | - | - | - | - |
-| `generated_subtitles` | - | - | - | - |
-| `id` | - | - | - | - |
-| `latency_mode` | - | Yes | Yes | - |
-| `low_latency` | - | - | - | - |
-| `max_continuous_duration` | - | Yes | Yes | - |
-| `meta` | - | - | - | - |
-| `new_asset_settings` | - | - | - | - |
-| `passthrough` | - | - | - | - |
-| `playback_ids` | - | - | - | - |
-| `playback_policies` | - | - | - | - |
-| `playback_policy` | - | - | - | - |
-| `recent_asset_ids` | - | - | - | - |
-| `reconnect_slate_url` | - | - | - | - |
-| `reconnect_window` | - | - | - | - |
-| `reduced_latency` | - | - | - | - |
-| `simulcast_targets` | - | - | - | - |
-| `srt_passphrase` | - | - | - | - |
-| `status` | - | - | - | - |
-| `stream_key` | - | - | - | - |
-| `test` | - | - | - | - |
-| `use_slate_for_standard_latency` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `active_asset_id` | - | - | - | - | - |
+| `active_ingest_protocol` | - | - | - | - | - |
+| `advanced_playback_policies` | - | - | - | - | - |
+| `audio_only` | - | - | - | - | - |
+| `created_at` | - | - | - | - | - |
+| `embedded_subtitles` | - | - | - | - | - |
+| `generated_subtitles` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `latency_mode` | - | - | Yes | Yes | - |
+| `low_latency` | - | - | - | - | - |
+| `max_continuous_duration` | - | - | Yes | Yes | - |
+| `meta` | - | - | - | - | - |
+| `new_asset_settings` | - | - | - | - | - |
+| `passthrough` | - | - | - | - | - |
+| `playback_ids` | - | - | - | - | - |
+| `playback_policies` | - | - | - | - | - |
+| `playback_policy` | - | - | - | - | - |
+| `recent_asset_ids` | - | - | - | - | - |
+| `reconnect_slate_url` | - | - | - | - | - |
+| `reconnect_window` | - | - | - | - | - |
+| `reduced_latency` | - | - | - | - | - |
+| `simulcast_targets` | - | - | - | - | - |
+| `srt_passphrase` | - | - | - | - | - |
+| `status` | - | - | - | - | - |
+| `stream_key` | - | - | - | - | - |
+| `test` | - | - | - | - | - |
+| `use_slate_for_standard_latency` | - | - | - | - | - |
 
 ### Operations
 
@@ -4255,6 +3305,16 @@ result = client.LiveStream().create({
     "status": "example_status",  # str
     "stream_key": "example_stream_key",  # str
 })
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.LiveStream().list()
+for live_stream in results:
+    print(live_stream)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -4817,6 +3877,16 @@ result = client.PlaybackRestriction().create({
 })
 ```
 
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.PlaybackRestriction().list()
+for playback_restriction in results:
+    print(playback_restriction)
+```
+
 #### `load(reqmatch, ctrl=None) -> dict`
 
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
@@ -5052,12 +4122,6 @@ Return the entity name.
 signal_live_stream_complete = client.SignalLiveStreamComplete()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `dict` | No |  |
-
 ### Operations
 
 #### `update(reqdata, ctrl=None) -> dict`
@@ -5126,6 +4190,16 @@ result = client.SigningKey().create({
     "created_at": "example_created_at",  # str
     "id": "example_id",  # str
 })
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.SigningKey().list()
+for signing_key in results:
+    print(signing_key)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -5508,14 +4582,14 @@ transcription_vocabulary = client.TranscriptionVocabulary()
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `created_at` | - | - | - | - |
-| `id` | - | - | - | - |
-| `name` | - | - | - | - |
-| `passthrough` | - | - | - | - |
-| `phrases` | - | Yes | Yes | - |
-| `updated_at` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `name` | - | - | - | - | - |
+| `passthrough` | - | - | - | - | - |
+| `phrases` | - | - | Yes | Yes | - |
+| `updated_at` | - | - | - | - | - |
 
 ### Operations
 
@@ -5529,6 +4603,16 @@ result = client.TranscriptionVocabulary().create({
     "id": "example_id",  # str
     "updated_at": "example_updated_at",  # str
 })
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.TranscriptionVocabulary().list()
+for transcription_vocabulary in results:
+    print(transcription_vocabulary)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -5839,17 +4923,17 @@ upload = client.Upload()
 
 ### Field Usage by Operation
 
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `asset_id` | - | - | - |
-| `cors_origin` | - | - | - |
-| `error` | - | - | - |
-| `id` | - | - | - |
-| `new_asset_settings` | - | - | - |
-| `status` | - | - | - |
-| `test` | - | - | - |
-| `timeout` | - | Yes | - |
-| `url` | - | - | - |
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `asset_id` | - | - | - | - |
+| `cors_origin` | - | - | - | - |
+| `error` | - | - | - | - |
+| `id` | - | - | - | - |
+| `new_asset_settings` | - | - | - | - |
+| `status` | - | - | - | - |
+| `test` | - | - | - | - |
+| `timeout` | - | - | Yes | - |
+| `url` | - | - | - | - |
 
 ### Operations
 
@@ -5864,6 +4948,16 @@ result = client.Upload().create({
     "status": "example_status",  # str
     "timeout": 1,  # int
 })
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.Upload().list()
+for upload in results:
+    print(upload)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -5966,6 +5060,62 @@ Return the entity name.
 
 ---
 
+## UsageExportEntity
+
+```python
+usage_export = client.UsageExport()
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `date` | `str` | Yes | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
+| `download_url` | `str` | Yes | A pre-signed URL to download the CSV. |
+| `download_url_expires_at` | `int` | Yes | Unix timestamp (seconds since epoch) at which `download_url` expires. |
+| `file_size` | `int` | Yes | Uncompressed size of the CSV file in bytes. |
+
+### Operations
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.UsageExport().list()
+for usage_export in results:
+    print(usage_export)
+```
+
+### Common Methods
+
+#### `data_get() -> dict`
+
+Get the entity data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get() -> dict`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make() -> Entity`
+
+Create a new `UsageExportEntity` instance with the same options.
+
+#### `get_name() -> str`
+
+Return the entity name.
+
+
+---
+
 ## VideoViewEntity
 
 ```python
@@ -5976,12 +5126,34 @@ video_view = client.VideoView()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `country_code` | `str` | Yes |  |
 | `data` | `dict` | Yes |  |
-| `id` | `str` | No |  |
+| `error_type_id` | `int` | Yes |  |
+| `id` | `str` | Yes |  |
+| `playback_failure` | `bool` | Yes |  |
+| `player_error_code` | `str` | Yes |  |
+| `player_error_message` | `str` | Yes |  |
 | `timeframe` | `list` | Yes |  |
 | `total_row_count` | `int` | Yes |  |
+| `video_title` | `str` | Yes |  |
+| `view_end` | `str` | Yes |  |
+| `view_start` | `str` | Yes |  |
+| `viewer_application_name` | `str` | Yes |  |
+| `viewer_experience_score` | `float` | Yes |  |
+| `viewer_os_family` | `str` | Yes |  |
+| `watch_time` | `int` | Yes |  |
 
 ### Operations
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.VideoView().list()
+for video_view in results:
+    print(video_view)
+```
 
 #### `load(reqmatch, ctrl=None) -> dict`
 
@@ -6038,13 +5210,13 @@ webhook = client.Webhook()
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `address` | - | - | Yes | - |
-| `created_at` | - | - | - | - |
-| `enabled` | - | - | Yes | - |
-| `id` | - | - | - | - |
-| `signing_secret` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `address` | - | - | - | Yes | - |
+| `created_at` | - | - | - | - | - |
+| `enabled` | - | - | - | Yes | - |
+| `id` | - | - | - | - | - |
+| `signing_secret` | - | - | - | - | - |
 
 ### Operations
 
@@ -6059,6 +5231,16 @@ result = client.Webhook().create({
     "enabled": True,  # bool
     "id": "example_id",  # str
 })
+```
+
+#### `list(reqmatch=None, ctrl=None) -> list`
+
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+
+```python
+results = client.Webhook().list()
+for webhook in results:
+    print(webhook)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`

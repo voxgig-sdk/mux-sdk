@@ -97,8 +97,6 @@ func entityFor(client *sdk.MuxSDK, name string) (sdk.MuxEntity, error) {
 		return client.Directive(nil), nil
 	case "directive_run_detail":
 		return client.DirectiveRunDetail(nil), nil
-	case "directive_run_list":
-		return client.DirectiveRunList(nil), nil
 	case "drm_configuration":
 		return client.DrmConfiguration(nil), nil
 	case "edit_caption":
@@ -131,50 +129,30 @@ func entityFor(client *sdk.MuxSDK, name string) (sdk.MuxEntity, error) {
 		return client.JobSummary(nil), nil
 	case "list_all_metric_value":
 		return client.ListAllMetricValue(nil), nil
-	case "list_annotation":
-		return client.ListAnnotation(nil), nil
-	case "list_asset":
-		return client.ListAsset(nil), nil
 	case "list_breakdown_value":
 		return client.ListBreakdownValue(nil), nil
 	case "list_delivery_usage":
 		return client.ListDeliveryUsage(nil), nil
-	case "list_dimension":
-		return client.ListDimension(nil), nil
 	case "list_dimension_value":
 		return client.ListDimensionValue(nil), nil
-	case "list_drm_configuration":
-		return client.ListDrmConfiguration(nil), nil
 	case "list_error":
 		return client.ListError(nil), nil
 	case "list_export":
 		return client.ListExport(nil), nil
-	case "list_filter":
-		return client.ListFilter(nil), nil
 	case "list_filter_value":
 		return client.ListFilterValue(nil), nil
-	case "list_incident":
-		return client.ListIncident(nil), nil
 	case "list_insight":
 		return client.ListInsight(nil), nil
-	case "list_job":
-		return client.ListJob(nil), nil
-	case "list_live_stream":
-		return client.ListLiveStream(nil), nil
 	case "list_monitoring_dimension":
 		return client.ListMonitoringDimension(nil), nil
 	case "list_monitoring_metric":
 		return client.ListMonitoringMetric(nil), nil
-	case "list_playback_restriction":
-		return client.ListPlaybackRestriction(nil), nil
 	case "list_real_time_dimension":
 		return client.ListRealTimeDimension(nil), nil
 	case "list_real_time_metric":
 		return client.ListRealTimeMetric(nil), nil
 	case "list_related_incident":
 		return client.ListRelatedIncident(nil), nil
-	case "list_signing_key":
-		return client.ListSigningKey(nil), nil
 	case "list_subview_breakdown_value":
 		return client.ListSubviewBreakdownValue(nil), nil
 	case "list_subview_comparison_value":
@@ -183,18 +161,8 @@ func entityFor(client *sdk.MuxSDK, name string) (sdk.MuxEntity, error) {
 		return client.ListSubviewDimension(nil), nil
 	case "list_subview_dimension_value":
 		return client.ListSubviewDimensionValue(nil), nil
-	case "list_transcription_vocabulary":
-		return client.ListTranscriptionVocabulary(nil), nil
-	case "list_upload":
-		return client.ListUpload(nil), nil
-	case "list_usage_export":
-		return client.ListUsageExport(nil), nil
-	case "list_video_view":
-		return client.ListVideoView(nil), nil
 	case "list_video_view_export":
 		return client.ListVideoViewExport(nil), nil
-	case "list_webhook":
-		return client.ListWebhook(nil), nil
 	case "live_stream":
 		return client.LiveStream(nil), nil
 	case "live_stream_playback_id":
@@ -247,6 +215,8 @@ func entityFor(client *sdk.MuxSDK, name string) (sdk.MuxEntity, error) {
 		return client.Upload(nil), nil
 	case "url_signing_key":
 		return client.UrlSigningKey(nil), nil
+	case "usage_export":
+		return client.UsageExport(nil), nil
 	case "video_view":
 		return client.VideoView(nil), nil
 	case "webhook":

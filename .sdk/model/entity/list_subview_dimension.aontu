@@ -5,17 +5,19 @@ main: kit: entity: list_subview_dimension: {
   alias: field: {}
 
   fields: {
-    subview: {
-      h: "Subview"
-      n: "subview"
+    data: {
+      h: "Data"
+      n: "data"
       r: true
-      t: "`$ARRAY`"
+      t: "`$OBJECT`"
     }
-    view: {
-      h: "View"
-      n: "view"
+    total_row_count: {
+      fo: "int64"
+      h: "Total Row Count"
+      n: "total_row_count"
       r: true
-      t: "`$ARRAY`"
+      sh: "Always `null` for this endpoint, matching `GET /data/v1/dimensions`, which also never computes a row count."
+      t: "`$INTEGER`"
     }
   }
 
@@ -36,7 +38,7 @@ main: kit: entity: list_subview_dimension: {
                 ex: "rendition"
                 k: "param"
                 n: "subview_type"
-                or: "subview_type"
+                or: "SUBVIEW_TYPE"
                 r: true
                 t: "`$STRING`"
               }
@@ -73,7 +75,7 @@ main: kit: entity: list_subview_dimension: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body.data`"
+            res: "`body`"
           }
         }
       ]

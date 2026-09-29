@@ -36,7 +36,7 @@ main: kit: entity: monitoring_breakdown_timeseries: {
                 ex: "current-concurrent-viewers"
                 k: "param"
                 n: "monitoring_metric_id"
-                or: "monitoring_metric_id"
+                or: "MONITORING_METRIC_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -52,7 +52,7 @@ main: kit: entity: monitoring_breakdown_timeseries: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -81,7 +81,7 @@ main: kit: entity: monitoring_breakdown_timeseries: {
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -127,7 +127,7 @@ main: kit: entity: monitoring_breakdown_timeseries: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

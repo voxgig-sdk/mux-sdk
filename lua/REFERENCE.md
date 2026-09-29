@@ -81,10 +81,6 @@ Create a new `Directive` entity instance. Pass `nil` for no initial data.
 
 Create a new `DirectiveRunDetail` entity instance. Pass `nil` for no initial data.
 
-#### `DirectiveRunList(data)`
-
-Create a new `DirectiveRunList` entity instance. Pass `nil` for no initial data.
-
 #### `DrmConfiguration(data)`
 
 Create a new `DrmConfiguration` entity instance. Pass `nil` for no initial data.
@@ -149,14 +145,6 @@ Create a new `JobSummary` entity instance. Pass `nil` for no initial data.
 
 Create a new `ListAllMetricValue` entity instance. Pass `nil` for no initial data.
 
-#### `ListAnnotation(data)`
-
-Create a new `ListAnnotation` entity instance. Pass `nil` for no initial data.
-
-#### `ListAsset(data)`
-
-Create a new `ListAsset` entity instance. Pass `nil` for no initial data.
-
 #### `ListBreakdownValue(data)`
 
 Create a new `ListBreakdownValue` entity instance. Pass `nil` for no initial data.
@@ -165,17 +153,9 @@ Create a new `ListBreakdownValue` entity instance. Pass `nil` for no initial dat
 
 Create a new `ListDeliveryUsage` entity instance. Pass `nil` for no initial data.
 
-#### `ListDimension(data)`
-
-Create a new `ListDimension` entity instance. Pass `nil` for no initial data.
-
 #### `ListDimensionValue(data)`
 
 Create a new `ListDimensionValue` entity instance. Pass `nil` for no initial data.
-
-#### `ListDrmConfiguration(data)`
-
-Create a new `ListDrmConfiguration` entity instance. Pass `nil` for no initial data.
 
 #### `ListError(data)`
 
@@ -185,29 +165,13 @@ Create a new `ListError` entity instance. Pass `nil` for no initial data.
 
 Create a new `ListExport` entity instance. Pass `nil` for no initial data.
 
-#### `ListFilter(data)`
-
-Create a new `ListFilter` entity instance. Pass `nil` for no initial data.
-
 #### `ListFilterValue(data)`
 
 Create a new `ListFilterValue` entity instance. Pass `nil` for no initial data.
 
-#### `ListIncident(data)`
-
-Create a new `ListIncident` entity instance. Pass `nil` for no initial data.
-
 #### `ListInsight(data)`
 
 Create a new `ListInsight` entity instance. Pass `nil` for no initial data.
-
-#### `ListJob(data)`
-
-Create a new `ListJob` entity instance. Pass `nil` for no initial data.
-
-#### `ListLiveStream(data)`
-
-Create a new `ListLiveStream` entity instance. Pass `nil` for no initial data.
 
 #### `ListMonitoringDimension(data)`
 
@@ -216,10 +180,6 @@ Create a new `ListMonitoringDimension` entity instance. Pass `nil` for no initia
 #### `ListMonitoringMetric(data)`
 
 Create a new `ListMonitoringMetric` entity instance. Pass `nil` for no initial data.
-
-#### `ListPlaybackRestriction(data)`
-
-Create a new `ListPlaybackRestriction` entity instance. Pass `nil` for no initial data.
 
 #### `ListRealTimeDimension(data)`
 
@@ -232,10 +192,6 @@ Create a new `ListRealTimeMetric` entity instance. Pass `nil` for no initial dat
 #### `ListRelatedIncident(data)`
 
 Create a new `ListRelatedIncident` entity instance. Pass `nil` for no initial data.
-
-#### `ListSigningKey(data)`
-
-Create a new `ListSigningKey` entity instance. Pass `nil` for no initial data.
 
 #### `ListSubviewBreakdownValue(data)`
 
@@ -253,29 +209,9 @@ Create a new `ListSubviewDimension` entity instance. Pass `nil` for no initial d
 
 Create a new `ListSubviewDimensionValue` entity instance. Pass `nil` for no initial data.
 
-#### `ListTranscriptionVocabulary(data)`
-
-Create a new `ListTranscriptionVocabulary` entity instance. Pass `nil` for no initial data.
-
-#### `ListUpload(data)`
-
-Create a new `ListUpload` entity instance. Pass `nil` for no initial data.
-
-#### `ListUsageExport(data)`
-
-Create a new `ListUsageExport` entity instance. Pass `nil` for no initial data.
-
-#### `ListVideoView(data)`
-
-Create a new `ListVideoView` entity instance. Pass `nil` for no initial data.
-
 #### `ListVideoViewExport(data)`
 
 Create a new `ListVideoViewExport` entity instance. Pass `nil` for no initial data.
-
-#### `ListWebhook(data)`
-
-Create a new `ListWebhook` entity instance. Pass `nil` for no initial data.
 
 #### `LiveStream(data)`
 
@@ -381,6 +317,10 @@ Create a new `Upload` entity instance. Pass `nil` for no initial data.
 
 Create a new `UrlSigningKey` entity instance. Pass `nil` for no initial data.
 
+#### `UsageExport(data)`
+
+Create a new `UsageExport` entity instance. Pass `nil` for no initial data.
+
 #### `VideoView(data)`
 
 Create a new `VideoView` entity instance. Pass `nil` for no initial data.
@@ -456,6 +396,14 @@ local result, err = client:Annotation():create({
   id = --[[ string ]],
   note = --[[ string ]],
 })
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:Annotation():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -660,6 +608,14 @@ local result, err = client:Asset():create({
   shots = --[[ table ]],
   status = --[[ string ]],
 })
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:Asset():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -1120,6 +1076,14 @@ local directive_run_detail = client:DirectiveRunDetail(nil)
 
 ### Operations
 
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:DirectiveRunDetail():list()
+```
+
 #### `load(reqmatch, ctrl) -> any, err`
 
 Load a single entity matching the given criteria.
@@ -1158,63 +1122,6 @@ Return the entity name.
 
 ---
 
-## DirectiveRunListEntity
-
-```lua
-local directive_run_list = client:DirectiveRunList(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `completed_at` | `number|nil` | Yes | Unix timestamp (seconds) when the run reached terminal state. |
-| `node_states` | `table` | Yes | Per-binding status entries, one per binding, in the order the bindings appear in `directive.workflows[]`. |
-| `run_id` | `string` | Yes | Unique run identifier (drvrun_...). |
-| `started_at` | `number` | Yes | Unix timestamp (seconds) when the run started. |
-| `status` | `string` | Yes | Current run status. |
-| `subject_id` | `string` | Yes | The bare Mux asset ID this run targeted. |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:DirectiveRunList():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `DirectiveRunListEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## DrmConfigurationEntity
 
 ```lua
@@ -1228,6 +1135,14 @@ local drm_configuration = client:DrmConfiguration(nil)
 | `id` | `string` | Yes | Unique identifier for the DRM Configuration. |
 
 ### Operations
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:DrmConfiguration():list()
+```
 
 #### `load(reqmatch, ctrl) -> any, err`
 
@@ -2069,12 +1984,40 @@ local incident = client:Incident(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `affected_views` | `number` | Yes |  |
+| `affected_views_per_hour` | `number` | Yes |  |
+| `affected_views_per_hour_on_open` | `number` | Yes |  |
+| `breakdowns` | `table` | Yes |  |
 | `data` | `table` | Yes |  |
-| `id` | `string` | No |  |
+| `description` | `string` | Yes |  |
+| `error_description` | `string` | Yes |  |
+| `id` | `string` | Yes |  |
+| `impact` | `string` | Yes |  |
+| `incident_key` | `string` | Yes |  |
+| `measured_value` | `number` | Yes |  |
+| `measured_value_on_close` | `number` | Yes |  |
+| `measurement` | `string` | Yes |  |
+| `notification_rules` | `table` | Yes |  |
+| `notifications` | `table` | Yes |  |
+| `resolved_at` | `string` | Yes |  |
+| `sample_size` | `number` | Yes |  |
+| `sample_size_unit` | `string` | Yes |  |
+| `severity` | `string` | Yes |  |
+| `started_at` | `string` | Yes |  |
+| `status` | `string` | Yes |  |
+| `threshold` | `number` | Yes |  |
 | `timeframe` | `table` | Yes |  |
 | `total_row_count` | `number` | Yes |  |
 
 ### Operations
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:Incident():list()
+```
 
 #### `load(reqmatch, ctrl) -> any, err`
 
@@ -2202,6 +2145,14 @@ local result, err = client:JobSummary():create({
 })
 ```
 
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:JobSummary():list()
+```
+
 ### Common Methods
 
 #### `data_get() -> table`
@@ -2285,146 +2236,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ListAllMetricValueEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListAnnotationEntity
-
-```lua
-local list_annotation = client:ListAnnotation(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `date` | `string` | Yes | Datetime when the annotation applies |
-| `id` | `string` | Yes | Unique identifier for the annotation |
-| `note` | `string` | Yes | The annotation note content |
-| `sub_property_id` | `string` | No | Customer-defined sub-property identifier |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListAnnotation():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListAnnotationEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListAssetEntity
-
-```lua
-local list_asset = client:ListAsset(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `aspect_ratio` | `string` | No | The aspect ratio of the asset in the form of `width:height`, for example `16:9`. |
-| `created_at` | `string` | Yes | Time the Asset was created, defined as a Unix timestamp (seconds since epoch). |
-| `directives` | `table` | No | The Mux Robots directives applied to the asset. |
-| `duration` | `number` | No | The duration of the asset in seconds (max duration for a single asset is 12 hours). |
-| `encoding_tier` | `string` | Yes | This field is deprecated. |
-| `errors` | `table` | No | Object that describes any errors that happened when processing this asset. |
-| `generate_shots` | `boolean` | No | Whether to perform shot detection on this asset. |
-| `id` | `string` | Yes | Unique identifier for the Asset. |
-| `ingest_type` | `string` | No | The type of ingest used to create the asset. |
-| `is_live` | `boolean` | No | Indicates whether the live stream that created this asset is currently `active` and not in `idle` state. |
-| `live_stream_id` | `string` | No | Unique identifier for the live stream. |
-| `master` | `table` | No | An object containing the current status of Master Access and the link to the Master MP4 file when ready. |
-| `master_access` | `string` | Yes |  |
-| `max_resolution_tier` | `string` | Yes | Max resolution tier can be used to control the maximum `resolution_tier` your asset is encoded, stored, and streamed at. |
-| `max_stored_frame_rate` | `number` | No | The maximum frame rate that has been stored for the asset. |
-| `max_stored_resolution` | `string` | No | This field is deprecated. |
-| `meta` | `table` | No | Customer provided metadata about this asset. |
-| `mp4_support` | `string` | No | Deprecated. |
-| `non_standard_input_reasons` | `table` | No | An object containing one or more reasons the input file is non-standard. |
-| `normalize_audio` | `boolean` | No | Normalize the audio track loudness level. |
-| `passthrough` | `string` | No | You can set this field to anything you want. |
-| `playback_ids` | `table` | No | An array of Playback ID objects. |
-| `progress` | `table` | Yes | Detailed state information about the asset ingest process. |
-| `recording_times` | `table` | No | An array of individual live stream recording sessions. |
-| `resolution_tier` | `string` | No | The resolution tier that the asset was ingested at, affecting billing for ingest & storage. |
-| `shots` | `table` | Yes | The results of generating shots on the video |
-| `source_asset_id` | `string` | No | Asset Identifier of the video used as the source for creating the clip. |
-| `static_renditions` | `table` | No | An object containing the current status of any static renditions (MP4s) for this asset. |
-| `status` | `string` | Yes | The status of the asset. |
-| `test` | `boolean` | No | True means this live stream is a test asset. |
-| `thumbnail_time` | `number` | No | The media time within the asset used when a thumbnail without an explicit time is requested. |
-| `tracks` | `table` | No | The individual media tracks that make up an asset. |
-| `upload_id` | `string` | No | Unique identifier for the Direct Upload. |
-| `video_quality` | `string` | No | The video quality controls the cost, quality, and available platform features for the asset. |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListAsset():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListAssetEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -2554,60 +2365,6 @@ Return the entity name.
 
 ---
 
-## ListDimensionEntity
-
-```lua
-local list_dimension = client:ListDimension(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `table` | Yes |  |
-| `timeframe` | `table` | Yes |  |
-| `total_row_count` | `number` | Yes |  |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListDimension():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListDimensionEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## ListDimensionValueEntity
 
 ```lua
@@ -2663,58 +2420,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ListDimensionValueEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListDrmConfigurationEntity
-
-```lua
-local list_drm_configuration = client:ListDrmConfiguration(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | `string` | Yes | Unique identifier for the DRM Configuration. |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListDrmConfiguration():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListDrmConfigurationEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -2838,10 +2543,10 @@ Return the entity name.
 
 ---
 
-## ListFilterEntity
+## ListFilterValueEntity
 
 ```lua
-local list_filter = client:ListFilter(nil)
+local list_filter_value = client:ListFilterValue(nil)
 ```
 
 ### Fields
@@ -2859,54 +2564,8 @@ local list_filter = client:ListFilter(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:ListFilter():list()
+local results, err = client:ListFilterValue():list()
 ```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListFilterEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListFilterValueEntity
-
-```lua
-local list_filter_value = client:ListFilterValue(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `table` | Yes |  |
-| `timeframe` | `table` | Yes |  |
-| `total_row_count` | `number` | Yes |  |
-
-### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`
 
@@ -2937,78 +2596,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ListFilterValueEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListIncidentEntity
-
-```lua
-local list_incident = client:ListIncident(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `affected_views` | `number` | Yes |  |
-| `affected_views_per_hour` | `number` | Yes |  |
-| `affected_views_per_hour_on_open` | `number` | Yes |  |
-| `breakdowns` | `table` | Yes |  |
-| `description` | `string` | Yes |  |
-| `error_description` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `impact` | `string` | Yes |  |
-| `incident_key` | `string` | Yes |  |
-| `measured_value` | `number` | Yes |  |
-| `measured_value_on_close` | `number` | Yes |  |
-| `measurement` | `string` | Yes |  |
-| `notification_rules` | `table` | Yes |  |
-| `notifications` | `table` | Yes |  |
-| `resolved_at` | `string` | Yes |  |
-| `sample_size` | `number` | Yes |  |
-| `sample_size_unit` | `string` | Yes |  |
-| `severity` | `string` | Yes |  |
-| `started_at` | `string` | Yes |  |
-| `status` | `string` | Yes |  |
-| `threshold` | `number` | Yes |  |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListIncident():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListIncidentEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -3067,138 +2654,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ListInsightEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListJobEntity
-
-```lua
-local list_job = client:ListJob(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `number` | Yes | Unix timestamp (seconds) when the job was created. |
-| `id` | `string` | Yes | Unique job identifier. |
-| `links` | `table` | Yes | Hypermedia links for this job. |
-| `status` | `string` | Yes | Current job status. |
-| `updated_at` | `number` | Yes | Unix timestamp (seconds) of the job's last state transition (e.g. |
-| `workflow` | `string` | Yes | Workflow type that created this job. |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListJob():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListJobEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListLiveStreamEntity
-
-```lua
-local list_live_stream = client:ListLiveStream(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `active_asset_id` | `string` | No | The Asset that is currently being created if there is an active broadcast. |
-| `active_ingest_protocol` | `string` | No | The protocol used for the active ingest stream. |
-| `audio_only` | `boolean` | No | The live stream only processes the audio track if the value is set to true. |
-| `created_at` | `string` | Yes | Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch). |
-| `embedded_subtitles` | `table` | No | Describes the embedded closed caption configuration of the incoming live stream. |
-| `generated_subtitles` | `table` | No | Configure the incoming live stream to include subtitles created with automatic speech recognition. |
-| `id` | `string` | Yes | Unique identifier for the Live Stream. |
-| `latency_mode` | `string` | Yes | Latency is the time from when the streamer transmits a frame of video to when you see it in the player. |
-| `low_latency` | `boolean` | No | This field is deprecated. |
-| `max_continuous_duration` | `number` | Yes | The time in seconds a live stream may be continuously active before being disconnected. |
-| `meta` | `table` | No | Customer provided metadata about this live stream. |
-| `new_asset_settings` | `table` | No |  |
-| `passthrough` | `string` | No | Arbitrary user-supplied metadata set for the asset. |
-| `playback_ids` | `table` | No | An array of Playback ID objects. |
-| `recent_asset_ids` | `table` | No | An array of strings with the most recent Asset IDs that were created from this Live Stream. |
-| `reconnect_slate_url` | `string` | No | The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. |
-| `reconnect_window` | `number` | No | When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live s… |
-| `reduced_latency` | `boolean` | No | This field is deprecated. |
-| `simulcast_targets` | `table` | No | Each Simulcast Target contains configuration details to broadcast (or "restream") a live stream to a third-party streaming service. |
-| `srt_passphrase` | `string` | No | Unique key used for encrypting a stream to a Mux SRT endpoint. |
-| `status` | `string` | Yes | `idle` indicates that there is no active broadcast. |
-| `stream_key` | `string` | Yes | Unique key used for streaming to a Mux RTMP endpoint. |
-| `test` | `boolean` | No | True means this live stream is a test live stream. |
-| `use_slate_for_standard_latency` | `boolean` | No | By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListLiveStream():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListLiveStreamEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -3305,62 +2760,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `ListMonitoringMetricEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListPlaybackRestrictionEntity
-
-```lua
-local list_playback_restriction = client:ListPlaybackRestriction(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `string` | Yes | Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `string` | Yes | Unique identifier for the Playback Restriction. |
-| `referrer` | `table` | Yes | A list of domains allowed to play your videos. |
-| `updated_at` | `string` | Yes | Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch). |
-| `user_agent` | `table` | Yes | Rules that control what user agents are allowed to play your videos. |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListPlaybackRestriction():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListPlaybackRestrictionEntity` instance with the same client and
 options.
 
 #### `get_name() -> string`
@@ -3548,60 +2947,6 @@ Return the entity name.
 
 ---
 
-## ListSigningKeyEntity
-
-```lua
-local list_signing_key = client:ListSigningKey(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `string` | Yes | Time at which the object was created. |
-| `id` | `string` | Yes | Unique identifier for the Signing Key. |
-| `private_key` | `string` | No | A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListSigningKey():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListSigningKeyEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## ListSubviewBreakdownValueEntity
 
 ```lua
@@ -3718,8 +3063,8 @@ local list_subview_dimension = client:ListSubviewDimension(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `subview` | `table` | Yes |  |
-| `view` | `table` | Yes |  |
+| `data` | `table` | Yes |  |
+| `total_row_count` | `number` | Yes | Always `null` for this endpoint, matching `GET /data/v1/dimensions`, which also never computes a row count. |
 
 ### Operations
 
@@ -3816,243 +3161,6 @@ Return the entity name.
 
 ---
 
-## ListTranscriptionVocabularyEntity
-
-```lua
-local list_transcription_vocabulary = client:ListTranscriptionVocabulary(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `string` | Yes | Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `string` | Yes | Unique identifier for the Transcription Vocabulary |
-| `name` | `string` | No | The user-supplied name of the Transcription Vocabulary. |
-| `passthrough` | `string` | No | Arbitrary user-supplied metadata set for the Transcription Vocabulary. |
-| `phrases` | `table` | No | Phrases, individual words, or proper names to include in the Transcription Vocabulary. |
-| `updated_at` | `string` | Yes | Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch). |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListTranscriptionVocabulary():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListTranscriptionVocabularyEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListUploadEntity
-
-```lua
-local list_upload = client:ListUpload(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `asset_id` | `string` | No | Only set once the upload is in the `asset_created` state. |
-| `cors_origin` | `string` | Yes | If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers. |
-| `error` | `table` | No | Only set if an error occurred during asset creation. |
-| `id` | `string` | Yes | Unique identifier for the Direct Upload. |
-| `new_asset_settings` | `table` | No |  |
-| `status` | `string` | Yes |  |
-| `test` | `boolean` | No | Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset. |
-| `timeout` | `number` | Yes | Max time in seconds for the signed upload URL to be valid. |
-| `url` | `string` | No | The URL to upload the associated source media to. |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListUpload():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListUploadEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListUsageExportEntity
-
-```lua
-local list_usage_export = client:ListUsageExport(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `date` | `string` | Yes | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
-| `download_url` | `string` | Yes | A pre-signed URL to download the CSV. |
-| `download_url_expires_at` | `number` | Yes | Unix timestamp (seconds since epoch) at which `download_url` expires. |
-| `file_size` | `number` | Yes | Uncompressed size of the CSV file in bytes. |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListUsageExport():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListUsageExportEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## ListVideoViewEntity
-
-```lua
-local list_video_view = client:ListVideoView(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `country_code` | `string` | Yes |  |
-| `error_type_id` | `number` | Yes |  |
-| `id` | `string` | Yes |  |
-| `playback_failure` | `boolean` | Yes |  |
-| `player_error_code` | `string` | Yes |  |
-| `player_error_message` | `string` | Yes |  |
-| `total_row_count` | `number` | Yes |  |
-| `video_title` | `string` | Yes |  |
-| `view_end` | `string` | Yes |  |
-| `view_start` | `string` | Yes |  |
-| `viewer_application_name` | `string` | Yes |  |
-| `viewer_experience_score` | `number` | Yes |  |
-| `viewer_os_family` | `string` | Yes |  |
-| `watch_time` | `number` | Yes |  |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListVideoView():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListVideoViewEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## ListVideoViewExportEntity
 
 ```lua
@@ -4106,62 +3214,6 @@ Return the entity name.
 
 ---
 
-## ListWebhookEntity
-
-```lua
-local list_webhook = client:ListWebhook(nil)
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `address` | `string` | Yes | The URL where Mux sends webhook notifications. |
-| `created_at` | `string` | Yes | Time at which the webhook was created, as an ISO 8601 UTC datetime. |
-| `enabled` | `boolean` | Yes | Whether Mux attempts to deliver notifications to this webhook. |
-| `id` | `string` | Yes | Unique identifier for the webhook. |
-| `signing_secret` | `string` | No | Secret used to verify that webhook payloads were sent by Mux. |
-
-### Operations
-
-#### `list(reqmatch, ctrl) -> any, err`
-
-List entities matching the given criteria. Returns an array.
-
-```lua
-local results, err = client:ListWebhook():list()
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `ListWebhookEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
 ## LiveStreamEntity
 
 ```lua
@@ -4202,35 +3254,35 @@ local live_stream = client:LiveStream(nil)
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `active_asset_id` | - | - | - | - |
-| `active_ingest_protocol` | - | - | - | - |
-| `advanced_playback_policies` | - | - | - | - |
-| `audio_only` | - | - | - | - |
-| `created_at` | - | - | - | - |
-| `embedded_subtitles` | - | - | - | - |
-| `generated_subtitles` | - | - | - | - |
-| `id` | - | - | - | - |
-| `latency_mode` | - | Yes | Yes | - |
-| `low_latency` | - | - | - | - |
-| `max_continuous_duration` | - | Yes | Yes | - |
-| `meta` | - | - | - | - |
-| `new_asset_settings` | - | - | - | - |
-| `passthrough` | - | - | - | - |
-| `playback_ids` | - | - | - | - |
-| `playback_policies` | - | - | - | - |
-| `playback_policy` | - | - | - | - |
-| `recent_asset_ids` | - | - | - | - |
-| `reconnect_slate_url` | - | - | - | - |
-| `reconnect_window` | - | - | - | - |
-| `reduced_latency` | - | - | - | - |
-| `simulcast_targets` | - | - | - | - |
-| `srt_passphrase` | - | - | - | - |
-| `status` | - | - | - | - |
-| `stream_key` | - | - | - | - |
-| `test` | - | - | - | - |
-| `use_slate_for_standard_latency` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `active_asset_id` | - | - | - | - | - |
+| `active_ingest_protocol` | - | - | - | - | - |
+| `advanced_playback_policies` | - | - | - | - | - |
+| `audio_only` | - | - | - | - | - |
+| `created_at` | - | - | - | - | - |
+| `embedded_subtitles` | - | - | - | - | - |
+| `generated_subtitles` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `latency_mode` | - | - | Yes | Yes | - |
+| `low_latency` | - | - | - | - | - |
+| `max_continuous_duration` | - | - | Yes | Yes | - |
+| `meta` | - | - | - | - | - |
+| `new_asset_settings` | - | - | - | - | - |
+| `passthrough` | - | - | - | - | - |
+| `playback_ids` | - | - | - | - | - |
+| `playback_policies` | - | - | - | - | - |
+| `playback_policy` | - | - | - | - | - |
+| `recent_asset_ids` | - | - | - | - | - |
+| `reconnect_slate_url` | - | - | - | - | - |
+| `reconnect_window` | - | - | - | - | - |
+| `reduced_latency` | - | - | - | - | - |
+| `simulcast_targets` | - | - | - | - | - |
+| `srt_passphrase` | - | - | - | - | - |
+| `status` | - | - | - | - | - |
+| `stream_key` | - | - | - | - | - |
+| `test` | - | - | - | - | - |
+| `use_slate_for_standard_latency` | - | - | - | - | - |
 
 ### Operations
 
@@ -4247,6 +3299,14 @@ local result, err = client:LiveStream():create({
   status = --[[ string ]],
   stream_key = --[[ string ]],
 })
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:LiveStream():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -4806,6 +3866,14 @@ local result, err = client:PlaybackRestriction():create({
 })
 ```
 
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:PlaybackRestriction():list()
+```
+
 #### `load(reqmatch, ctrl) -> any, err`
 
 Load a single entity matching the given criteria.
@@ -5039,12 +4107,6 @@ Return the entity name.
 local signal_live_stream_complete = client:SignalLiveStreamComplete(nil)
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `table` | No |  |
-
 ### Operations
 
 #### `update(reqdata, ctrl) -> any, err`
@@ -5114,6 +4176,14 @@ local result, err = client:SigningKey():create({
   created_at = --[[ string ]],
   id = --[[ string ]],
 })
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:SigningKey():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -5498,14 +4568,14 @@ local transcription_vocabulary = client:TranscriptionVocabulary(nil)
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `created_at` | - | - | - | - |
-| `id` | - | - | - | - |
-| `name` | - | - | - | - |
-| `passthrough` | - | - | - | - |
-| `phrases` | - | Yes | Yes | - |
-| `updated_at` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `name` | - | - | - | - | - |
+| `passthrough` | - | - | - | - | - |
+| `phrases` | - | - | Yes | Yes | - |
+| `updated_at` | - | - | - | - | - |
 
 ### Operations
 
@@ -5519,6 +4589,14 @@ local result, err = client:TranscriptionVocabulary():create({
   id = --[[ string ]],
   updated_at = --[[ string ]],
 })
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:TranscriptionVocabulary():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -5833,17 +4911,17 @@ local upload = client:Upload(nil)
 
 ### Field Usage by Operation
 
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `asset_id` | - | - | - |
-| `cors_origin` | - | - | - |
-| `error` | - | - | - |
-| `id` | - | - | - |
-| `new_asset_settings` | - | - | - |
-| `status` | - | - | - |
-| `test` | - | - | - |
-| `timeout` | - | Yes | - |
-| `url` | - | - | - |
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `asset_id` | - | - | - | - |
+| `cors_origin` | - | - | - | - |
+| `error` | - | - | - | - |
+| `id` | - | - | - | - |
+| `new_asset_settings` | - | - | - | - |
+| `status` | - | - | - | - |
+| `test` | - | - | - | - |
+| `timeout` | - | - | Yes | - |
+| `url` | - | - | - | - |
 
 ### Operations
 
@@ -5858,6 +4936,14 @@ local result, err = client:Upload():create({
   status = --[[ string ]],
   timeout = --[[ number ]],
 })
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:Upload():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -5962,6 +5048,61 @@ Return the entity name.
 
 ---
 
+## UsageExportEntity
+
+```lua
+local usage_export = client:UsageExport(nil)
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `date` | `string` | Yes | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
+| `download_url` | `string` | Yes | A pre-signed URL to download the CSV. |
+| `download_url_expires_at` | `number` | Yes | Unix timestamp (seconds since epoch) at which `download_url` expires. |
+| `file_size` | `number` | Yes | Uncompressed size of the CSV file in bytes. |
+
+### Operations
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:UsageExport():list()
+```
+
+### Common Methods
+
+#### `data_get() -> table`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set(data)`
+
+Set the entity data.
+
+#### `match_get() -> table`
+
+Get the entity match criteria.
+
+#### `match_set(match)`
+
+Set the entity match criteria.
+
+#### `make() -> Entity`
+
+Create a new `UsageExportEntity` instance with the same client and
+options.
+
+#### `get_name() -> string`
+
+Return the entity name.
+
+
+---
+
 ## VideoViewEntity
 
 ```lua
@@ -5972,12 +5113,32 @@ local video_view = client:VideoView(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `country_code` | `string` | Yes |  |
 | `data` | `table` | Yes |  |
-| `id` | `string` | No |  |
+| `error_type_id` | `number` | Yes |  |
+| `id` | `string` | Yes |  |
+| `playback_failure` | `boolean` | Yes |  |
+| `player_error_code` | `string` | Yes |  |
+| `player_error_message` | `string` | Yes |  |
 | `timeframe` | `table` | Yes |  |
 | `total_row_count` | `number` | Yes |  |
+| `video_title` | `string` | Yes |  |
+| `view_end` | `string` | Yes |  |
+| `view_start` | `string` | Yes |  |
+| `viewer_application_name` | `string` | Yes |  |
+| `viewer_experience_score` | `number` | Yes |  |
+| `viewer_os_family` | `string` | Yes |  |
+| `watch_time` | `number` | Yes |  |
 
 ### Operations
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:VideoView():list()
+```
 
 #### `load(reqmatch, ctrl) -> any, err`
 
@@ -6035,13 +5196,13 @@ local webhook = client:Webhook(nil)
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `address` | - | - | Yes | - |
-| `created_at` | - | - | - | - |
-| `enabled` | - | - | Yes | - |
-| `id` | - | - | - | - |
-| `signing_secret` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `address` | - | - | - | Yes | - |
+| `created_at` | - | - | - | - | - |
+| `enabled` | - | - | - | Yes | - |
+| `id` | - | - | - | - | - |
+| `signing_secret` | - | - | - | - | - |
 
 ### Operations
 
@@ -6056,6 +5217,14 @@ local result, err = client:Webhook():create({
   enabled = --[[ boolean ]],
   id = --[[ string ]],
 })
+```
+
+#### `list(reqmatch, ctrl) -> any, err`
+
+List entities matching the given criteria. Returns an array.
+
+```lua
+local results, err = client:Webhook():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`

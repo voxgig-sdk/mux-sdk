@@ -16,6 +16,13 @@ export interface AnnotationLoadMatch {
   id: string
 }
 
+export interface AnnotationListMatch {
+  limit?: number
+  order_direction?: string
+  page?: number
+  timeframe?: any[]
+}
+
 export interface AnnotationCreateData {
   date: string
   id: string
@@ -108,6 +115,14 @@ export interface Asset {
 
 export interface AssetLoadMatch {
   id: string
+}
+
+export interface AssetListMatch {
+  cursor?: string
+  limit?: number
+  live_stream_id?: string
+  page?: number
+  upload_id?: string
 }
 
 export interface AssetCreateData {
@@ -318,16 +333,7 @@ export interface DirectiveRunDetailLoadMatch {
   run_id: string
 }
 
-export interface DirectiveRunList {
-  completed_at: number | null
-  node_states: any[]
-  run_id: string
-  started_at: number
-  status: string
-  subject_id: string
-}
-
-export interface DirectiveRunListListMatch {
+export interface DirectiveRunDetailListMatch {
   directive_id: string
   limit?: number
   page?: number
@@ -339,6 +345,11 @@ export interface DrmConfiguration {
 
 export interface DrmConfigurationLoadMatch {
   id: string
+}
+
+export interface DrmConfigurationListMatch {
+  limit?: number
+  page?: number
 }
 
 export interface EditCaption {
@@ -623,14 +634,43 @@ export interface GenerateTrackSubtitleCreateData {
 }
 
 export interface Incident {
+  affected_views: number
+  affected_views_per_hour: number
+  affected_views_per_hour_on_open: number
+  breakdowns: any[]
   data: Record<string, any>
-  id?: string
+  description: string
+  error_description: string
+  id: string
+  impact: string
+  incident_key: string
+  measured_value: number
+  measured_value_on_close: number
+  measurement: string
+  notification_rules: any[]
+  notifications: any[]
+  resolved_at: string
+  sample_size: number
+  sample_size_unit: string
+  severity: string
+  started_at: string
+  status: string
+  threshold: number
   timeframe: any[]
   total_row_count: number
 }
 
 export interface IncidentLoadMatch {
   id: string
+}
+
+export interface IncidentListMatch {
+  limit?: number
+  order_by?: string
+  order_direction?: string
+  page?: number
+  severity?: string
+  status?: string
 }
 
 export interface InputInfo {
@@ -649,6 +689,14 @@ export interface JobSummary {
   status: string
   updated_at: number
   workflow: string
+}
+
+export interface JobSummaryListMatch {
+  asset_id?: string
+  limit?: number
+  page?: number
+  status?: any
+  workflow?: string
 }
 
 export interface JobSummaryCreateData {
@@ -681,65 +729,6 @@ export interface ListAllMetricValueListMatch {
   metric_filter?: any[]
   timeframe?: any[]
   value?: string
-}
-
-export interface ListAnnotation {
-  date: string
-  id: string
-  note: string
-  sub_property_id?: string
-}
-
-export interface ListAnnotationListMatch {
-  limit?: number
-  order_direction?: string
-  page?: number
-  timeframe?: any[]
-}
-
-export interface ListAsset {
-  aspect_ratio?: string
-  created_at: string
-  directives?: any[]
-  duration?: number
-  encoding_tier: string
-  errors?: Record<string, any>
-  generate_shots?: boolean
-  id: string
-  ingest_type?: string
-  is_live?: boolean
-  live_stream_id?: string
-  master?: Record<string, any>
-  master_access: string
-  max_resolution_tier: string
-  max_stored_frame_rate?: number
-  max_stored_resolution?: string
-  meta?: Record<string, any>
-  mp4_support?: string
-  non_standard_input_reasons?: Record<string, any>
-  normalize_audio?: boolean
-  passthrough?: string
-  playback_ids?: any[]
-  progress: Record<string, any>
-  recording_times?: any[]
-  resolution_tier?: string
-  shots: Record<string, any>
-  source_asset_id?: string
-  static_renditions?: Record<string, any>
-  status: string
-  test?: boolean
-  thumbnail_time?: number
-  tracks?: any[]
-  upload_id?: string
-  video_quality?: string
-}
-
-export interface ListAssetListMatch {
-  cursor?: string
-  limit?: number
-  live_stream_id?: string
-  page?: number
-  upload_id?: string
 }
 
 export interface ListBreakdownValue {
@@ -787,18 +776,6 @@ export interface ListDeliveryUsageListMatch {
   timeframe?: any[]
 }
 
-export interface ListDimension {
-  data: Record<string, any>
-  timeframe: any[]
-  total_row_count: number
-}
-
-export interface ListDimensionListMatch {
-  data?: Record<string, any>
-  timeframe?: any[]
-  total_row_count?: number
-}
-
 export interface ListDimensionValue {
   data: any[]
   timeframe: any[]
@@ -817,23 +794,11 @@ export interface ListDimensionValueLoadMatch {
 }
 
 export interface ListDimensionValueListMatch {
-  dimension_id: string
-  filter?: any[]
-  limit?: number
-  metric_filter?: any[]
-  order_by?: string
-  order_direction?: string
-  page?: number
+  data?: any[]
   timeframe?: any[]
-}
-
-export interface ListDrmConfiguration {
-  id: string
-}
-
-export interface ListDrmConfigurationListMatch {
-  limit?: number
-  page?: number
+  total_count?: number
+  total_row_count?: number
+  value?: string
 }
 
 export interface ListError {
@@ -866,18 +831,6 @@ export interface ListExportListMatch {
   total_row_count?: number
 }
 
-export interface ListFilter {
-  data: Record<string, any>
-  timeframe: any[]
-  total_row_count: number
-}
-
-export interface ListFilterListMatch {
-  data?: Record<string, any>
-  timeframe?: any[]
-  total_row_count?: number
-}
-
 export interface ListFilterValue {
   data: any[]
   timeframe: any[]
@@ -892,37 +845,10 @@ export interface ListFilterValueLoadMatch {
   timeframe?: any[]
 }
 
-export interface ListIncident {
-  affected_views: number
-  affected_views_per_hour: number
-  affected_views_per_hour_on_open: number
-  breakdowns: any[]
-  description: string
-  error_description: string
-  id: string
-  impact: string
-  incident_key: string
-  measured_value: number
-  measured_value_on_close: number
-  measurement: string
-  notification_rules: any[]
-  notifications: any[]
-  resolved_at: string
-  sample_size: number
-  sample_size_unit: string
-  severity: string
-  started_at: string
-  status: string
-  threshold: number
-}
-
-export interface ListIncidentListMatch {
-  limit?: number
-  order_by?: string
-  order_direction?: string
-  page?: number
-  severity?: string
-  status?: string
+export interface ListFilterValueListMatch {
+  data?: any[]
+  timeframe?: any[]
+  total_row_count?: number
 }
 
 export interface ListInsight {
@@ -944,57 +870,6 @@ export interface ListInsightListMatch {
   timeframe?: any[]
 }
 
-export interface ListJob {
-  created_at: number
-  id: string
-  links: Record<string, any>
-  status: string
-  updated_at: number
-  workflow: string
-}
-
-export interface ListJobListMatch {
-  asset_id?: string
-  limit?: number
-  page?: number
-  status?: any
-  workflow?: string
-}
-
-export interface ListLiveStream {
-  active_asset_id?: string
-  active_ingest_protocol?: string
-  audio_only?: boolean
-  created_at: string
-  embedded_subtitles?: any[]
-  generated_subtitles?: any[]
-  id: string
-  latency_mode: string
-  low_latency?: boolean
-  max_continuous_duration: number
-  meta?: Record<string, any>
-  new_asset_settings?: Record<string, any>
-  passthrough?: string
-  playback_ids?: any[]
-  recent_asset_ids?: any[]
-  reconnect_slate_url?: string
-  reconnect_window?: number
-  reduced_latency?: boolean
-  simulcast_targets?: any[]
-  srt_passphrase?: string
-  status: string
-  stream_key: string
-  test?: boolean
-  use_slate_for_standard_latency?: boolean
-}
-
-export interface ListLiveStreamListMatch {
-  limit?: number
-  page?: number
-  status?: string
-  stream_key?: string
-}
-
 export interface ListMonitoringDimension {
   display_name: string
   name: string
@@ -1013,19 +888,6 @@ export interface ListMonitoringMetric {
 export interface ListMonitoringMetricListMatch {
   display_name?: string
   name?: string
-}
-
-export interface ListPlaybackRestriction {
-  created_at: string
-  id: string
-  referrer: Record<string, any>
-  updated_at: string
-  user_agent: Record<string, any>
-}
-
-export interface ListPlaybackRestrictionListMatch {
-  limit?: number
-  page?: number
 }
 
 export interface ListRealTimeDimension {
@@ -1080,17 +942,6 @@ export interface ListRelatedIncidentListMatch {
   page?: number
 }
 
-export interface ListSigningKey {
-  created_at: string
-  id: string
-  private_key?: string
-}
-
-export interface ListSigningKeyListMatch {
-  limit?: number
-  page?: number
-}
-
 export interface ListSubviewBreakdownValue {
   breakdown_value: string
   metric_value: number
@@ -1123,8 +974,8 @@ export interface ListSubviewComparisonValueListMatch {
 }
 
 export interface ListSubviewDimension {
-  subview: any[]
-  view: any[]
+  data: Record<string, any>
+  total_row_count: number
 }
 
 export interface ListSubviewDimensionLoadMatch {
@@ -1150,79 +1001,6 @@ export interface ListSubviewDimensionValueLoadMatch {
   timeframe?: any[]
 }
 
-export interface ListTranscriptionVocabulary {
-  created_at: string
-  id: string
-  name?: string
-  passthrough?: string
-  phrases?: any[]
-  updated_at: string
-}
-
-export interface ListTranscriptionVocabularyListMatch {
-  limit?: number
-  page?: number
-}
-
-export interface ListUpload {
-  asset_id?: string
-  cors_origin: string
-  error?: Record<string, any>
-  id: string
-  new_asset_settings?: Record<string, any>
-  status: string
-  test?: boolean
-  timeout: number
-  url?: string
-}
-
-export interface ListUploadListMatch {
-  limit?: number
-  page?: number
-}
-
-export interface ListUsageExport {
-  date: string
-  download_url: string
-  download_url_expires_at: number
-  file_size: number
-}
-
-export interface ListUsageExportListMatch {
-  download_url_ttl?: number
-  limit?: number
-  page?: number
-  timeframe?: any[]
-}
-
-export interface ListVideoView {
-  country_code: string
-  error_type_id: number
-  id: string
-  playback_failure: boolean
-  player_error_code: string
-  player_error_message: string
-  total_row_count: number
-  video_title: string
-  view_end: string
-  view_start: string
-  viewer_application_name: string
-  viewer_experience_score: number
-  viewer_os_family: string
-  watch_time: number
-}
-
-export interface ListVideoViewListMatch {
-  error_id?: number
-  filter?: any[]
-  limit?: number
-  metric_filter?: any[]
-  order_direction?: string
-  page?: number
-  timeframe?: any[]
-  viewer_id?: string
-}
-
 export interface ListVideoViewExport {
   export_date: string
   files: any[]
@@ -1231,19 +1009,6 @@ export interface ListVideoViewExport {
 export interface ListVideoViewExportListMatch {
   export_date?: string
   files?: any[]
-}
-
-export interface ListWebhook {
-  address: string
-  created_at: string
-  enabled: boolean
-  id: string
-  signing_secret?: string
-}
-
-export interface ListWebhookListMatch {
-  limit?: number
-  page?: number
 }
 
 export interface LiveStream {
@@ -1278,6 +1043,13 @@ export interface LiveStream {
 
 export interface LiveStreamLoadMatch {
   id: string
+}
+
+export interface LiveStreamListMatch {
+  limit?: number
+  page?: number
+  status?: string
+  stream_key?: string
 }
 
 export interface LiveStreamCreateData {
@@ -1511,6 +1283,11 @@ export interface PlaybackRestrictionLoadMatch {
   id: string
 }
 
+export interface PlaybackRestrictionListMatch {
+  limit?: number
+  page?: number
+}
+
 export interface PlaybackRestrictionCreateData {
   created_at: string
   id: string
@@ -1584,12 +1361,10 @@ export interface RealTimeTimeseriesListMatch {
 }
 
 export interface SignalLiveStreamComplete {
-  data?: Record<string, any>
 }
 
 export interface SignalLiveStreamCompleteUpdateData {
   live_stream_id: string
-  data?: Record<string, any>
 }
 
 export interface SigningKey {
@@ -1601,6 +1376,11 @@ export interface SigningKey {
 
 export interface SigningKeyLoadMatch {
   id: string
+}
+
+export interface SigningKeyListMatch {
+  limit?: number
+  page?: number
 }
 
 export interface SigningKeyCreateData {
@@ -1724,6 +1504,11 @@ export interface TranscriptionVocabulary {
 
 export interface TranscriptionVocabularyLoadMatch {
   id: string
+}
+
+export interface TranscriptionVocabularyListMatch {
+  limit?: number
+  page?: number
 }
 
 export interface TranscriptionVocabularyCreateData {
@@ -1871,6 +1656,11 @@ export interface UploadLoadMatch {
   id: string
 }
 
+export interface UploadListMatch {
+  limit?: number
+  page?: number
+}
+
 export interface UploadCreateData {
   asset_id?: string
   cors_origin: string
@@ -1910,15 +1700,52 @@ export interface UrlSigningKeyRemoveMatch {
   id: string
 }
 
+export interface UsageExport {
+  date: string
+  download_url: string
+  download_url_expires_at: number
+  file_size: number
+}
+
+export interface UsageExportListMatch {
+  download_url_ttl?: number
+  limit?: number
+  page?: number
+  timeframe?: any[]
+}
+
 export interface VideoView {
+  country_code: string
   data: Record<string, any>
-  id?: string
+  error_type_id: number
+  id: string
+  playback_failure: boolean
+  player_error_code: string
+  player_error_message: string
   timeframe: any[]
   total_row_count: number
+  video_title: string
+  view_end: string
+  view_start: string
+  viewer_application_name: string
+  viewer_experience_score: number
+  viewer_os_family: string
+  watch_time: number
 }
 
 export interface VideoViewLoadMatch {
   id: string
+}
+
+export interface VideoViewListMatch {
+  error_id?: number
+  filter?: any[]
+  limit?: number
+  metric_filter?: any[]
+  order_direction?: string
+  page?: number
+  timeframe?: any[]
+  viewer_id?: string
 }
 
 export interface Webhook {
@@ -1931,6 +1758,11 @@ export interface Webhook {
 
 export interface WebhookLoadMatch {
   id: string
+}
+
+export interface WebhookListMatch {
+  limit?: number
+  page?: number
 }
 
 export interface WebhookCreateData {

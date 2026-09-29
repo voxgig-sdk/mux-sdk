@@ -15,6 +15,12 @@
 ---@class AnnotationLoadMatch
 ---@field id string
 
+---@class AnnotationListMatch
+---@field limit? number
+---@field order_direction? string
+---@field page? number
+---@field timeframe? table
+
 ---@class AnnotationCreateData
 ---@field date string
 ---@field id string
@@ -100,6 +106,13 @@
 
 ---@class AssetLoadMatch
 ---@field id string
+
+---@class AssetListMatch
+---@field cursor? string
+---@field limit? number
+---@field live_stream_id? string
+---@field page? number
+---@field upload_id? string
 
 ---@class AssetCreateData
 ---@field aspect_ratio? string
@@ -271,15 +284,7 @@
 ---@field directive_id string
 ---@field run_id string
 
----@class DirectiveRunList
----@field completed_at number|nil
----@field node_states table
----@field run_id string
----@field started_at number
----@field status string
----@field subject_id string
-
----@class DirectiveRunListListMatch
+---@class DirectiveRunDetailListMatch
 ---@field directive_id string
 ---@field limit? number
 ---@field page? number
@@ -289,6 +294,10 @@
 
 ---@class DrmConfigurationLoadMatch
 ---@field id string
+
+---@class DrmConfigurationListMatch
+---@field limit? number
+---@field page? number
 
 ---@class EditCaption
 ---@field created_at number
@@ -543,13 +552,41 @@
 ---@field generated_subtitles table
 
 ---@class Incident
+---@field affected_views number
+---@field affected_views_per_hour number
+---@field affected_views_per_hour_on_open number
+---@field breakdowns table
 ---@field data table
----@field id? string
+---@field description string
+---@field error_description string
+---@field id string
+---@field impact string
+---@field incident_key string
+---@field measured_value number
+---@field measured_value_on_close number
+---@field measurement string
+---@field notification_rules table
+---@field notifications table
+---@field resolved_at string
+---@field sample_size number
+---@field sample_size_unit string
+---@field severity string
+---@field started_at string
+---@field status string
+---@field threshold number
 ---@field timeframe table
 ---@field total_row_count number
 
 ---@class IncidentLoadMatch
 ---@field id string
+
+---@class IncidentListMatch
+---@field limit? number
+---@field order_by? string
+---@field order_direction? string
+---@field page? number
+---@field severity? string
+---@field status? string
 
 ---@class InputInfo
 ---@field file? table
@@ -565,6 +602,13 @@
 ---@field status string
 ---@field updated_at number
 ---@field workflow string
+
+---@class JobSummaryListMatch
+---@field asset_id? string
+---@field limit? number
+---@field page? number
+---@field status? any
+---@field workflow? string
 
 ---@class JobSummaryCreateData
 ---@field job_id string
@@ -594,61 +638,6 @@
 ---@field metric_filter? table
 ---@field timeframe? table
 ---@field value? string
-
----@class ListAnnotation
----@field date string
----@field id string
----@field note string
----@field sub_property_id? string
-
----@class ListAnnotationListMatch
----@field limit? number
----@field order_direction? string
----@field page? number
----@field timeframe? table
-
----@class ListAsset
----@field aspect_ratio? string
----@field created_at string
----@field directives? table
----@field duration? number
----@field encoding_tier string
----@field errors? table
----@field generate_shots? boolean
----@field id string
----@field ingest_type? string
----@field is_live? boolean
----@field live_stream_id? string
----@field master? table
----@field master_access string
----@field max_resolution_tier string
----@field max_stored_frame_rate? number
----@field max_stored_resolution? string
----@field meta? table
----@field mp4_support? string
----@field non_standard_input_reasons? table
----@field normalize_audio? boolean
----@field passthrough? string
----@field playback_ids? table
----@field progress table
----@field recording_times? table
----@field resolution_tier? string
----@field shots table
----@field source_asset_id? string
----@field static_renditions? table
----@field status string
----@field test? boolean
----@field thumbnail_time? number
----@field tracks? table
----@field upload_id? string
----@field video_quality? string
-
----@class ListAssetListMatch
----@field cursor? string
----@field limit? number
----@field live_stream_id? string
----@field page? number
----@field upload_id? string
 
 ---@class ListBreakdownValue
 ---@field field string
@@ -691,16 +680,6 @@
 ---@field page? number
 ---@field timeframe? table
 
----@class ListDimension
----@field data table
----@field timeframe table
----@field total_row_count number
-
----@class ListDimensionListMatch
----@field data? table
----@field timeframe? table
----@field total_row_count? number
-
 ---@class ListDimensionValue
 ---@field data table
 ---@field timeframe table
@@ -717,21 +696,11 @@
 ---@field timeframe? table
 
 ---@class ListDimensionValueListMatch
----@field dimension_id string
----@field filter? table
----@field limit? number
----@field metric_filter? table
----@field order_by? string
----@field order_direction? string
----@field page? number
+---@field data? table
 ---@field timeframe? table
-
----@class ListDrmConfiguration
----@field id string
-
----@class ListDrmConfigurationListMatch
----@field limit? number
----@field page? number
+---@field total_count? number
+---@field total_row_count? number
+---@field value? string
 
 ---@class ListError
 ---@field code number
@@ -759,16 +728,6 @@
 ---@field timeframe? table
 ---@field total_row_count? number
 
----@class ListFilter
----@field data table
----@field timeframe table
----@field total_row_count number
-
----@class ListFilterListMatch
----@field data? table
----@field timeframe? table
----@field total_row_count? number
-
 ---@class ListFilterValue
 ---@field data table
 ---@field timeframe table
@@ -781,36 +740,10 @@
 ---@field page? number
 ---@field timeframe? table
 
----@class ListIncident
----@field affected_views number
----@field affected_views_per_hour number
----@field affected_views_per_hour_on_open number
----@field breakdowns table
----@field description string
----@field error_description string
----@field id string
----@field impact string
----@field incident_key string
----@field measured_value number
----@field measured_value_on_close number
----@field measurement string
----@field notification_rules table
----@field notifications table
----@field resolved_at string
----@field sample_size number
----@field sample_size_unit string
----@field severity string
----@field started_at string
----@field status string
----@field threshold number
-
----@class ListIncidentListMatch
----@field limit? number
----@field order_by? string
----@field order_direction? string
----@field page? number
----@field severity? string
----@field status? string
+---@class ListFilterValueListMatch
+---@field data? table
+---@field timeframe? table
+---@field total_row_count? number
 
 ---@class ListInsight
 ---@field filter_column string
@@ -829,53 +762,6 @@
 ---@field order_direction? string
 ---@field timeframe? table
 
----@class ListJob
----@field created_at number
----@field id string
----@field links table
----@field status string
----@field updated_at number
----@field workflow string
-
----@class ListJobListMatch
----@field asset_id? string
----@field limit? number
----@field page? number
----@field status? any
----@field workflow? string
-
----@class ListLiveStream
----@field active_asset_id? string
----@field active_ingest_protocol? string
----@field audio_only? boolean
----@field created_at string
----@field embedded_subtitles? table
----@field generated_subtitles? table
----@field id string
----@field latency_mode string
----@field low_latency? boolean
----@field max_continuous_duration number
----@field meta? table
----@field new_asset_settings? table
----@field passthrough? string
----@field playback_ids? table
----@field recent_asset_ids? table
----@field reconnect_slate_url? string
----@field reconnect_window? number
----@field reduced_latency? boolean
----@field simulcast_targets? table
----@field srt_passphrase? string
----@field status string
----@field stream_key string
----@field test? boolean
----@field use_slate_for_standard_latency? boolean
-
----@class ListLiveStreamListMatch
----@field limit? number
----@field page? number
----@field status? string
----@field stream_key? string
-
 ---@class ListMonitoringDimension
 ---@field display_name string
 ---@field name string
@@ -891,17 +777,6 @@
 ---@class ListMonitoringMetricListMatch
 ---@field display_name? string
 ---@field name? string
-
----@class ListPlaybackRestriction
----@field created_at string
----@field id string
----@field referrer table
----@field updated_at string
----@field user_agent table
-
----@class ListPlaybackRestrictionListMatch
----@field limit? number
----@field page? number
 
 ---@class ListRealTimeDimension
 ---@field display_name string
@@ -949,15 +824,6 @@
 ---@field order_direction? string
 ---@field page? number
 
----@class ListSigningKey
----@field created_at string
----@field id string
----@field private_key? string
-
----@class ListSigningKeyListMatch
----@field limit? number
----@field page? number
-
 ---@class ListSubviewBreakdownValue
 ---@field breakdown_value string
 ---@field metric_value number
@@ -986,8 +852,8 @@
 ---@field value table
 
 ---@class ListSubviewDimension
----@field subview table
----@field view table
+---@field data table
+---@field total_row_count number
 
 ---@class ListSubviewDimensionLoadMatch
 ---@field subview_type string
@@ -1009,71 +875,6 @@
 ---@field query? string
 ---@field timeframe? table
 
----@class ListTranscriptionVocabulary
----@field created_at string
----@field id string
----@field name? string
----@field passthrough? string
----@field phrases? table
----@field updated_at string
-
----@class ListTranscriptionVocabularyListMatch
----@field limit? number
----@field page? number
-
----@class ListUpload
----@field asset_id? string
----@field cors_origin string
----@field error? table
----@field id string
----@field new_asset_settings? table
----@field status string
----@field test? boolean
----@field timeout number
----@field url? string
-
----@class ListUploadListMatch
----@field limit? number
----@field page? number
-
----@class ListUsageExport
----@field date string
----@field download_url string
----@field download_url_expires_at number
----@field file_size number
-
----@class ListUsageExportListMatch
----@field download_url_ttl? number
----@field limit? number
----@field page? number
----@field timeframe? table
-
----@class ListVideoView
----@field country_code string
----@field error_type_id number
----@field id string
----@field playback_failure boolean
----@field player_error_code string
----@field player_error_message string
----@field total_row_count number
----@field video_title string
----@field view_end string
----@field view_start string
----@field viewer_application_name string
----@field viewer_experience_score number
----@field viewer_os_family string
----@field watch_time number
-
----@class ListVideoViewListMatch
----@field error_id? number
----@field filter? table
----@field limit? number
----@field metric_filter? table
----@field order_direction? string
----@field page? number
----@field timeframe? table
----@field viewer_id? string
-
 ---@class ListVideoViewExport
 ---@field export_date string
 ---@field files table
@@ -1081,17 +882,6 @@
 ---@class ListVideoViewExportListMatch
 ---@field export_date? string
 ---@field files? table
-
----@class ListWebhook
----@field address string
----@field created_at string
----@field enabled boolean
----@field id string
----@field signing_secret? string
-
----@class ListWebhookListMatch
----@field limit? number
----@field page? number
 
 ---@class LiveStream
 ---@field active_asset_id? string
@@ -1124,6 +914,12 @@
 
 ---@class LiveStreamLoadMatch
 ---@field id string
+
+---@class LiveStreamListMatch
+---@field limit? number
+---@field page? number
+---@field status? string
+---@field stream_key? string
 
 ---@class LiveStreamCreateData
 ---@field active_asset_id? string
@@ -1316,6 +1112,10 @@
 ---@class PlaybackRestrictionLoadMatch
 ---@field id string
 
+---@class PlaybackRestrictionListMatch
+---@field limit? number
+---@field page? number
+
 ---@class PlaybackRestrictionCreateData
 ---@field created_at string
 ---@field id string
@@ -1374,11 +1174,9 @@
 ---@field timestamp? number
 
 ---@class SignalLiveStreamComplete
----@field data? table
 
 ---@class SignalLiveStreamCompleteUpdateData
 ---@field live_stream_id string
----@field data? table
 
 ---@class SigningKey
 ---@field created_at string
@@ -1388,6 +1186,10 @@
 
 ---@class SigningKeyLoadMatch
 ---@field id string
+
+---@class SigningKeyListMatch
+---@field limit? number
+---@field page? number
 
 ---@class SigningKeyCreateData
 ---@field created_at string
@@ -1495,6 +1297,10 @@
 
 ---@class TranscriptionVocabularyLoadMatch
 ---@field id string
+
+---@class TranscriptionVocabularyListMatch
+---@field limit? number
+---@field page? number
 
 ---@class TranscriptionVocabularyCreateData
 ---@field created_at string
@@ -1628,6 +1434,10 @@
 ---@class UploadLoadMatch
 ---@field id string
 
+---@class UploadListMatch
+---@field limit? number
+---@field page? number
+
 ---@class UploadCreateData
 ---@field asset_id? string
 ---@field cors_origin string
@@ -1657,14 +1467,48 @@
 ---@class UrlSigningKeyRemoveMatch
 ---@field id string
 
+---@class UsageExport
+---@field date string
+---@field download_url string
+---@field download_url_expires_at number
+---@field file_size number
+
+---@class UsageExportListMatch
+---@field download_url_ttl? number
+---@field limit? number
+---@field page? number
+---@field timeframe? table
+
 ---@class VideoView
+---@field country_code string
 ---@field data table
----@field id? string
+---@field error_type_id number
+---@field id string
+---@field playback_failure boolean
+---@field player_error_code string
+---@field player_error_message string
 ---@field timeframe table
 ---@field total_row_count number
+---@field video_title string
+---@field view_end string
+---@field view_start string
+---@field viewer_application_name string
+---@field viewer_experience_score number
+---@field viewer_os_family string
+---@field watch_time number
 
 ---@class VideoViewLoadMatch
 ---@field id string
+
+---@class VideoViewListMatch
+---@field error_id? number
+---@field filter? table
+---@field limit? number
+---@field metric_filter? table
+---@field order_direction? string
+---@field page? number
+---@field timeframe? table
+---@field viewer_id? string
 
 ---@class Webhook
 ---@field address string
@@ -1675,6 +1519,10 @@
 
 ---@class WebhookLoadMatch
 ---@field id string
+
+---@class WebhookListMatch
+---@field limit? number
+---@field page? number
 
 ---@class WebhookCreateData
 ---@field address string

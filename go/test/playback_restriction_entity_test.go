@@ -25,6 +25,54 @@ func TestPlaybackRestrictionEntity(t *testing.T) {
 		}
 	})
 
+	// Feature #4: the entity Stream(action, ...) method runs the op pipeline and
+	// returns a channel over result items. With the streaming feature active it
+	// yields the feature's incremental output; otherwise it falls back to the
+	// materialised list so Stream always yields.
+	t.Run("stream", func(t *testing.T) {
+		seed := map[string]any{
+			"entity": map[string]any{
+				"playback_restriction": map[string]any{
+					"s1": map[string]any{"id": "s1"},
+					"s2": map[string]any{"id": "s2"},
+					"s3": map[string]any{"id": "s3"},
+				},
+			},
+		}
+
+		// Fallback: streaming inactive -> yields the materialised list items.
+		base := sdk.TestSDK(seed, nil)
+		var seen []any
+		for item := range base.PlaybackRestriction(nil).Stream("list", nil, nil) {
+			seen = append(seen, item)
+		}
+		if len(seen) != 3 {
+			t.Fatalf("expected 3 streamed items, got %d", len(seen))
+		}
+
+		// Inbound: streaming active -> yields each item from the feature iterator.
+		hasStreaming := false
+		if fm, ok := core.SharedConfig()["feature"].(map[string]any); ok {
+			_, hasStreaming = fm["streaming"]
+		}
+		if hasStreaming {
+			streamSdk := sdk.TestSDK(seed, map[string]any{
+				"feature": map[string]any{"streaming": map[string]any{"active": true}},
+			})
+			var got []any
+			for item := range streamSdk.PlaybackRestriction(nil).Stream("list", nil, nil) {
+				if sub, ok := item.([]any); ok {
+					got = append(got, sub...)
+				} else {
+					got = append(got, item)
+				}
+			}
+			if len(got) != 3 {
+				t.Fatalf("expected 3 items via streaming feature, got %d", len(got))
+			}
+		}
+	})
+
 	t.Run("basic", func(t *testing.T) {
 		setup := playback_restrictionBasicSetup(nil)
 		// Per-op sdk-test-control.json skip — basic test exercises a flow
@@ -33,7 +81,7 @@ func TestPlaybackRestrictionEntity(t *testing.T) {
 		if setup.live {
 			_mode = "live"
 		}
-		for _, _op := range []string{"create", "update", "load", "remove"} {
+		for _, _op := range []string{"create", "list", "update", "load", "remove"} {
 			if _shouldSkip, _reason := isControlSkipped("entityOp", "playback_restriction." + _op, _mode); _shouldSkip {
 				if _reason == "" {
 					_reason = "skipped via sdk-test-control.json"
@@ -65,6 +113,23 @@ func TestPlaybackRestrictionEntity(t *testing.T) {
 		}
 		if playbackRestrictionRef01Data["id"] == nil {
 			t.Fatal("expected created entity to have an id")
+		}
+
+		// LIST
+		playbackRestrictionRef01Match := map[string]any{}
+
+		playbackRestrictionRef01ListResult, err := playbackRestrictionRef01Ent.List(playbackRestrictionRef01Match, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		playbackRestrictionRef01List, playbackRestrictionRef01ListOk := playbackRestrictionRef01ListResult.([]any)
+		if !playbackRestrictionRef01ListOk {
+			t.Fatalf("expected list result to be an array, got %T", playbackRestrictionRef01ListResult)
+		}
+
+		foundItem := vs.Select(entityListToData(playbackRestrictionRef01List), map[string]any{"id": playbackRestrictionRef01Data["id"]})
+		if vs.IsEmpty(foundItem) {
+			t.Fatal("expected to find created entity in list")
 		}
 
 		// UPDATE
@@ -114,6 +179,23 @@ func TestPlaybackRestrictionEntity(t *testing.T) {
 		_, err = playbackRestrictionRef01Ent.Remove(playbackRestrictionRef01MatchRm0, nil)
 		if err != nil {
 			t.Fatalf("remove failed: %v", err)
+		}
+
+		// LIST
+		playbackRestrictionRef01MatchRt0 := map[string]any{}
+
+		playbackRestrictionRef01ListRt0Result, err := playbackRestrictionRef01Ent.List(playbackRestrictionRef01MatchRt0, nil)
+		if err != nil {
+			t.Fatalf("list failed: %v", err)
+		}
+		playbackRestrictionRef01ListRt0, playbackRestrictionRef01ListRt0Ok := playbackRestrictionRef01ListRt0Result.([]any)
+		if !playbackRestrictionRef01ListRt0Ok {
+			t.Fatalf("expected list result to be an array, got %T", playbackRestrictionRef01ListRt0Result)
+		}
+
+		notFoundItem := vs.Select(entityListToData(playbackRestrictionRef01ListRt0), map[string]any{"id": playbackRestrictionRef01Data["id"]})
+		if !vs.IsEmpty(notFoundItem) {
+			t.Fatal("expected removed entity to not be in list")
 		}
 
 	})

@@ -142,6 +142,11 @@
       "version": 2,
       "source": "openapi3"
     },
+    "GET /video/v1/live-streams": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /video/v1/live-streams/{LIVE_STREAM_ID}": {
       "provenance": "operation-contract",
       "version": 2,

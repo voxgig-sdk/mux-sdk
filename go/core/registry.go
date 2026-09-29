@@ -40,8 +40,6 @@ var NewDirectiveEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntit
 
 var NewDirectiveRunDetailEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
-var NewDirectiveRunListEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
 var NewDrmConfigurationEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewEditCaptionEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
@@ -74,49 +72,29 @@ var NewJobSummaryEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEnti
 
 var NewListAllMetricValueEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
-var NewListAnnotationEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
-var NewListAssetEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
 var NewListBreakdownValueEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewListDeliveryUsageEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
-var NewListDimensionEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
 var NewListDimensionValueEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
-var NewListDrmConfigurationEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewListErrorEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewListExportEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
-var NewListFilterEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
 var NewListFilterValueEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
-var NewListIncidentEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
 var NewListInsightEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
-var NewListJobEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
-var NewListLiveStreamEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewListMonitoringDimensionEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewListMonitoringMetricEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
-var NewListPlaybackRestrictionEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewListRealTimeDimensionEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewListRealTimeMetricEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewListRelatedIncidentEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
-var NewListSigningKeyEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewListSubviewBreakdownValueEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
@@ -126,17 +104,7 @@ var NewListSubviewDimensionEntityFunc func(client *MuxSDK, entopts map[string]an
 
 var NewListSubviewDimensionValueEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
-var NewListTranscriptionVocabularyEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
-var NewListUploadEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
-var NewListUsageExportEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
-var NewListVideoViewEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
 var NewListVideoViewExportEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
-
-var NewListWebhookEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewLiveStreamEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
@@ -189,6 +157,8 @@ var NewUpdateAssetTrackEntityFunc func(client *MuxSDK, entopts map[string]any) M
 var NewUploadEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewUrlSigningKeyEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
+
+var NewUsageExportEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 
 var NewVideoViewEntityFunc func(client *MuxSDK, entopts map[string]any) MuxEntity
 

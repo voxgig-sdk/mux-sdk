@@ -170,18 +170,6 @@ Create a new `DirectiveRunDetail` entity instance.
 
 **Returns:** `DirectiveRunDetailEntity` instance.
 
-#### `DirectiveRunList(data?: object)`
-
-Create a new `DirectiveRunList` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `DirectiveRunListEntity` instance.
-
 #### `DrmConfiguration(data?: object)`
 
 Create a new `DrmConfiguration` entity instance.
@@ -374,30 +362,6 @@ Create a new `ListAllMetricValue` entity instance.
 
 **Returns:** `ListAllMetricValueEntity` instance.
 
-#### `ListAnnotation(data?: object)`
-
-Create a new `ListAnnotation` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListAnnotationEntity` instance.
-
-#### `ListAsset(data?: object)`
-
-Create a new `ListAsset` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListAssetEntity` instance.
-
 #### `ListBreakdownValue(data?: object)`
 
 Create a new `ListBreakdownValue` entity instance.
@@ -422,18 +386,6 @@ Create a new `ListDeliveryUsage` entity instance.
 
 **Returns:** `ListDeliveryUsageEntity` instance.
 
-#### `ListDimension(data?: object)`
-
-Create a new `ListDimension` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListDimensionEntity` instance.
-
 #### `ListDimensionValue(data?: object)`
 
 Create a new `ListDimensionValue` entity instance.
@@ -445,18 +397,6 @@ Create a new `ListDimensionValue` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `ListDimensionValueEntity` instance.
-
-#### `ListDrmConfiguration(data?: object)`
-
-Create a new `ListDrmConfiguration` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListDrmConfigurationEntity` instance.
 
 #### `ListError(data?: object)`
 
@@ -482,18 +422,6 @@ Create a new `ListExport` entity instance.
 
 **Returns:** `ListExportEntity` instance.
 
-#### `ListFilter(data?: object)`
-
-Create a new `ListFilter` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListFilterEntity` instance.
-
 #### `ListFilterValue(data?: object)`
 
 Create a new `ListFilterValue` entity instance.
@@ -506,18 +434,6 @@ Create a new `ListFilterValue` entity instance.
 
 **Returns:** `ListFilterValueEntity` instance.
 
-#### `ListIncident(data?: object)`
-
-Create a new `ListIncident` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListIncidentEntity` instance.
-
 #### `ListInsight(data?: object)`
 
 Create a new `ListInsight` entity instance.
@@ -529,30 +445,6 @@ Create a new `ListInsight` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `ListInsightEntity` instance.
-
-#### `ListJob(data?: object)`
-
-Create a new `ListJob` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListJobEntity` instance.
-
-#### `ListLiveStream(data?: object)`
-
-Create a new `ListLiveStream` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListLiveStreamEntity` instance.
 
 #### `ListMonitoringDimension(data?: object)`
 
@@ -577,18 +469,6 @@ Create a new `ListMonitoringMetric` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `ListMonitoringMetricEntity` instance.
-
-#### `ListPlaybackRestriction(data?: object)`
-
-Create a new `ListPlaybackRestriction` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListPlaybackRestrictionEntity` instance.
 
 #### `ListRealTimeDimension(data?: object)`
 
@@ -625,18 +505,6 @@ Create a new `ListRelatedIncident` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `ListRelatedIncidentEntity` instance.
-
-#### `ListSigningKey(data?: object)`
-
-Create a new `ListSigningKey` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListSigningKeyEntity` instance.
 
 #### `ListSubviewBreakdownValue(data?: object)`
 
@@ -686,54 +554,6 @@ Create a new `ListSubviewDimensionValue` entity instance.
 
 **Returns:** `ListSubviewDimensionValueEntity` instance.
 
-#### `ListTranscriptionVocabulary(data?: object)`
-
-Create a new `ListTranscriptionVocabulary` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListTranscriptionVocabularyEntity` instance.
-
-#### `ListUpload(data?: object)`
-
-Create a new `ListUpload` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListUploadEntity` instance.
-
-#### `ListUsageExport(data?: object)`
-
-Create a new `ListUsageExport` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListUsageExportEntity` instance.
-
-#### `ListVideoView(data?: object)`
-
-Create a new `ListVideoView` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListVideoViewEntity` instance.
-
 #### `ListVideoViewExport(data?: object)`
 
 Create a new `ListVideoViewExport` entity instance.
@@ -745,18 +565,6 @@ Create a new `ListVideoViewExport` entity instance.
 | `data` | `object` | Initial entity data. |
 
 **Returns:** `ListVideoViewExportEntity` instance.
-
-#### `ListWebhook(data?: object)`
-
-Create a new `ListWebhook` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `ListWebhookEntity` instance.
 
 #### `LiveStream(data?: object)`
 
@@ -1070,6 +878,18 @@ Create a new `UrlSigningKey` entity instance.
 
 **Returns:** `UrlSigningKeyEntity` instance.
 
+#### `UsageExport(data?: object)`
+
+Create a new `UsageExport` entity instance.
+
+**Parameters:**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `data` | `object` | Initial entity data. |
+
+**Returns:** `UsageExportEntity` instance.
+
 #### `VideoView(data?: object)`
 
 Create a new `VideoView` entity instance.
@@ -1179,6 +999,14 @@ const result = await client.Annotation().create({
   id: 'example_id',
   note: 'example_note',
 })
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.Annotation().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -1402,6 +1230,14 @@ const result = await client.Asset().create({
   shots: {},
   status: 'example_status',
 })
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.Asset().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -1868,6 +1704,14 @@ const directive_run_detail = client.DirectiveRunDetail()
 
 ### Operations
 
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.DirectiveRunDetail().list({ directive_id: "example" })
+```
+
 #### `load(match: object, ctrl?: object)`
 
 Load a single entity matching the given criteria.
@@ -1904,61 +1748,6 @@ Return a copy of the entity options.
 
 ---
 
-## DirectiveRunListEntity
-
-```ts
-const directive_run_list = client.DirectiveRunList()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `completed_at` | `number | null` | Yes | Unix timestamp (seconds) when the run reached terminal state. |
-| `node_states` | `any[]` | Yes | Per-binding status entries, one per binding, in the order the bindings appear in `directive.workflows[]`. |
-| `run_id` | `string` | Yes | Unique run identifier (drvrun_...). |
-| `started_at` | `number` | Yes | Unix timestamp (seconds) when the run started. |
-| `status` | `string` | Yes | Current run status. |
-| `subject_id` | `string` | Yes | The bare Mux asset ID this run targeted. |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.DirectiveRunList().list({ directive_id: "example" })
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `DirectiveRunListEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## DrmConfigurationEntity
 
 ```ts
@@ -1972,6 +1761,14 @@ const drm_configuration = client.DrmConfiguration()
 | `id` | `string` | Yes | Unique identifier for the DRM Configuration. |
 
 ### Operations
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.DrmConfiguration().list()
+```
 
 #### `load(match: object, ctrl?: object)`
 
@@ -2789,12 +2586,40 @@ const incident = client.Incident()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `affected_views` | `number` | Yes |  |
+| `affected_views_per_hour` | `number` | Yes |  |
+| `affected_views_per_hour_on_open` | `number` | Yes |  |
+| `breakdowns` | `any[]` | Yes |  |
 | `data` | `Record<string, any>` | Yes |  |
-| `id` | `string` | No |  |
+| `description` | `string` | Yes |  |
+| `error_description` | `string` | Yes |  |
+| `id` | `string` | Yes |  |
+| `impact` | `string` | Yes |  |
+| `incident_key` | `string` | Yes |  |
+| `measured_value` | `number` | Yes |  |
+| `measured_value_on_close` | `number` | Yes |  |
+| `measurement` | `string` | Yes |  |
+| `notification_rules` | `any[]` | Yes |  |
+| `notifications` | `any[]` | Yes |  |
+| `resolved_at` | `string` | Yes |  |
+| `sample_size` | `number` | Yes |  |
+| `sample_size_unit` | `string` | Yes |  |
+| `severity` | `string` | Yes |  |
+| `started_at` | `string` | Yes |  |
+| `status` | `string` | Yes |  |
+| `threshold` | `number` | Yes |  |
 | `timeframe` | `any[]` | Yes |  |
 | `total_row_count` | `number` | Yes |  |
 
 ### Operations
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.Incident().list()
+```
 
 #### `load(match: object, ctrl?: object)`
 
@@ -2918,6 +2743,14 @@ const result = await client.JobSummary().create({
 })
 ```
 
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.JobSummary().list()
+```
+
 ### Common Methods
 
 #### `data(data?: object)`
@@ -2993,142 +2826,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `ListAllMetricValueEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ListAnnotationEntity
-
-```ts
-const list_annotation = client.ListAnnotation()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `date` | `string` | Yes | Datetime when the annotation applies |
-| `id` | `string` | Yes | Unique identifier for the annotation |
-| `note` | `string` | Yes | The annotation note content |
-| `sub_property_id` | `string` | No | Customer-defined sub-property identifier |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListAnnotation().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListAnnotationEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ListAssetEntity
-
-```ts
-const list_asset = client.ListAsset()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `aspect_ratio` | `string` | No | The aspect ratio of the asset in the form of `width:height`, for example `16:9`. |
-| `created_at` | `string` | Yes | Time the Asset was created, defined as a Unix timestamp (seconds since epoch). |
-| `directives` | `any[]` | No | The Mux Robots directives applied to the asset. |
-| `duration` | `number` | No | The duration of the asset in seconds (max duration for a single asset is 12 hours). |
-| `encoding_tier` | `string` | Yes | This field is deprecated. |
-| `errors` | `Record<string, any>` | No | Object that describes any errors that happened when processing this asset. |
-| `generate_shots` | `boolean` | No | Whether to perform shot detection on this asset. |
-| `id` | `string` | Yes | Unique identifier for the Asset. |
-| `ingest_type` | `string` | No | The type of ingest used to create the asset. |
-| `is_live` | `boolean` | No | Indicates whether the live stream that created this asset is currently `active` and not in `idle` state. |
-| `live_stream_id` | `string` | No | Unique identifier for the live stream. |
-| `master` | `Record<string, any>` | No | An object containing the current status of Master Access and the link to the Master MP4 file when ready. |
-| `master_access` | `string` | Yes |  |
-| `max_resolution_tier` | `string` | Yes | Max resolution tier can be used to control the maximum `resolution_tier` your asset is encoded, stored, and streamed at. |
-| `max_stored_frame_rate` | `number` | No | The maximum frame rate that has been stored for the asset. |
-| `max_stored_resolution` | `string` | No | This field is deprecated. |
-| `meta` | `Record<string, any>` | No | Customer provided metadata about this asset. |
-| `mp4_support` | `string` | No | Deprecated. |
-| `non_standard_input_reasons` | `Record<string, any>` | No | An object containing one or more reasons the input file is non-standard. |
-| `normalize_audio` | `boolean` | No | Normalize the audio track loudness level. |
-| `passthrough` | `string` | No | You can set this field to anything you want. |
-| `playback_ids` | `any[]` | No | An array of Playback ID objects. |
-| `progress` | `Record<string, any>` | Yes | Detailed state information about the asset ingest process. |
-| `recording_times` | `any[]` | No | An array of individual live stream recording sessions. |
-| `resolution_tier` | `string` | No | The resolution tier that the asset was ingested at, affecting billing for ingest & storage. |
-| `shots` | `Record<string, any>` | Yes | The results of generating shots on the video |
-| `source_asset_id` | `string` | No | Asset Identifier of the video used as the source for creating the clip. |
-| `static_renditions` | `Record<string, any>` | No | An object containing the current status of any static renditions (MP4s) for this asset. |
-| `status` | `string` | Yes | The status of the asset. |
-| `test` | `boolean` | No | True means this live stream is a test asset. |
-| `thumbnail_time` | `number` | No | The media time within the asset used when a thumbnail without an explicit time is requested. |
-| `tracks` | `any[]` | No | The individual media tracks that make up an asset. |
-| `upload_id` | `string` | No | Unique identifier for the Direct Upload. |
-| `video_quality` | `string` | No | The video quality controls the cost, quality, and available platform features for the asset. |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListAsset().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListAssetEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -3258,58 +2955,6 @@ Return a copy of the entity options.
 
 ---
 
-## ListDimensionEntity
-
-```ts
-const list_dimension = client.ListDimension()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `Record<string, any>` | Yes |  |
-| `timeframe` | `any[]` | Yes |  |
-| `total_row_count` | `number` | Yes |  |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListDimension().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListDimensionEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## ListDimensionValueEntity
 
 ```ts
@@ -3333,7 +2978,7 @@ const list_dimension_value = client.ListDimensionValue()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.ListDimensionValue().list({ dimension_id: "example" })
+const results = await client.ListDimensionValue().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -3359,56 +3004,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `ListDimensionValueEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ListDrmConfigurationEntity
-
-```ts
-const list_drm_configuration = client.ListDrmConfiguration()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | `string` | Yes | Unique identifier for the DRM Configuration. |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListDrmConfiguration().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListDrmConfigurationEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -3532,58 +3127,6 @@ Return a copy of the entity options.
 
 ---
 
-## ListFilterEntity
-
-```ts
-const list_filter = client.ListFilter()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `Record<string, any>` | Yes |  |
-| `timeframe` | `any[]` | Yes |  |
-| `total_row_count` | `number` | Yes |  |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListFilter().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListFilterEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## ListFilterValueEntity
 
 ```ts
@@ -3599,6 +3142,14 @@ const list_filter_value = client.ListFilterValue()
 | `total_row_count` | `number` | Yes |  |
 
 ### Operations
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.ListFilterValue().list()
+```
 
 #### `load(match: object, ctrl?: object)`
 
@@ -3623,76 +3174,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `ListFilterValueEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ListIncidentEntity
-
-```ts
-const list_incident = client.ListIncident()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `affected_views` | `number` | Yes |  |
-| `affected_views_per_hour` | `number` | Yes |  |
-| `affected_views_per_hour_on_open` | `number` | Yes |  |
-| `breakdowns` | `any[]` | Yes |  |
-| `description` | `string` | Yes |  |
-| `error_description` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `impact` | `string` | Yes |  |
-| `incident_key` | `string` | Yes |  |
-| `measured_value` | `number` | Yes |  |
-| `measured_value_on_close` | `number` | Yes |  |
-| `measurement` | `string` | Yes |  |
-| `notification_rules` | `any[]` | Yes |  |
-| `notifications` | `any[]` | Yes |  |
-| `resolved_at` | `string` | Yes |  |
-| `sample_size` | `number` | Yes |  |
-| `sample_size_unit` | `string` | Yes |  |
-| `severity` | `string` | Yes |  |
-| `started_at` | `string` | Yes |  |
-| `status` | `string` | Yes |  |
-| `threshold` | `number` | Yes |  |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListIncident().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListIncidentEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -3749,134 +3230,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `ListInsightEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ListJobEntity
-
-```ts
-const list_job = client.ListJob()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `number` | Yes | Unix timestamp (seconds) when the job was created. |
-| `id` | `string` | Yes | Unique job identifier. |
-| `links` | `Record<string, any>` | Yes | Hypermedia links for this job. |
-| `status` | `string` | Yes | Current job status. |
-| `updated_at` | `number` | Yes | Unix timestamp (seconds) of the job's last state transition (e.g. |
-| `workflow` | `string` | Yes | Workflow type that created this job. |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListJob().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListJobEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ListLiveStreamEntity
-
-```ts
-const list_live_stream = client.ListLiveStream()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `active_asset_id` | `string` | No | The Asset that is currently being created if there is an active broadcast. |
-| `active_ingest_protocol` | `string` | No | The protocol used for the active ingest stream. |
-| `audio_only` | `boolean` | No | The live stream only processes the audio track if the value is set to true. |
-| `created_at` | `string` | Yes | Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch). |
-| `embedded_subtitles` | `any[]` | No | Describes the embedded closed caption configuration of the incoming live stream. |
-| `generated_subtitles` | `any[]` | No | Configure the incoming live stream to include subtitles created with automatic speech recognition. |
-| `id` | `string` | Yes | Unique identifier for the Live Stream. |
-| `latency_mode` | `string` | Yes | Latency is the time from when the streamer transmits a frame of video to when you see it in the player. |
-| `low_latency` | `boolean` | No | This field is deprecated. |
-| `max_continuous_duration` | `number` | Yes | The time in seconds a live stream may be continuously active before being disconnected. |
-| `meta` | `Record<string, any>` | No | Customer provided metadata about this live stream. |
-| `new_asset_settings` | `Record<string, any>` | No |  |
-| `passthrough` | `string` | No | Arbitrary user-supplied metadata set for the asset. |
-| `playback_ids` | `any[]` | No | An array of Playback ID objects. |
-| `recent_asset_ids` | `any[]` | No | An array of strings with the most recent Asset IDs that were created from this Live Stream. |
-| `reconnect_slate_url` | `string` | No | The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. |
-| `reconnect_window` | `number` | No | When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live s… |
-| `reduced_latency` | `boolean` | No | This field is deprecated. |
-| `simulcast_targets` | `any[]` | No | Each Simulcast Target contains configuration details to broadcast (or "restream") a live stream to a third-party streaming service. |
-| `srt_passphrase` | `string` | No | Unique key used for encrypting a stream to a Mux SRT endpoint. |
-| `status` | `string` | Yes | `idle` indicates that there is no active broadcast. |
-| `stream_key` | `string` | Yes | Unique key used for streaming to a Mux RTMP endpoint. |
-| `test` | `boolean` | No | True means this live stream is a test live stream. |
-| `use_slate_for_standard_latency` | `boolean` | No | By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListLiveStream().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListLiveStreamEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -3979,60 +3332,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `ListMonitoringMetricEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ListPlaybackRestrictionEntity
-
-```ts
-const list_playback_restriction = client.ListPlaybackRestriction()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `string` | Yes | Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `string` | Yes | Unique identifier for the Playback Restriction. |
-| `referrer` | `Record<string, any>` | Yes | A list of domains allowed to play your videos. |
-| `updated_at` | `string` | Yes | Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch). |
-| `user_agent` | `Record<string, any>` | Yes | Rules that control what user agents are allowed to play your videos. |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListPlaybackRestriction().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListPlaybackRestrictionEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -4218,58 +3517,6 @@ Return a copy of the entity options.
 
 ---
 
-## ListSigningKeyEntity
-
-```ts
-const list_signing_key = client.ListSigningKey()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `string` | Yes | Time at which the object was created. |
-| `id` | `string` | Yes | Unique identifier for the Signing Key. |
-| `private_key` | `string` | No | A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListSigningKey().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListSigningKeyEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## ListSubviewBreakdownValueEntity
 
 ```ts
@@ -4382,8 +3629,8 @@ const list_subview_dimension = client.ListSubviewDimension()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `subview` | `any[]` | Yes |  |
-| `view` | `any[]` | Yes |  |
+| `data` | `Record<string, any>` | Yes |  |
+| `total_row_count` | `number` | Yes | Always `null` for this endpoint, matching `GET /data/v1/dimensions`, which also never computes a row count. |
 
 ### Operations
 
@@ -4476,235 +3723,6 @@ Return a copy of the entity options.
 
 ---
 
-## ListTranscriptionVocabularyEntity
-
-```ts
-const list_transcription_vocabulary = client.ListTranscriptionVocabulary()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `string` | Yes | Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `string` | Yes | Unique identifier for the Transcription Vocabulary |
-| `name` | `string` | No | The user-supplied name of the Transcription Vocabulary. |
-| `passthrough` | `string` | No | Arbitrary user-supplied metadata set for the Transcription Vocabulary. |
-| `phrases` | `any[]` | No | Phrases, individual words, or proper names to include in the Transcription Vocabulary. |
-| `updated_at` | `string` | Yes | Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch). |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListTranscriptionVocabulary().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListTranscriptionVocabularyEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ListUploadEntity
-
-```ts
-const list_upload = client.ListUpload()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `asset_id` | `string` | No | Only set once the upload is in the `asset_created` state. |
-| `cors_origin` | `string` | Yes | If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers. |
-| `error` | `Record<string, any>` | No | Only set if an error occurred during asset creation. |
-| `id` | `string` | Yes | Unique identifier for the Direct Upload. |
-| `new_asset_settings` | `Record<string, any>` | No |  |
-| `status` | `string` | Yes |  |
-| `test` | `boolean` | No | Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset. |
-| `timeout` | `number` | Yes | Max time in seconds for the signed upload URL to be valid. |
-| `url` | `string` | No | The URL to upload the associated source media to. |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListUpload().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListUploadEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ListUsageExportEntity
-
-```ts
-const list_usage_export = client.ListUsageExport()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `date` | `string` | Yes | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
-| `download_url` | `string` | Yes | A pre-signed URL to download the CSV. |
-| `download_url_expires_at` | `number` | Yes | Unix timestamp (seconds since epoch) at which `download_url` expires. |
-| `file_size` | `number` | Yes | Uncompressed size of the CSV file in bytes. |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListUsageExport().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListUsageExportEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ListVideoViewEntity
-
-```ts
-const list_video_view = client.ListVideoView()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `country_code` | `string` | Yes |  |
-| `error_type_id` | `number` | Yes |  |
-| `id` | `string` | Yes |  |
-| `playback_failure` | `boolean` | Yes |  |
-| `player_error_code` | `string` | Yes |  |
-| `player_error_message` | `string` | Yes |  |
-| `total_row_count` | `number` | Yes |  |
-| `video_title` | `string` | Yes |  |
-| `view_end` | `string` | Yes |  |
-| `view_start` | `string` | Yes |  |
-| `viewer_application_name` | `string` | Yes |  |
-| `viewer_experience_score` | `number` | Yes |  |
-| `viewer_os_family` | `string` | Yes |  |
-| `watch_time` | `number` | Yes |  |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListVideoView().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListVideoViewEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
 ## ListVideoViewExportEntity
 
 ```ts
@@ -4743,60 +3761,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `ListVideoViewExportEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MuxSDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## ListWebhookEntity
-
-```ts
-const list_webhook = client.ListWebhook()
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `address` | `string` | Yes | The URL where Mux sends webhook notifications. |
-| `created_at` | `string` | Yes | Time at which the webhook was created, as an ISO 8601 UTC datetime. |
-| `enabled` | `boolean` | Yes | Whether Mux attempts to deliver notifications to this webhook. |
-| `id` | `string` | Yes | Unique identifier for the webhook. |
-| `signing_secret` | `string` | No | Secret used to verify that webhook payloads were sent by Mux. |
-
-### Operations
-
-#### `list(match: object, ctrl?: object)`
-
-List entities matching the given criteria. Returns an array.
-
-```ts
-const results = await client.ListWebhook().list()
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `ListWebhookEntity` instance with the same client and
 options.
 
 #### `client()`
@@ -4850,35 +3814,35 @@ const live_stream = client.LiveStream()
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `active_asset_id` | - | - | - | - |
-| `active_ingest_protocol` | - | - | - | - |
-| `advanced_playback_policies` | - | - | - | - |
-| `audio_only` | - | - | - | - |
-| `created_at` | - | - | - | - |
-| `embedded_subtitles` | - | - | - | - |
-| `generated_subtitles` | - | - | - | - |
-| `id` | - | - | - | - |
-| `latency_mode` | - | Yes | Yes | - |
-| `low_latency` | - | - | - | - |
-| `max_continuous_duration` | - | Yes | Yes | - |
-| `meta` | - | - | - | - |
-| `new_asset_settings` | - | - | - | - |
-| `passthrough` | - | - | - | - |
-| `playback_ids` | - | - | - | - |
-| `playback_policies` | - | - | - | - |
-| `playback_policy` | - | - | - | - |
-| `recent_asset_ids` | - | - | - | - |
-| `reconnect_slate_url` | - | - | - | - |
-| `reconnect_window` | - | - | - | - |
-| `reduced_latency` | - | - | - | - |
-| `simulcast_targets` | - | - | - | - |
-| `srt_passphrase` | - | - | - | - |
-| `status` | - | - | - | - |
-| `stream_key` | - | - | - | - |
-| `test` | - | - | - | - |
-| `use_slate_for_standard_latency` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `active_asset_id` | - | - | - | - | - |
+| `active_ingest_protocol` | - | - | - | - | - |
+| `advanced_playback_policies` | - | - | - | - | - |
+| `audio_only` | - | - | - | - | - |
+| `created_at` | - | - | - | - | - |
+| `embedded_subtitles` | - | - | - | - | - |
+| `generated_subtitles` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `latency_mode` | - | - | Yes | Yes | - |
+| `low_latency` | - | - | - | - | - |
+| `max_continuous_duration` | - | - | Yes | Yes | - |
+| `meta` | - | - | - | - | - |
+| `new_asset_settings` | - | - | - | - | - |
+| `passthrough` | - | - | - | - | - |
+| `playback_ids` | - | - | - | - | - |
+| `playback_policies` | - | - | - | - | - |
+| `playback_policy` | - | - | - | - | - |
+| `recent_asset_ids` | - | - | - | - | - |
+| `reconnect_slate_url` | - | - | - | - | - |
+| `reconnect_window` | - | - | - | - | - |
+| `reduced_latency` | - | - | - | - | - |
+| `simulcast_targets` | - | - | - | - | - |
+| `srt_passphrase` | - | - | - | - | - |
+| `status` | - | - | - | - | - |
+| `stream_key` | - | - | - | - | - |
+| `test` | - | - | - | - | - |
+| `use_slate_for_standard_latency` | - | - | - | - | - |
 
 ### Actions
 
@@ -4921,6 +3885,14 @@ const result = await client.LiveStream().create({
   status: 'example_status',
   stream_key: 'example_stream_key',
 })
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.LiveStream().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -5483,6 +4455,14 @@ const result = await client.PlaybackRestriction().create({
 })
 ```
 
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.PlaybackRestriction().list()
+```
+
 #### `load(match: object, ctrl?: object)`
 
 Load a single entity matching the given criteria.
@@ -5708,12 +4688,6 @@ Return a copy of the entity options.
 const signal_live_stream_complete = client.SignalLiveStreamComplete()
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `Record<string, any>` | No |  |
-
 ### Operations
 
 #### `update(data: object, ctrl?: object)`
@@ -5781,6 +4755,14 @@ const result = await client.SigningKey().create({
   created_at: 'example_created_at',
   id: 'example_id',
 })
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.SigningKey().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -6153,14 +5135,14 @@ const transcription_vocabulary = client.TranscriptionVocabulary()
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `created_at` | - | - | - | - |
-| `id` | - | - | - | - |
-| `name` | - | - | - | - |
-| `passthrough` | - | - | - | - |
-| `phrases` | - | Yes | Yes | - |
-| `updated_at` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `name` | - | - | - | - | - |
+| `passthrough` | - | - | - | - | - |
+| `phrases` | - | - | Yes | Yes | - |
+| `updated_at` | - | - | - | - | - |
 
 ### Operations
 
@@ -6174,6 +5156,14 @@ const result = await client.TranscriptionVocabulary().create({
   id: 'example_id',
   updated_at: 'example_updated_at',
 })
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.TranscriptionVocabulary().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -6480,17 +5470,17 @@ const upload = client.Upload()
 
 ### Field Usage by Operation
 
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `asset_id` | - | - | - |
-| `cors_origin` | - | - | - |
-| `error` | - | - | - |
-| `id` | - | - | - |
-| `new_asset_settings` | - | - | - |
-| `status` | - | - | - |
-| `test` | - | - | - |
-| `timeout` | - | Yes | - |
-| `url` | - | - | - |
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `asset_id` | - | - | - | - |
+| `cors_origin` | - | - | - | - |
+| `error` | - | - | - | - |
+| `id` | - | - | - | - |
+| `new_asset_settings` | - | - | - | - |
+| `status` | - | - | - | - |
+| `test` | - | - | - | - |
+| `timeout` | - | - | Yes | - |
+| `url` | - | - | - | - |
 
 ### Actions
 
@@ -6525,6 +5515,14 @@ const result = await client.Upload().create({
   status: 'example_status',
   timeout: 1,
 })
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.Upload().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -6625,6 +5623,59 @@ Return a copy of the entity options.
 
 ---
 
+## UsageExportEntity
+
+```ts
+const usage_export = client.UsageExport()
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `date` | `string` | Yes | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
+| `download_url` | `string` | Yes | A pre-signed URL to download the CSV. |
+| `download_url_expires_at` | `number` | Yes | Unix timestamp (seconds since epoch) at which `download_url` expires. |
+| `file_size` | `number` | Yes | Uncompressed size of the CSV file in bytes. |
+
+### Operations
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.UsageExport().list()
+```
+
+### Common Methods
+
+#### `data(data?: object)`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `match(match?: object)`
+
+Get or set the entity match criteria. Works the same as `data()`.
+
+#### `make()`
+
+Create a new `UsageExportEntity` instance with the same client and
+options.
+
+#### `client()`
+
+Return the parent `MuxSDK` instance.
+
+#### `entopts()`
+
+Return a copy of the entity options.
+
+
+---
+
 ## VideoViewEntity
 
 ```ts
@@ -6635,12 +5686,32 @@ const video_view = client.VideoView()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `country_code` | `string` | Yes |  |
 | `data` | `Record<string, any>` | Yes |  |
-| `id` | `string` | No |  |
+| `error_type_id` | `number` | Yes |  |
+| `id` | `string` | Yes |  |
+| `playback_failure` | `boolean` | Yes |  |
+| `player_error_code` | `string` | Yes |  |
+| `player_error_message` | `string` | Yes |  |
 | `timeframe` | `any[]` | Yes |  |
 | `total_row_count` | `number` | Yes |  |
+| `video_title` | `string` | Yes |  |
+| `view_end` | `string` | Yes |  |
+| `view_start` | `string` | Yes |  |
+| `viewer_application_name` | `string` | Yes |  |
+| `viewer_experience_score` | `number` | Yes |  |
+| `viewer_os_family` | `string` | Yes |  |
+| `watch_time` | `number` | Yes |  |
 
 ### Operations
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.VideoView().list()
+```
 
 #### `load(match: object, ctrl?: object)`
 
@@ -6696,13 +5767,13 @@ const webhook = client.Webhook()
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `address` | - | - | Yes | - |
-| `created_at` | - | - | - | - |
-| `enabled` | - | - | Yes | - |
-| `id` | - | - | - | - |
-| `signing_secret` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `address` | - | - | - | Yes | - |
+| `created_at` | - | - | - | - | - |
+| `enabled` | - | - | - | Yes | - |
+| `id` | - | - | - | - | - |
+| `signing_secret` | - | - | - | - | - |
 
 ### Operations
 
@@ -6717,6 +5788,14 @@ const result = await client.Webhook().create({
   enabled: true,
   id: 'example_id',
 })
+```
+
+#### `list(match: object, ctrl?: object)`
+
+List entities matching the given criteria. Returns an array.
+
+```ts
+const results = await client.Webhook().list()
 ```
 
 #### `load(match: object, ctrl?: object)`

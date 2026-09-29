@@ -15,6 +15,18 @@ main: kit: flow: BasicAnnotationFlow:
     }
 
     {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "annotation_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       i: {
         ref: "annotation_ref01",
         srcdatavar: "annotation_ref01_data",
@@ -66,6 +78,22 @@ main: kit: flow: BasicAnnotationFlow:
       }
 
       o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "annotation_ref01"
+          }
+        }
+      ]
     }
   ],
   "key$": "BasicAnnotationFlow"

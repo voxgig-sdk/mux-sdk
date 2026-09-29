@@ -30,14 +30,14 @@ main: kit: entity: generate_track_subtitle: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
               {
                 k: "param"
                 n: "track_id"
-                or: "track_id"
+                or: "TRACK_ID"
                 r: true
                 t: "`$STRING`"
               }

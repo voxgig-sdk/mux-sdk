@@ -18,12 +18,51 @@ class SigningKeyEntityTest extends TestCase
         $this->assertNotNull($ent);
     }
 
+    // Feature #4: the entity stream(action, ...) method runs the op pipeline
+    // and yields result items. With the streaming feature active it yields the
+    // feature's incremental output; otherwise it falls back to the materialised
+    // list so stream always yields.
+    public function test_stream(): void
+    {
+        $seed = [
+            "entity" => [
+                "signing_key" => [
+                    "s1" => ["id" => "s1"],
+                    "s2" => ["id" => "s2"],
+                    "s3" => ["id" => "s3"],
+                ],
+            ],
+        ];
+
+        // Fallback: streaming inactive -> yields the materialised list items.
+        $base = MuxSDK::test($seed, null);
+        $seen = iterator_to_array($base->SigningKey(null)->stream("list", null, null), false);
+        $this->assertCount(3, $seen);
+
+        // Inbound: streaming active -> yields each item from the feature.
+        $cfg = MuxConfig::shared_config();
+        if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
+            $sdk = MuxSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
+            $got = [];
+            foreach ($sdk->SigningKey(null)->stream("list", null, null) as $item) {
+                if (is_array($item) && array_is_list($item)) {
+                    foreach ($item as $sub) {
+                        $got[] = $sub;
+                    }
+                } else {
+                    $got[] = $item;
+                }
+            }
+            $this->assertCount(3, $got);
+        }
+    }
+
     public function test_basic_flow(): void
     {
         $setup = signing_key_basic_setup(null);
         // Per-op sdk-test-control.json skip.
         $_live = !empty($setup["live"]);
-        foreach (["create", "load", "remove"] as $_op) {
+        foreach (["create", "list", "load", "remove"] as $_op) {
             [$_shouldSkip, $_reason] = Runner::is_control_skipped("entityOp", "signing_key." . $_op, $_live ? "live" : "unit");
             if ($_shouldSkip) {
                 $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
@@ -48,6 +87,17 @@ class SigningKeyEntityTest extends TestCase
         $this->assertNotNull($signing_key_ref01_data);
         $this->assertNotNull($signing_key_ref01_data["id"]);
 
+        // LIST
+        $signing_key_ref01_match = [];
+
+        $signing_key_ref01_list_result = $signing_key_ref01_ent->list($signing_key_ref01_match, null);
+        $this->assertIsArray($signing_key_ref01_list_result);
+
+        $found_item = sdk_select(
+            Runner::entity_list_to_data($signing_key_ref01_list_result),
+            ["id" => $signing_key_ref01_data["id"]]);
+        $this->assertNotEmpty($found_item);
+
         // LOAD
         $signing_key_ref01_match_dt0 = [
             "id" => $signing_key_ref01_data["id"],
@@ -62,6 +112,17 @@ class SigningKeyEntityTest extends TestCase
             "id" => $signing_key_ref01_data["id"],
         ];
         $signing_key_ref01_ent->remove($signing_key_ref01_match_rm0, null);
+
+        // LIST
+        $signing_key_ref01_match_rt0 = [];
+
+        $signing_key_ref01_list_rt0_result = $signing_key_ref01_ent->list($signing_key_ref01_match_rt0, null);
+        $this->assertIsArray($signing_key_ref01_list_rt0_result);
+
+        $not_found_item = sdk_select(
+            Runner::entity_list_to_data($signing_key_ref01_list_rt0_result),
+            ["id" => $signing_key_ref01_data["id"]]);
+        $this->assertEmpty($not_found_item);
 
     }
 }

@@ -85,9 +85,7 @@ describe("ListDimensionValueEntity", function()
 
     -- LIST
     local list_dimension_value_ref01_ent = client:ListDimensionValue(nil)
-    local list_dimension_value_ref01_match = {
-      ["dimension_id"] = setup.idmap["dimension01"],
-    }
+    local list_dimension_value_ref01_match = {}
 
     local list_dimension_value_ref01_list_result, err = list_dimension_value_ref01_ent:list(list_dimension_value_ref01_match, nil)
     assert.is_nil(err)
@@ -122,7 +120,7 @@ function list_dimension_value_basic_setup(extra)
 
   -- Generate idmap via transform.
   local idmap = vs.transform(
-    { "list_dimension_value01", "list_dimension_value02", "list_dimension_value03", "dimension01" },
+    { "list_dimension_value01", "list_dimension_value02", "list_dimension_value03" },
     {
       ["`$PACK`"] = { "", {
         ["`$KEY`"] = "`$COPY`",

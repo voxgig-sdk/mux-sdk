@@ -59,6 +59,11 @@
       "version": 2,
       "source": "openapi3"
     },
+    "GET /video/v1/uploads": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /video/v1/uploads/{UPLOAD_ID}": {
       "provenance": "operation-contract",
       "version": 2,

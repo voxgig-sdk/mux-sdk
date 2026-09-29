@@ -15,6 +15,18 @@ main: kit: flow: BasicSigningKeyFlow:
     }
 
     {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "signing_key_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       i: {
         ref: "signing_key_ref01",
         srcdatavar: "signing_key_ref01_data",
@@ -47,6 +59,22 @@ main: kit: flow: BasicSigningKeyFlow:
       }
 
       o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "signing_key_ref01"
+          }
+        }
+      ]
     }
   ],
   "key$": "BasicSigningKeyFlow"

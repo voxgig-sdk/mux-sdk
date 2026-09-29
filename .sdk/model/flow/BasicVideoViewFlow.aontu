@@ -7,6 +7,18 @@ main: kit: flow: BasicVideoViewFlow:
   name: "BasicVideoViewFlow",
   step: [
     {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "video_view_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       i: {
         ref: "video_view_ref01",
         srcdatavar: "video_view_ref01_data",

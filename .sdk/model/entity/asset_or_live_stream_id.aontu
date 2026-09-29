@@ -49,7 +49,7 @@ main: kit: entity: asset_or_live_stream_id: {
               {
                 k: "param"
                 n: "playback_id"
-                or: "playback_id"
+                or: "PLAYBACK_ID"
                 r: true
                 t: "`$STRING`"
               }

@@ -15,6 +15,18 @@ main: kit: flow: BasicUploadFlow:
     }
 
     {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "upload_ref01"
+          }
+        }
+      ]
+    }
+
+    {
       i: {
         ref: "upload_ref01",
         srcdatavar: "upload_ref01_data",

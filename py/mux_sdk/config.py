@@ -191,7 +191,6 @@ def make_config():
                 "create_track": {},
                 "directive": {},
                 "directive_run_detail": {},
-                "directive_run_list": {},
                 "drm_configuration": {},
                 "edit_caption": {},
                 "engagement_heatmap": {},
@@ -208,38 +207,23 @@ def make_config():
                 "input_info": {},
                 "job_summary": {},
                 "list_all_metric_value": {},
-                "list_annotation": {},
-                "list_asset": {},
                 "list_breakdown_value": {},
                 "list_delivery_usage": {},
-                "list_dimension": {},
                 "list_dimension_value": {},
-                "list_drm_configuration": {},
                 "list_error": {},
                 "list_export": {},
-                "list_filter": {},
                 "list_filter_value": {},
-                "list_incident": {},
                 "list_insight": {},
-                "list_job": {},
-                "list_live_stream": {},
                 "list_monitoring_dimension": {},
                 "list_monitoring_metric": {},
-                "list_playback_restriction": {},
                 "list_real_time_dimension": {},
                 "list_real_time_metric": {},
                 "list_related_incident": {},
-                "list_signing_key": {},
                 "list_subview_breakdown_value": {},
                 "list_subview_comparison_value": {},
                 "list_subview_dimension": {},
                 "list_subview_dimension_value": {},
-                "list_transcription_vocabulary": {},
-                "list_upload": {},
-                "list_usage_export": {},
-                "list_video_view": {},
                 "list_video_view_export": {},
-                "list_webhook": {},
                 "live_stream": {},
                 "live_stream_playback_id": {},
                 "metric_timeseries_data": {},
@@ -266,6 +250,7 @@ def make_config():
                 "update_asset_track": {},
                 "upload": {},
                 "url_signing_key": {},
+                "usage_export": {},
                 "video_view": {},
                 "webhook": {},
                 "who_am_i": {},
@@ -344,6 +329,76 @@ def make_config():
               },
             ],
           },
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/data/v1/annotations",
+                "segments": [
+                  {
+                    "lit": "data",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "annotations",
+                  },
+                ],
+                "parts": [
+                  "data",
+                  "v1",
+                  "annotations",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "order_direction",
+                      "orig": "order_direction",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                    {
+                      "name": "timeframe",
+                      "orig": "timeframe[]",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "limit",
+                    "order_direction",
+                    "page",
+                    "timeframe",
+                  ],
+                },
+              },
+            ],
+          },
           "load": {
             "input": "data",
             "name": "load",
@@ -385,7 +440,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "annotation_id",
+                      "orig": "ANNOTATION_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -441,7 +496,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "annotation_id",
+                      "orig": "ANNOTATION_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -497,7 +552,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "annotation_id",
+                      "orig": "ANNOTATION_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -637,7 +692,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -689,7 +744,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -977,6 +1032,83 @@ def make_config():
               },
             ],
           },
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/video/v1/assets",
+                "segments": [
+                  {
+                    "lit": "video",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "assets",
+                  },
+                ],
+                "parts": [
+                  "video",
+                  "v1",
+                  "assets",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "cursor",
+                      "orig": "cursor",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "live_stream_id",
+                      "orig": "live_stream_id",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                    {
+                      "name": "upload_id",
+                      "orig": "upload_id",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "cursor",
+                    "limit",
+                    "live_stream_id",
+                    "page",
+                    "upload_id",
+                  ],
+                },
+              },
+            ],
+          },
           "load": {
             "input": "data",
             "name": "load",
@@ -1018,7 +1150,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1083,14 +1215,14 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
                     },
                     {
                       "name": "playback_id",
-                      "orig": "playback_id",
+                      "orig": "PLAYBACK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1150,14 +1282,14 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
                     },
                     {
                       "name": "static_rendition_id",
-                      "orig": "static_rendition_id",
+                      "orig": "STATIC_RENDITION_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1217,14 +1349,14 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
                     },
                     {
                       "name": "track_id",
-                      "orig": "track_id",
+                      "orig": "TRACK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1279,7 +1411,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1334,7 +1466,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1385,7 +1517,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1445,7 +1577,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1500,7 +1632,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1551,7 +1683,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1646,7 +1778,7 @@ def make_config():
                   "params": [
                     {
                       "name": "playback_id",
-                      "orig": "playback_id",
+                      "orig": "PLAYBACK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1745,14 +1877,14 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
                     },
                     {
                       "name": "id",
-                      "orig": "playback_id",
+                      "orig": "PLAYBACK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1846,7 +1978,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1932,7 +2064,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -1986,7 +2118,7 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -2106,7 +2238,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -2231,13 +2363,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "directive_id",
-                      "orig": "directive_id",
+                      "orig": "DIRECTIVE_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -2378,7 +2510,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "directive_id",
+                      "orig": "DIRECTIVE_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -2434,7 +2566,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "directive_id",
+                      "orig": "DIRECTIVE_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -2507,6 +2639,84 @@ def make_config():
         ],
         "name": "directive_run_detail",
         "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/robots/v0/directives/{DIRECTIVE_ID}/runs",
+                "segments": [
+                  {
+                    "lit": "robots",
+                  },
+                  {
+                    "lit": "v0",
+                  },
+                  {
+                    "lit": "directives",
+                  },
+                  {
+                    "var": "directive_id",
+                  },
+                  {
+                    "lit": "runs",
+                  },
+                ],
+                "parts": [
+                  "robots",
+                  "v0",
+                  "directives",
+                  "{directive_id}",
+                  "runs",
+                ],
+                "rename": {
+                  "param": {
+                    "DIRECTIVE_ID": "directive_id",
+                  },
+                },
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "directive_id",
+                      "orig": "DIRECTIVE_ID",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                    },
+                  ],
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "directive_id",
+                    "limit",
+                    "page",
+                  ],
+                },
+              },
+            ],
+          },
           "load": {
             "input": "data",
             "name": "load",
@@ -2557,14 +2767,14 @@ def make_config():
                   "params": [
                     {
                       "name": "directive_id",
-                      "orig": "directive_id",
+                      "orig": "DIRECTIVE_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
                     },
                     {
                       "name": "run_id",
-                      "orig": "run_id",
+                      "orig": "RUN_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -2586,143 +2796,6 @@ def make_config():
             [
               "$.main.kit.entity.directive",
             ],
-          ],
-        },
-      },
-      "directive_run_list": {
-        "fields": [
-          {
-            "name": "completed_at",
-            "title": "Completed At",
-            "type": [
-              "`$ONE`",
-              [
-                "`$INTEGER`",
-                "`$NULL`",
-              ],
-            ],
-            "req": True,
-            "short": "Unix timestamp (seconds) when the run reached terminal state.",
-          },
-          {
-            "name": "node_states",
-            "title": "Node States",
-            "type": "`$ARRAY`",
-            "req": True,
-            "short": "Per-binding status entries, one per binding, in the order the bindings appear in `directive.workflows[]`.",
-          },
-          {
-            "name": "run_id",
-            "title": "Run Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique run identifier (drvrun_...).",
-          },
-          {
-            "name": "started_at",
-            "title": "Started At",
-            "type": "`$INTEGER`",
-            "req": True,
-            "short": "Unix timestamp (seconds) when the run started.",
-          },
-          {
-            "name": "status",
-            "title": "Status",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Current run status.",
-          },
-          {
-            "name": "subject_id",
-            "title": "Subject Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "The bare Mux asset ID this run targeted.",
-          },
-        ],
-        "name": "directive_run_list",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/robots/v0/directives/{DIRECTIVE_ID}/runs",
-                "segments": [
-                  {
-                    "lit": "robots",
-                  },
-                  {
-                    "lit": "v0",
-                  },
-                  {
-                    "lit": "directives",
-                  },
-                  {
-                    "var": "directive_id",
-                  },
-                  {
-                    "lit": "runs",
-                  },
-                ],
-                "parts": [
-                  "robots",
-                  "v0",
-                  "directives",
-                  "{directive_id}",
-                  "runs",
-                ],
-                "rename": {
-                  "param": {
-                    "DIRECTIVE_ID": "directive_id",
-                  },
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "params": [
-                    {
-                      "name": "directive_id",
-                      "orig": "directive_id",
-                      "type": "`$STRING`",
-                      "kind": "param",
-                      "reqd": True,
-                    },
-                  ],
-                  "query": [
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "directive_id",
-                    "limit",
-                    "page",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [
             [
               "$.main.kit.entity.directive",
             ],
@@ -2745,6 +2818,62 @@ def make_config():
         },
         "name": "drm_configuration",
         "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/video/v1/drm-configurations",
+                "segments": [
+                  {
+                    "lit": "video",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "drm-configurations",
+                  },
+                ],
+                "parts": [
+                  "video",
+                  "v1",
+                  "drm-configurations",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "limit",
+                    "page",
+                  ],
+                },
+              },
+            ],
+          },
           "load": {
             "input": "data",
             "name": "load",
@@ -2786,7 +2915,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "drm_configuration_id",
+                      "orig": "DRM_CONFIGURATION_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -2926,7 +3055,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -2978,7 +3107,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -3071,7 +3200,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -3081,7 +3210,7 @@ def make_config():
                   "query": [
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -3139,7 +3268,7 @@ def make_config():
                   "params": [
                     {
                       "name": "playback_id_id",
-                      "orig": "playback_id",
+                      "orig": "PLAYBACK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -3149,7 +3278,7 @@ def make_config():
                   "query": [
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -3207,7 +3336,7 @@ def make_config():
                   "params": [
                     {
                       "name": "video_id",
-                      "orig": "video_id",
+                      "orig": "VIDEO_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -3217,7 +3346,7 @@ def make_config():
                   "query": [
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -3314,7 +3443,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -3336,7 +3465,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -3396,7 +3525,7 @@ def make_config():
                   "params": [
                     {
                       "name": "playback_id_id",
-                      "orig": "playback_id",
+                      "orig": "PLAYBACK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -3418,7 +3547,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -3478,7 +3607,7 @@ def make_config():
                   "params": [
                     {
                       "name": "video_id",
-                      "orig": "video_id",
+                      "orig": "VIDEO_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -3500,7 +3629,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -3646,7 +3775,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -3698,7 +3827,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -3838,7 +3967,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -3890,7 +4019,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -4030,7 +4159,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -4082,7 +4211,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -4157,7 +4286,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -4301,7 +4430,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -4353,7 +4482,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -4493,7 +4622,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -4545,7 +4674,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -4685,7 +4814,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -4737,7 +4866,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -4823,14 +4952,14 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
                     },
                     {
                       "name": "track_id",
-                      "orig": "track_id",
+                      "orig": "TRACK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -4858,15 +4987,143 @@ def make_config():
       "incident": {
         "fields": [
           {
+            "name": "affected_views",
+            "title": "Affected Views",
+            "type": "`$INTEGER`",
+            "req": True,
+            "format": "int64",
+          },
+          {
+            "name": "affected_views_per_hour",
+            "title": "Affected Views Per Hour",
+            "type": "`$INTEGER`",
+            "req": True,
+            "format": "int64",
+          },
+          {
+            "name": "affected_views_per_hour_on_open",
+            "title": "Affected Views Per Hour On Open",
+            "type": "`$INTEGER`",
+            "req": True,
+            "format": "int64",
+          },
+          {
+            "name": "breakdowns",
+            "title": "Breakdowns",
+            "type": "`$ARRAY`",
+            "req": True,
+          },
+          {
             "name": "data",
             "title": "Data",
             "type": "`$OBJECT`",
             "req": True,
           },
           {
+            "name": "description",
+            "title": "Description",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "error_description",
+            "title": "Error Description",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
             "name": "id",
             "title": "Id",
             "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "impact",
+            "title": "Impact",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "incident_key",
+            "title": "Incident Key",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "measured_value",
+            "title": "Measured Value",
+            "type": "`$NUMBER`",
+            "req": True,
+            "format": "double",
+          },
+          {
+            "name": "measured_value_on_close",
+            "title": "Measured Value On Close",
+            "type": "`$NUMBER`",
+            "req": True,
+            "format": "double",
+          },
+          {
+            "name": "measurement",
+            "title": "Measurement",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "notification_rules",
+            "title": "Notification Rules",
+            "type": "`$ARRAY`",
+            "req": True,
+          },
+          {
+            "name": "notifications",
+            "title": "Notifications",
+            "type": "`$ARRAY`",
+            "req": True,
+          },
+          {
+            "name": "resolved_at",
+            "title": "Resolved At",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "sample_size",
+            "title": "Sample Size",
+            "type": "`$INTEGER`",
+            "req": True,
+            "format": "int64",
+          },
+          {
+            "name": "sample_size_unit",
+            "title": "Sample Size Unit",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "severity",
+            "title": "Severity",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "started_at",
+            "title": "Started At",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "status",
+            "title": "Status",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "threshold",
+            "title": "Threshold",
+            "type": "`$NUMBER`",
+            "req": True,
+            "format": "double",
           },
           {
             "name": "timeframe",
@@ -4888,6 +5145,90 @@ def make_config():
         },
         "name": "incident",
         "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/data/v1/incidents",
+                "segments": [
+                  {
+                    "lit": "data",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "incidents",
+                  },
+                ],
+                "parts": [
+                  "data",
+                  "v1",
+                  "incidents",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "order_by",
+                      "orig": "order_by",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "order_direction",
+                      "orig": "order_direction",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                    {
+                      "name": "severity",
+                      "orig": "severity",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "status",
+                      "orig": "status",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "limit",
+                    "order_by",
+                    "order_direction",
+                    "page",
+                    "severity",
+                    "status",
+                  ],
+                },
+              },
+            ],
+          },
           "load": {
             "input": "data",
             "name": "load",
@@ -4929,7 +5270,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "incident_id",
+                      "orig": "INCIDENT_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -5011,7 +5352,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -5131,7 +5472,7 @@ def make_config():
                   "params": [
                     {
                       "name": "job_id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -5141,6 +5482,83 @@ def make_config():
                 "select": {
                   "exist": [
                     "job_id",
+                  ],
+                },
+              },
+            ],
+          },
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/robots/v0/jobs",
+                "segments": [
+                  {
+                    "lit": "robots",
+                  },
+                  {
+                    "lit": "v0",
+                  },
+                  {
+                    "lit": "jobs",
+                  },
+                ],
+                "parts": [
+                  "robots",
+                  "v0",
+                  "jobs",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "asset_id",
+                      "orig": "asset_id",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                    {
+                      "name": "status",
+                      "orig": "status",
+                      "type": "`$ANY`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "workflow",
+                      "orig": "workflow",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "asset_id",
+                    "limit",
+                    "page",
+                    "status",
+                    "workflow",
                   ],
                 },
               },
@@ -5250,7 +5668,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "query": [
@@ -5262,19 +5680,19 @@ def make_config():
                     },
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
                     {
                       "name": "metric_filter",
-                      "orig": "metric_filter",
+                      "orig": "metric_filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -5293,430 +5711,6 @@ def make_config():
                     "metric_filter",
                     "timeframe",
                     "value",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_annotation": {
-        "fields": [
-          {
-            "name": "date",
-            "title": "Date",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Datetime when the annotation applies",
-            "format": "date-time",
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique identifier for the annotation",
-            "format": "uuid",
-          },
-          {
-            "name": "note",
-            "title": "Note",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "The annotation note content",
-          },
-          {
-            "name": "sub_property_id",
-            "title": "Sub Property Id",
-            "type": "`$STRING`",
-            "short": "Customer-defined sub-property identifier",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_annotation",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/data/v1/annotations",
-                "segments": [
-                  {
-                    "lit": "data",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "annotations",
-                  },
-                ],
-                "parts": [
-                  "data",
-                  "v1",
-                  "annotations",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "order_direction",
-                      "orig": "order_direction",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                    {
-                      "name": "timeframe",
-                      "orig": "timeframe",
-                      "type": "`$ARRAY`",
-                      "kind": "query",
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "limit",
-                    "order_direction",
-                    "page",
-                    "timeframe",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_asset": {
-        "fields": [
-          {
-            "name": "aspect_ratio",
-            "title": "Aspect Ratio",
-            "type": "`$STRING`",
-            "short": "The aspect ratio of the asset in the form of `width:height`, for example `16:9`.",
-          },
-          {
-            "name": "created_at",
-            "title": "Created At",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Time the Asset was created, defined as a Unix timestamp (seconds since epoch).",
-            "format": "int64",
-          },
-          {
-            "name": "directives",
-            "title": "Directives",
-            "type": "`$ARRAY`",
-            "short": "The Mux Robots directives applied to the asset.",
-          },
-          {
-            "name": "duration",
-            "title": "Duration",
-            "type": "`$NUMBER`",
-            "short": "The duration of the asset in seconds (max duration for a single asset is 12 hours).",
-            "format": "double",
-          },
-          {
-            "name": "encoding_tier",
-            "title": "Encoding Tier",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "This field is deprecated.",
-            "deprecated": True,
-          },
-          {
-            "name": "errors",
-            "title": "Errors",
-            "type": "`$OBJECT`",
-            "short": "Object that describes any errors that happened when processing this asset.",
-          },
-          {
-            "name": "generate_shots",
-            "title": "Generate Shots",
-            "type": "`$BOOLEAN`",
-            "short": "Whether to perform shot detection on this asset.",
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique identifier for the Asset.",
-          },
-          {
-            "name": "ingest_type",
-            "title": "Ingest Type",
-            "type": "`$STRING`",
-            "short": "The type of ingest used to create the asset.",
-          },
-          {
-            "name": "is_live",
-            "title": "Is Live",
-            "type": "`$BOOLEAN`",
-            "short": "Indicates whether the live stream that created this asset is currently `active` and not in `idle` state.",
-            "format": "boolean",
-          },
-          {
-            "name": "live_stream_id",
-            "title": "Live Stream Id",
-            "type": "`$STRING`",
-            "short": "Unique identifier for the live stream.",
-          },
-          {
-            "name": "master",
-            "title": "Master",
-            "type": "`$OBJECT`",
-            "short": "An object containing the current status of Master Access and the link to the Master MP4 file when ready.",
-          },
-          {
-            "name": "master_access",
-            "title": "Master Access",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "max_resolution_tier",
-            "title": "Max Resolution Tier",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Max resolution tier can be used to control the maximum `resolution_tier` your asset is encoded, stored, and streamed at.",
-          },
-          {
-            "name": "max_stored_frame_rate",
-            "title": "Max Stored Frame Rate",
-            "type": "`$NUMBER`",
-            "short": "The maximum frame rate that has been stored for the asset.",
-            "format": "double",
-          },
-          {
-            "name": "max_stored_resolution",
-            "title": "Max Stored Resolution",
-            "type": "`$STRING`",
-            "short": "This field is deprecated.",
-            "deprecated": True,
-          },
-          {
-            "name": "meta",
-            "title": "Meta",
-            "type": "`$OBJECT`",
-            "short": "Customer provided metadata about this asset.",
-          },
-          {
-            "name": "mp4_support",
-            "title": "Mp4 Support",
-            "type": "`$STRING`",
-            "short": "Deprecated.",
-            "deprecated": True,
-          },
-          {
-            "name": "non_standard_input_reasons",
-            "title": "Non Standard Input Reasons",
-            "type": "`$OBJECT`",
-            "short": "An object containing one or more reasons the input file is non-standard.",
-          },
-          {
-            "name": "normalize_audio",
-            "title": "Normalize Audio",
-            "type": "`$BOOLEAN`",
-            "short": "Normalize the audio track loudness level.",
-          },
-          {
-            "name": "passthrough",
-            "title": "Passthrough",
-            "type": "`$STRING`",
-            "short": "You can set this field to anything you want.",
-          },
-          {
-            "name": "playback_ids",
-            "title": "Playback Ids",
-            "type": "`$ARRAY`",
-            "short": "An array of Playback ID objects.",
-          },
-          {
-            "name": "progress",
-            "title": "Progress",
-            "type": "`$OBJECT`",
-            "req": True,
-            "short": "Detailed state information about the asset ingest process.",
-          },
-          {
-            "name": "recording_times",
-            "title": "Recording Times",
-            "type": "`$ARRAY`",
-            "short": "An array of individual live stream recording sessions.",
-          },
-          {
-            "name": "resolution_tier",
-            "title": "Resolution Tier",
-            "type": "`$STRING`",
-            "short": "The resolution tier that the asset was ingested at, affecting billing for ingest & storage.",
-          },
-          {
-            "name": "shots",
-            "title": "Shots",
-            "type": "`$OBJECT`",
-            "req": True,
-            "short": "The results of generating shots on the video",
-          },
-          {
-            "name": "source_asset_id",
-            "title": "Source Asset Id",
-            "type": "`$STRING`",
-            "short": "Asset Identifier of the video used as the source for creating the clip.",
-          },
-          {
-            "name": "static_renditions",
-            "title": "Static Renditions",
-            "type": "`$OBJECT`",
-            "short": "An object containing the current status of any static renditions (MP4s) for this asset.",
-          },
-          {
-            "name": "status",
-            "title": "Status",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "The status of the asset.",
-          },
-          {
-            "name": "test",
-            "title": "Test",
-            "type": "`$BOOLEAN`",
-            "short": "True means this live stream is a test asset.",
-            "format": "boolean",
-          },
-          {
-            "name": "thumbnail_time",
-            "title": "Thumbnail Time",
-            "type": "`$NUMBER`",
-            "short": "The media time within the asset used when a thumbnail without an explicit time is requested.",
-            "format": "float",
-          },
-          {
-            "name": "tracks",
-            "title": "Tracks",
-            "type": "`$ARRAY`",
-            "short": "The individual media tracks that make up an asset.",
-          },
-          {
-            "name": "upload_id",
-            "title": "Upload Id",
-            "type": "`$STRING`",
-            "short": "Unique identifier for the Direct Upload.",
-          },
-          {
-            "name": "video_quality",
-            "title": "Video Quality",
-            "type": "`$STRING`",
-            "short": "The video quality controls the cost, quality, and available platform features for the asset.",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_asset",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/video/v1/assets",
-                "segments": [
-                  {
-                    "lit": "video",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "assets",
-                  },
-                ],
-                "parts": [
-                  "video",
-                  "v1",
-                  "assets",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "cursor",
-                      "orig": "cursor",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "live_stream_id",
-                      "orig": "live_stream_id",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                    {
-                      "name": "upload_id",
-                      "orig": "upload_id",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "cursor",
-                    "limit",
-                    "live_stream_id",
-                    "page",
-                    "upload_id",
                   ],
                 },
               },
@@ -5812,13 +5806,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "metric_id",
-                      "orig": "metric_id",
+                      "orig": "METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -5828,7 +5822,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -5853,7 +5847,7 @@ def make_config():
                     },
                     {
                       "name": "metric_filter",
-                      "orig": "metric_filter",
+                      "orig": "metric_filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -5878,7 +5872,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -6021,7 +6015,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "query": [
@@ -6053,7 +6047,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -6068,69 +6062,6 @@ def make_config():
                     "timeframe",
                   ],
                 },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_dimension": {
-        "fields": [
-          {
-            "name": "data",
-            "title": "Data",
-            "type": "`$OBJECT`",
-            "req": True,
-          },
-          {
-            "name": "timeframe",
-            "title": "Timeframe",
-            "type": "`$ARRAY`",
-            "req": True,
-          },
-          {
-            "name": "total_row_count",
-            "title": "Total Row Count",
-            "type": "`$INTEGER`",
-            "req": True,
-            "format": "int64",
-          },
-        ],
-        "name": "list_dimension",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/data/v1/dimensions",
-                "segments": [
-                  {
-                    "lit": "data",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "dimensions",
-                  },
-                ],
-                "parts": [
-                  "data",
-                  "v1",
-                  "dimensions",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "args": {},
-                "select": {},
               },
             ],
           },
@@ -6215,13 +6146,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "dimension_id",
-                      "orig": "dimension_id",
+                      "orig": "DIMENSION_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -6231,7 +6162,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -6244,7 +6175,7 @@ def make_config():
                     },
                     {
                       "name": "metric_filter",
-                      "orig": "metric_filter",
+                      "orig": "metric_filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -6269,7 +6200,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -6287,6 +6218,34 @@ def make_config():
                     "timeframe",
                   ],
                 },
+              },
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/data/v1/dimensions",
+                "segments": [
+                  {
+                    "lit": "data",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "dimensions",
+                  },
+                ],
+                "parts": [
+                  "data",
+                  "v1",
+                  "dimensions",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -6331,7 +6290,7 @@ def make_config():
                   "params": [
                     {
                       "name": "dimension_id",
-                      "orig": "dimension_id",
+                      "orig": "DIMENSION_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -6341,7 +6300,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -6354,7 +6313,7 @@ def make_config():
                     },
                     {
                       "name": "metric_filter",
-                      "orig": "metric_filter",
+                      "orig": "metric_filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -6367,7 +6326,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -6381,83 +6340,6 @@ def make_config():
                     "metric_filter",
                     "page",
                     "timeframe",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_drm_configuration": {
-        "fields": [
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique identifier for the DRM Configuration.",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_drm_configuration",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/video/v1/drm-configurations",
-                "segments": [
-                  {
-                    "lit": "video",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "drm-configurations",
-                  },
-                ],
-                "parts": [
-                  "video",
-                  "v1",
-                  "drm-configurations",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "limit",
-                    "page",
                   ],
                 },
               },
@@ -6571,25 +6453,25 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
                     {
                       "name": "metric_filter",
-                      "orig": "metric_filter",
+                      "orig": "metric_filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -6673,12 +6555,12 @@ def make_config():
           "ancestors": [],
         },
       },
-      "list_filter": {
+      "list_filter_value": {
         "fields": [
           {
             "name": "data",
             "title": "Data",
-            "type": "`$OBJECT`",
+            "type": "`$ARRAY`",
             "req": True,
           },
           {
@@ -6695,7 +6577,7 @@ def make_config():
             "format": "int64",
           },
         ],
-        "name": "list_filter",
+        "name": "list_filter_value",
         "op": {
           "list": {
             "input": "data",
@@ -6731,35 +6613,6 @@ def make_config():
               },
             ],
           },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_filter_value": {
-        "fields": [
-          {
-            "name": "data",
-            "title": "Data",
-            "type": "`$ARRAY`",
-            "req": True,
-          },
-          {
-            "name": "timeframe",
-            "title": "Timeframe",
-            "type": "`$ARRAY`",
-            "req": True,
-          },
-          {
-            "name": "total_row_count",
-            "title": "Total Row Count",
-            "type": "`$INTEGER`",
-            "req": True,
-            "format": "int64",
-          },
-        ],
-        "name": "list_filter_value",
-        "op": {
           "load": {
             "input": "data",
             "name": "load",
@@ -6801,7 +6654,7 @@ def make_config():
                   "params": [
                     {
                       "name": "filter_id",
-                      "orig": "filter_id",
+                      "orig": "FILTER_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -6811,7 +6664,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -6831,7 +6684,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -6844,237 +6697,6 @@ def make_config():
                     "limit",
                     "page",
                     "timeframe",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_incident": {
-        "fields": [
-          {
-            "name": "affected_views",
-            "title": "Affected Views",
-            "type": "`$INTEGER`",
-            "req": True,
-            "format": "int64",
-          },
-          {
-            "name": "affected_views_per_hour",
-            "title": "Affected Views Per Hour",
-            "type": "`$INTEGER`",
-            "req": True,
-            "format": "int64",
-          },
-          {
-            "name": "affected_views_per_hour_on_open",
-            "title": "Affected Views Per Hour On Open",
-            "type": "`$INTEGER`",
-            "req": True,
-            "format": "int64",
-          },
-          {
-            "name": "breakdowns",
-            "title": "Breakdowns",
-            "type": "`$ARRAY`",
-            "req": True,
-          },
-          {
-            "name": "description",
-            "title": "Description",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "error_description",
-            "title": "Error Description",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "impact",
-            "title": "Impact",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "incident_key",
-            "title": "Incident Key",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "measured_value",
-            "title": "Measured Value",
-            "type": "`$NUMBER`",
-            "req": True,
-            "format": "double",
-          },
-          {
-            "name": "measured_value_on_close",
-            "title": "Measured Value On Close",
-            "type": "`$NUMBER`",
-            "req": True,
-            "format": "double",
-          },
-          {
-            "name": "measurement",
-            "title": "Measurement",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "notification_rules",
-            "title": "Notification Rules",
-            "type": "`$ARRAY`",
-            "req": True,
-          },
-          {
-            "name": "notifications",
-            "title": "Notifications",
-            "type": "`$ARRAY`",
-            "req": True,
-          },
-          {
-            "name": "resolved_at",
-            "title": "Resolved At",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "sample_size",
-            "title": "Sample Size",
-            "type": "`$INTEGER`",
-            "req": True,
-            "format": "int64",
-          },
-          {
-            "name": "sample_size_unit",
-            "title": "Sample Size Unit",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "severity",
-            "title": "Severity",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "started_at",
-            "title": "Started At",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "status",
-            "title": "Status",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "threshold",
-            "title": "Threshold",
-            "type": "`$NUMBER`",
-            "req": True,
-            "format": "double",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_incident",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/data/v1/incidents",
-                "segments": [
-                  {
-                    "lit": "data",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "incidents",
-                  },
-                ],
-                "parts": [
-                  "data",
-                  "v1",
-                  "incidents",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "order_by",
-                      "orig": "order_by",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "order_direction",
-                      "orig": "order_direction",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                    {
-                      "name": "severity",
-                      "orig": "severity",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "status",
-                      "orig": "status",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "limit",
-                    "order_by",
-                    "order_direction",
-                    "page",
-                    "severity",
-                    "status",
                   ],
                 },
               },
@@ -7176,13 +6798,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "metric_id",
-                      "orig": "metric_id",
+                      "orig": "METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -7192,7 +6814,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -7204,7 +6826,7 @@ def make_config():
                     },
                     {
                       "name": "metric_filter",
-                      "orig": "metric_filter",
+                      "orig": "metric_filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -7216,7 +6838,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -7230,381 +6852,6 @@ def make_config():
                     "metric_id",
                     "order_direction",
                     "timeframe",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_job": {
-        "fields": [
-          {
-            "name": "created_at",
-            "title": "Created At",
-            "type": "`$INTEGER`",
-            "req": True,
-            "short": "Unix timestamp (seconds) when the job was created.",
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique job identifier.",
-          },
-          {
-            "name": "links",
-            "title": "Links",
-            "type": "`$OBJECT`",
-            "req": True,
-            "short": "Hypermedia links for this job.",
-          },
-          {
-            "name": "status",
-            "title": "Status",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Current job status.",
-          },
-          {
-            "name": "updated_at",
-            "title": "Updated At",
-            "type": "`$INTEGER`",
-            "req": True,
-            "short": "Unix timestamp (seconds) of the job's last state transition (e.g.",
-          },
-          {
-            "name": "workflow",
-            "title": "Workflow",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Workflow type that created this job.",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_job",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/robots/v0/jobs",
-                "segments": [
-                  {
-                    "lit": "robots",
-                  },
-                  {
-                    "lit": "v0",
-                  },
-                  {
-                    "lit": "jobs",
-                  },
-                ],
-                "parts": [
-                  "robots",
-                  "v0",
-                  "jobs",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "asset_id",
-                      "orig": "asset_id",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                    {
-                      "name": "status",
-                      "orig": "status",
-                      "type": "`$ANY`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "workflow",
-                      "orig": "workflow",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "asset_id",
-                    "limit",
-                    "page",
-                    "status",
-                    "workflow",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_live_stream": {
-        "fields": [
-          {
-            "name": "active_asset_id",
-            "title": "Active Asset Id",
-            "type": "`$STRING`",
-            "short": "The Asset that is currently being created if there is an active broadcast.",
-          },
-          {
-            "name": "active_ingest_protocol",
-            "title": "Active Ingest Protocol",
-            "type": "`$STRING`",
-            "short": "The protocol used for the active ingest stream.",
-          },
-          {
-            "name": "audio_only",
-            "title": "Audio Only",
-            "type": "`$BOOLEAN`",
-            "short": "The live stream only processes the audio track if the value is set to true.",
-          },
-          {
-            "name": "created_at",
-            "title": "Created At",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch).",
-            "format": "int64",
-          },
-          {
-            "name": "embedded_subtitles",
-            "title": "Embedded Subtitles",
-            "type": "`$ARRAY`",
-            "short": "Describes the embedded closed caption configuration of the incoming live stream.",
-          },
-          {
-            "name": "generated_subtitles",
-            "title": "Generated Subtitles",
-            "type": "`$ARRAY`",
-            "short": "Configure the incoming live stream to include subtitles created with automatic speech recognition.",
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique identifier for the Live Stream.",
-          },
-          {
-            "name": "latency_mode",
-            "title": "Latency Mode",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Latency is the time from when the streamer transmits a frame of video to when you see it in the player.",
-          },
-          {
-            "name": "low_latency",
-            "title": "Low Latency",
-            "type": "`$BOOLEAN`",
-            "short": "This field is deprecated.",
-            "deprecated": True,
-            "format": "boolean",
-          },
-          {
-            "name": "max_continuous_duration",
-            "title": "Max Continuous Duration",
-            "type": "`$INTEGER`",
-            "req": True,
-            "short": "The time in seconds a live stream may be continuously active before being disconnected.",
-            "format": "int32",
-          },
-          {
-            "name": "meta",
-            "title": "Meta",
-            "type": "`$OBJECT`",
-            "short": "Customer provided metadata about this live stream.",
-          },
-          {
-            "name": "new_asset_settings",
-            "title": "New Asset Settings",
-            "type": "`$OBJECT`",
-          },
-          {
-            "name": "passthrough",
-            "title": "Passthrough",
-            "type": "`$STRING`",
-            "short": "Arbitrary user-supplied metadata set for the asset.",
-          },
-          {
-            "name": "playback_ids",
-            "title": "Playback Ids",
-            "type": "`$ARRAY`",
-            "short": "An array of Playback ID objects.",
-          },
-          {
-            "name": "recent_asset_ids",
-            "title": "Recent Asset Ids",
-            "type": "`$ARRAY`",
-            "short": "An array of strings with the most recent Asset IDs that were created from this Live Stream.",
-          },
-          {
-            "name": "reconnect_slate_url",
-            "title": "Reconnect Slate Url",
-            "type": "`$STRING`",
-            "short": "The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media.",
-          },
-          {
-            "name": "reconnect_window",
-            "title": "Reconnect Window",
-            "type": "`$NUMBER`",
-            "short": "When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live s…",
-            "format": "float",
-          },
-          {
-            "name": "reduced_latency",
-            "title": "Reduced Latency",
-            "type": "`$BOOLEAN`",
-            "short": "This field is deprecated.",
-            "deprecated": True,
-            "format": "boolean",
-          },
-          {
-            "name": "simulcast_targets",
-            "title": "Simulcast Targets",
-            "type": "`$ARRAY`",
-            "short": "Each Simulcast Target contains configuration details to broadcast (or \"restream\") a live stream to a third-party streaming service.",
-          },
-          {
-            "name": "srt_passphrase",
-            "title": "Srt Passphrase",
-            "type": "`$STRING`",
-            "short": "Unique key used for encrypting a stream to a Mux SRT endpoint.",
-          },
-          {
-            "name": "status",
-            "title": "Status",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "`idle` indicates that there is no active broadcast.",
-          },
-          {
-            "name": "stream_key",
-            "title": "Stream Key",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique key used for streaming to a Mux RTMP endpoint.",
-          },
-          {
-            "name": "test",
-            "title": "Test",
-            "type": "`$BOOLEAN`",
-            "short": "True means this live stream is a test live stream.",
-            "format": "boolean",
-          },
-          {
-            "name": "use_slate_for_standard_latency",
-            "title": "Use Slate For Standard Latency",
-            "type": "`$BOOLEAN`",
-            "short": "By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux.",
-            "format": "boolean",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_live_stream",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/video/v1/live-streams",
-                "segments": [
-                  {
-                    "lit": "video",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "live-streams",
-                  },
-                ],
-                "parts": [
-                  "video",
-                  "v1",
-                  "live-streams",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                    {
-                      "name": "status",
-                      "orig": "status",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "stream_key",
-                      "orig": "stream_key",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "limit",
-                    "page",
-                    "status",
-                    "stream_key",
                   ],
                 },
               },
@@ -7663,7 +6910,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -7723,117 +6970,10 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_playback_restriction": {
-        "fields": [
-          {
-            "name": "created_at",
-            "title": "Created At",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch).",
-            "format": "int64",
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique identifier for the Playback Restriction.",
-          },
-          {
-            "name": "referrer",
-            "title": "Referrer",
-            "type": "`$OBJECT`",
-            "req": True,
-            "short": "A list of domains allowed to play your videos.",
-          },
-          {
-            "name": "updated_at",
-            "title": "Updated At",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch).",
-            "format": "int64",
-          },
-          {
-            "name": "user_agent",
-            "title": "User Agent",
-            "type": "`$OBJECT`",
-            "req": True,
-            "short": "Rules that control what user agents are allowed to play your videos.",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_playback_restriction",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/video/v1/playback-restrictions",
-                "segments": [
-                  {
-                    "lit": "video",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "playback-restrictions",
-                  },
-                ],
-                "parts": [
-                  "video",
-                  "v1",
-                  "playback-restrictions",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "limit",
-                    "page",
-                  ],
-                },
               },
             ],
           },
@@ -7890,7 +7030,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -7950,7 +7090,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -8143,13 +7283,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "incident_id",
-                      "orig": "incident_id",
+                      "orig": "INCIDENT_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -8204,148 +7344,6 @@ def make_config():
               "$.main.kit.entity.incident",
             ],
           ],
-        },
-      },
-      "list_signing_key": {
-        "fields": [
-          {
-            "name": "created_at",
-            "title": "Created At",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Time at which the object was created.",
-            "format": "int64",
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique identifier for the Signing Key.",
-          },
-          {
-            "name": "private_key",
-            "title": "Private Key",
-            "type": "`$STRING`",
-            "short": "A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/).",
-            "format": "byte",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_signing_key",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/system/v1/signing-keys",
-                "segments": [
-                  {
-                    "lit": "system",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "signing-keys",
-                  },
-                ],
-                "parts": [
-                  "system",
-                  "v1",
-                  "signing-keys",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "limit",
-                    "page",
-                  ],
-                },
-              },
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/video/v1/signing-keys",
-                "segments": [
-                  {
-                    "lit": "video",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "signing-keys",
-                  },
-                ],
-                "parts": [
-                  "video",
-                  "v1",
-                  "signing-keys",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "limit",
-                    "page",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
         },
       },
       "list_subview_breakdown_value": {
@@ -8410,13 +7408,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "subview_metric_id",
-                      "orig": "metric_id",
+                      "orig": "METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -8424,7 +7422,7 @@ def make_config():
                     },
                     {
                       "name": "subview_type",
-                      "orig": "subview_type",
+                      "orig": "SUBVIEW_TYPE",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -8434,13 +7432,13 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
                     {
                       "name": "group_by",
-                      "orig": "group_by",
+                      "orig": "group_by[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -8460,7 +7458,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -8546,13 +7544,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "subview_metric_id",
-                      "orig": "metric_id",
+                      "orig": "METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -8560,7 +7558,7 @@ def make_config():
                     },
                     {
                       "name": "subview_type",
-                      "orig": "subview_type",
+                      "orig": "SUBVIEW_TYPE",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -8585,25 +7583,25 @@ def make_config():
                     },
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
                     {
                       "name": "group_by",
-                      "orig": "group_by",
+                      "orig": "group_by[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
                     {
                       "name": "value",
-                      "orig": "value",
+                      "orig": "values[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                       "reqd": True,
@@ -8637,16 +7635,18 @@ def make_config():
       "list_subview_dimension": {
         "fields": [
           {
-            "name": "subview",
-            "title": "Subview",
-            "type": "`$ARRAY`",
+            "name": "data",
+            "title": "Data",
+            "type": "`$OBJECT`",
             "req": True,
           },
           {
-            "name": "view",
-            "title": "View",
-            "type": "`$ARRAY`",
+            "name": "total_row_count",
+            "title": "Total Row Count",
+            "type": "`$INTEGER`",
             "req": True,
+            "short": "Always `null` for this endpoint, matching `GET /data/v1/dimensions`, which also never computes a row count.",
+            "format": "int64",
           },
         ],
         "name": "list_subview_dimension",
@@ -8690,13 +7690,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body.data`",
+                  "res": "`body`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "subview_type",
-                      "orig": "subview_type",
+                      "orig": "SUBVIEW_TYPE",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -8797,7 +7797,7 @@ def make_config():
                   "params": [
                     {
                       "name": "dimension_name",
-                      "orig": "dimension_name",
+                      "orig": "DIMENSION_NAME",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -8805,7 +7805,7 @@ def make_config():
                     },
                     {
                       "name": "subview_metric_id",
-                      "orig": "subview_type",
+                      "orig": "SUBVIEW_TYPE",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -8815,7 +7815,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -8854,7 +7854,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -8871,559 +7871,6 @@ def make_config():
                     "query",
                     "subview_metric_id",
                     "timeframe",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_transcription_vocabulary": {
-        "fields": [
-          {
-            "name": "created_at",
-            "title": "Created At",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch).",
-            "format": "int64",
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique identifier for the Transcription Vocabulary",
-          },
-          {
-            "name": "name",
-            "title": "Name",
-            "type": "`$STRING`",
-            "short": "The user-supplied name of the Transcription Vocabulary.",
-          },
-          {
-            "name": "passthrough",
-            "title": "Passthrough",
-            "type": "`$STRING`",
-            "short": "Arbitrary user-supplied metadata set for the Transcription Vocabulary.",
-          },
-          {
-            "name": "phrases",
-            "title": "Phrases",
-            "type": "`$ARRAY`",
-            "short": "Phrases, individual words, or proper names to include in the Transcription Vocabulary.",
-          },
-          {
-            "name": "updated_at",
-            "title": "Updated At",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch).",
-            "format": "int64",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_transcription_vocabulary",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/video/v1/transcription-vocabularies",
-                "segments": [
-                  {
-                    "lit": "video",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "transcription-vocabularies",
-                  },
-                ],
-                "parts": [
-                  "video",
-                  "v1",
-                  "transcription-vocabularies",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 10,
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "limit",
-                    "page",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_upload": {
-        "fields": [
-          {
-            "name": "asset_id",
-            "title": "Asset Id",
-            "type": "`$STRING`",
-            "short": "Only set once the upload is in the `asset_created` state.",
-          },
-          {
-            "name": "cors_origin",
-            "title": "Cors Origin",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers.",
-          },
-          {
-            "name": "error",
-            "title": "Error",
-            "type": "`$OBJECT`",
-            "short": "Only set if an error occurred during asset creation.",
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique identifier for the Direct Upload.",
-          },
-          {
-            "name": "new_asset_settings",
-            "title": "New Asset Settings",
-            "type": "`$OBJECT`",
-          },
-          {
-            "name": "status",
-            "title": "Status",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "test",
-            "title": "Test",
-            "type": "`$BOOLEAN`",
-            "short": "Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset.",
-            "format": "boolean",
-          },
-          {
-            "name": "timeout",
-            "title": "Timeout",
-            "type": "`$INTEGER`",
-            "req": True,
-            "short": "Max time in seconds for the signed upload URL to be valid.",
-            "format": "int32",
-          },
-          {
-            "name": "url",
-            "title": "Url",
-            "type": "`$STRING`",
-            "short": "The URL to upload the associated source media to.",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_upload",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/video/v1/uploads",
-                "segments": [
-                  {
-                    "lit": "video",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "uploads",
-                  },
-                ],
-                "parts": [
-                  "video",
-                  "v1",
-                  "uploads",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "limit",
-                    "page",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_usage_export": {
-        "fields": [
-          {
-            "name": "date",
-            "title": "Date",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "The calendar date this CSV covers, in `YYYY-MM-DD` format.",
-            "format": "date",
-          },
-          {
-            "name": "download_url",
-            "title": "Download Url",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "A pre-signed URL to download the CSV.",
-          },
-          {
-            "name": "download_url_expires_at",
-            "title": "Download Url Expires At",
-            "type": "`$INTEGER`",
-            "req": True,
-            "short": "Unix timestamp (seconds since epoch) at which `download_url` expires.",
-          },
-          {
-            "name": "file_size",
-            "title": "File Size",
-            "type": "`$INTEGER`",
-            "req": True,
-            "short": "Uncompressed size of the CSV file in bytes.",
-          },
-        ],
-        "name": "list_usage_export",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/system/v1/usage/exports",
-                "segments": [
-                  {
-                    "lit": "system",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "usage",
-                  },
-                  {
-                    "lit": "exports",
-                  },
-                ],
-                "parts": [
-                  "system",
-                  "v1",
-                  "usage",
-                  "exports",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "download_url_ttl",
-                      "orig": "download_url_ttl",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 3600,
-                    },
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                    {
-                      "name": "timeframe",
-                      "orig": "timeframe",
-                      "type": "`$ARRAY`",
-                      "kind": "query",
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "download_url_ttl",
-                    "limit",
-                    "page",
-                    "timeframe",
-                  ],
-                },
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_video_view": {
-        "fields": [
-          {
-            "name": "country_code",
-            "title": "Country Code",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "error_type_id",
-            "title": "Error Type Id",
-            "type": "`$INTEGER`",
-            "req": True,
-            "format": "int32",
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "playback_failure",
-            "title": "Playback Failure",
-            "type": "`$BOOLEAN`",
-            "req": True,
-          },
-          {
-            "name": "player_error_code",
-            "title": "Player Error Code",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "player_error_message",
-            "title": "Player Error Message",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "total_row_count",
-            "title": "Total Row Count",
-            "type": "`$INTEGER`",
-            "req": True,
-            "format": "int64",
-          },
-          {
-            "name": "video_title",
-            "title": "Video Title",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "view_end",
-            "title": "View End",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "view_start",
-            "title": "View Start",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "viewer_application_name",
-            "title": "Viewer Application Name",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "viewer_experience_score",
-            "title": "Viewer Experience Score",
-            "type": "`$NUMBER`",
-            "req": True,
-            "format": "float",
-          },
-          {
-            "name": "viewer_os_family",
-            "title": "Viewer Os Family",
-            "type": "`$STRING`",
-            "req": True,
-          },
-          {
-            "name": "watch_time",
-            "title": "Watch Time",
-            "type": "`$INTEGER`",
-            "req": True,
-            "format": "int32",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_video_view",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/data/v1/video-views",
-                "segments": [
-                  {
-                    "lit": "data",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "video-views",
-                  },
-                ],
-                "parts": [
-                  "data",
-                  "v1",
-                  "video-views",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "error_id",
-                      "orig": "error_id",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "filter",
-                      "orig": "filter",
-                      "type": "`$ARRAY`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "metric_filter",
-                      "orig": "metric_filter",
-                      "type": "`$ARRAY`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "order_direction",
-                      "orig": "order_direction",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                    {
-                      "name": "timeframe",
-                      "orig": "timeframe",
-                      "type": "`$ARRAY`",
-                      "kind": "query",
-                    },
-                    {
-                      "name": "viewer_id",
-                      "orig": "viewer_id",
-                      "type": "`$STRING`",
-                      "kind": "query",
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "error_id",
-                    "filter",
-                    "limit",
-                    "metric_filter",
-                    "order_direction",
-                    "page",
-                    "timeframe",
-                    "viewer_id",
                   ],
                 },
               },
@@ -9483,115 +7930,10 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
-              },
-            ],
-          },
-        },
-        "relations": {
-          "ancestors": [],
-        },
-      },
-      "list_webhook": {
-        "fields": [
-          {
-            "name": "address",
-            "title": "Address",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "The URL where Mux sends webhook notifications.",
-          },
-          {
-            "name": "created_at",
-            "title": "Created At",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Time at which the webhook was created, as an ISO 8601 UTC datetime.",
-            "format": "date-time",
-          },
-          {
-            "name": "enabled",
-            "title": "Enabled",
-            "type": "`$BOOLEAN`",
-            "req": True,
-            "short": "Whether Mux attempts to deliver notifications to this webhook.",
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$STRING`",
-            "req": True,
-            "short": "Unique identifier for the webhook.",
-          },
-          {
-            "name": "signing_secret",
-            "title": "Signing Secret",
-            "type": "`$STRING`",
-            "short": "Secret used to verify that webhook payloads were sent by Mux.",
-          },
-        ],
-        "id": {
-          "field": "id",
-          "name": "id",
-        },
-        "name": "list_webhook",
-        "op": {
-          "list": {
-            "input": "data",
-            "name": "list",
-            "points": [
-              {
-                "kind": "http",
-                "method": "GET",
-                "orig": "/system/v1/webhooks",
-                "segments": [
-                  {
-                    "lit": "system",
-                  },
-                  {
-                    "lit": "v1",
-                  },
-                  {
-                    "lit": "webhooks",
-                  },
-                ],
-                "parts": [
-                  "system",
-                  "v1",
-                  "webhooks",
-                ],
-                "rename": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body.data`",
-                },
-                "args": {
-                  "query": [
-                    {
-                      "name": "limit",
-                      "orig": "limit",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 25,
-                    },
-                    {
-                      "name": "page",
-                      "orig": "page",
-                      "type": "`$INTEGER`",
-                      "kind": "query",
-                      "example": 1,
-                    },
-                  ],
-                },
-                "select": {
-                  "exist": [
-                    "limit",
-                    "page",
-                  ],
-                },
               },
             ],
           },
@@ -9848,7 +8190,7 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -9889,6 +8231,76 @@ def make_config():
                 },
                 "args": {},
                 "select": {},
+              },
+            ],
+          },
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/video/v1/live-streams",
+                "segments": [
+                  {
+                    "lit": "video",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "live-streams",
+                  },
+                ],
+                "parts": [
+                  "video",
+                  "v1",
+                  "live-streams",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                    {
+                      "name": "status",
+                      "orig": "status",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "stream_key",
+                      "orig": "stream_key",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "limit",
+                    "page",
+                    "status",
+                    "stream_key",
+                  ],
+                },
               },
             ],
           },
@@ -9933,7 +8345,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -9998,14 +8410,14 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
                     },
                     {
                       "name": "playback_id",
-                      "orig": "playback_id",
+                      "orig": "PLAYBACK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10065,14 +8477,14 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
                     },
                     {
                       "name": "simulcast_target_id",
-                      "orig": "simulcast_target_id",
+                      "orig": "SIMULCAST_TARGET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10123,7 +8535,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10181,7 +8593,7 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10238,7 +8650,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10292,7 +8704,7 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10347,7 +8759,7 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10402,7 +8814,7 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10457,7 +8869,7 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10516,7 +8928,7 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10620,14 +9032,14 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "playback_id",
+                      "orig": "PLAYBACK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
                     },
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10727,7 +9139,7 @@ def make_config():
                   "params": [
                     {
                       "name": "metric_id",
-                      "orig": "metric_id",
+                      "orig": "METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -10737,7 +9149,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -10755,7 +9167,7 @@ def make_config():
                     },
                     {
                       "name": "metric_filter",
-                      "orig": "metric_filter",
+                      "orig": "metric_filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -10767,7 +9179,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -10912,7 +9324,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -10964,7 +9376,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -11071,13 +9483,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "monitoring_metric_id",
-                      "orig": "monitoring_metric_id",
+                      "orig": "MONITORING_METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -11093,7 +9505,7 @@ def make_config():
                     },
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -11195,13 +9607,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "monitoring_metric_id",
-                      "orig": "monitoring_metric_id",
+                      "orig": "MONITORING_METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -11217,7 +9629,7 @@ def make_config():
                     },
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -11242,7 +9654,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -11362,13 +9774,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "monitoring_histogram_metric_id",
-                      "orig": "monitoring_histogram_metric_id",
+                      "orig": "MONITORING_HISTOGRAM_METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -11378,7 +9790,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -11466,13 +9878,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "monitoring_metric_id",
-                      "orig": "monitoring_metric_id",
+                      "orig": "MONITORING_METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -11482,7 +9894,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -11584,7 +9996,7 @@ def make_config():
                   "params": [
                     {
                       "name": "metric_id",
-                      "orig": "metric_id",
+                      "orig": "METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -11594,7 +10006,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -11606,13 +10018,13 @@ def make_config():
                     },
                     {
                       "name": "metric_filter",
-                      "orig": "metric_filter",
+                      "orig": "metric_filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -11715,6 +10127,62 @@ def make_config():
               },
             ],
           },
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/video/v1/playback-restrictions",
+                "segments": [
+                  {
+                    "lit": "video",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "playback-restrictions",
+                  },
+                ],
+                "parts": [
+                  "video",
+                  "v1",
+                  "playback-restrictions",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "limit",
+                    "page",
+                  ],
+                },
+              },
+            ],
+          },
           "load": {
             "input": "data",
             "name": "load",
@@ -11756,7 +10224,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "playback_restriction_id",
+                      "orig": "PLAYBACK_RESTRICTION_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -11812,7 +10280,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "playback_restriction_id",
+                      "orig": "PLAYBACK_RESTRICTION_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -11872,7 +10340,7 @@ def make_config():
                   "params": [
                     {
                       "name": "playback_restriction_id",
-                      "orig": "playback_restriction_id",
+                      "orig": "PLAYBACK_RESTRICTION_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -11927,7 +10395,7 @@ def make_config():
                   "params": [
                     {
                       "name": "playback_restriction_id",
-                      "orig": "playback_restriction_id",
+                      "orig": "PLAYBACK_RESTRICTION_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -12035,13 +10503,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "realtime_metric_id",
-                      "orig": "realtime_metric_id",
+                      "orig": "REALTIME_METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -12057,7 +10525,7 @@ def make_config():
                     },
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -12194,13 +10662,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "realtime_histogram_metric_id",
-                      "orig": "realtime_histogram_metric_id",
+                      "orig": "REALTIME_HISTOGRAM_METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -12210,7 +10678,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -12298,13 +10766,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "realtime_metric_id",
-                      "orig": "realtime_metric_id",
+                      "orig": "REALTIME_METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -12314,7 +10782,7 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -12342,13 +10810,7 @@ def make_config():
         },
       },
       "signal_live_stream_complete": {
-        "fields": [
-          {
-            "name": "data",
-            "title": "Data",
-            "type": "`$OBJECT`",
-          },
-        ],
+        "fields": [],
         "name": "signal_live_stream_complete",
         "op": {
           "update": {
@@ -12396,7 +10858,7 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -12518,6 +10980,112 @@ def make_config():
               },
             ],
           },
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/system/v1/signing-keys",
+                "segments": [
+                  {
+                    "lit": "system",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "signing-keys",
+                  },
+                ],
+                "parts": [
+                  "system",
+                  "v1",
+                  "signing-keys",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "limit",
+                    "page",
+                  ],
+                },
+              },
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/video/v1/signing-keys",
+                "segments": [
+                  {
+                    "lit": "video",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "signing-keys",
+                  },
+                ],
+                "parts": [
+                  "video",
+                  "v1",
+                  "signing-keys",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "limit",
+                    "page",
+                  ],
+                },
+              },
+            ],
+          },
           "load": {
             "input": "data",
             "name": "load",
@@ -12559,7 +11127,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "signing_key_id",
+                      "orig": "SIGNING_KEY_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -12609,7 +11177,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "signing_key_id",
+                      "orig": "SIGNING_KEY_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -12665,7 +11233,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "signing_key_id",
+                      "orig": "SIGNING_KEY_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -12778,7 +11346,7 @@ def make_config():
                   "params": [
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -12843,14 +11411,14 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "simulcast_target_id",
+                      "orig": "SIMULCAST_TARGET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
                     },
                     {
                       "name": "live_stream_id",
-                      "orig": "live_stream_id",
+                      "orig": "LIVE_STREAM_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -12937,7 +11505,7 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -13029,13 +11597,13 @@ def make_config():
                 },
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
                     {
                       "name": "subview_metric_id",
-                      "orig": "metric_id",
+                      "orig": "METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -13043,7 +11611,7 @@ def make_config():
                     },
                     {
                       "name": "subview_type",
-                      "orig": "subview_type",
+                      "orig": "SUBVIEW_TYPE",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -13060,13 +11628,13 @@ def make_config():
                     },
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
                     {
                       "name": "group_by",
-                      "orig": "group_by",
+                      "orig": "group_by[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -13079,7 +11647,7 @@ def make_config():
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -13185,7 +11753,7 @@ def make_config():
                   "params": [
                     {
                       "name": "subview_metric_id",
-                      "orig": "metric_id",
+                      "orig": "METRIC_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -13193,7 +11761,7 @@ def make_config():
                     },
                     {
                       "name": "subview_type",
-                      "orig": "subview_type",
+                      "orig": "SUBVIEW_TYPE",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -13203,13 +11771,13 @@ def make_config():
                   "query": [
                     {
                       "name": "filter",
-                      "orig": "filter",
+                      "orig": "filters[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
                     {
                       "name": "timeframe",
-                      "orig": "timeframe",
+                      "orig": "timeframe[]",
                       "type": "`$ARRAY`",
                       "kind": "query",
                     },
@@ -13351,7 +11919,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -13403,7 +11971,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -13517,6 +12085,62 @@ def make_config():
               },
             ],
           },
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/video/v1/transcription-vocabularies",
+                "segments": [
+                  {
+                    "lit": "video",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "transcription-vocabularies",
+                  },
+                ],
+                "parts": [
+                  "video",
+                  "v1",
+                  "transcription-vocabularies",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 10,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "limit",
+                    "page",
+                  ],
+                },
+              },
+            ],
+          },
           "load": {
             "input": "data",
             "name": "load",
@@ -13558,7 +12182,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "transcription_vocabulary_id",
+                      "orig": "TRANSCRIPTION_VOCABULARY_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -13614,7 +12238,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "transcription_vocabulary_id",
+                      "orig": "TRANSCRIPTION_VOCABULARY_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -13670,7 +12294,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "transcription_vocabulary_id",
+                      "orig": "TRANSCRIPTION_VOCABULARY_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -13809,7 +12433,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -13861,7 +12485,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -14000,7 +12624,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {},
                 "select": {},
@@ -14052,7 +12676,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "job_id",
+                      "orig": "JOB_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -14233,14 +12857,14 @@ def make_config():
                   "params": [
                     {
                       "name": "asset_id",
-                      "orig": "asset_id",
+                      "orig": "ASSET_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
                     },
                     {
                       "name": "id",
-                      "orig": "track_id",
+                      "orig": "TRACK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -14371,6 +12995,62 @@ def make_config():
               },
             ],
           },
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/video/v1/uploads",
+                "segments": [
+                  {
+                    "lit": "video",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "uploads",
+                  },
+                ],
+                "parts": [
+                  "video",
+                  "v1",
+                  "uploads",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "limit",
+                    "page",
+                  ],
+                },
+              },
+            ],
+          },
           "load": {
             "input": "data",
             "name": "load",
@@ -14412,7 +13092,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "upload_id",
+                      "orig": "UPLOAD_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -14473,7 +13153,7 @@ def make_config():
                   "params": [
                     {
                       "name": "upload_id",
-                      "orig": "upload_id",
+                      "orig": "UPLOAD_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -14550,7 +13230,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "signing_key_id",
+                      "orig": "SIGNING_KEY_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -14570,8 +13250,128 @@ def make_config():
           "ancestors": [],
         },
       },
+      "usage_export": {
+        "fields": [
+          {
+            "name": "date",
+            "title": "Date",
+            "type": "`$STRING`",
+            "req": True,
+            "short": "The calendar date this CSV covers, in `YYYY-MM-DD` format.",
+            "format": "date",
+          },
+          {
+            "name": "download_url",
+            "title": "Download Url",
+            "type": "`$STRING`",
+            "req": True,
+            "short": "A pre-signed URL to download the CSV.",
+          },
+          {
+            "name": "download_url_expires_at",
+            "title": "Download Url Expires At",
+            "type": "`$INTEGER`",
+            "req": True,
+            "short": "Unix timestamp (seconds since epoch) at which `download_url` expires.",
+          },
+          {
+            "name": "file_size",
+            "title": "File Size",
+            "type": "`$INTEGER`",
+            "req": True,
+            "short": "Uncompressed size of the CSV file in bytes.",
+          },
+        ],
+        "name": "usage_export",
+        "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/system/v1/usage/exports",
+                "segments": [
+                  {
+                    "lit": "system",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "usage",
+                  },
+                  {
+                    "lit": "exports",
+                  },
+                ],
+                "parts": [
+                  "system",
+                  "v1",
+                  "usage",
+                  "exports",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "download_url_ttl",
+                      "orig": "download_url_ttl",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 3600,
+                    },
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                    {
+                      "name": "timeframe",
+                      "orig": "timeframe[]",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "download_url_ttl",
+                    "limit",
+                    "page",
+                    "timeframe",
+                  ],
+                },
+              },
+            ],
+          },
+        },
+        "relations": {
+          "ancestors": [],
+        },
+      },
       "video_view": {
         "fields": [
+          {
+            "name": "country_code",
+            "title": "Country Code",
+            "type": "`$STRING`",
+            "req": True,
+          },
           {
             "name": "data",
             "title": "Data",
@@ -14579,9 +13379,35 @@ def make_config():
             "req": True,
           },
           {
+            "name": "error_type_id",
+            "title": "Error Type Id",
+            "type": "`$INTEGER`",
+            "req": True,
+            "format": "int32",
+          },
+          {
             "name": "id",
             "title": "Id",
             "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "playback_failure",
+            "title": "Playback Failure",
+            "type": "`$BOOLEAN`",
+            "req": True,
+          },
+          {
+            "name": "player_error_code",
+            "title": "Player Error Code",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "player_error_message",
+            "title": "Player Error Message",
+            "type": "`$STRING`",
+            "req": True,
           },
           {
             "name": "timeframe",
@@ -14596,6 +13422,50 @@ def make_config():
             "req": True,
             "format": "int64",
           },
+          {
+            "name": "video_title",
+            "title": "Video Title",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "view_end",
+            "title": "View End",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "view_start",
+            "title": "View Start",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "viewer_application_name",
+            "title": "Viewer Application Name",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "viewer_experience_score",
+            "title": "Viewer Experience Score",
+            "type": "`$NUMBER`",
+            "req": True,
+            "format": "float",
+          },
+          {
+            "name": "viewer_os_family",
+            "title": "Viewer Os Family",
+            "type": "`$STRING`",
+            "req": True,
+          },
+          {
+            "name": "watch_time",
+            "title": "Watch Time",
+            "type": "`$INTEGER`",
+            "req": True,
+            "format": "int32",
+          },
         ],
         "id": {
           "field": "id",
@@ -14603,6 +13473,104 @@ def make_config():
         },
         "name": "video_view",
         "op": {
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/data/v1/video-views",
+                "segments": [
+                  {
+                    "lit": "data",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "video-views",
+                  },
+                ],
+                "parts": [
+                  "data",
+                  "v1",
+                  "video-views",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "error_id",
+                      "orig": "error_id",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "filter",
+                      "orig": "filters[]",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "metric_filter",
+                      "orig": "metric_filters[]",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "order_direction",
+                      "orig": "order_direction",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                    {
+                      "name": "timeframe",
+                      "orig": "timeframe[]",
+                      "type": "`$ARRAY`",
+                      "kind": "query",
+                    },
+                    {
+                      "name": "viewer_id",
+                      "orig": "viewer_id",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "error_id",
+                    "filter",
+                    "limit",
+                    "metric_filter",
+                    "order_direction",
+                    "page",
+                    "timeframe",
+                    "viewer_id",
+                  ],
+                },
+              },
+            ],
+          },
           "load": {
             "input": "data",
             "name": "load",
@@ -14644,7 +13612,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "video_view_id",
+                      "orig": "VIDEO_VIEW_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -14753,6 +13721,62 @@ def make_config():
               },
             ],
           },
+          "list": {
+            "input": "data",
+            "name": "list",
+            "points": [
+              {
+                "kind": "http",
+                "method": "GET",
+                "orig": "/system/v1/webhooks",
+                "segments": [
+                  {
+                    "lit": "system",
+                  },
+                  {
+                    "lit": "v1",
+                  },
+                  {
+                    "lit": "webhooks",
+                  },
+                ],
+                "parts": [
+                  "system",
+                  "v1",
+                  "webhooks",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body.data`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "limit",
+                      "orig": "limit",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 25,
+                    },
+                    {
+                      "name": "page",
+                      "orig": "page",
+                      "type": "`$INTEGER`",
+                      "kind": "query",
+                      "example": 1,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "limit",
+                    "page",
+                  ],
+                },
+              },
+            ],
+          },
           "load": {
             "input": "data",
             "name": "load",
@@ -14794,7 +13818,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "webhook_id",
+                      "orig": "WEBHOOK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -14850,7 +13874,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "webhook_id",
+                      "orig": "WEBHOOK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,
@@ -14906,7 +13930,7 @@ def make_config():
                   "params": [
                     {
                       "name": "id",
-                      "orig": "webhook_id",
+                      "orig": "WEBHOOK_ID",
                       "type": "`$STRING`",
                       "kind": "param",
                       "reqd": True,

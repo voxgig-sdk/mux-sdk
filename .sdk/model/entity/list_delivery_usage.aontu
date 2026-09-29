@@ -140,7 +140,7 @@ main: kit: entity: list_delivery_usage: {
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -170,7 +170,7 @@ main: kit: entity: list_delivery_usage: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

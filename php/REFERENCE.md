@@ -82,10 +82,6 @@ Create a new `DirectiveEntity` instance. Pass `null` for no initial data.
 
 Create a new `DirectiveRunDetailEntity` instance. Pass `null` for no initial data.
 
-#### `DirectiveRunList($data = null)`
-
-Create a new `DirectiveRunListEntity` instance. Pass `null` for no initial data.
-
 #### `DrmConfiguration($data = null)`
 
 Create a new `DrmConfigurationEntity` instance. Pass `null` for no initial data.
@@ -150,14 +146,6 @@ Create a new `JobSummaryEntity` instance. Pass `null` for no initial data.
 
 Create a new `ListAllMetricValueEntity` instance. Pass `null` for no initial data.
 
-#### `ListAnnotation($data = null)`
-
-Create a new `ListAnnotationEntity` instance. Pass `null` for no initial data.
-
-#### `ListAsset($data = null)`
-
-Create a new `ListAssetEntity` instance. Pass `null` for no initial data.
-
 #### `ListBreakdownValue($data = null)`
 
 Create a new `ListBreakdownValueEntity` instance. Pass `null` for no initial data.
@@ -166,17 +154,9 @@ Create a new `ListBreakdownValueEntity` instance. Pass `null` for no initial dat
 
 Create a new `ListDeliveryUsageEntity` instance. Pass `null` for no initial data.
 
-#### `ListDimension($data = null)`
-
-Create a new `ListDimensionEntity` instance. Pass `null` for no initial data.
-
 #### `ListDimensionValue($data = null)`
 
 Create a new `ListDimensionValueEntity` instance. Pass `null` for no initial data.
-
-#### `ListDrmConfiguration($data = null)`
-
-Create a new `ListDrmConfigurationEntity` instance. Pass `null` for no initial data.
 
 #### `ListError($data = null)`
 
@@ -186,29 +166,13 @@ Create a new `ListErrorEntity` instance. Pass `null` for no initial data.
 
 Create a new `ListExportEntity` instance. Pass `null` for no initial data.
 
-#### `ListFilter($data = null)`
-
-Create a new `ListFilterEntity` instance. Pass `null` for no initial data.
-
 #### `ListFilterValue($data = null)`
 
 Create a new `ListFilterValueEntity` instance. Pass `null` for no initial data.
 
-#### `ListIncident($data = null)`
-
-Create a new `ListIncidentEntity` instance. Pass `null` for no initial data.
-
 #### `ListInsight($data = null)`
 
 Create a new `ListInsightEntity` instance. Pass `null` for no initial data.
-
-#### `ListJob($data = null)`
-
-Create a new `ListJobEntity` instance. Pass `null` for no initial data.
-
-#### `ListLiveStream($data = null)`
-
-Create a new `ListLiveStreamEntity` instance. Pass `null` for no initial data.
 
 #### `ListMonitoringDimension($data = null)`
 
@@ -217,10 +181,6 @@ Create a new `ListMonitoringDimensionEntity` instance. Pass `null` for no initia
 #### `ListMonitoringMetric($data = null)`
 
 Create a new `ListMonitoringMetricEntity` instance. Pass `null` for no initial data.
-
-#### `ListPlaybackRestriction($data = null)`
-
-Create a new `ListPlaybackRestrictionEntity` instance. Pass `null` for no initial data.
 
 #### `ListRealTimeDimension($data = null)`
 
@@ -233,10 +193,6 @@ Create a new `ListRealTimeMetricEntity` instance. Pass `null` for no initial dat
 #### `ListRelatedIncident($data = null)`
 
 Create a new `ListRelatedIncidentEntity` instance. Pass `null` for no initial data.
-
-#### `ListSigningKey($data = null)`
-
-Create a new `ListSigningKeyEntity` instance. Pass `null` for no initial data.
 
 #### `ListSubviewBreakdownValue($data = null)`
 
@@ -254,29 +210,9 @@ Create a new `ListSubviewDimensionEntity` instance. Pass `null` for no initial d
 
 Create a new `ListSubviewDimensionValueEntity` instance. Pass `null` for no initial data.
 
-#### `ListTranscriptionVocabulary($data = null)`
-
-Create a new `ListTranscriptionVocabularyEntity` instance. Pass `null` for no initial data.
-
-#### `ListUpload($data = null)`
-
-Create a new `ListUploadEntity` instance. Pass `null` for no initial data.
-
-#### `ListUsageExport($data = null)`
-
-Create a new `ListUsageExportEntity` instance. Pass `null` for no initial data.
-
-#### `ListVideoView($data = null)`
-
-Create a new `ListVideoViewEntity` instance. Pass `null` for no initial data.
-
 #### `ListVideoViewExport($data = null)`
 
 Create a new `ListVideoViewExportEntity` instance. Pass `null` for no initial data.
-
-#### `ListWebhook($data = null)`
-
-Create a new `ListWebhookEntity` instance. Pass `null` for no initial data.
 
 #### `LiveStream($data = null)`
 
@@ -382,6 +318,10 @@ Create a new `UploadEntity` instance. Pass `null` for no initial data.
 
 Create a new `UrlSigningKeyEntity` instance. Pass `null` for no initial data.
 
+#### `UsageExport($data = null)`
+
+Create a new `UsageExportEntity` instance. Pass `null` for no initial data.
+
 #### `VideoView($data = null)`
 
 Create a new `VideoViewEntity` instance. Pass `null` for no initial data.
@@ -458,6 +398,14 @@ $result = $client->Annotation()->create([
   "id" => null, // string
   "note" => null, // string
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Annotation()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -662,6 +610,14 @@ $result = $client->Asset()->create([
   "shots" => null, // array
   "status" => null, // string
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Asset()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -1122,6 +1078,14 @@ $directive_run_detail = $client->DirectiveRunDetail();
 
 ### Operations
 
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->DirectiveRunDetail()->list();
+```
+
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
 Load a single entity matching the given criteria. Throws on error.
@@ -1160,63 +1124,6 @@ Return the entity name.
 
 ---
 
-## DirectiveRunListEntity
-
-```php
-$directive_run_list = $client->DirectiveRunList();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `completed_at` | `mixed` | Yes | Unix timestamp (seconds) when the run reached terminal state. |
-| `node_states` | `array` | Yes | Per-binding status entries, one per binding, in the order the bindings appear in `directive.workflows[]`. |
-| `run_id` | `string` | Yes | Unique run identifier (drvrun_...). |
-| `started_at` | `int` | Yes | Unix timestamp (seconds) when the run started. |
-| `status` | `string` | Yes | Current run status. |
-| `subject_id` | `string` | Yes | The bare Mux asset ID this run targeted. |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->DirectiveRunList()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): DirectiveRunListEntity`
-
-Create a new `DirectiveRunListEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## DrmConfigurationEntity
 
 ```php
@@ -1230,6 +1137,14 @@ $drm_configuration = $client->DrmConfiguration();
 | `id` | `string` | Yes | Unique identifier for the DRM Configuration. |
 
 ### Operations
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->DrmConfiguration()->list();
+```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
@@ -2071,12 +1986,40 @@ $incident = $client->Incident();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `affected_views` | `int` | Yes |  |
+| `affected_views_per_hour` | `int` | Yes |  |
+| `affected_views_per_hour_on_open` | `int` | Yes |  |
+| `breakdowns` | `array` | Yes |  |
 | `data` | `array` | Yes |  |
-| `id` | `string` | No |  |
+| `description` | `string` | Yes |  |
+| `error_description` | `string` | Yes |  |
+| `id` | `string` | Yes |  |
+| `impact` | `string` | Yes |  |
+| `incident_key` | `string` | Yes |  |
+| `measured_value` | `float` | Yes |  |
+| `measured_value_on_close` | `float` | Yes |  |
+| `measurement` | `string` | Yes |  |
+| `notification_rules` | `array` | Yes |  |
+| `notifications` | `array` | Yes |  |
+| `resolved_at` | `string` | Yes |  |
+| `sample_size` | `int` | Yes |  |
+| `sample_size_unit` | `string` | Yes |  |
+| `severity` | `string` | Yes |  |
+| `started_at` | `string` | Yes |  |
+| `status` | `string` | Yes |  |
+| `threshold` | `float` | Yes |  |
 | `timeframe` | `array` | Yes |  |
 | `total_row_count` | `int` | Yes |  |
 
 ### Operations
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Incident()->list();
+```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
@@ -2204,6 +2147,14 @@ $result = $client->JobSummary()->create([
 ]);
 ```
 
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->JobSummary()->list();
+```
+
 ### Common Methods
 
 #### `data_get(): array`
@@ -2287,146 +2238,6 @@ Set the entity match criteria.
 #### `make(): ListAllMetricValueEntity`
 
 Create a new `ListAllMetricValueEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ListAnnotationEntity
-
-```php
-$list_annotation = $client->ListAnnotation();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `date` | `string` | Yes | Datetime when the annotation applies |
-| `id` | `string` | Yes | Unique identifier for the annotation |
-| `note` | `string` | Yes | The annotation note content |
-| `sub_property_id` | `string` | No | Customer-defined sub-property identifier |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListAnnotation()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListAnnotationEntity`
-
-Create a new `ListAnnotationEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ListAssetEntity
-
-```php
-$list_asset = $client->ListAsset();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `aspect_ratio` | `string` | No | The aspect ratio of the asset in the form of `width:height`, for example `16:9`. |
-| `created_at` | `string` | Yes | Time the Asset was created, defined as a Unix timestamp (seconds since epoch). |
-| `directives` | `array` | No | The Mux Robots directives applied to the asset. |
-| `duration` | `float` | No | The duration of the asset in seconds (max duration for a single asset is 12 hours). |
-| `encoding_tier` | `string` | Yes | This field is deprecated. |
-| `errors` | `array` | No | Object that describes any errors that happened when processing this asset. |
-| `generate_shots` | `bool` | No | Whether to perform shot detection on this asset. |
-| `id` | `string` | Yes | Unique identifier for the Asset. |
-| `ingest_type` | `string` | No | The type of ingest used to create the asset. |
-| `is_live` | `bool` | No | Indicates whether the live stream that created this asset is currently `active` and not in `idle` state. |
-| `live_stream_id` | `string` | No | Unique identifier for the live stream. |
-| `master` | `array` | No | An object containing the current status of Master Access and the link to the Master MP4 file when ready. |
-| `master_access` | `string` | Yes |  |
-| `max_resolution_tier` | `string` | Yes | Max resolution tier can be used to control the maximum `resolution_tier` your asset is encoded, stored, and streamed at. |
-| `max_stored_frame_rate` | `float` | No | The maximum frame rate that has been stored for the asset. |
-| `max_stored_resolution` | `string` | No | This field is deprecated. |
-| `meta` | `array` | No | Customer provided metadata about this asset. |
-| `mp4_support` | `string` | No | Deprecated. |
-| `non_standard_input_reasons` | `array` | No | An object containing one or more reasons the input file is non-standard. |
-| `normalize_audio` | `bool` | No | Normalize the audio track loudness level. |
-| `passthrough` | `string` | No | You can set this field to anything you want. |
-| `playback_ids` | `array` | No | An array of Playback ID objects. |
-| `progress` | `array` | Yes | Detailed state information about the asset ingest process. |
-| `recording_times` | `array` | No | An array of individual live stream recording sessions. |
-| `resolution_tier` | `string` | No | The resolution tier that the asset was ingested at, affecting billing for ingest & storage. |
-| `shots` | `array` | Yes | The results of generating shots on the video |
-| `source_asset_id` | `string` | No | Asset Identifier of the video used as the source for creating the clip. |
-| `static_renditions` | `array` | No | An object containing the current status of any static renditions (MP4s) for this asset. |
-| `status` | `string` | Yes | The status of the asset. |
-| `test` | `bool` | No | True means this live stream is a test asset. |
-| `thumbnail_time` | `float` | No | The media time within the asset used when a thumbnail without an explicit time is requested. |
-| `tracks` | `array` | No | The individual media tracks that make up an asset. |
-| `upload_id` | `string` | No | Unique identifier for the Direct Upload. |
-| `video_quality` | `string` | No | The video quality controls the cost, quality, and available platform features for the asset. |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListAsset()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListAssetEntity`
-
-Create a new `ListAssetEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2556,60 +2367,6 @@ Return the entity name.
 
 ---
 
-## ListDimensionEntity
-
-```php
-$list_dimension = $client->ListDimension();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `array` | Yes |  |
-| `timeframe` | `array` | Yes |  |
-| `total_row_count` | `int` | Yes |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListDimension()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListDimensionEntity`
-
-Create a new `ListDimensionEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## ListDimensionValueEntity
 
 ```php
@@ -2665,58 +2422,6 @@ Set the entity match criteria.
 #### `make(): ListDimensionValueEntity`
 
 Create a new `ListDimensionValueEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ListDrmConfigurationEntity
-
-```php
-$list_drm_configuration = $client->ListDrmConfiguration();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `id` | `string` | Yes | Unique identifier for the DRM Configuration. |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListDrmConfiguration()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListDrmConfigurationEntity`
-
-Create a new `ListDrmConfigurationEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -2840,10 +2545,10 @@ Return the entity name.
 
 ---
 
-## ListFilterEntity
+## ListFilterValueEntity
 
 ```php
-$list_filter = $client->ListFilter();
+$list_filter_value = $client->ListFilterValue();
 ```
 
 ### Fields
@@ -2861,54 +2566,8 @@ $list_filter = $client->ListFilter();
 List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->ListFilter()->list();
+$results = $client->ListFilterValue()->list();
 ```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListFilterEntity`
-
-Create a new `ListFilterEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ListFilterValueEntity
-
-```php
-$list_filter_value = $client->ListFilterValue();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `array` | Yes |  |
-| `timeframe` | `array` | Yes |  |
-| `total_row_count` | `int` | Yes |  |
-
-### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
@@ -2939,78 +2598,6 @@ Set the entity match criteria.
 #### `make(): ListFilterValueEntity`
 
 Create a new `ListFilterValueEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ListIncidentEntity
-
-```php
-$list_incident = $client->ListIncident();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `affected_views` | `int` | Yes |  |
-| `affected_views_per_hour` | `int` | Yes |  |
-| `affected_views_per_hour_on_open` | `int` | Yes |  |
-| `breakdowns` | `array` | Yes |  |
-| `description` | `string` | Yes |  |
-| `error_description` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `impact` | `string` | Yes |  |
-| `incident_key` | `string` | Yes |  |
-| `measured_value` | `float` | Yes |  |
-| `measured_value_on_close` | `float` | Yes |  |
-| `measurement` | `string` | Yes |  |
-| `notification_rules` | `array` | Yes |  |
-| `notifications` | `array` | Yes |  |
-| `resolved_at` | `string` | Yes |  |
-| `sample_size` | `int` | Yes |  |
-| `sample_size_unit` | `string` | Yes |  |
-| `severity` | `string` | Yes |  |
-| `started_at` | `string` | Yes |  |
-| `status` | `string` | Yes |  |
-| `threshold` | `float` | Yes |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListIncident()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListIncidentEntity`
-
-Create a new `ListIncidentEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3069,138 +2656,6 @@ Set the entity match criteria.
 #### `make(): ListInsightEntity`
 
 Create a new `ListInsightEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ListJobEntity
-
-```php
-$list_job = $client->ListJob();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `int` | Yes | Unix timestamp (seconds) when the job was created. |
-| `id` | `string` | Yes | Unique job identifier. |
-| `links` | `array` | Yes | Hypermedia links for this job. |
-| `status` | `string` | Yes | Current job status. |
-| `updated_at` | `int` | Yes | Unix timestamp (seconds) of the job's last state transition (e.g. |
-| `workflow` | `string` | Yes | Workflow type that created this job. |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListJob()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListJobEntity`
-
-Create a new `ListJobEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ListLiveStreamEntity
-
-```php
-$list_live_stream = $client->ListLiveStream();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `active_asset_id` | `string` | No | The Asset that is currently being created if there is an active broadcast. |
-| `active_ingest_protocol` | `string` | No | The protocol used for the active ingest stream. |
-| `audio_only` | `bool` | No | The live stream only processes the audio track if the value is set to true. |
-| `created_at` | `string` | Yes | Time the Live Stream was created, defined as a Unix timestamp (seconds since epoch). |
-| `embedded_subtitles` | `array` | No | Describes the embedded closed caption configuration of the incoming live stream. |
-| `generated_subtitles` | `array` | No | Configure the incoming live stream to include subtitles created with automatic speech recognition. |
-| `id` | `string` | Yes | Unique identifier for the Live Stream. |
-| `latency_mode` | `string` | Yes | Latency is the time from when the streamer transmits a frame of video to when you see it in the player. |
-| `low_latency` | `bool` | No | This field is deprecated. |
-| `max_continuous_duration` | `int` | Yes | The time in seconds a live stream may be continuously active before being disconnected. |
-| `meta` | `array` | No | Customer provided metadata about this live stream. |
-| `new_asset_settings` | `array` | No |  |
-| `passthrough` | `string` | No | Arbitrary user-supplied metadata set for the asset. |
-| `playback_ids` | `array` | No | An array of Playback ID objects. |
-| `recent_asset_ids` | `array` | No | An array of strings with the most recent Asset IDs that were created from this Live Stream. |
-| `reconnect_slate_url` | `string` | No | The URL of the image file that Mux should download and use as slate media during interruptions of the live stream media. |
-| `reconnect_window` | `float` | No | When live streaming software disconnects from Mux, either intentionally or due to a drop in the network, the Reconnect Window is the time in seconds that Mux should wait for the streaming software to reconnect before considering the live s… |
-| `reduced_latency` | `bool` | No | This field is deprecated. |
-| `simulcast_targets` | `array` | No | Each Simulcast Target contains configuration details to broadcast (or "restream") a live stream to a third-party streaming service. |
-| `srt_passphrase` | `string` | No | Unique key used for encrypting a stream to a Mux SRT endpoint. |
-| `status` | `string` | Yes | `idle` indicates that there is no active broadcast. |
-| `stream_key` | `string` | Yes | Unique key used for streaming to a Mux RTMP endpoint. |
-| `test` | `bool` | No | True means this live stream is a test live stream. |
-| `use_slate_for_standard_latency` | `bool` | No | By default, Standard Latency live streams do not have slate media inserted while waiting for live streaming software to reconnect to Mux. |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListLiveStream()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListLiveStreamEntity`
-
-Create a new `ListLiveStreamEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3307,62 +2762,6 @@ Set the entity match criteria.
 #### `make(): ListMonitoringMetricEntity`
 
 Create a new `ListMonitoringMetricEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ListPlaybackRestrictionEntity
-
-```php
-$list_playback_restriction = $client->ListPlaybackRestriction();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `string` | Yes | Time the Playback Restriction was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `string` | Yes | Unique identifier for the Playback Restriction. |
-| `referrer` | `array` | Yes | A list of domains allowed to play your videos. |
-| `updated_at` | `string` | Yes | Time the Playback Restriction was last updated, defined as a Unix timestamp (seconds since epoch). |
-| `user_agent` | `array` | Yes | Rules that control what user agents are allowed to play your videos. |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListPlaybackRestriction()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListPlaybackRestrictionEntity`
-
-Create a new `ListPlaybackRestrictionEntity` instance with the same client and
 options.
 
 #### `get_name(): string`
@@ -3550,60 +2949,6 @@ Return the entity name.
 
 ---
 
-## ListSigningKeyEntity
-
-```php
-$list_signing_key = $client->ListSigningKey();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `string` | Yes | Time at which the object was created. |
-| `id` | `string` | Yes | Unique identifier for the Signing Key. |
-| `private_key` | `string` | No | A Base64 encoded private key that can be used with the RS256 algorithm when creating a [JWT](https://jwt.io/). |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListSigningKey()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListSigningKeyEntity`
-
-Create a new `ListSigningKeyEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## ListSubviewBreakdownValueEntity
 
 ```php
@@ -3720,8 +3065,8 @@ $list_subview_dimension = $client->ListSubviewDimension();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `subview` | `array` | Yes |  |
-| `view` | `array` | Yes |  |
+| `data` | `array` | Yes |  |
+| `total_row_count` | `int` | Yes | Always `null` for this endpoint, matching `GET /data/v1/dimensions`, which also never computes a row count. |
 
 ### Operations
 
@@ -3818,243 +3163,6 @@ Return the entity name.
 
 ---
 
-## ListTranscriptionVocabularyEntity
-
-```php
-$list_transcription_vocabulary = $client->ListTranscriptionVocabulary();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `created_at` | `string` | Yes | Time the Transcription Vocabulary was created, defined as a Unix timestamp (seconds since epoch). |
-| `id` | `string` | Yes | Unique identifier for the Transcription Vocabulary |
-| `name` | `string` | No | The user-supplied name of the Transcription Vocabulary. |
-| `passthrough` | `string` | No | Arbitrary user-supplied metadata set for the Transcription Vocabulary. |
-| `phrases` | `array` | No | Phrases, individual words, or proper names to include in the Transcription Vocabulary. |
-| `updated_at` | `string` | Yes | Time the Transcription Vocabulary was updated, defined as a Unix timestamp (seconds since epoch). |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListTranscriptionVocabulary()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListTranscriptionVocabularyEntity`
-
-Create a new `ListTranscriptionVocabularyEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ListUploadEntity
-
-```php
-$list_upload = $client->ListUpload();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `asset_id` | `string` | No | Only set once the upload is in the `asset_created` state. |
-| `cors_origin` | `string` | Yes | If the upload URL will be used in a browser, you must specify the origin in order for the signed URL to have the correct CORS headers. |
-| `error` | `array` | No | Only set if an error occurred during asset creation. |
-| `id` | `string` | Yes | Unique identifier for the Direct Upload. |
-| `new_asset_settings` | `array` | No |  |
-| `status` | `string` | Yes |  |
-| `test` | `bool` | No | Indicates if this is a test Direct Upload, in which case the Asset that gets created will be a `test` Asset. |
-| `timeout` | `int` | Yes | Max time in seconds for the signed upload URL to be valid. |
-| `url` | `string` | No | The URL to upload the associated source media to. |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListUpload()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListUploadEntity`
-
-Create a new `ListUploadEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ListUsageExportEntity
-
-```php
-$list_usage_export = $client->ListUsageExport();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `date` | `string` | Yes | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
-| `download_url` | `string` | Yes | A pre-signed URL to download the CSV. |
-| `download_url_expires_at` | `int` | Yes | Unix timestamp (seconds since epoch) at which `download_url` expires. |
-| `file_size` | `int` | Yes | Uncompressed size of the CSV file in bytes. |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListUsageExport()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListUsageExportEntity`
-
-Create a new `ListUsageExportEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## ListVideoViewEntity
-
-```php
-$list_video_view = $client->ListVideoView();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `country_code` | `string` | Yes |  |
-| `error_type_id` | `int` | Yes |  |
-| `id` | `string` | Yes |  |
-| `playback_failure` | `bool` | Yes |  |
-| `player_error_code` | `string` | Yes |  |
-| `player_error_message` | `string` | Yes |  |
-| `total_row_count` | `int` | Yes |  |
-| `video_title` | `string` | Yes |  |
-| `view_end` | `string` | Yes |  |
-| `view_start` | `string` | Yes |  |
-| `viewer_application_name` | `string` | Yes |  |
-| `viewer_experience_score` | `float` | Yes |  |
-| `viewer_os_family` | `string` | Yes |  |
-| `watch_time` | `int` | Yes |  |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListVideoView()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListVideoViewEntity`
-
-Create a new `ListVideoViewEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## ListVideoViewExportEntity
 
 ```php
@@ -4108,62 +3216,6 @@ Return the entity name.
 
 ---
 
-## ListWebhookEntity
-
-```php
-$list_webhook = $client->ListWebhook();
-```
-
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `address` | `string` | Yes | The URL where Mux sends webhook notifications. |
-| `created_at` | `string` | Yes | Time at which the webhook was created, as an ISO 8601 UTC datetime. |
-| `enabled` | `bool` | Yes | Whether Mux attempts to deliver notifications to this webhook. |
-| `id` | `string` | Yes | Unique identifier for the webhook. |
-| `signing_secret` | `string` | No | Secret used to verify that webhook payloads were sent by Mux. |
-
-### Operations
-
-#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
-
-List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
-
-```php
-$results = $client->ListWebhook()->list();
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): ListWebhookEntity`
-
-Create a new `ListWebhookEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
 ## LiveStreamEntity
 
 ```php
@@ -4204,35 +3256,35 @@ $live_stream = $client->LiveStream();
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `active_asset_id` | - | - | - | - |
-| `active_ingest_protocol` | - | - | - | - |
-| `advanced_playback_policies` | - | - | - | - |
-| `audio_only` | - | - | - | - |
-| `created_at` | - | - | - | - |
-| `embedded_subtitles` | - | - | - | - |
-| `generated_subtitles` | - | - | - | - |
-| `id` | - | - | - | - |
-| `latency_mode` | - | Yes | Yes | - |
-| `low_latency` | - | - | - | - |
-| `max_continuous_duration` | - | Yes | Yes | - |
-| `meta` | - | - | - | - |
-| `new_asset_settings` | - | - | - | - |
-| `passthrough` | - | - | - | - |
-| `playback_ids` | - | - | - | - |
-| `playback_policies` | - | - | - | - |
-| `playback_policy` | - | - | - | - |
-| `recent_asset_ids` | - | - | - | - |
-| `reconnect_slate_url` | - | - | - | - |
-| `reconnect_window` | - | - | - | - |
-| `reduced_latency` | - | - | - | - |
-| `simulcast_targets` | - | - | - | - |
-| `srt_passphrase` | - | - | - | - |
-| `status` | - | - | - | - |
-| `stream_key` | - | - | - | - |
-| `test` | - | - | - | - |
-| `use_slate_for_standard_latency` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `active_asset_id` | - | - | - | - | - |
+| `active_ingest_protocol` | - | - | - | - | - |
+| `advanced_playback_policies` | - | - | - | - | - |
+| `audio_only` | - | - | - | - | - |
+| `created_at` | - | - | - | - | - |
+| `embedded_subtitles` | - | - | - | - | - |
+| `generated_subtitles` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `latency_mode` | - | - | Yes | Yes | - |
+| `low_latency` | - | - | - | - | - |
+| `max_continuous_duration` | - | - | Yes | Yes | - |
+| `meta` | - | - | - | - | - |
+| `new_asset_settings` | - | - | - | - | - |
+| `passthrough` | - | - | - | - | - |
+| `playback_ids` | - | - | - | - | - |
+| `playback_policies` | - | - | - | - | - |
+| `playback_policy` | - | - | - | - | - |
+| `recent_asset_ids` | - | - | - | - | - |
+| `reconnect_slate_url` | - | - | - | - | - |
+| `reconnect_window` | - | - | - | - | - |
+| `reduced_latency` | - | - | - | - | - |
+| `simulcast_targets` | - | - | - | - | - |
+| `srt_passphrase` | - | - | - | - | - |
+| `status` | - | - | - | - | - |
+| `stream_key` | - | - | - | - | - |
+| `test` | - | - | - | - | - |
+| `use_slate_for_standard_latency` | - | - | - | - | - |
 
 ### Operations
 
@@ -4249,6 +3301,14 @@ $result = $client->LiveStream()->create([
   "status" => null, // string
   "stream_key" => null, // string
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->LiveStream()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -4808,6 +3868,14 @@ $result = $client->PlaybackRestriction()->create([
 ]);
 ```
 
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->PlaybackRestriction()->list();
+```
+
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
 Load a single entity matching the given criteria. Throws on error.
@@ -5041,12 +4109,6 @@ Return the entity name.
 $signal_live_stream_complete = $client->SignalLiveStreamComplete();
 ```
 
-### Fields
-
-| Field | Type | Required | Description |
-| --- | --- | --- | --- |
-| `data` | `array` | No |  |
-
 ### Operations
 
 #### `update(array $reqdata, ?array $ctrl = null): mixed`
@@ -5116,6 +4178,14 @@ $result = $client->SigningKey()->create([
   "created_at" => null, // string
   "id" => null, // string
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->SigningKey()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -5500,14 +4570,14 @@ $transcription_vocabulary = $client->TranscriptionVocabulary();
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `created_at` | - | - | - | - |
-| `id` | - | - | - | - |
-| `name` | - | - | - | - |
-| `passthrough` | - | - | - | - |
-| `phrases` | - | Yes | Yes | - |
-| `updated_at` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `created_at` | - | - | - | - | - |
+| `id` | - | - | - | - | - |
+| `name` | - | - | - | - | - |
+| `passthrough` | - | - | - | - | - |
+| `phrases` | - | - | Yes | Yes | - |
+| `updated_at` | - | - | - | - | - |
 
 ### Operations
 
@@ -5521,6 +4591,14 @@ $result = $client->TranscriptionVocabulary()->create([
   "id" => null, // string
   "updated_at" => null, // string
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->TranscriptionVocabulary()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -5835,17 +4913,17 @@ $upload = $client->Upload();
 
 ### Field Usage by Operation
 
-| Field | load | create | update |
-| --- | --- | --- | --- |
-| `asset_id` | - | - | - |
-| `cors_origin` | - | - | - |
-| `error` | - | - | - |
-| `id` | - | - | - |
-| `new_asset_settings` | - | - | - |
-| `status` | - | - | - |
-| `test` | - | - | - |
-| `timeout` | - | Yes | - |
-| `url` | - | - | - |
+| Field | load | list | create | update |
+| --- | --- | --- | --- | --- |
+| `asset_id` | - | - | - | - |
+| `cors_origin` | - | - | - | - |
+| `error` | - | - | - | - |
+| `id` | - | - | - | - |
+| `new_asset_settings` | - | - | - | - |
+| `status` | - | - | - | - |
+| `test` | - | - | - | - |
+| `timeout` | - | - | Yes | - |
+| `url` | - | - | - | - |
 
 ### Operations
 
@@ -5860,6 +4938,14 @@ $result = $client->Upload()->create([
   "status" => null, // string
   "timeout" => null, // int
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Upload()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -5964,6 +5050,61 @@ Return the entity name.
 
 ---
 
+## UsageExportEntity
+
+```php
+$usage_export = $client->UsageExport();
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `date` | `string` | Yes | The calendar date this CSV covers, in `YYYY-MM-DD` format. |
+| `download_url` | `string` | Yes | A pre-signed URL to download the CSV. |
+| `download_url_expires_at` | `int` | Yes | Unix timestamp (seconds since epoch) at which `download_url` expires. |
+| `file_size` | `int` | Yes | Uncompressed size of the CSV file in bytes. |
+
+### Operations
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->UsageExport()->list();
+```
+
+### Common Methods
+
+#### `data_get(): array`
+
+Get the entity data. Returns a copy of the current data.
+
+#### `data_set($data): void`
+
+Set the entity data.
+
+#### `match_get(): array`
+
+Get the entity match criteria.
+
+#### `match_set($match): void`
+
+Set the entity match criteria.
+
+#### `make(): UsageExportEntity`
+
+Create a new `UsageExportEntity` instance with the same client and
+options.
+
+#### `get_name(): string`
+
+Return the entity name.
+
+
+---
+
 ## VideoViewEntity
 
 ```php
@@ -5974,12 +5115,32 @@ $video_view = $client->VideoView();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `country_code` | `string` | Yes |  |
 | `data` | `array` | Yes |  |
-| `id` | `string` | No |  |
+| `error_type_id` | `int` | Yes |  |
+| `id` | `string` | Yes |  |
+| `playback_failure` | `bool` | Yes |  |
+| `player_error_code` | `string` | Yes |  |
+| `player_error_message` | `string` | Yes |  |
 | `timeframe` | `array` | Yes |  |
 | `total_row_count` | `int` | Yes |  |
+| `video_title` | `string` | Yes |  |
+| `view_end` | `string` | Yes |  |
+| `view_start` | `string` | Yes |  |
+| `viewer_application_name` | `string` | Yes |  |
+| `viewer_experience_score` | `float` | Yes |  |
+| `viewer_os_family` | `string` | Yes |  |
+| `watch_time` | `int` | Yes |  |
 
 ### Operations
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->VideoView()->list();
+```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
 
@@ -6037,13 +5198,13 @@ $webhook = $client->Webhook();
 
 ### Field Usage by Operation
 
-| Field | load | create | update | remove |
-| --- | --- | --- | --- | --- |
-| `address` | - | - | Yes | - |
-| `created_at` | - | - | - | - |
-| `enabled` | - | - | Yes | - |
-| `id` | - | - | - | - |
-| `signing_secret` | - | - | - | - |
+| Field | load | list | create | update | remove |
+| --- | --- | --- | --- | --- | --- |
+| `address` | - | - | - | Yes | - |
+| `created_at` | - | - | - | - | - |
+| `enabled` | - | - | - | Yes | - |
+| `id` | - | - | - | - | - |
+| `signing_secret` | - | - | - | - | - |
 
 ### Operations
 
@@ -6058,6 +5219,14 @@ $result = $client->Webhook()->create([
   "enabled" => null, // bool
   "id" => null, // string
 ]);
+```
+
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
+
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
+
+```php
+$results = $client->Webhook()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`

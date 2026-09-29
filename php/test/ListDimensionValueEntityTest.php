@@ -87,9 +87,7 @@ class ListDimensionValueEntityTest extends TestCase
 
         // LIST
         $list_dimension_value_ref01_ent = $client->ListDimensionValue(null);
-        $list_dimension_value_ref01_match = [
-            "dimension_id" => $setup["idmap"]["dimension01"],
-        ];
+        $list_dimension_value_ref01_match = [];
 
         $list_dimension_value_ref01_list_result = $list_dimension_value_ref01_ent->list($list_dimension_value_ref01_match, null);
         $this->assertIsArray($list_dimension_value_ref01_list_result);
@@ -117,7 +115,7 @@ function list_dimension_value_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["list_dimension_value01", "list_dimension_value02", "list_dimension_value03", "dimension01"] as $k) {
+    foreach (["list_dimension_value01", "list_dimension_value02", "list_dimension_value03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

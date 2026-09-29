@@ -27,8 +27,8 @@ Tool-call arguments (what an agent sends):
 
 ```jsonc
 // mux_list: first page of records
-{ "entity": "directive" }
-{ "entity": "directive", "query": { } }
+{ "entity": "annotation" }
+{ "entity": "annotation", "query": { } }
 
 // mux_load: one record by id
 { "entity": "annotation", "query": { "id": 1 } }
@@ -60,8 +60,8 @@ Tool-call arguments (what an agent sends):
    ```
 
 4. **Restart Claude Code.** The `mux_list` and `mux_load` tools now appear
-   in new sessions. Ask the agent to *"list directive using mux"*
-   and it calls `mux_list` with `{"entity":"directive"}`.
+   in new sessions. Ask the agent to *"list annotation using mux"*
+   and it calls `mux_list` with `{"entity":"annotation"}`.
 
 ## How-to guides
 
@@ -92,7 +92,7 @@ Args: `entity` (required), `query` (optional filter map). Returns the first
 page of records as JSON:
 
 ```jsonc
-{ "entity": "directive" }
+{ "entity": "annotation" }
 ```
 
 ### Call the `mux_load` tool
@@ -129,7 +129,7 @@ Both tools take the same argument object:
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `entity` | string | One of the 88 supported entities (see below). |
+| `entity` | string | One of the 73 supported entities (see below). |
 | `query` | object | Optional match map. `{"id":N}` for load; omit or `{}` for list. |
 
 JSON schemas are emitted by the SDK from the `Args` struct's `json` /
@@ -151,9 +151,9 @@ JSON schemas are emitted by the SDK from the `Args` struct's `json` /
 
 ### Entities
 
-The 88 entities valid as the `entity` argument:
+The 73 entities valid as the `entity` argument:
 
-annotation | ask_question | asset | asset_or_live_stream_id | asset_playback_id | asset_shot | create_playback_id | create_track | directive | directive_run_detail | directive_run_list | drm_configuration | edit_caption | engagement_heatmap | engagement_hotspot | find_best_thumbnail | find_key_moment | find_scene | generate_asset_shot | generate_chapter | generate_engagement_insight | generate_premium_caption | generate_track_subtitle | incident | input_info | job_summary | list_all_metric_value | list_annotation | list_asset | list_breakdown_value | list_delivery_usage | list_dimension | list_dimension_value | list_drm_configuration | list_error | list_export | list_filter | list_filter_value | list_incident | list_insight | list_job | list_live_stream | list_monitoring_dimension | list_monitoring_metric | list_playback_restriction | list_real_time_dimension | list_real_time_metric | list_related_incident | list_signing_key | list_subview_breakdown_value | list_subview_comparison_value | list_subview_dimension | list_subview_dimension_value | list_transcription_vocabulary | list_upload | list_usage_export | list_video_view | list_video_view_export | list_webhook | live_stream | live_stream_playback_id | metric_timeseries_data | moderate | monitoring_breakdown | monitoring_breakdown_timeseries | monitoring_histogram_timeseries | monitoring_timeseries | overall | playback_restriction | real_time_breakdown | real_time_histogram_timeseries | real_time_timeseries | signal_live_stream_complete | signing_key | simulcast_target | static_rendition | subview_breakdown_timeseries | subview_overall_value | summarize | transcription_vocabulary | translate_audio | translate_caption | update_asset_track | upload | url_signing_key | video_view | webhook | who_am_i
+annotation | ask_question | asset | asset_or_live_stream_id | asset_playback_id | asset_shot | create_playback_id | create_track | directive | directive_run_detail | drm_configuration | edit_caption | engagement_heatmap | engagement_hotspot | find_best_thumbnail | find_key_moment | find_scene | generate_asset_shot | generate_chapter | generate_engagement_insight | generate_premium_caption | generate_track_subtitle | incident | input_info | job_summary | list_all_metric_value | list_breakdown_value | list_delivery_usage | list_dimension_value | list_error | list_export | list_filter_value | list_insight | list_monitoring_dimension | list_monitoring_metric | list_real_time_dimension | list_real_time_metric | list_related_incident | list_subview_breakdown_value | list_subview_comparison_value | list_subview_dimension | list_subview_dimension_value | list_video_view_export | live_stream | live_stream_playback_id | metric_timeseries_data | moderate | monitoring_breakdown | monitoring_breakdown_timeseries | monitoring_histogram_timeseries | monitoring_timeseries | overall | playback_restriction | real_time_breakdown | real_time_histogram_timeseries | real_time_timeseries | signal_live_stream_complete | signing_key | simulcast_target | static_rendition | subview_breakdown_timeseries | subview_overall_value | summarize | transcription_vocabulary | translate_audio | translate_caption | update_asset_track | upload | url_signing_key | usage_export | video_view | webhook | who_am_i
 
 ### Smoke test via HTTP (raw JSON-RPC)
 

@@ -34,7 +34,7 @@ main: kit: entity: url_signing_key: {
               {
                 k: "param"
                 n: "id"
-                or: "signing_key_id"
+                or: "SIGNING_KEY_ID"
                 r: true
                 t: "`$STRING`"
               }

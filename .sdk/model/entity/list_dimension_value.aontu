@@ -56,7 +56,7 @@ main: kit: entity: list_dimension_value: {
                 ex: "abcd1234"
                 k: "param"
                 n: "dimension_id"
-                or: "dimension_id"
+                or: "DIMENSION_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -65,7 +65,7 @@ main: kit: entity: list_dimension_value: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -80,7 +80,7 @@ main: kit: entity: list_dimension_value: {
               {
                 k: "query"
                 n: "metric_filter"
-                or: "metric_filter"
+                or: "metric_filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -109,7 +109,7 @@ main: kit: entity: list_dimension_value: {
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -153,6 +153,30 @@ main: kit: entity: list_dimension_value: {
           ]
           t: {
             req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+        {
+          co: {
+            id: "GET /data/v1/dimensions"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/data/v1/dimensions"
+          s: [
+            {
+              lit: "data"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "dimensions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
             res: "`body`"
           }
         }
@@ -173,7 +197,7 @@ main: kit: entity: list_dimension_value: {
                 ex: "abcd1234"
                 k: "param"
                 n: "dimension_id"
-                or: "dimension_id"
+                or: "DIMENSION_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -182,7 +206,7 @@ main: kit: entity: list_dimension_value: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -197,7 +221,7 @@ main: kit: entity: list_dimension_value: {
               {
                 k: "query"
                 n: "metric_filter"
-                or: "metric_filter"
+                or: "metric_filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -212,7 +236,7 @@ main: kit: entity: list_dimension_value: {
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }

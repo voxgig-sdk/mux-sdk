@@ -83,9 +83,6 @@ func init() {
 	core.NewDirectiveRunDetailEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewDirectiveRunDetailEntity(client, entopts)
 	}
-	core.NewDirectiveRunListEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewDirectiveRunListEntity(client, entopts)
-	}
 	core.NewDrmConfigurationEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewDrmConfigurationEntity(client, entopts)
 	}
@@ -134,26 +131,14 @@ func init() {
 	core.NewListAllMetricValueEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListAllMetricValueEntity(client, entopts)
 	}
-	core.NewListAnnotationEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListAnnotationEntity(client, entopts)
-	}
-	core.NewListAssetEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListAssetEntity(client, entopts)
-	}
 	core.NewListBreakdownValueEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListBreakdownValueEntity(client, entopts)
 	}
 	core.NewListDeliveryUsageEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListDeliveryUsageEntity(client, entopts)
 	}
-	core.NewListDimensionEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListDimensionEntity(client, entopts)
-	}
 	core.NewListDimensionValueEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListDimensionValueEntity(client, entopts)
-	}
-	core.NewListDrmConfigurationEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListDrmConfigurationEntity(client, entopts)
 	}
 	core.NewListErrorEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListErrorEntity(client, entopts)
@@ -161,32 +146,17 @@ func init() {
 	core.NewListExportEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListExportEntity(client, entopts)
 	}
-	core.NewListFilterEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListFilterEntity(client, entopts)
-	}
 	core.NewListFilterValueEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListFilterValueEntity(client, entopts)
 	}
-	core.NewListIncidentEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListIncidentEntity(client, entopts)
-	}
 	core.NewListInsightEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListInsightEntity(client, entopts)
-	}
-	core.NewListJobEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListJobEntity(client, entopts)
-	}
-	core.NewListLiveStreamEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListLiveStreamEntity(client, entopts)
 	}
 	core.NewListMonitoringDimensionEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListMonitoringDimensionEntity(client, entopts)
 	}
 	core.NewListMonitoringMetricEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListMonitoringMetricEntity(client, entopts)
-	}
-	core.NewListPlaybackRestrictionEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListPlaybackRestrictionEntity(client, entopts)
 	}
 	core.NewListRealTimeDimensionEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListRealTimeDimensionEntity(client, entopts)
@@ -196,9 +166,6 @@ func init() {
 	}
 	core.NewListRelatedIncidentEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListRelatedIncidentEntity(client, entopts)
-	}
-	core.NewListSigningKeyEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListSigningKeyEntity(client, entopts)
 	}
 	core.NewListSubviewBreakdownValueEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListSubviewBreakdownValueEntity(client, entopts)
@@ -212,23 +179,8 @@ func init() {
 	core.NewListSubviewDimensionValueEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListSubviewDimensionValueEntity(client, entopts)
 	}
-	core.NewListTranscriptionVocabularyEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListTranscriptionVocabularyEntity(client, entopts)
-	}
-	core.NewListUploadEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListUploadEntity(client, entopts)
-	}
-	core.NewListUsageExportEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListUsageExportEntity(client, entopts)
-	}
-	core.NewListVideoViewEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListVideoViewEntity(client, entopts)
-	}
 	core.NewListVideoViewExportEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewListVideoViewExportEntity(client, entopts)
-	}
-	core.NewListWebhookEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
-		return entity.NewListWebhookEntity(client, entopts)
 	}
 	core.NewLiveStreamEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewLiveStreamEntity(client, entopts)
@@ -307,6 +259,9 @@ func init() {
 	}
 	core.NewUrlSigningKeyEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewUrlSigningKeyEntity(client, entopts)
+	}
+	core.NewUsageExportEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
+		return entity.NewUsageExportEntity(client, entopts)
 	}
 	core.NewVideoViewEntityFunc = func(client *core.MuxSDK, entopts map[string]any) core.MuxEntity {
 		return entity.NewVideoViewEntity(client, entopts)

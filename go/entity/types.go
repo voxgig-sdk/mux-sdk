@@ -21,6 +21,14 @@ type AnnotationLoadMatch struct {
 	Id string `json:"id"`
 }
 
+// AnnotationListMatch is the typed request payload for Annotation.ListTyped.
+type AnnotationListMatch struct {
+	Limit *int `json:"limit,omitempty"`
+	OrderDirection *string `json:"order_direction,omitempty"`
+	Page *int `json:"page,omitempty"`
+	Timeframe *[]any `json:"timeframe,omitempty"`
+}
+
 // AnnotationCreateData is the typed request payload for Annotation.CreateTyped.
 type AnnotationCreateData struct {
 	Date string `json:"date"`
@@ -74,6 +82,15 @@ type Asset struct {
 // AssetLoadMatch is the typed request payload for Asset.LoadTyped.
 type AssetLoadMatch struct {
 	Id string `json:"id"`
+}
+
+// AssetListMatch is the typed request payload for Asset.ListTyped.
+type AssetListMatch struct {
+	Cursor *string `json:"cursor,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	LiveStreamId *string `json:"live_stream_id,omitempty"`
+	Page *int `json:"page,omitempty"`
+	UploadId *string `json:"upload_id,omitempty"`
 }
 
 // AssetCreateData is the typed request payload for Asset.CreateTyped.
@@ -255,12 +272,8 @@ type DirectiveRunDetailLoadMatch struct {
 	RunId string `json:"run_id"`
 }
 
-// DirectiveRunList is the typed data model for the directive_run_list entity.
-type DirectiveRunList struct {
-}
-
-// DirectiveRunListListMatch is the typed request payload for DirectiveRunList.ListTyped.
-type DirectiveRunListListMatch struct {
+// DirectiveRunDetailListMatch is the typed request payload for DirectiveRunDetail.ListTyped.
+type DirectiveRunDetailListMatch struct {
 	DirectiveId string `json:"directive_id"`
 	Limit *int `json:"limit,omitempty"`
 	Page *int `json:"page,omitempty"`
@@ -273,6 +286,12 @@ type DrmConfiguration struct {
 // DrmConfigurationLoadMatch is the typed request payload for DrmConfiguration.LoadTyped.
 type DrmConfigurationLoadMatch struct {
 	Id string `json:"id"`
+}
+
+// DrmConfigurationListMatch is the typed request payload for DrmConfiguration.ListTyped.
+type DrmConfigurationListMatch struct {
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
 }
 
 // EditCaption is the typed data model for the edit_caption entity.
@@ -502,6 +521,16 @@ type IncidentLoadMatch struct {
 	Id string `json:"id"`
 }
 
+// IncidentListMatch is the typed request payload for Incident.ListTyped.
+type IncidentListMatch struct {
+	Limit *int `json:"limit,omitempty"`
+	OrderBy *string `json:"order_by,omitempty"`
+	OrderDirection *string `json:"order_direction,omitempty"`
+	Page *int `json:"page,omitempty"`
+	Severity *string `json:"severity,omitempty"`
+	Status *string `json:"status,omitempty"`
+}
+
 // InputInfo is the typed data model for the input_info entity.
 type InputInfo struct {
 }
@@ -513,6 +542,15 @@ type InputInfoListMatch struct {
 
 // JobSummary is the typed data model for the job_summary entity.
 type JobSummary struct {
+}
+
+// JobSummaryListMatch is the typed request payload for JobSummary.ListTyped.
+type JobSummaryListMatch struct {
+	AssetId *string `json:"asset_id,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
+	Status *any `json:"status,omitempty"`
+	Workflow *string `json:"workflow,omitempty"`
 }
 
 // JobSummaryCreateData is the typed request payload for JobSummary.CreateTyped.
@@ -537,31 +575,6 @@ type ListAllMetricValueListMatch struct {
 	MetricFilter *[]any `json:"metric_filter,omitempty"`
 	Timeframe *[]any `json:"timeframe,omitempty"`
 	Value *string `json:"value,omitempty"`
-}
-
-// ListAnnotation is the typed data model for the list_annotation entity.
-type ListAnnotation struct {
-}
-
-// ListAnnotationListMatch is the typed request payload for ListAnnotation.ListTyped.
-type ListAnnotationListMatch struct {
-	Limit *int `json:"limit,omitempty"`
-	OrderDirection *string `json:"order_direction,omitempty"`
-	Page *int `json:"page,omitempty"`
-	Timeframe *[]any `json:"timeframe,omitempty"`
-}
-
-// ListAsset is the typed data model for the list_asset entity.
-type ListAsset struct {
-}
-
-// ListAssetListMatch is the typed request payload for ListAsset.ListTyped.
-type ListAssetListMatch struct {
-	Cursor *string `json:"cursor,omitempty"`
-	Limit *int `json:"limit,omitempty"`
-	LiveStreamId *string `json:"live_stream_id,omitempty"`
-	Page *int `json:"page,omitempty"`
-	UploadId *string `json:"upload_id,omitempty"`
 }
 
 // ListBreakdownValue is the typed data model for the list_breakdown_value entity.
@@ -595,17 +608,6 @@ type ListDeliveryUsageListMatch struct {
 	Timeframe *[]any `json:"timeframe,omitempty"`
 }
 
-// ListDimension is the typed data model for the list_dimension entity.
-type ListDimension struct {
-}
-
-// ListDimensionListMatch is the typed request payload for ListDimension.ListTyped.
-type ListDimensionListMatch struct {
-	Data *map[string]any `json:"data,omitempty"`
-	Timeframe *[]any `json:"timeframe,omitempty"`
-	TotalRowCount *int `json:"total_row_count,omitempty"`
-}
-
 // ListDimensionValue is the typed data model for the list_dimension_value entity.
 type ListDimensionValue struct {
 }
@@ -622,24 +624,11 @@ type ListDimensionValueLoadMatch struct {
 
 // ListDimensionValueListMatch is the typed request payload for ListDimensionValue.ListTyped.
 type ListDimensionValueListMatch struct {
-	DimensionId string `json:"dimension_id"`
-	Filter *[]any `json:"filter,omitempty"`
-	Limit *int `json:"limit,omitempty"`
-	MetricFilter *[]any `json:"metric_filter,omitempty"`
-	OrderBy *string `json:"order_by,omitempty"`
-	OrderDirection *string `json:"order_direction,omitempty"`
-	Page *int `json:"page,omitempty"`
+	Data *[]any `json:"data,omitempty"`
 	Timeframe *[]any `json:"timeframe,omitempty"`
-}
-
-// ListDrmConfiguration is the typed data model for the list_drm_configuration entity.
-type ListDrmConfiguration struct {
-}
-
-// ListDrmConfigurationListMatch is the typed request payload for ListDrmConfiguration.ListTyped.
-type ListDrmConfigurationListMatch struct {
-	Limit *int `json:"limit,omitempty"`
-	Page *int `json:"page,omitempty"`
+	TotalCount *int `json:"total_count,omitempty"`
+	TotalRowCount *int `json:"total_row_count,omitempty"`
+	Value *string `json:"value,omitempty"`
 }
 
 // ListError is the typed data model for the list_error entity.
@@ -664,17 +653,6 @@ type ListExportListMatch struct {
 	TotalRowCount *int `json:"total_row_count,omitempty"`
 }
 
-// ListFilter is the typed data model for the list_filter entity.
-type ListFilter struct {
-}
-
-// ListFilterListMatch is the typed request payload for ListFilter.ListTyped.
-type ListFilterListMatch struct {
-	Data *map[string]any `json:"data,omitempty"`
-	Timeframe *[]any `json:"timeframe,omitempty"`
-	TotalRowCount *int `json:"total_row_count,omitempty"`
-}
-
 // ListFilterValue is the typed data model for the list_filter_value entity.
 type ListFilterValue struct {
 }
@@ -688,18 +666,11 @@ type ListFilterValueLoadMatch struct {
 	Timeframe *[]any `json:"timeframe,omitempty"`
 }
 
-// ListIncident is the typed data model for the list_incident entity.
-type ListIncident struct {
-}
-
-// ListIncidentListMatch is the typed request payload for ListIncident.ListTyped.
-type ListIncidentListMatch struct {
-	Limit *int `json:"limit,omitempty"`
-	OrderBy *string `json:"order_by,omitempty"`
-	OrderDirection *string `json:"order_direction,omitempty"`
-	Page *int `json:"page,omitempty"`
-	Severity *string `json:"severity,omitempty"`
-	Status *string `json:"status,omitempty"`
+// ListFilterValueListMatch is the typed request payload for ListFilterValue.ListTyped.
+type ListFilterValueListMatch struct {
+	Data *[]any `json:"data,omitempty"`
+	Timeframe *[]any `json:"timeframe,omitempty"`
+	TotalRowCount *int `json:"total_row_count,omitempty"`
 }
 
 // ListInsight is the typed data model for the list_insight entity.
@@ -714,31 +685,6 @@ type ListInsightListMatch struct {
 	MetricFilter *[]any `json:"metric_filter,omitempty"`
 	OrderDirection *string `json:"order_direction,omitempty"`
 	Timeframe *[]any `json:"timeframe,omitempty"`
-}
-
-// ListJob is the typed data model for the list_job entity.
-type ListJob struct {
-}
-
-// ListJobListMatch is the typed request payload for ListJob.ListTyped.
-type ListJobListMatch struct {
-	AssetId *string `json:"asset_id,omitempty"`
-	Limit *int `json:"limit,omitempty"`
-	Page *int `json:"page,omitempty"`
-	Status *any `json:"status,omitempty"`
-	Workflow *string `json:"workflow,omitempty"`
-}
-
-// ListLiveStream is the typed data model for the list_live_stream entity.
-type ListLiveStream struct {
-}
-
-// ListLiveStreamListMatch is the typed request payload for ListLiveStream.ListTyped.
-type ListLiveStreamListMatch struct {
-	Limit *int `json:"limit,omitempty"`
-	Page *int `json:"page,omitempty"`
-	Status *string `json:"status,omitempty"`
-	StreamKey *string `json:"stream_key,omitempty"`
 }
 
 // ListMonitoringDimension is the typed data model for the list_monitoring_dimension entity.
@@ -759,16 +705,6 @@ type ListMonitoringMetric struct {
 type ListMonitoringMetricListMatch struct {
 	DisplayName *string `json:"display_name,omitempty"`
 	Name *string `json:"name,omitempty"`
-}
-
-// ListPlaybackRestriction is the typed data model for the list_playback_restriction entity.
-type ListPlaybackRestriction struct {
-}
-
-// ListPlaybackRestrictionListMatch is the typed request payload for ListPlaybackRestriction.ListTyped.
-type ListPlaybackRestrictionListMatch struct {
-	Limit *int `json:"limit,omitempty"`
-	Page *int `json:"page,omitempty"`
 }
 
 // ListRealTimeDimension is the typed data model for the list_real_time_dimension entity.
@@ -801,16 +737,6 @@ type ListRelatedIncidentListMatch struct {
 	Limit *int `json:"limit,omitempty"`
 	OrderBy *string `json:"order_by,omitempty"`
 	OrderDirection *string `json:"order_direction,omitempty"`
-	Page *int `json:"page,omitempty"`
-}
-
-// ListSigningKey is the typed data model for the list_signing_key entity.
-type ListSigningKey struct {
-}
-
-// ListSigningKeyListMatch is the typed request payload for ListSigningKey.ListTyped.
-type ListSigningKeyListMatch struct {
-	Limit *int `json:"limit,omitempty"`
 	Page *int `json:"page,omitempty"`
 }
 
@@ -871,54 +797,6 @@ type ListSubviewDimensionValueLoadMatch struct {
 	Timeframe *[]any `json:"timeframe,omitempty"`
 }
 
-// ListTranscriptionVocabulary is the typed data model for the list_transcription_vocabulary entity.
-type ListTranscriptionVocabulary struct {
-}
-
-// ListTranscriptionVocabularyListMatch is the typed request payload for ListTranscriptionVocabulary.ListTyped.
-type ListTranscriptionVocabularyListMatch struct {
-	Limit *int `json:"limit,omitempty"`
-	Page *int `json:"page,omitempty"`
-}
-
-// ListUpload is the typed data model for the list_upload entity.
-type ListUpload struct {
-}
-
-// ListUploadListMatch is the typed request payload for ListUpload.ListTyped.
-type ListUploadListMatch struct {
-	Limit *int `json:"limit,omitempty"`
-	Page *int `json:"page,omitempty"`
-}
-
-// ListUsageExport is the typed data model for the list_usage_export entity.
-type ListUsageExport struct {
-}
-
-// ListUsageExportListMatch is the typed request payload for ListUsageExport.ListTyped.
-type ListUsageExportListMatch struct {
-	DownloadUrlTtl *int `json:"download_url_ttl,omitempty"`
-	Limit *int `json:"limit,omitempty"`
-	Page *int `json:"page,omitempty"`
-	Timeframe *[]any `json:"timeframe,omitempty"`
-}
-
-// ListVideoView is the typed data model for the list_video_view entity.
-type ListVideoView struct {
-}
-
-// ListVideoViewListMatch is the typed request payload for ListVideoView.ListTyped.
-type ListVideoViewListMatch struct {
-	ErrorId *int `json:"error_id,omitempty"`
-	Filter *[]any `json:"filter,omitempty"`
-	Limit *int `json:"limit,omitempty"`
-	MetricFilter *[]any `json:"metric_filter,omitempty"`
-	OrderDirection *string `json:"order_direction,omitempty"`
-	Page *int `json:"page,omitempty"`
-	Timeframe *[]any `json:"timeframe,omitempty"`
-	ViewerId *string `json:"viewer_id,omitempty"`
-}
-
 // ListVideoViewExport is the typed data model for the list_video_view_export entity.
 type ListVideoViewExport struct {
 }
@@ -929,16 +807,6 @@ type ListVideoViewExportListMatch struct {
 	Files *[]any `json:"files,omitempty"`
 }
 
-// ListWebhook is the typed data model for the list_webhook entity.
-type ListWebhook struct {
-}
-
-// ListWebhookListMatch is the typed request payload for ListWebhook.ListTyped.
-type ListWebhookListMatch struct {
-	Limit *int `json:"limit,omitempty"`
-	Page *int `json:"page,omitempty"`
-}
-
 // LiveStream is the typed data model for the live_stream entity.
 type LiveStream struct {
 }
@@ -946,6 +814,14 @@ type LiveStream struct {
 // LiveStreamLoadMatch is the typed request payload for LiveStream.LoadTyped.
 type LiveStreamLoadMatch struct {
 	Id string `json:"id"`
+}
+
+// LiveStreamListMatch is the typed request payload for LiveStream.ListTyped.
+type LiveStreamListMatch struct {
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
+	Status *string `json:"status,omitempty"`
+	StreamKey *string `json:"stream_key,omitempty"`
 }
 
 // LiveStreamCreateData is the typed request payload for LiveStream.CreateTyped.
@@ -1137,6 +1013,12 @@ type PlaybackRestrictionLoadMatch struct {
 	Id string `json:"id"`
 }
 
+// PlaybackRestrictionListMatch is the typed request payload for PlaybackRestriction.ListTyped.
+type PlaybackRestrictionListMatch struct {
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
+}
+
 // PlaybackRestrictionCreateData is the typed request payload for PlaybackRestriction.CreateTyped.
 type PlaybackRestrictionCreateData struct {
 	CreatedAt string `json:"created_at"`
@@ -1203,7 +1085,6 @@ type SignalLiveStreamComplete struct {
 // SignalLiveStreamCompleteUpdateData is the typed request payload for SignalLiveStreamComplete.UpdateTyped.
 type SignalLiveStreamCompleteUpdateData struct {
 	LiveStreamId string `json:"live_stream_id"`
-	Data *map[string]any `json:"data,omitempty"`
 }
 
 // SigningKey is the typed data model for the signing_key entity.
@@ -1213,6 +1094,12 @@ type SigningKey struct {
 // SigningKeyLoadMatch is the typed request payload for SigningKey.LoadTyped.
 type SigningKeyLoadMatch struct {
 	Id string `json:"id"`
+}
+
+// SigningKeyListMatch is the typed request payload for SigningKey.ListTyped.
+type SigningKeyListMatch struct {
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
 }
 
 // SigningKeyCreateData is the typed request payload for SigningKey.CreateTyped.
@@ -1319,6 +1206,12 @@ type TranscriptionVocabulary struct {
 // TranscriptionVocabularyLoadMatch is the typed request payload for TranscriptionVocabulary.LoadTyped.
 type TranscriptionVocabularyLoadMatch struct {
 	Id string `json:"id"`
+}
+
+// TranscriptionVocabularyListMatch is the typed request payload for TranscriptionVocabulary.ListTyped.
+type TranscriptionVocabularyListMatch struct {
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
 }
 
 // TranscriptionVocabularyCreateData is the typed request payload for TranscriptionVocabulary.CreateTyped.
@@ -1430,6 +1323,12 @@ type UploadLoadMatch struct {
 	Id string `json:"id"`
 }
 
+// UploadListMatch is the typed request payload for Upload.ListTyped.
+type UploadListMatch struct {
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
+}
+
 // UploadCreateData is the typed request payload for Upload.CreateTyped.
 type UploadCreateData struct {
 	AssetId *string `json:"asset_id,omitempty"`
@@ -1466,6 +1365,18 @@ type UrlSigningKeyRemoveMatch struct {
 	Id string `json:"id"`
 }
 
+// UsageExport is the typed data model for the usage_export entity.
+type UsageExport struct {
+}
+
+// UsageExportListMatch is the typed request payload for UsageExport.ListTyped.
+type UsageExportListMatch struct {
+	DownloadUrlTtl *int `json:"download_url_ttl,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
+	Timeframe *[]any `json:"timeframe,omitempty"`
+}
+
 // VideoView is the typed data model for the video_view entity.
 type VideoView struct {
 }
@@ -1475,6 +1386,18 @@ type VideoViewLoadMatch struct {
 	Id string `json:"id"`
 }
 
+// VideoViewListMatch is the typed request payload for VideoView.ListTyped.
+type VideoViewListMatch struct {
+	ErrorId *int `json:"error_id,omitempty"`
+	Filter *[]any `json:"filter,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	MetricFilter *[]any `json:"metric_filter,omitempty"`
+	OrderDirection *string `json:"order_direction,omitempty"`
+	Page *int `json:"page,omitempty"`
+	Timeframe *[]any `json:"timeframe,omitempty"`
+	ViewerId *string `json:"viewer_id,omitempty"`
+}
+
 // Webhook is the typed data model for the webhook entity.
 type Webhook struct {
 }
@@ -1482,6 +1405,12 @@ type Webhook struct {
 // WebhookLoadMatch is the typed request payload for Webhook.LoadTyped.
 type WebhookLoadMatch struct {
 	Id string `json:"id"`
+}
+
+// WebhookListMatch is the typed request payload for Webhook.ListTyped.
+type WebhookListMatch struct {
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
 }
 
 // WebhookCreateData is the typed request payload for Webhook.CreateTyped.

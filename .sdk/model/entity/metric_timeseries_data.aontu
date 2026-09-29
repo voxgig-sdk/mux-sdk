@@ -54,7 +54,7 @@ main: kit: entity: metric_timeseries_data: {
                 ex: "video_startup_time"
                 k: "param"
                 n: "metric_id"
-                or: "metric_id"
+                or: "METRIC_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -63,7 +63,7 @@ main: kit: entity: metric_timeseries_data: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -84,7 +84,7 @@ main: kit: entity: metric_timeseries_data: {
               {
                 k: "query"
                 n: "metric_filter"
-                or: "metric_filter"
+                or: "metric_filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -98,7 +98,7 @@ main: kit: entity: metric_timeseries_data: {
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }

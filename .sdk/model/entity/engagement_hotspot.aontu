@@ -43,7 +43,7 @@ main: kit: entity: engagement_hotspot: {
                 ex: "rmp7fvw5lPD01l8PZ2aN74js84XrTWxHy"
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -66,7 +66,7 @@ main: kit: entity: engagement_hotspot: {
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -124,7 +124,7 @@ main: kit: entity: engagement_hotspot: {
                 ex: "nLp01dgPzELHV6101iHGXmS3Og7lEU01TUDb02kg2Z6mPRs"
                 k: "param"
                 n: "playback_id_id"
-                or: "playback_id"
+                or: "PLAYBACK_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -147,7 +147,7 @@ main: kit: entity: engagement_hotspot: {
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -205,7 +205,7 @@ main: kit: entity: engagement_hotspot: {
                 ex: "abcd1234"
                 k: "param"
                 n: "video_id"
-                or: "video_id"
+                or: "VIDEO_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -228,7 +228,7 @@ main: kit: entity: engagement_hotspot: {
               {
                 k: "query"
                 n: "timeframe"
-                or: "timeframe"
+                or: "timeframe[]"
                 r: false
                 t: "`$ARRAY`"
               }

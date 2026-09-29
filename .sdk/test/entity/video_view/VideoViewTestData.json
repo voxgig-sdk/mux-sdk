@@ -2,35 +2,88 @@
   "existing": {
     "video_view": {
       "VIDEO_VIEW00": {
+        "country_code": "sa0",
         "data": {},
+        "error_type_id": "ERROR_TYPE01",
         "id": "VIDEO_VIEW00",
+        "playback_failure": true,
+        "player_error_code": "sa5",
+        "player_error_message": "sa6",
         "timeframe": [],
-        "total_row_count": 43
+        "total_row_count": 168,
+        "video_title": "sa9",
+        "view_end": "saa",
+        "view_start": "sab",
+        "viewer_application_name": "sac",
+        "viewer_experience_score": 173,
+        "viewer_os_family": "sae",
+        "watch_time": 175
       },
       "VIDEO_VIEW01": {
+        "country_code": "s140",
         "data": {},
+        "error_type_id": "ERROR_TYPE01",
         "id": "VIDEO_VIEW01",
+        "playback_failure": true,
+        "player_error_code": "s145",
+        "player_error_message": "s146",
         "timeframe": [],
-        "total_row_count": 83
+        "total_row_count": 328,
+        "video_title": "s149",
+        "view_end": "s14a",
+        "view_start": "s14b",
+        "viewer_application_name": "s14c",
+        "viewer_experience_score": 333,
+        "viewer_os_family": "s14e",
+        "watch_time": 335
       },
       "VIDEO_VIEW02": {
+        "country_code": "s1e0",
         "data": {},
+        "error_type_id": "ERROR_TYPE01",
         "id": "VIDEO_VIEW02",
+        "playback_failure": true,
+        "player_error_code": "s1e5",
+        "player_error_message": "s1e6",
         "timeframe": [],
-        "total_row_count": 123
+        "total_row_count": 488,
+        "video_title": "s1e9",
+        "view_end": "s1ea",
+        "view_start": "s1eb",
+        "viewer_application_name": "s1ec",
+        "viewer_experience_score": 493,
+        "viewer_os_family": "s1ee",
+        "watch_time": 495
       }
     }
   },
   "new": {
     "video_view": {
       "video_view_ref01": {
+        "country_code": "s280",
         "data": {},
+        "error_type_id": "ERROR_TYPE01",
+        "playback_failure": true,
+        "player_error_code": "s285",
+        "player_error_message": "s286",
         "timeframe": [],
-        "total_row_count": 163
+        "total_row_count": 648,
+        "video_title": "s289",
+        "view_end": "s28a",
+        "view_start": "s28b",
+        "viewer_application_name": "s28c",
+        "viewer_experience_score": 653,
+        "viewer_os_family": "s28e",
+        "watch_time": 655
       }
     }
   },
   "requests": {
+    "GET /data/v1/video-views": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
     "GET /data/v1/video-views/{VIDEO_VIEW_ID}": {
       "provenance": "operation-contract",
       "version": 2,

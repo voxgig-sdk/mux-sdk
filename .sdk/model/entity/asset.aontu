@@ -295,6 +295,85 @@ main: kit: entity: asset: {
         }
       ]
     }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /video/v1/assets"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 25
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "live_stream_id"
+                or: "live_stream_id"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "upload_id"
+                or: "upload_id"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/video/v1/assets"
+          q: {
+            exist: [
+              "cursor"
+              "limit"
+              "live_stream_id"
+              "page"
+              "upload_id"
+            ]
+          }
+          s: [
+            {
+              lit: "video"
+            }
+            {
+              lit: "v1"
+            }
+            {
+              lit: "assets"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
     load: {
       name: "load"
       points: [
@@ -309,7 +388,7 @@ main: kit: entity: asset: {
               {
                 k: "param"
                 n: "id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -362,14 +441,14 @@ main: kit: entity: asset: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
               {
                 k: "param"
                 n: "playback_id"
-                or: "playback_id"
+                or: "PLAYBACK_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -425,14 +504,14 @@ main: kit: entity: asset: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
               {
                 k: "param"
                 n: "static_rendition_id"
-                or: "static_rendition_id"
+                or: "STATIC_RENDITION_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -488,14 +567,14 @@ main: kit: entity: asset: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
               {
                 k: "param"
                 n: "track_id"
-                or: "track_id"
+                or: "TRACK_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -551,7 +630,7 @@ main: kit: entity: asset: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -603,7 +682,7 @@ main: kit: entity: asset: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -655,7 +734,7 @@ main: kit: entity: asset: {
               {
                 k: "param"
                 n: "id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -708,7 +787,7 @@ main: kit: entity: asset: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -760,7 +839,7 @@ main: kit: entity: asset: {
               {
                 k: "param"
                 n: "asset_id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -812,7 +891,7 @@ main: kit: entity: asset: {
               {
                 k: "param"
                 n: "id"
-                or: "asset_id"
+                or: "ASSET_ID"
                 r: true
                 t: "`$STRING`"
               }

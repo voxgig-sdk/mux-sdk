@@ -71,7 +71,7 @@ main: kit: entity: real_time_histogram_timeseries: {
                 ex: "video-startup-time"
                 k: "param"
                 n: "realtime_histogram_metric_id"
-                or: "realtime_histogram_metric_id"
+                or: "REALTIME_HISTOGRAM_METRIC_ID"
                 r: true
                 t: "`$STRING`"
               }
@@ -80,7 +80,7 @@ main: kit: entity: real_time_histogram_timeseries: {
               {
                 k: "query"
                 n: "filter"
-                or: "filter"
+                or: "filters[]"
                 r: false
                 t: "`$ARRAY`"
               }
@@ -121,7 +121,7 @@ main: kit: entity: real_time_histogram_timeseries: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]
